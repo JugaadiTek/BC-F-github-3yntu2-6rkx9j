@@ -37,7 +37,7 @@ const navigations = ref([
   <header>
     <nav class="container mainNav nogap darkbg" v-for="navigationbar in navigations" >
       <!--- Here ----->
-      <NavBar :navbtn="navigationbar.bricks" />
+      <NavBar :navbtn="navigationbar.bricks"/>
     </nav>
   </header>
 </template>

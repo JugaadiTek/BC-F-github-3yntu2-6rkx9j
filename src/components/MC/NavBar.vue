@@ -2,15 +2,9 @@
 defineProps({
   navbtn: []
 })
-// export default {
-  //   props: {
-    //     navbtn: []
+
     
-    //   }
-    // }
-    
-    
-  </script>
+    </script>
   
 <template>
   <div class="container">
