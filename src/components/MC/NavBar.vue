@@ -19,7 +19,7 @@ defineProps({
         <span>
           Go To Home
         </span>
-        <img itemprop="thumbnail" src="src/assets/images/BuyChain-Logo-REV.svg" width="141" height="51"
+        <img itemprop="thumbnail" src="src/images/BuyChain-Logo-REV.svg" width="141" height="51"
         alt="Go To Home" />
       </a>
       <figcaption itemprop="caption"></figcaption>
