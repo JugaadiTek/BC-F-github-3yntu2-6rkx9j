@@ -21,40 +21,40 @@ fetchData();
 
 async function fetchData() {
   const { id } = route.params;
-
+  
   let articleResponse;
-
+  
   try {
     articleResponse = await directus.items('home').readOne(id, {
       fields: [
-        '*' /* "author.avatar", "author.first_name", "author.last_name*/,
+      '*.*' /* "author.avatar", "author.first_name", "author.last_name*/,
       ],
     });
-
+    
     const formattedArticle = {
       ...articleResponse,
       // publish_date: formatRelativeTime(new Date(articleResponse.publish_date)),
     };
-
+    
     const moreArticlesResponse = await directus.items('home').readByQuery({
-      fields: ['*'],
+      fields: ['*.*'],
       filter: {
         _and: [
-          { id: { _neq: articleResponse.id } },
-          { status: { _eq: 'published' } },
+        { id: { _neq: articleResponse.id } },
+        { status: { _eq: 'published' } },
         ],
       },
       limit: 20,
     });
     const formattedMoreArticles = moreArticlesResponse.data.map(
-      (moreArticle) => {
-        return {
-          ...moreArticle,
-          // publish_date: formatRelativeTime(new Date(moreArticle.publish_date)),
-        };
-      }
+    (moreArticle) => {
+      return {
+        ...moreArticle,
+        // publish_date: formatRelativeTime(new Date(moreArticle.publish_date)),
+      };
+    }
     );
-
+    
     article.value = formattedArticle;
     moreArticles.value = formattedMoreArticles;
   } catch (err) {
@@ -72,7 +72,7 @@ async function fetchData() {
           <span>Back to Articles</span>
         </RouterLink>
         <h1 class="current-article__title">{{ article.title }}</h1>
-        <div class="current-article__detail">
+        <div style="height:200px;background:#999" class="current-article__detail">
           <div class="current-article__wrapperOuter">
             <div class="current-article__wrapperInner">
               <div class="current-article__authorImage">
@@ -83,96 +83,127 @@ async function fetchData() {
                   <!-- {{                    `${article.author.first_name} ${article.author.last_name}`                  }} -->
                 </div>
                 <div class="current-article__time">
-                  {{ article.publish_date }}
+                  <!-- {{ article.publish_date }} -->
                 </div>
               </div>
             </div>
             <ul class="current-article__socials">
               <li>
                 <a
-                  :href="$route.path"
-                  target="_blank"
-                  rel="noreferrer noopener"
-                >
-                  <IconLink />
-                </a>
-              </li>
-              <li>
-                <a
-                  href="https://www.youtube.com/c/DirectusVideos"
-                  target="_blank"
-                  rel="noreferrer noopener"
-                >
-                  <IconYoutube />
-                </a>
-              </li>
-              <li>
-                <a
-                  href="https://www.linkedin.com/company/directus-io"
-                  target="_blank"
-                  rel="noreferrer noopener"
-                >
-                  <IconLinkedin />
-                </a>
-              </li>
-              <li>
-                <a
-                  href="https://twitter.com/directus"
-                  target="_blank"
-                  rel="noreferrer noopener"
-                >
-                  <IconTwitter />
-                </a>
-              </li>
-            </ul>
-          </div>
-          <div class="current-article_coverImage">
-            <img :src="getAssetURL(article.cover_image)" alt="" />
-          </div>
-        </div>
-        <div class="current-article__body">
-          <div v-html="article.body" class="current-article__bodyContent"></div>
-          <ul class="current-article__bodySocials">
-            <li>
-              <a
-                href="https://github.com/directus"
+                :href="$route.path"
                 target="_blank"
                 rel="noreferrer noopener"
-              >
-                <IconGithub />
+                >
+                
+                <IconLink />
               </a>
             </li>
             <li>
               <a
-                href="https://www.youtube.com/c/DirectusVideos"
-                target="_blank"
-                rel="noreferrer noopener"
+              href="https://www.youtube.com/c/DirectusVideos"
+              target="_blank"
+              rel="noreferrer noopener"
               >
-                <IconYoutube />
-              </a>
-            </li>
-            <li>
-              <a
-                href="https://www.linkedin.com/company/directus-io"
-                target="_blank"
-                rel="noreferrer noopener"
-              >
-                <IconLinkedin />
-              </a>
-            </li>
-            <li>
-              <a
-                href="https://twitter.com/directus"
-                target="_blank"
-                rel="noreferrer noopener"
-              >
-                <IconTwitter />
-              </a>
-            </li>
-          </ul>
-        </div>
-      </div>
-    </section>
-    <MoreArticles v-if="moreArticles" :articles="moreArticles" />
+              <IconYoutube />
+            </a>
+          </li>
+          <li>
+            <a
+            href="https://www.linkedin.com/company/directus-io"
+            target="_blank"
+            rel="noreferrer noopener"
+            >
+            <IconLinkedin />
+          </a>
+        </li>
+        <li>
+          <a
+          href="https://twitter.com/directus"
+          target="_blank"
+          rel="noreferrer noopener"
+          >
+          <IconTwitter />
+        </a>
+      </li>
+    </ul>
   </div>
+  <div style="height:100px;overflow:hidden;" class="current-article_coverImage">
+    <img style="height:100px;overflow:hidden;" :src="getAssetURL(article.cover_image)" alt="" />
+  </div>
+</div>
+<div class="current-article__body">
+  <div class = "codeloop">
+    <div>
+      <h2>article string</h2>
+      <hr>
+      <div>
+        <code>{{JSON.stringify(article)}}</code>
+      </div>  
+    </div>
+    
+  </div>
+  <div v-html="article.body" class="current-article__bodyContent">
+    
+    
+  </div>
+  <ul class="current-article__bodySocials">
+    <li>
+      <a
+      href="https://github.com/directus"
+      target="_blank"
+      rel="noreferrer noopener"
+      >
+      <IconGithub />
+    </a>
+  </li>
+  <li>
+    <a
+    href="https://www.youtube.com/c/DirectusVideos"
+    target="_blank"
+    rel="noreferrer noopener"
+    >
+    <IconYoutube />
+  </a>
+</li>
+<li>
+  <a
+  href="https://www.linkedin.com/company/directus-io"
+  target="_blank"
+  rel="noreferrer noopener"
+  >
+  <IconLinkedin />
+</a>
+</li>
+<li>
+  <a
+  href="https://twitter.com/directus"
+  target="_blank"
+  rel="noreferrer noopener"
+  >
+  <IconTwitter />
+</a>
+</li>
+</ul>
+</div>
+</div>
+</section>
+<MoreArticles v-if="moreArticles" :articles="moreArticles" />
+</div>
 </template>
+
+
+<style>
+.codeloop > div {
+  padding:16px;
+  background-color: #f5f5f5;
+  padding: 1rem;
+  margin: 1rem 0;
+  border-radius: 0.5rem;
+  font-size: 0.8rem;
+  line-height: 1.5rem;
+  font-family: monospace;
+  color: #333;
+  overflow: auto;
+}
+
+</style>
