@@ -92,6 +92,11 @@ async function fetchData() {
   <!------------------------------------------------ Insert Here ---------------------------------------------------------------------------------------------------------------------------------------------------->
   <!---============================================================================================================================================================================================================-->
 
+  <nav class="mainNav nogap darkbg" v-for="navigationbar in navigations">
+    <NavBar :navbtn="navigationbar.bricks" />
+  </nav>
+
+
   <section v-for="(slice, index) in slices" :class="[slice.alt, slice.component]" :id="`section_` + index" :key="index">
 
     <div v-if="slice.component == 'hero'">
@@ -132,6 +137,10 @@ async function fetchData() {
       <newsletter />
     </div>
   </section>
+
+  <footer class="container footerSlice" v-for="footerData in footerSliceCont">
+    <footerSlice :footerCont="footerData.bricks" />
+  </footer>
 
 
 
