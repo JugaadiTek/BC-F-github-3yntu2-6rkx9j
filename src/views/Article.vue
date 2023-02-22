@@ -5,17 +5,17 @@ import { directus } from '@/services/directus';
 import { getAssetURL } from '@/utils/get-asset-url';
 import MoreArticles from '@/components/MoreArticles.vue';
 // =========================  COMPONENTS  ==========================================================
-import NavBar from "./components/MC/NavBar.vue";
-import hero from "./components/MC/hero.vue";
-import servicescard from "./components/MC/servicescard.vue";
-import imageWithContentList from "./components/MC/imageWithContentLIst.vue";
-import imgSlider from "./components/MC/imgSlider.vue";
-import ContentPairsRepeater from "./components/MC/ContentPairsRepeater.vue";
-import ctaHero from "./components/MC/ctaHero.vue";
-import artcont from "./components/MC/artcont.vue";
-import postfeed from "./components/MC/postfeed.vue";
-import newsletter from "./components/MC/newsletter.vue";
-import footerSlice from "./components/MC/footerSlice.vue";
+import NavBar from "@/components/MC/NavBar.vue";
+import hero from "@/components/MC/hero.vue";
+import servicescard from "@/components/MC/servicescard.vue";
+import imageWithContentList from "@/components/MC/imageWithContentLIst.vue";
+import imgSlider from "@/components/MC/imgSlider.vue";
+import ContentPairsRepeater from "@/components/MC/ContentPairsRepeater.vue";
+import ctaHero from "@/components/MC/ctaHero.vue";
+import artcont from "@/components/MC/artcont.vue";
+import postfeed from "@/components/MC/postfeed.vue";
+import newsletter from "@/components/MC/newsletter.vue";
+import footerSlice from "@/components/MC/footerSlice.vue";
 // =================================================================================================
 
 const router = useRouter();
@@ -75,7 +75,7 @@ async function fetchData() {
     <!-- <RouterLink to="/" class="current-article__backlink">          <IconBack class="icon" />          <span>Back to Articles</span>        </RouterLink> -->
     <!-- <img style="height:100px;overflow:hidden;" :src="getAssetURL(article.cover_image)" alt="" /> -->
     <!-- <div v-html="article.body" class="current-article__bodyContent">  </div>
-          <MoreArticles v-if="moreArticles" :articles="moreArticles" /> -->
+              <MoreArticles v-if="moreArticles" :articles="moreArticles" /> -->
   </section>
 
 
@@ -83,6 +83,11 @@ async function fetchData() {
   <!---============================================================================================================================================================================================================-->
   <!------------------------------------------------ Insert Here ---------------------------------------------------------------------------------------------------------------------------------------------------->
   <!---============================================================================================================================================================================================================-->
+
+  <nav class="mainNav nogap darkbg" v-for="navigationbar in navigations">
+    <NavBar :navbtn="navigationbar.bricks" />
+  </nav>
+
 
   <section v-for="(slice, index) in slices" :class="[slice.alt, slice.component]" :id="`section_` + index" :key="index">
 
@@ -124,6 +129,10 @@ async function fetchData() {
       <newsletter />
     </div>
   </section>
+
+  <footer class="container footerSlice" v-for="footerData in footerSliceCont">
+    <footerSlice :footerCont="footerData.bricks" />
+  </footer>
 
 
 
