@@ -5,17 +5,17 @@ import { directus } from '@/services/directus';
 import { getAssetURL } from '@/utils/get-asset-url';
 import MoreArticles from '@/components/MoreArticles.vue';
 // =========================  COMPONENTS  ==========================================================
-import NavBar from "./components/MC/NavBar.vue";
-import hero from "./components/MC/hero.vue";
-import servicescard from "./components/MC/servicescard.vue";
-import imageWithContentList from "./components/MC/imageWithContentLIst.vue";
-import imgSlider from "./components/MC/imgSlider.vue";
-import ContentPairsRepeater from "./components/MC/ContentPairsRepeater.vue";
-import ctaHero from "./components/MC/ctaHero.vue";
-import artcont from "./components/MC/artcont.vue";
-import postfeed from "./components/MC/postfeed.vue";
-import newsletter from "./components/MC/newsletter.vue";
-import footerSlice from "./components/MC/footerSlice.vue";
+import NavBar from "@/components/MC/NavBar.vue";
+import hero from "@/components/MC/hero.vue";
+import servicescard from "@/components/MC/servicescard.vue";
+import imageWithContentList from "@/components/MC/imageWithContentLIst.vue";
+import imgSlider from "@/components/MC/imgSlider.vue";
+import ContentPairsRepeater from "@/components/MC/ContentPairsRepeater.vue";
+import ctaHero from "@/components/MC/ctaHero.vue";
+import artcont from "@/components/MC/artcont.vue";
+import postfeed from "@/components/MC/postfeed.vue";
+import newsletter from "@/components/MC/newsletter.vue";
+import footerSlice from "@/components/MC/footerSlice.vue";
 // =================================================================================================
 
 const router = useRouter();
@@ -33,12 +33,11 @@ async function fetchData() {
   try {
     articleResponse = await directus.items('home').readOne(id, {
       fields: [
-      '*.*.*.*.*'
+      '*.*.*'
 
       /* "author.avatar", "author.first_name", "author.last_name*/,
       ],
     });
-
     const formattedArticle = {
       ...articleResponse,
       // publish_date: formatRelativeTime(new Date(articleResponse.publish_date)),
@@ -69,6 +68,10 @@ async function fetchData() {
     router.replace({ name: 'not-found', params: { catchAll: route.path } });
   }
 }
+// let (slices,index) in article.data {
+//     console.log(slices);
+// }
+
 </script>
 
 <template>
@@ -78,6 +81,7 @@ async function fetchData() {
     <!-- <img style="height:100px;overflow:hidden;" :src="getAssetURL(article.cover_image)" alt="" /> -->
     <!-- <div v-html="article.body" class="current-article__bodyContent">  </div>
           <MoreArticles v-if="moreArticles" :articles="moreArticles" /> -->
+          
   </section>
   <!------------------------------------------------ NAV BAR ---------------------------------------------------------------------------------------------------------------------------------------------------->
 
@@ -139,10 +143,18 @@ async function fetchData() {
   <!---============================================================================================================================================================================================================-->
   <div class="codeloop">
     <div>
-      <h2>article string</h2>
+        <h2>Article Raw</h2>
       <hr>
       <div>
         <code>{{ JSON.stringify(article) }}</code>
+      </div>
+      <h2>article for each slice</h2>
+      <hr>
+      <div>
+        <div v-for="slice in article.data">
+          <code>{{ JSON.stringify(slice.nosql_datastore_id.json_datastore) }}</code>
+        </div>
+        <code></code>
       </div>
     </div>
   </div>
@@ -153,6 +165,8 @@ async function fetchData() {
 
 <style>
 .codeloop>div {
+    max-height:200px;
+    overflow-y:scroll;
   padding: 16px;
   background-color: #f5f5f5;
   padding: 1rem;
