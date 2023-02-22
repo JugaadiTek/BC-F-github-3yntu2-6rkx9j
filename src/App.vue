@@ -10,7 +10,6 @@ import Footer from "@/components/Footer.vue";
   <div class="layout">
     <Notice />
     <Header />
-    
     <RouterView :key="$route.fullPath"  />
     <Info />
     <Footer />
