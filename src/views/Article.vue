@@ -34,7 +34,7 @@ async function fetchData() {
         '*.*.*'
 
       /* "author.avatar", "author.first_name", "author.last_name*/,
-    //   ],
+      ],
     });
     const formattedArticle = {
       ...articleResponse,
@@ -60,7 +60,7 @@ async function fetchData() {
         };
       }
     );
-
+    
     article.value = formattedArticle;
     moreArticles.value = formattedMoreArticles;
     // bill.value = article._rawValue.grab_a_slice;
@@ -89,7 +89,7 @@ async function fetchData() {
 // let (slices,index) in article.data {
 //     console.log(slices);
 // }
-let quotes = ;
+// let quotes = ;
 </script>
 
 <template>
@@ -109,7 +109,8 @@ let quotes = ;
 
     {{ a.nosql_datastore_id.json_datastore }}
     <div :bbb="a.nosql_datastore_id.json_datastore"></div>
-    <div :ccc="JSON.parse(bbb)"></div>
+      {{ bbb }}
+    <!-- <div :ccc="JSON.parse(bbb)"></div> -->
   </div>
 
 
