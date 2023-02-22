@@ -5,7 +5,6 @@ import { directus } from '@/services/directus';
 import { getAssetURL } from '@/utils/get-asset-url';
 import MoreArticles from '@/components/MoreArticles.vue';
 // =========================  COMPONENTS  ==========================================================
-import NavBar from "@/components/MC/NavBar.vue";
 import hero from "@/components/MC/hero.vue";
 import servicescard from "@/components/MC/servicescard.vue";
 import imageWithContentList from "@/components/MC/imageWithContentLIst.vue";
@@ -15,14 +14,12 @@ import ctaHero from "@/components/MC/ctaHero.vue";
 import artcont from "@/components/MC/artcont.vue";
 import postfeed from "@/components/MC/postfeed.vue";
 import newsletter from "@/components/MC/newsletter.vue";
-import footerSlice from "@/components/MC/footerSlice.vue";
 // =================================================================================================
 
 const router = useRouter();
 const route = useRoute();
 const article = ref(null);
 const moreArticles = ref(null);
-
 fetchData();
 
 async function fetchData() {
@@ -33,7 +30,8 @@ async function fetchData() {
 
   try {
     articleResponse = await directus.items('home').readOne(id, {
-      fields: ['grab_a_slice.nosql_datastore_id.*','id']
+      fields: [
+        '*.*.*'
 
       /* "author.avatar", "author.first_name", "author.last_name*/,
     //   ],
@@ -91,7 +89,7 @@ async function fetchData() {
 // let (slices,index) in article.data {
 //     console.log(slices);
 // }
-
+let quotes = ;
 </script>
 
 <template>
@@ -100,22 +98,28 @@ async function fetchData() {
     <!-- <RouterLink to="/" class="current-article__backlink">          <IconBack class="icon" />          <span>Back to Articles</span>        </RouterLink> -->
     <!-- <img style="height:100px;overflow:hidden;" :src="getAssetURL(article.cover_image)" alt="" /> -->
     <!-- <div v-html="article.body" class="current-article__bodyContent">  </div>
-          <MoreArticles v-if="moreArticles" :articles="moreArticles" /> -->
-          
+                                                      <MoreArticles v-if="moreArticles" :articles="moreArticles" /> -->
+
   </section>
   <!------------------------------------------------ NAV BAR ---------------------------------------------------------------------------------------------------------------------------------------------------->
 
   <!------------------------------------------------ NAV BAR END ---------------------------------------------------------------------------------------------------------------------------------------------------->
+  <div v-for="a in article.grab_a_slice">
+    <h1 :c='""'>{{ a.Slice_Type }}</h1>
 
+    {{ a.nosql_datastore_id.json_datastore }}
+    <div :bbb="a.nosql_datastore_id.json_datastore"></div>
+    <div :ccc="JSON.parse(bbb)"></div>
+  </div>
+
+
+  <!-- <div v-for=" (b,index) in a.nosql_datastore_id" :key="index" >
+                                                      {{ b }}
+                                                    </div> -->
 
   <!---============================================================================================================================================================================================================-->
   <!------------------------------------------------ Insert Here ---------------------------------------------------------------------------------------------------------------------------------------------------->
   <!---============================================================================================================================================================================================================-->
-
-  <nav class="mainNav nogap darkbg" v-for="navigationbar in navigations">
-    <NavBar :navbtn="navigationbar.bricks" />
-  </nav>
-
 
   <section v-for="(slice, index) in slices" :class="[slice.alt, slice.component]" :id="`section_` + index" :key="index">
 
@@ -139,7 +143,6 @@ async function fetchData() {
       <imgSlider :sliderCont="slice.bricks" />
     </div>
 
-
     <div :class="container" v-else-if="slice.component == 'artcont'">
       <artcont :artcontent="slice.bricks" />
     </div>
@@ -148,7 +151,6 @@ async function fetchData() {
       <postfeed :postsCont="slice.bricks" />
     </div>
 
-
     <div :class="container" v-else-if="slice.component == 'servicecard'">
       <servicescard :servicecardCont="slice.bricks" />
     </div>
@@ -156,13 +158,8 @@ async function fetchData() {
     <div :class="container" v-else-if="slice.component == 'newsletter'">
       <newsletter />
     </div>
+
   </section>
-
-  <footer class="container footerSlice" v-for="footerData in footerSliceCont">
-    <footerSlice :footerCont="footerData.bricks" />
-  </footer>
-
-
 
   <!------------------------------------------------ END SLICE MASTER ---------------------------------------------------------------------------------------------------------------------------------------------------->
 
@@ -172,7 +169,7 @@ async function fetchData() {
   <!---============================================================================================================================================================================================================-->
   <div class="codeloop">
     <div>
-        <h2>Article Raw</h2>
+      <h2>Article Raw</h2>
       <hr>
       <div>
         <code>ARTICLE: {{ JSON.stringify(article.grab_a_slice) }}</code>
