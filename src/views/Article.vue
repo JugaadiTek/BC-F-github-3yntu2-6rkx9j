@@ -30,7 +30,7 @@ async function fetchData() {
   try {
     articleResponse = await directus.items('home').readOne(id, {
       fields: [
-      '*.*.*'
+        '*.*.*'
 
       /* "author.avatar", "author.first_name", "author.last_name*/,
       ],
@@ -68,7 +68,7 @@ async function fetchData() {
 // let (slices,index) in article.data {
 //     console.log(slices);
 // }
-
+let quotes = ;
 </script>
 
 <template>
@@ -77,13 +77,24 @@ async function fetchData() {
     <!-- <RouterLink to="/" class="current-article__backlink">          <IconBack class="icon" />          <span>Back to Articles</span>        </RouterLink> -->
     <!-- <img style="height:100px;overflow:hidden;" :src="getAssetURL(article.cover_image)" alt="" /> -->
     <!-- <div v-html="article.body" class="current-article__bodyContent">  </div>
-          <MoreArticles v-if="moreArticles" :articles="moreArticles" /> -->
-          
+                                                      <MoreArticles v-if="moreArticles" :articles="moreArticles" /> -->
+
   </section>
   <!------------------------------------------------ NAV BAR ---------------------------------------------------------------------------------------------------------------------------------------------------->
 
   <!------------------------------------------------ NAV BAR END ---------------------------------------------------------------------------------------------------------------------------------------------------->
+  <div v-for="a in article.grab_a_slice">
+    <h1 :c='""'>{{ a.Slice_Type }}</h1>
 
+    {{ a.nosql_datastore_id.json_datastore }}
+    <div :bbb="a.nosql_datastore_id.json_datastore"></div>
+    <div :ccc="JSON.parse(bbb)"></div>
+  </div>
+
+
+  <!-- <div v-for=" (b,index) in a.nosql_datastore_id" :key="index" >
+                                                      {{ b }}
+                                                    </div> -->
 
   <!---============================================================================================================================================================================================================-->
   <!------------------------------------------------ Insert Here ---------------------------------------------------------------------------------------------------------------------------------------------------->
@@ -137,7 +148,7 @@ async function fetchData() {
   <!---============================================================================================================================================================================================================-->
   <div class="codeloop">
     <div>
-        <h2>Article Raw</h2>
+      <h2>Article Raw</h2>
       <hr>
       <div>
         <code>{{ JSON.stringify(article) }}</code>
@@ -159,8 +170,8 @@ async function fetchData() {
 
 <style>
 .codeloop>div {
-    max-height:200px;
-    overflow-y:scroll;
+  max-height: 200px;
+  overflow-y: scroll;
   padding: 16px;
   background-color: #f5f5f5;
   padding: 1rem;
