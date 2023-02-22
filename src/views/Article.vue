@@ -29,14 +29,14 @@ async function fetchData() {
   const { id } = route.params;
 
   let articleResponse;
+  let bill;
 
   try {
     articleResponse = await directus.items('home').readOne(id, {
-      fields: [
-      '*.*.*'
+      fields: ['grab_a_slice.nosql_datastore_id.*','id']
 
       /* "author.avatar", "author.first_name", "author.last_name*/,
-      ],
+    //   ],
     });
     const formattedArticle = {
       ...articleResponse,
@@ -55,6 +55,7 @@ async function fetchData() {
     });
     const formattedMoreArticles = moreArticlesResponse.data.map(
       (moreArticle) => {
+        
         return {
           ...moreArticle,
           // publish_date: formatRelativeTime(new Date(moreArticle.publish_date)),
@@ -64,6 +65,25 @@ async function fetchData() {
 
     article.value = formattedArticle;
     moreArticles.value = formattedMoreArticles;
+    // bill.value = article._rawValue.grab_a_slice;
+    // console.log(article.value);
+    // console.log(bill.value);
+    // console.log("BILL",bill,"\nBILLEXP",bill.data,"\nBILLEXP2", )
+    // for (let bill2 of bill) {
+    //   let bill3 = bill2.nosql_datastore_id
+    //   let bill4 = bill3.json_datastore
+    // //   let bill5 = JSON.parse(bill4)
+    // //   this.allPagesData += JSON.stringify(bill5)
+    //   console.log("b2",bill2,"b3",bill3)
+    //   //,"\nb4",bill4,"\nb5",bill5)
+    // }
+
+
+
+
+
+
+
   } catch (err) {
     router.replace({ name: 'not-found', params: { catchAll: route.path } });
   }
@@ -155,15 +175,29 @@ async function fetchData() {
         <h2>Article Raw</h2>
       <hr>
       <div>
-        <code>{{ JSON.stringify(article) }}</code>
+        <code>ARTICLE: {{ JSON.stringify(article.grab_a_slice) }}</code>
+        <!-- <code>{{ article.data }}</code> -->
       </div>
       <h2>article for each slice</h2>
       <hr>
       <div>
-        <div v-for="slice in article.data">
-          <code>{{ JSON.stringify(slice.nosql_datastore_id.json_datastore) }}</code>
+        <div v-for="slice in article.grab_a_slice" :dsjs="JSON.stringify(slice)">
+            <!-- <code>{{ JSON.stringify(slice.nosql_datastore_id.json_datastore) }}</code> -->
+            <!-- <h3>SLICE</h3> -->
+            <div>
+                <!-- <code>JSDATA:{{ JSON.stringify(slice.nosql_datastore_id.json_datastore) }}</code> -->
+                <!-- <code>slicedata: {{ JSON.parse(slice.nosql_datastore_id.json_datastore) }}</code> -->
+                <hr>
+                <div v-for="jsdata in slice.nosql_datastore_id">
+                    <h4>the data</h4>
+                    <code>JS DATA: {{ jsdata }}</code>
+                    <!-- <code>JS DATA: {{ JSON.stringify(jsdata) }}</code> -->
+
+                    <hr>
+                </div>
+            </div>
         </div>
-        <code></code>
+        
       </div>
     </div>
   </div>
@@ -173,19 +207,27 @@ async function fetchData() {
   <!------------------------------------------------ FOOTER END ---------------------------------------------------------------------------------------------------------------------------------------------------->
 
 <style>
-.codeloop>div {
+.codeloop h2 {
+}
+.codeloop {
+    background-color: #aceace;
+    padding:32px;
+}
+.codeloop code {
     max-height:200px;
+    overflow:hidden;
     overflow-y:scroll;
+    display:block;
   padding: 16px;
   background-color: #f5f5f5;
   padding: 1rem;
-  margin: 1rem 0;
+  margin: 0.25rem 0;
   border-radius: 0.5rem;
   font-size: 0.8rem;
   line-height: 1.5rem;
   font-family: monospace;
   color: #333;
-  overflow: auto;
+  border:4px solid purple;
 }
 </style>
 
