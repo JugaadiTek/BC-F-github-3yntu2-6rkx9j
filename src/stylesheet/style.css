@@ -1,0 +1,198 @@
+/**************/
+/* Universal */
+/************/
+:root {
+    /* Spacing */
+    --container-pad:0px 32px;
+    --container-max-w:1720px;
+    --grid-gap:24px;
+
+    --spacer-unit:16px;
+    --spacer-s:calc(var(--spacer-unit) * 2);
+    --spacer-m:calc(var(--spacer-unit) * 4);
+    --spacer-l:calc(var(--spacer-unit) * 8);
+
+    /* Fonts */
+    --font-body: "Work Sans", "Segoe UI", Frutiger, "Frutiger Linotype", "Dejavu Sans", "Helvetica Neue", Arial, sans-serif;
+    --font-head: var(--font-body);
+    /* Font Weight */
+    --b-fw: 400;
+    --h-fw: 600;
+    --more-bold: 700;
+    /*Fonts Sizes*/
+    --font-h1-size: 36px; 
+    --font-h2-size: 32px;
+    --font-h3-size: 20px;
+    --font-p-size: 16px;
+    /*Fonts Line Heights*/
+    --font-h1-lh: 48px;
+    --font-h2-lh: 36px;
+    --font-h3-lh: 26px;
+    --font-p-lh: 26px;
+    /*Fonts Shorthand*/
+    --font-h1: var(--h-fw)  var(--font-h1-size) /  var(--font-h1-lh)   var(--font-head);
+    --font-h2: var(--h-fw)  var(--font-h2-size) /  var(--font-h2-lh)   var(--font-head);
+    --font-h3: var(--h-fw)  var(--font-h3-size) /  var(--font-h3-lh)   var(--font-head);
+    --font-p:  var(--b-fw)  var(--font-p-size)  /  var(--font-p-lh)    var(--font-body);
+    
+    /* Buttons */
+    --btn:var(--font-h3);
+    --btn-pad: 4px 8px;
+    /*Brand Colors*/
+    --b-black: #000000;
+    --b-white: #FFFFFF;
+    --p-dark: var(--b-black);
+    --p-light: var(--b-white);
+    
+    /*Environment Colors*/
+    --ec-neutral: #51526f;
+    --ec-success: #00A38D;
+    --ec-fail: #D11257;
+}
+/**********************/
+/* VARIABLES APPLIED */
+/********************/
+body, p, li, ul, ol {
+    font: var(--font-p);
+}
+body,p,ul,ol,li,span,h1,h2,h3,h4,h5,h6 {
+    color: var(--b-black);
+}
+*::selection {
+  background: black;
+  color: white;
+}
+h2, h3 {
+    margin-bottom:4px;
+}
+h2+p,h3+p {
+    margin-top:unset;
+}
+h1 {
+    font: var(--font-h1);
+}
+h2 {
+    font: var(--font-h2);
+    margin-bottom:24px;
+    text-align: center;
+}
+h3 {
+    font: var(--font-h3);
+}
+section {
+    box-sizing: border-box;
+}
+section:not(.navigation) {
+    margin-bottom:var(--spacer-l);
+}
+.container, .inner-container {
+    display:block;
+    width:100%;
+}
+.container {
+    padding:var(--container-pad);
+}
+.inner-container {
+    margin: auto;
+    max-width: var(--container-max-w);
+    box-sizing: border-box; 
+}
+.inner-container.extra {
+    max-width:1350px;
+}
+section.nob-pad {
+    padding-bottom:0px !important;
+    margin-bottom: 0px !important;
+}
+main {
+    max-width:100vw;
+}
+a.img span {
+    height:0;
+    width:0;
+    overflow:hidden;
+}
+/* Buttons */
+a.button {
+    border:4px solid var(--b-black);
+    display:inline-block;
+    padding:var(--btn-pad);
+    background:var(--b-black);
+    text-decoration: none;
+    text-align: center;
+    font:var(--btn);
+    color:var(--b-white);
+    font-weight:var(--more-bold);
+    text-transform:uppercase;
+    transition:150ms;
+    width: 100%;
+}
+a.button:hover {
+    background-color: var(--b-white);
+    color: var(--b-black);
+}
+.mob-show {
+    display:block;
+}
+.mob-hide {
+    display:none;
+}
+.mol {
+    order:99;
+}
+/**************************************/
+/* Media Queries on Universal Styles */
+/************************************/
+@media (min-width:576px) {}
+@media (min-width:768px) {
+    a.button {
+        width: unset;
+    }
+}
+@media (min-width:992px) {
+    :root {
+        --container-pad:0px 12px;
+        --spacer-unit:30px;
+        --grid-gap:48px;
+        /*Fonts Sizes*/
+        --font-h1-size: 48px;
+        --font-h2-size: 36px;
+        --font-h3-size: 24px;
+        --font-p-size: 18px;
+        /*Fonts Line Heights*/
+        --font-h1-lh: 64px;
+        --font-h2-lh: 46px;
+        --font-h3-lh: 32px;
+        --font-p-lh: 32px;
+        /* Buttons */
+        --btn-pad: 8px 16px;      
+    }   
+    a.button {width: unset;
+    }
+   
+}
+@media (min-width:1200px) {
+    .mob-show {
+        display:none;
+    }
+    .mob-hide {
+        display:block;
+    }
+    .mol {
+        order:unset;
+    }
+     h2 {
+        text-align: unset;
+    }
+    
+}
+@media (min-width:1440px) {
+    :root {
+        /*Fonts Sizes*/
+        --font-h1-size: 64px;
+        /*Fonts Line Heights*/
+        --font-h1-lh: 80px; 
+    }
+}
+@media (min-width:1921px) {}
+@media (min-width:1440px) and (min-aspect-ratio:19/9) {}
