@@ -21,7 +21,7 @@ fetchData();
 
 async function fetchData() {
   const { id } = route.params;
-  
+
   let articleResponse;
 
   try {
@@ -33,7 +33,7 @@ async function fetchData() {
 
     const formattedArticle = {
       ...articleResponse,
-      publish_date: formatRelativeTime(new Date(articleResponse.publish_date)),
+      // publish_date: formatRelativeTime(new Date(articleResponse.publish_date)),
     };
 
     const moreArticlesResponse = await directus.items('home').readByQuery({
@@ -44,13 +44,13 @@ async function fetchData() {
           { status: { _eq: 'published' } },
         ],
       },
-      limit: 2,
+      limit: 20,
     });
     const formattedMoreArticles = moreArticlesResponse.data.map(
       (moreArticle) => {
         return {
           ...moreArticle,
-          publish_date: formatRelativeTime(new Date(moreArticle.publish_date)),
+          // publish_date: formatRelativeTime(new Date(moreArticle.publish_date)),
         };
       }
     );
