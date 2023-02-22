@@ -34,7 +34,7 @@ async function fetchData() {
         '*.*.*'
 
       /* "author.avatar", "author.first_name", "author.last_name*/,
-    //   ],
+      ],
     });
     const formattedArticle = {
       ...articleResponse,
@@ -89,7 +89,6 @@ async function fetchData() {
 // let (slices,index) in article.data {
 //     console.log(slices);
 // }
-let quotes = ;
 </script>
 
 <template>
@@ -104,12 +103,12 @@ let quotes = ;
   <!------------------------------------------------ NAV BAR ---------------------------------------------------------------------------------------------------------------------------------------------------->
 
   <!------------------------------------------------ NAV BAR END ---------------------------------------------------------------------------------------------------------------------------------------------------->
-  <div v-for="a in article.grab_a_slice">
-    <h1 :c='""'>{{ a.Slice_Type }}</h1>
-
-    {{ a.nosql_datastore_id.json_datastore }}
-    <div :bbb="a.nosql_datastore_id.json_datastore"></div>
-    <div :ccc="JSON.parse(bbb)"></div>
+  <div class="codeloop" v-for="a in article.grab_a_slice">
+    <h1>rofl</h1>
+    <h1 :c="a.Slice_Type">{{ a.nosql_datastore_id.json_datastore }}</h1>
+     {{ a.nosql_datastore_id.json_datastore }}
+    <div :bbb="JSON.parse(JSON.stringify(a.nosql_datastore_id.json_datastore))"></div>
+    <div :ccc=" JSON.stringify(JSON.parse(bbb)) "></div>
   </div>
 
 
@@ -205,6 +204,7 @@ let quotes = ;
 
 <style>
 .codeloop h2 {
+    color:pink;
 }
 .codeloop {
     background-color: #aceace;
