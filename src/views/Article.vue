@@ -20,7 +20,9 @@ async function fetchData() {
   try {
     articleResponse = await directus.items('home').readOne(id, {
       fields: [
-      '*.*' /* "author.avatar", "author.first_name", "author.last_name*/,
+      '*.*.*.*.*'
+
+      /* "author.avatar", "author.first_name", "author.last_name*/,
       ],
     });
     
