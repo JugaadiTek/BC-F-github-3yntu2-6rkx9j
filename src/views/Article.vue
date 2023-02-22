@@ -5,7 +5,6 @@ import { directus } from '@/services/directus';
 import { getAssetURL } from '@/utils/get-asset-url';
 import MoreArticles from '@/components/MoreArticles.vue';
 // =========================  COMPONENTS  ==========================================================
-import NavBar from "@/components/MC/NavBar.vue";
 import hero from "@/components/MC/hero.vue";
 import servicescard from "@/components/MC/servicescard.vue";
 import imageWithContentList from "@/components/MC/imageWithContentLIst.vue";
@@ -15,14 +14,12 @@ import ctaHero from "@/components/MC/ctaHero.vue";
 import artcont from "@/components/MC/artcont.vue";
 import postfeed from "@/components/MC/postfeed.vue";
 import newsletter from "@/components/MC/newsletter.vue";
-import footerSlice from "@/components/MC/footerSlice.vue";
 // =================================================================================================
 
 const router = useRouter();
 const route = useRoute();
 const article = ref(null);
 const moreArticles = ref(null);
-
 fetchData();
 
 async function fetchData() {
@@ -92,11 +89,6 @@ async function fetchData() {
   <!------------------------------------------------ Insert Here ---------------------------------------------------------------------------------------------------------------------------------------------------->
   <!---============================================================================================================================================================================================================-->
 
-  <nav class="mainNav nogap darkbg" v-for="navigationbar in navigations">
-    <NavBar :navbtn="navigationbar.bricks" />
-  </nav>
-
-
   <section v-for="(slice, index) in slices" :class="[slice.alt, slice.component]" :id="`section_` + index" :key="index">
 
     <div v-if="slice.component == 'hero'">
@@ -119,7 +111,6 @@ async function fetchData() {
       <imgSlider :sliderCont="slice.bricks" />
     </div>
 
-
     <div :class="container" v-else-if="slice.component == 'artcont'">
       <artcont :artcontent="slice.bricks" />
     </div>
@@ -128,7 +119,6 @@ async function fetchData() {
       <postfeed :postsCont="slice.bricks" />
     </div>
 
-
     <div :class="container" v-else-if="slice.component == 'servicecard'">
       <servicescard :servicecardCont="slice.bricks" />
     </div>
@@ -136,13 +126,8 @@ async function fetchData() {
     <div :class="container" v-else-if="slice.component == 'newsletter'">
       <newsletter />
     </div>
+
   </section>
-
-  <footer class="container footerSlice" v-for="footerData in footerSliceCont">
-    <footerSlice :footerCont="footerData.bricks" />
-  </footer>
-
-
 
   <!------------------------------------------------ END SLICE MASTER ---------------------------------------------------------------------------------------------------------------------------------------------------->
 
