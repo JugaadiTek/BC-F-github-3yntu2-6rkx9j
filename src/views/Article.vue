@@ -124,7 +124,15 @@ async function fetchData() {
             console.log(result)
             return result;
         };
-        
+        function bullshitFixer(shitToFix) {
+            let fixedShit = shitToFix
+            console.log("step1",fixedShit)
+            fixedShit = unescape(fixedShit.nosql_datastore_id.json_datastore)
+            console.log("step2",fixedShit,JSON.parse(fixedShit))
+            fixedShit = JSON.parse(fixedShit)
+            console.log("step3",fixedShit)
+            return fixedShit;
+        }
         // let varobj = flattenObj(moreArticlesResponse);
         console.log("blah");
     </script>
@@ -144,53 +152,16 @@ async function fetchData() {
             <div class = "codecont">
                 <div class = "codeloop">
                     <div>
-                        <pre class = "title">0A: GET FULL JSON</pre>
-                        <pre class = "code">JSON.stringify(flattenObj(article))</pre>
-                        <code>{{ JSON.stringify(flattenObj(article)) }}</code>
-                        <pre class = "title">0B: GET ARTICLE ID</pre>
-                        <pre class = "code">JSON.stringify(flattenObj(article).id)</pre>
-                        <code>{{ JSON.stringify(flattenObj(article).id) }}</code>
-                        <pre class = "title">0C: GET SLICE LIST</pre>
-                        <pre class = "code">JSON.stringify(flattenObj(article).grab_a_slice)</pre>
-                        <code>{{ JSON.stringify(flattenObj(article).grab_a_slice) }}</code>
-                        <pre class = "title">0D: GET SLICE BY INDEX</pre>
-                        <pre class = "code">JSON.stringify(flattenObj(article).grab_a_slice[2].nosql_datastore_id.json_datastore)</pre>
-                        <code>{{ JSON.stringify(flattenObj(article).grab_a_slice[2].nosql_datastore_id.json_datastore) }}</code>
-                        <div>
-                            <pre class = "title">1 : ITERATE THROUGH SLICES</pre>
-                            <div v-for="(item, index) in flattenObj(article).grab_a_slice">
-                                <pre class = "title">1A-{{index}}: GET SLICE BY INDEX</pre>
-                                <pre class = "code">v-for="(item, index) in flattenObj(article).grab_a_slice</pre>
-                                <code>{{ JSON.stringify(item) }}</code>
-                                <pre class = "code">item.nosql_datastore_id.json_datastore</pre>
-                                <code>1A-A: {{ item.nosql_datastore_id.json_datastore }}</code>
-                                <code>1A-B: {{ JSON.stringify(JSON.parse(item.nosql_datastore_id.json_datastore)) }}</code>
-                                <code>1A-C: {{ JSON.stringify([(item.nosql_datastore_id)]) }}</code>
+                            <div v-for="(item, index) in flattenObj(article).grab_a_slice" :key="index">
+                                <pre class = "code">bullshitFixer(item)</pre>
+                                <code>1A-A: {{ bullshitFixer(item) }}</code>
+                                <!-- <code>1A-B: {{ JSON.stringify(JSON.parse(item.nosql_datastore_id.json_datastore)) }}</code> -->
+                                <!-- <code>1A-C: {{ JSON.stringify([(item.nosql_datastore_id)]) }}</code> -->
                                 <hr>
                                 
                                 
-                                <div :final="JSON.stringify(JSON.parse(item.nosql_datastore_id.json_datastore))">
-                                    <pre class = "code">2A: :final="JSON.stringify(JSON.parse(item.nosql_datastore_id.json_datastore))"</pre>
-                                    <pre class = "code">JSON.stringify(deep)</pre>
-                                    <code> {{ JSON.parse(JSON.stringify([(item.nosql_datastore_id.json_datastore)]))  }}</code>
-                                    <!-- <code>{{ JSON.parse(flattenObj([(item.nosql_datastore_id.json_datastore)]))  }}</code> -->
-                                    <div v-for="sup in flattenObj([item.nosql_datastore_id.json_datastore])">
-                                        <code>3A: {{ (sup)  }}</code>
-                                        <code>3B: {{ JSON.stringify(JSON.parse(sup)) }}</code>
-                                        <code>3C: {{ JSON.parse(JSON.stringify(sup)) }}</code>
-                                        <code>3D: {{ JSON.stringify({fake: [],stuff: JSON.parse(sup)}) }}</code>
-
-                                    </div>
-                                </div>
-                                <div>
-                                </div>
-                                
                             </div>
-                            <!-- <div v-for="item in article.grab_a_slice.nosql_datastore_id.json_datastore"> -->
-                                <!-- {{ item }} -->
-                                <!-- </div><code>{{ JSON.stringify(flattenObj(moreArticles)) }}</code> -->
-                            </div>
-                        </div>
+                        </div>  
                     </div>
                 </div>
                 <!---============================================================================================================================================================================================================-->
