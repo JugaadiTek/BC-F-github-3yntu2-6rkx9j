@@ -168,18 +168,18 @@ console.log("blah");
   <section v-for="(slice, index) in flattenObj(article).grab_a_slice" :class="[slice.alt, slice.component]"
     :id="`section_` + index" :key="index">
 
-    <span v-if="!!slice.nosql_datastore_id">
+    <!-- <span v-if="!!slice.nosql_datastore_id">
       true
       <span v-if="!!slice.nosql_datastore_id.json_datastore">
         --true
-        <!-- {{ (slice.nosql_datastore_id.json_datastore) }} -->
-        <span v-if="!!slice.nosql_datastore_id.json_datastore.component == 'hero' ">
+        <span v-if="!!slice.nosql_datastore_id.json_datastore.component">
           ----true
-
-          <!-- {{ slice.nosql_datastore_id }} -->
+          
         </span>
       </span>
-    </span>
+    </span> -->
+    <!-- {{ (slice.nosql_datastore_id.json_datastore) }} -->
+    <!-- {{ slice.nosql_datastore_id }} -->
 
     <div v-if="slice.component == 'hero'">
       <hero :herocont="slice.bricks" />
