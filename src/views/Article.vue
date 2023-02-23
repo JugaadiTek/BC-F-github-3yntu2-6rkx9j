@@ -164,7 +164,7 @@ async function fetchData() {
                             <div v-for="(item, index) in flattenObj(article).grab_a_slice" :key="index">
                                 <pre class = "title">RAW OBJECT</pre>
                                 <pre class = "code">JSON.stringify(bullshitFixer(item))</pre>
-                                <code>Post Fix: {{ bullshitFixer(item) }}</code>
+                                <code>Post Fix: {{ JSON.stringify(bullshitFixer(item)) }}</code>
                                 <pre class = "title">SLICE TYPE </pre>
                                 <pre class = "code">bullshitFixer(item).SliceType</pre>
                                 <code>Slice Type:  {{ bullshitFixer(item).SliceType}}</code>
