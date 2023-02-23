@@ -162,8 +162,12 @@ async function fetchData() {
                 <div class = "codeloop">
                     <div>
                             <div v-for="(item, index) in flattenObj(article).grab_a_slice" :key="index">
-                                <pre class = "code">bullshitFixer(item)</pre>
-                                <code>1A-A: {{ bullshitFixer(item) }}</code>
+                                <pre class = "title">RAW OBJECT</pre>
+                                <pre class = "code">JSON.stringify(bullshitFixer(item))</pre>
+                                <code>Post Fix: {{ bullshitFixer(item) }}</code>
+                                <pre class = "title">SLICE TYPE </pre>
+                                <pre class = "code">bullshitFixer(item).SliceType</pre>
+                                <code>Slice Type:  {{ bullshitFixer(item).SliceType}}</code>
                                 <!-- <code>1A-B: {{ JSON.stringify(JSON.parse(item.nosql_datastore_id.json_datastore)) }}</code> -->
                                 <!-- <code>1A-C: {{ JSON.stringify([(item.nosql_datastore_id)]) }}</code> -->
                                 <hr>
