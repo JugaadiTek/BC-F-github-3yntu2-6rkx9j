@@ -105,11 +105,10 @@ async function fetchData() {
 
   <!------------------------------------------------ NAV BAR END ---------------------------------------------------------------------------------------------------------------------------------------------------->
   <div v-for="a in article.grab_a_slice">
-    <h1 :c='""'>{{ a.Slice_Type }}</h1>
+    <h1 >  </h1>
 
     {{ a.nosql_datastore_id.json_datastore }}
-    <div :bbb="a.nosql_datastore_id.json_datastore"></div>
-      {{ bbb }}
+    <div :bbb="a.nosql_datastore_id.json_datastore">{{ bbb }}</div>
     <!-- <div :ccc="JSON.parse(bbb)"></div> -->
   </div>
 
