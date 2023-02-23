@@ -15,6 +15,8 @@ import artcont from "@/components/MC/artcont.vue";
 import postfeed from "@/components/MC/postfeed.vue";
 import newsletter from "@/components/MC/newsletter.vue";
 import { objectToString, parseStringStyle } from '@vue/shared';
+// import { get } from 'http';
+// import { isKeyObject } from 'util/types';
 // =================================================================================================
 let iter = 0;
 const router = useRouter();
@@ -159,204 +161,203 @@ async function fetchData() {
             <div class = "codecont">
                 <div class = "codeloop">
                     <div>
-                        <div v-for="(item, index) in flattenObj(article).grab_a_slice" :key="index">
-                            <pre class = "code">bullshitFixer(item)</pre>
-                            <code>PostFix: {{ bullshitFixer(item) }}</code>
-                            <code>Check {{ bullshitFixer(item).SliceType}}</code>
-                            <!-- <code>1A-B: {{ JSON.stringify(JSON.parse(item.nosql_datastore_id.json_datastore)) }}</code> -->
-                            <!-- <code>1A-C: {{ JSON.stringify([(item.nosql_datastore_id)]) }}</code> -->
-                            <hr>
-                            
-                            
-                        </div>
-                    </div>  
+                            <div v-for="(item, index) in flattenObj(article).grab_a_slice" :key="index">
+                                <pre class = "code">bullshitFixer(item)</pre>
+                                <code>1A-A: {{ bullshitFixer(item) }}</code>
+                                <!-- <code>1A-B: {{ JSON.stringify(JSON.parse(item.nosql_datastore_id.json_datastore)) }}</code> -->
+                                <!-- <code>1A-C: {{ JSON.stringify([(item.nosql_datastore_id)]) }}</code> -->
+                                <hr>
+                                
+                                
+                            </div>
+                        </div>  
+                    </div>
                 </div>
-            </div>
-            <!---============================================================================================================================================================================================================-->
-            <!------------------------------------------------ Insert Here ---------------------------------------------------------------------------------------------------------------------------------------------------->
-            <!---============================================================================================================================================================================================================-->
+                <!---============================================================================================================================================================================================================-->
+                <!------------------------------------------------ Insert Here ---------------------------------------------------------------------------------------------------------------------------------------------------->
+                <!---============================================================================================================================================================================================================-->
+                
+                <section v-for="(slice, index) in slices" :class="[slice.alt, slice.component]" :id="`section_` + index" :key="index">
+                    
+                    <div v-if="slice.component == 'hero'">
+                        <hero :herocont="slice.bricks" />
+                    </div>
+                    
+                    <div v-else-if="slice.component == 'imageWithContentList'">
+                        <imageWithContentList :contPairCont="slice.bricks" />
+                    </div>
+                    
+                    <div v-else-if="slice.component == 'ctaHero'">
+                        <ctaHero :ctaHeroCont="slice.bricks" />
+                    </div>
+                    
+                    <div v-else-if="slice.component == 'ContentPairsRepeater'">
+                        <ContentPairsRepeater :pairsRepeaterCont="slice.bricks" />
+                    </div>
+                    
+                    <div v-else-if="slice.component == 'imgSlider'">
+                        <imgSlider :sliderCont="slice.bricks" />
+                    </div>
+                    
+                    <div :class="container" v-else-if="slice.component == 'artcont'">
+                        <artcont :artcontent="slice.bricks" />
+                    </div>
+                    
+                    <div :class="container" v-else-if="slice.component == 'postfeed'">
+                        <postfeed :postsCont="slice.bricks" />
+                    </div>
+                    
+                    <div :class="container" v-else-if="slice.component == 'servicecard'">
+                        <servicescard :servicecardCont="slice.bricks" />
+                    </div>
+                    
+                    <div :class="container" v-else-if="slice.component == 'newsletter'">
+                        <newsletter />
+                    </div>
+                    
+                </section>
+                
+                <!------------------------------------------------ END SLICE MASTER ---------------------------------------------------------------------------------------------------------------------------------------------------->
+                
+                
+                <!---============================================================================================================================================================================================================-->
+                <!------------------------------------------------ Q&A TESTING UTIL ----------------------------------------------------------------------------------------------------------------------------------------------->
+                <!---============================================================================================================================================================================================================-->
+                
+            </template>
+            <!------------------------------------------------ FOOTER START ---------------------------------------------------------------------------------------------------------------------------------------------------->
             
-            <section v-for="(slice, index) in slices" :class="[slice.alt, slice.component]" :id="`section_` + index" :key="index">
-                
-                <div v-if="slice.component == 'hero'">
-                    <hero :herocont="slice.bricks" />
-                </div>
-                
-                <div v-else-if="slice.component == 'imageWithContentList'">
-                    <imageWithContentList :contPairCont="slice.bricks" />
-                </div>
-                
-                <div v-else-if="slice.component == 'ctaHero'">
-                    <ctaHero :ctaHeroCont="slice.bricks" />
-                </div>
-                
-                <div v-else-if="slice.component == 'ContentPairsRepeater'">
-                    <ContentPairsRepeater :pairsRepeaterCont="slice.bricks" />
-                </div>
-                
-                <div v-else-if="slice.component == 'imgSlider'">
-                    <imgSlider :sliderCont="slice.bricks" />
-                </div>
-                
-                <div :class="container" v-else-if="slice.component == 'artcont'">
-                    <artcont :artcontent="slice.bricks" />
-                </div>
-                
-                <div :class="container" v-else-if="slice.component == 'postfeed'">
-                    <postfeed :postsCont="slice.bricks" />
-                </div>
-                
-                <div :class="container" v-else-if="slice.component == 'servicecard'">
-                    <servicescard :servicecardCont="slice.bricks" />
-                </div>
-                
-                <div :class="container" v-else-if="slice.component == 'newsletter'">
-                    <newsletter />
-                </div>
-                
-            </section>
+            <!------------------------------------------------ FOOTER END ---------------------------------------------------------------------------------------------------------------------------------------------------->
             
-            <!------------------------------------------------ END SLICE MASTER ---------------------------------------------------------------------------------------------------------------------------------------------------->
-            
-            
-            <!---============================================================================================================================================================================================================-->
-            <!------------------------------------------------ Q&A TESTING UTIL ----------------------------------------------------------------------------------------------------------------------------------------------->
-            <!---============================================================================================================================================================================================================-->
-            
-        </template>
-        <!------------------------------------------------ FOOTER START ---------------------------------------------------------------------------------------------------------------------------------------------------->
+            <style>
+            .codeloop h1,
+            .codeloop h2,
+            .codeloop h3,
+            .codeloop h4 {
+                margin:unset;
+                padding:unset;
+            }
+            .codecont {
+                position:absolute;z-index:9999;right:0; overflow: hidden;width:800px;height:100%;
+                transition:500ms;
+                transition-delay:3s;
+            }
+            .codeloop {
+                background: #100925;
+                height:100%;
+                width:500px;
+                display:block;
+                flex-direction: row;
+                position:absolute;
+                top:0;
+                right:-480px;
+                overflow-x:scroll;
+                transition:500ms;
+                box-shadow: 0 0 6px 2px #000000;
+                transition-delay:3s;
+            }
+            .codeloop:hover {
+                right:0;
+                box-shadow: 0 0 160px 4px #202030;
+                transition-delay:.4s;
+            }
+            .codeloop > div {
+                background-color: #aceace;
+                padding:32px;
+                max-width:1200px;
+                margin:auto;
+                
+            }
+            .codeloop div:has(>code) {
+                background:#20406050;
+                margin:16px auto;
+                box-shadow: 3px 3px 6px 1px #000000;
+                padding:16px;
+                
+            }
+            .codeloop code {
+                max-height:200px;
+                overflow:hidden;
+                overflow-y:auto;
+                display:block;
+                padding: 8px 24px;
+                background-color: #051125;
+                /* padding: 1rem; */
+                margin: 0;
+                border-radius:0 0 0.5rem 0.5rem;
+                font-size: 0.8rem;
+                line-height: 1.3rem;
+                font-family: monospace;
+                color: #effcef;
+                border:8px solid #202030;
+                box-shadow: 0 0 6px 2px #000 inset;
+                transition:650ms;
+                border-top:unset;
+                transition-delay:3s;
+            }
+            .codeloop code:focus-within,.codeloop code:focus,.codeloop code:active,.codeloop code:target,.codeloop code:focus-visible {
+                max-height:800px;
+                transition-delay:.4s;
+            }
+            .codeloop:focus-within,.codeloop:focus,.codeloop:active,.codeloop:target,.codeloop:focus-visible,
+            .codecont:focus-within,.codecont:focus,.codecont:active,.codecont:target,.codecont:focus-visible {
+                width:100%;
+                transition-delay:.2s;
+            }
+            ::-webkit-scrollbar {
+                background: #212345;
+                width: 12px;
+                height:8px;
+                border:4px solid  #151135;
+            }
+            ::-webkit-scrollbar-thumb {
+                background: #ac1748c0;
+                border-radius: 8px;
+            }
+            .codeloop pre {
+                color:white;
+                background:#202030;
+                font-size:1.3em;
+                line-height:1.5em;
+                margin: 0px 0px;
+                padding:8px 32px;
+                box-shadow:0 0 12px 4px #ac174800 inset;
+                /* text-align:center; */
+                font-weight:100;
+            }
+            .codeloop pre::-webkit-scrollbar {
+                display:none;
+            }
+            .codeloop code+pre {
+                margin-top:16px;
+            }
+            .codeloop pre.title{
+                font-weight:900;
+                color: #acacfe;
+                padding:0 32px;
+                text-shadow: 0px 0px 30px #000055;
+                background-color:#101020;
+                box-shadow: 0 0 12px 4px #ac174820;
+                z-index: 1;
+                
+            }
+            .codeloop pre.code {
+                /* text-align: center; */
+                font-size:0.8em;
+                overflow-wrap:break-word;
+                white-space: normal;
+                
+            }
+            .codeloop hr {
+                border: 1px solid #333;
+                border-radius: 5px;
+                height:4px;
+                margin:16px 0px;
+                display:block;
+                z-index: 99;
+            }
+        </style>
         
-        <!------------------------------------------------ FOOTER END ---------------------------------------------------------------------------------------------------------------------------------------------------->
         
-        <style>
-        .codeloop h1,
-        .codeloop h2,
-        .codeloop h3,
-        .codeloop h4 {
-            margin:unset;
-            padding:unset;
-        }
-        .codecont {
-            position:absolute;z-index:9999;right:0; overflow: hidden;width:800px;height:100%;
-            transition:500ms;
-            transition-delay:3s;
-        }
-        .codeloop {
-            background: #100925;
-            height:100%;
-            width:500px;
-            display:block;
-            flex-direction: row;
-            position:absolute;
-            top:0;
-            right:-480px;
-            overflow-x:scroll;
-            transition:500ms;
-            box-shadow: 0 0 6px 2px #000000;
-            transition-delay:3s;
-        }
-        .codeloop:hover {
-            right:0;
-            box-shadow: 0 0 160px 4px #202030;
-            transition-delay:.4s;
-        }
-        .codeloop > div {
-            background-color: #aceace;
-            padding:32px;
-            max-width:1200px;
-            margin:auto;
-            
-        }
-        .codeloop div:has(>code) {
-            background:#20406050;
-            margin:16px auto;
-            box-shadow: 3px 3px 6px 1px #000000;
-            padding:16px;
-            
-        }
-        .codeloop code {
-            max-height:200px;
-            overflow:hidden;
-            overflow-y:auto;
-            display:block;
-            padding: 8px 24px;
-            background-color: #051125;
-            /* padding: 1rem; */
-            margin: 0;
-            border-radius:0 0 0.5rem 0.5rem;
-            font-size: 0.8rem;
-            line-height: 1.3rem;
-            font-family: monospace;
-            color: #effcef;
-            border:8px solid #202030;
-            box-shadow: 0 0 6px 2px #000 inset;
-            transition:650ms;
-            border-top:unset;
-            transition-delay:3s;
-        }
-        .codeloop code:focus-within,.codeloop code:focus,.codeloop code:active,.codeloop code:target,.codeloop code:focus-visible {
-            max-height:800px;
-            transition-delay:.4s;
-        }
-        .codeloop:focus-within,.codeloop:focus,.codeloop:active,.codeloop:target,.codeloop:focus-visible,
-        .codecont:focus-within,.codecont:focus,.codecont:active,.codecont:target,.codecont:focus-visible {
-            width:100%;
-            transition-delay:.2s;
-        }
-        ::-webkit-scrollbar {
-            background: #212345;
-            width: 12px;
-            height:8px;
-            border:4px solid  #151135;
-        }
-        ::-webkit-scrollbar-thumb {
-            background: #ac1748c0;
-            border-radius: 8px;
-        }
-        .codeloop pre {
-            color:white;
-            background:#202030;
-            font-size:1.3em;
-            line-height:1.5em;
-            margin: 0px 0px;
-            padding:8px 32px;
-            box-shadow:0 0 12px 4px #ac174800 inset;
-            /* text-align:center; */
-            font-weight:100;
-        }
-        .codeloop pre::-webkit-scrollbar {
-            display:none;
-        }
-        .codeloop code+pre {
-            margin-top:16px;
-        }
-        .codeloop pre.title{
-            font-weight:900;
-            color: #acacfe;
-            padding:0 32px;
-            text-shadow: 0px 0px 30px #000055;
-            background-color:#101020;
-            box-shadow: 0 0 12px 4px #ac174820;
-            z-index: 1;
-            
-        }
-        .codeloop pre.code {
-            /* text-align: center; */
-            font-size:0.8em;
-            overflow-wrap:break-word;
-            white-space: normal;
-            
-        }
-        .codeloop hr {
-            border: 1px solid #333;
-            border-radius: 5px;
-            height:4px;
-            margin:16px 0px;
-            display:block;
-            z-index: 99;
-        }
-    </style>
-    
-    
-    
-    
+        
+        
