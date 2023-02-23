@@ -172,12 +172,14 @@ async function fetchData() {
                                 <div :final="JSON.stringify(JSON.parse(item.nosql_datastore_id.json_datastore))">
                                     <pre class = "code">2A: :final="JSON.stringify(JSON.parse(item.nosql_datastore_id.json_datastore))"</pre>
                                     <pre class = "code">JSON.stringify(deep)</pre>
-                                    <code>{{ JSON.parse(JSON.stringify([(item.nosql_datastore_id.json_datastore)]))  }}</code>
+                                    <code> {{ JSON.parse(JSON.stringify([(item.nosql_datastore_id.json_datastore)]))  }}</code>
                                     <!-- <code>{{ JSON.parse(flattenObj([(item.nosql_datastore_id.json_datastore)]))  }}</code> -->
                                     <div v-for="sup in flattenObj([item.nosql_datastore_id.json_datastore])">
-                                        <code>{{ (sup)  }}</code>
-                                        <code>{{ JSON.stringify(JSON.parse(sup)) }}</code>
-                                        <code>{{ JSON.parse(JSON.stringify(sup)) }}</code>
+                                        <code>3A: {{ (sup)  }}</code>
+                                        <code>3B: {{ JSON.stringify(JSON.parse(sup)) }}</code>
+                                        <code>3C: {{ JSON.parse(JSON.stringify(sup)) }}</code>
+                                        <code>3D: {{ JSON.stringify({fake: [],stuff: JSON.parse(sup)}) }}</code>
+
                                     </div>
                                 </div>
                                 <div>
