@@ -150,7 +150,7 @@ async function fetchData() {
                 <pre class = "title">0B: GET ARTICLE ID</pre>
                 <pre class = "code">JSON.stringify(flattenObj(article).id)</pre>
                 <code>{{ JSON.stringify(flattenObj(article).id) }}</code>
-                <pre class = "title">0C: GET SLICE BY INDEX</pre>
+                <pre class = "title">0C: GET SLICE LIST</pre>
                 <pre class = "code">JSON.stringify(flattenObj(article).grab_a_slice)</pre>
                 <code>{{ JSON.stringify(flattenObj(article).grab_a_slice) }}</code>
                 <pre class = "title">0C: GET SLICE BY INDEX</pre>
@@ -237,7 +237,7 @@ async function fetchData() {
             flex-direction: row;
             position:absolute;
             top:0;
-            right:-480px;
+            /* right:-480px; */
             overflow-x:scroll;
             transition:300ms;
             box-shadow: 0 0 6px 2px #000000;
