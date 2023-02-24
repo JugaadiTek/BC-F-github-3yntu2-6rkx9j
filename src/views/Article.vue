@@ -45,7 +45,7 @@ async function fetchData() {
     const formattedArticle = { ...articleResponse, };
     
     const moreArticlesResponse = await directus.items('home_nosql_datastore').readByQuery({
-      fields: ['nosql_datastore_id.json_datastore'],
+      fields: ['home.nosql_datastore_id.json_datastore.*','nosql_datastore_id.json_datastore','json_datastore'],
       filter: {
         _and: [
         { home_id: { _eq: articleResponse.id } },
