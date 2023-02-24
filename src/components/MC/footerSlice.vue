@@ -12,7 +12,7 @@ defineProps({
       <div>
         <ul>
           <li v-for="image in footerCont.imageList">
-            <!-- <img :src="image.imageurl" alt=""> -->
+            <img :src="image.imageurl" alt="">
           </li>
           <li class="copyrightTop">
             <p v-for="text in footerCont.copyright_text">
