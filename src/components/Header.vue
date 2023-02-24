@@ -34,7 +34,7 @@ const navigations = ref([
           subNav: [
             { url: "https://www.flaticon.com", text: "Schedule A Demo", type: "link", variant: "", styleModifiers: "" },
             { url: "https://www.flaticon.com", text: "Join The Waitlist", type: "link", variant: "", styleModifiers: "" },
-            { url: "https://www.flaticon.com", text: "Get In Touch", type: "link", variant: "", styleModifiers: "" },
+            { url: "https://www.flaticon.com", text: "Get In Touch", type: "link", variant: "", styleModifiers: "" }
           ]
         }
       ],
@@ -61,4 +61,7 @@ const navigations = ref([
 </template>
 
   
-<style scoped></style>
+<style scoped>
+
+
+</style>
