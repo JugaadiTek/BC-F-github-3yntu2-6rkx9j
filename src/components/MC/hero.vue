@@ -10,7 +10,7 @@ defineProps({
   <div class="codeloop">
     <h1>Hero</h1>
     <pre class="title">{{ JSON.stringify(herocont) }}</pre>
-    <code>{{ setSliceVars(slice) }}</code>
+    <code>{{ setSliceVars(herocont) }}</code>
   </div>
 </div>
 

@@ -88,90 +88,73 @@ async function fetchData() {
             </div>
             <ul class="current-article__socials">
               <li>
-                <a
-                :href="$route.path"
-                target="_blank"
-                rel="noreferrer noopener"
-                >
-                
-                <IconLink />
+                <a :href="$route.path" target="_blank" rel="noreferrer noopener">
+                  <IconLink />
+                </a>
+              </li>
+              <li>
+                <a href="https://www.youtube.com/c/DirectusVideos" target="_blank" rel="noreferrer noopener">
+                <IconYoutube />
               </a>
             </li>
             <li>
-              <a
-              href="https://www.youtube.com/c/DirectusVideos"
-              target="_blank"
-              rel="noreferrer noopener"
-              >
-              <IconYoutube />
+              <a `href="https://www.linkedin.com/company/directus-io" target="_blank" rel="noreferrer noopener" >
+              <IconLinkedin />
             </a>
           </li>
           <li>
-            <a
-            href="https://www.linkedin.com/company/directus-io"
-            target="_blank"
-            rel="noreferrer noopener"
-            >
-            <IconLinkedin />
+            <a href="https://twitter.com/directus" target="_blank" rel="noreferrer noopener" >
+            <IconTwitter />
           </a>
         </li>
-        <li>
-          <a
-          href="https://twitter.com/directus"
-          target="_blank"
-          rel="noreferrer noopener"
-          >
-          <IconTwitter />
-        </a>
-      </li>
-    </ul>
-  </div>
-  <div style="height:100px;overflow:hidden;" class="current-article_coverImage">
-    <img style="height:100px;overflow:hidden;" :src="getAssetURL(article.cover_image)" alt="" />
-  </div>
-</div>
-<div class="current-article__body">
-  <div class = "codeloop">
-    <div>
-      <h2>article string</h2>
-      <hr>
-      <div>
-        <code>{{JSON.stringify(article)}}</code>
-      </div>  
+      </ul>
     </div>
-    
+    <div style="height:100px;overflow:hidden;" class="current-article_coverImage">
+      <img style="height:100px;overflow:hidden;" :src="getAssetURL(article.cover_image)" alt="" />
+    </div>
   </div>
-  <div v-html="article.body" class="current-article__bodyContent">
-    
-    
-  </div>
-  <ul class="current-article__bodySocials">
+  <div class="current-article__body">
+    <div class = "codeloop">
+      <div>
+        <h2>article string</h2>
+        <hr>
+        <div>
+          <code>{{JSON.stringify(article)}}</code>
+        </div>  
+      </div>
+      
+    </div>
+    <div v-html="article.body" class="current-article__bodyContent">
+      
+      
+    </div>
+    <ul class="current-article__bodySocials">
+      <li>
+        <a
+        href="https://github.com/directus"
+        target="_blank"
+        rel="noreferrer noopener"
+        >
+        <IconGithub />
+      </a>
+    </li>
     <li>
       <a
-      href="https://github.com/directus"
+      href="https://www.youtube.com/c/DirectusVideos"
       target="_blank"
       rel="noreferrer noopener"
       >
-      <IconGithub />
+      <IconYoutube />
     </a>
   </li>
   <li>
     <a
-    href="https://www.youtube.com/c/DirectusVideos"
+    href="https://www.linkedin.com/company/directus-io"
     target="_blank"
     rel="noreferrer noopener"
     >
-    <IconYoutube />
+    <IconLinkedin />
   </a>
-</li>
-<li>
-  <a
-  href="https://www.linkedin.com/company/directus-io"
-  target="_blank"
-  rel="noreferrer noopener"
-  >
-  <IconLinkedin />
-</a>
 </li>
 <li>
   <a
