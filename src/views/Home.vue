@@ -34,15 +34,14 @@ async function fetchData() {
       <div class="container">
         <Hero v-if="hero" :article="hero" />
         <div v-if="articles" class="articles-grid">
-          <Article v-for="(article, index) in articles" :key="index" :article="article"
-            :bordered="index !== articles.length - 1" />
+          <Article
+            v-for="(article, index) in articles"
+            :key="index"
+            :article="article"
+            :bordered="index !== articles.length - 1"
+          />
         </div>
       </div>
     </section>
   </main>
 </template>
-
-
-<style scoped>
-
-</style>

@@ -3,7 +3,7 @@ import { RouterView } from "vue-router";
 import Notice from "@/components/Notice.vue";
 import Header from "@/components/Header.vue";
 import Info from "@/components/Info.vue";
-// import Footer from "@/components/Footer.vue";
+import Footer from "@/components/Footer.vue";
 
 </script>
 

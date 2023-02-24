@@ -45,7 +45,7 @@ async function fetchData() {
     const formattedArticle = { ...articleResponse, };
     
     const moreArticlesResponse = await directus.items('home_nosql_datastore').readByQuery({
-      fields: ['home.nosql_datastore_id.json_datastore.*','nosql_datastore_id.json_datastore','json_datastore'],
+      fields: ['nosql_datastore_id.json_datastore.*','nosql_datastore_id.json_datastore','json_datastore'],
       filter: {
         _and: [
         { home_id: { _eq: articleResponse.id } },
@@ -133,6 +133,7 @@ function ifError(structure) {
   }
 }
 function test(item,index)  {
+  
   let v1 = true,  v2 = true, v3 = true, v4 = true, v5 = true
   // v1b= [{}]
   // v1a = [{}]
@@ -167,14 +168,9 @@ function test(item,index)  {
   <!------------------------------------------------ MODOCOSM SLICE MASTER ------------------------------------------------------------------------------------------------------------------------------------------>
   <!---============================================================================================================================================================================================================-->
   <h1> {{ ifError(JSON.stringify(article.title)) }}</h1>
-  <section v-for="(slice, index) in article.grab_a_slice" :class="[slice.alt, slice.component]" :id="`section_` + index"
-    :key="index">
-    <h1>{{ ifError(slice[index].nosql_datastore_id.json_datastore) }}</h1>
+  <section v-for="(slice, index) in article.grab_a_slice" :class="[slice.alt, slice.component]" :id="`section_` + index" :key="index">
+    <code>{{  slice }}</code>
 
-    <div v-if="ifError(bullshitFixer(slice).SliceType) == 'hero'">
-
-      <hero :herocont="bullshitFixer(slice)[0].F4" />
-    </div>
     <!--                 
                                                 <div :class="container" v-else-if="slice.component !== 'servicecard'">
                                                     <servicescard :servicecardCont="(JSON.stringify(bullshitFixer(slice)).F4[1].bricks)" />
