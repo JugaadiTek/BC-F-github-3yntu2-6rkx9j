@@ -173,32 +173,32 @@ function test(item, index) {
     <code>{{ slice }}</code>
 
     <!--                 
-                                                  <div :class="container" v-else-if="slice.component !== 'servicecard'">
-                                                      <servicescard :servicecardCont="(JSON.stringify(bullshitFixer(slice)).F4[1].bricks)" />
-                                                  </div>
+                                                    <div :class="container" v-else-if="slice.component !== 'servicecard'">
+                                                        <servicescard :servicecardCont="(JSON.stringify(bullshitFixer(slice)).F4[1].bricks)" />
+                                                    </div>
                 
-                                                  <div v-else-if="slice.component == 'imageWithContentList'">
-                                                      <imageWithContentList :contPairCont="(bullshitFixer(slice)).F4[2].bricks" />
-                                                  </div>
-                                                  <div v-else-if="slice.component == 'ctaHero'">
-                                                      <ctaHero :ctaHeroCont="slice.bricks" />
-                                                  </div>
-                                                  <div v-else-if="slice.component == 'ContentPairsRepeater'">
-                                                      <ContentPairsRepeater :pairsRepeaterCont="slice.bricks" />
-                                                  </div>
-                                                  <div v-else-if="slice.component == 'imgSlider'">
-                                                      <imgSlider :sliderCont="slice.bricks" />
-                                                  </div>
-                                                  <div :class="container" v-else-if="slice.component == 'artcont'">
-                                                      <artcont :artcontent="slice.bricks" />
-                                                  </div>
-                                                  <div :class="container" v-else-if="slice.component == 'postfeed'">
-                                                      <postfeed :postsCont="slice.bricks" />
-                                                  </div>
+                                                    <div v-else-if="slice.component == 'imageWithContentList'">
+                                                        <imageWithContentList :contPairCont="(bullshitFixer(slice)).F4[2].bricks" />
+                                                    </div>
+                                                    <div v-else-if="slice.component == 'ctaHero'">
+                                                        <ctaHero :ctaHeroCont="slice.bricks" />
+                                                    </div>
+                                                    <div v-else-if="slice.component == 'ContentPairsRepeater'">
+                                                        <ContentPairsRepeater :pairsRepeaterCont="slice.bricks" />
+                                                    </div>
+                                                    <div v-else-if="slice.component == 'imgSlider'">
+                                                        <imgSlider :sliderCont="slice.bricks" />
+                                                    </div>
+                                                    <div :class="container" v-else-if="slice.component == 'artcont'">
+                                                        <artcont :artcontent="slice.bricks" />
+                                                    </div>
+                                                    <div :class="container" v-else-if="slice.component == 'postfeed'">
+                                                        <postfeed :postsCont="slice.bricks" />
+                                                    </div>
                 
-                                                  <div :class="container" v-else-if="slice.component == 'newsletter'">
-                                                      <newsletter />
-                                                  </div> -->
+                                                    <div :class="container" v-else-if="slice.component == 'newsletter'">
+                                                        <newsletter />
+                                                    </div> -->
 
   </section>
 
