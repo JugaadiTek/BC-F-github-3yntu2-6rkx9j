@@ -10,8 +10,8 @@ defineProps({
   <div class="container">
     <figure class="logo menu-item" itemprop="logo" itemscope itemtype="https://schema.org/ImageObject">
       <a class="img" href="/" aria-current="page">
-        <span>Go To Home</span>
-        <img itemprop="thumbnail" :src="navbtn.logoimg.imgUrl"  :alt="navbtn.logoimg.imgAlt" />
+      <span>Go To Home</span>
+      <img itemprop="thumbnail" :src="navbtn.logoimg.imgUrl"  :alt="navbtn.logoimg.imgAlt" />
       </a>
       <figcaption itemprop="caption"></figcaption>
     </figure>
