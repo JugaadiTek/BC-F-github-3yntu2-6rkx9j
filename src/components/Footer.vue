@@ -8,7 +8,7 @@ const footerSliceCont = ref([
     alt: ["darkbg"],
     bricks: {
       imageList: [
-        { imageurl: "src/images/BuyChain-Logo-REV.svg", alt: "Buychain Brand Logo", type: "" }
+        { imageurl: "", alt: "Buychain Brand Logo", type: "" }
       ],
       copyright_text: [
         { text: "All rights reserved." },

@@ -1,32 +1,40 @@
 <script setup>
+import { setSliceVars } from '@/utils/setSliceVars.js'
 defineProps({
   herocont: []
 })
+
 </script>
-
-
 <template>
-  <div class="inner-container">
-    <div class="content">
-      <div class="content-block">
-        <div>
-          <img src="" alt="">
-          <h2>{{ herocont.title }}</h2>
-          <p>{{ herocont.description }}</p>
-          <span v-for="(atom, index) in herocont.atoms" :key="index">
-            <a :class="[atom.type, atom.variant, atom.styleModifiers]" :href="atom.url">{{atom.text}}</a>
-          </span>
-        </div>
-        <div>
-          <img v-for="image in herocont.imageList" :src="image.imageurl" alt="">
-        </div>
-      </div>
-    </div>
+  <div class="codecont">
+  <div class="codeloop">
+    <h1>Hero</h1>
+    <pre class="title">{{ JSON.stringify(herocont) }}</pre>
+    <code>{{ setSliceVars(slice) }}</code>
   </div>
+</div>
+
+
+  <!-- <div class="inner-container">
+                <div class="content">
+                  <div class="content-block">
+                    <div>
+                      <img src="" alt="">
+                      <h2>{{ herocont.title }}</h2>
+                      <p>{{ herocont.description }}</p>
+                      <span v-for="(atom, index) in herocont.atoms" :key="index">
+                        <a :class="[atom.type, atom.variant, atom.styleMods]" :href="atom.url">{{ atom.text }}</a>
+                      </span>
+                    </div>
+                    <div>
+                      <img v-for="image in herocont.imageList" :src="image.imageurl" alt="">
+                    </div>
+                  </div>
+                </div>
+              </div> -->
 </template>
 
 <style scoped>
-
 .content-block {
   display: grid;
   grid-template-columns: 1fr 1fr;
@@ -51,5 +59,4 @@ defineProps({
 div>span {
   padding-right: 20px;
 }
-
 </style>

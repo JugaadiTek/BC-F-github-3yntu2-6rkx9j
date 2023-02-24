@@ -1,0 +1,35 @@
+{
+  "time": 1677143315057,
+  "blocks": [
+    {
+      "id": "l2rT599paw",
+      "type": "paragraph",
+      "data": {
+        "text": "\"jalsdkjfalj\""
+      }
+    },
+    {
+      "id": "TCvfaZ2EBJ",
+      "type": "header",
+      "data": {
+        "text": "'sdjfkasdjfa'",
+        "level": 2
+      }
+    },
+    {
+      "id": "HU5j0cfDll",
+      "type": "paragraph",
+      "data": {
+        "text": "`sdfasdfasdf`"
+      }
+    },
+    {
+      "id": "D5Xjx2w-na",
+      "type": "code",
+      "data": {
+        "code": "<template>\n  <div class=\"container\">\n    <figure class=\"logo menu-item\" itemprop=\"logo\" itemscope itemtype=\"https://schema.org/ImageObject\">\n      <a class=\"img\" href=\"/\" aria-current=\"page\">\n        <span>\n          Go To Home\n        </span>\n        <img itemprop=\"thumbnail\" src=\"src/images/BuyChain-Logo-REV.svg\" width=\"141\" height=\"51\"\n        alt=\"Go To Home\" />\n      </a>\n      <figcaption itemprop=\"caption\"></figcaption>\n    </figure>\n    <ul class = \"main-nav-links\">\n      <li v-for=\"(options, index) in navbtn\" :key=\"index\">\n        <a class=\"\" :href=\"options.url\">{{ options.label }}</a>\n        <ul v-if=\"a\" >\n          <li v-if=\"a\" v-for=\"(options, index) in navbtn\" :key=\"index\">\n            <a class=\"\" :href=\"options.url\">{{ options.label }}</a>\n          </li>\n        </ul>\n      </li>\n    </ul>\n    <a href=\"\">Demo</a>\n  </div>\n</template>"
+      }
+    }
+  ],
+  "version": "2.25.0"
+}
