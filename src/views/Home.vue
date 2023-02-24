@@ -3,14 +3,13 @@ import { ref } from 'vue';
 import { directus } from '@/services/directus';
 import Hero from '@/components/Hero.vue';
 import Article from '@/components/Article.vue';
-
-const hero = ref(null);
+const hero = ref(null); 
 const articles = ref(null);
 
 fetchData();
 
 async function fetchData() {
-  const response = await directus.items('home').readByQuery({
+  const response = await directus.items('home').readByQuery({ 
     fields: ['*'],
     // sort: '-publish_date',
   });

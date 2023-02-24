@@ -1,0 +1,21 @@
+{
+  "name": "directus-vue-example",
+  "private": true,
+  "scripts": {
+    "dev": "vite --host",
+    "build": "vite-ssg build",
+    "preview": "vite preview --port 5050"
+  },
+  "dependencies": {
+    "@directus/sdk": "9.12.2",
+    "vueuse/core": "^9.13.0",
+    "modern-normalize": "1.1.0",
+    "querystring": "^0.2.1",
+    "vue": "3.2.37",
+    "vue-router": "4.0.16"
+  },
+  "devDependencies": {
+    "@vitejs/plugin-vue": "^2.0.1",
+    "vite": "^2.9.13"
+  }
+}
