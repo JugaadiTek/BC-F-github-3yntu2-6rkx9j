@@ -3,7 +3,7 @@ import { ref } from 'vue';
 import { RouterLink, useRoute, useRouter } from 'vue-router';
 import { directus } from '@/services/directus';
 import { getAssetURL } from '@/utils/get-asset-url';
-import { isDefined } from '@vueuse/core'
+import { isDefined } from '@/vueuse/core'
 // import error-boundary from '@/utils/error.vue';
 // import MoreArticles from '@/components/MoreArticles.vue';
 // =========================  COMPONENTS  ==========================================================
