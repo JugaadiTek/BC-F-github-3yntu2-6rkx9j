@@ -412,3 +412,6 @@ li:active .answer,li:hover .answer, li:focus .answer {
     border-color:purple !important;
 }
 
+header {
+    background-color: var(--primary);
+}

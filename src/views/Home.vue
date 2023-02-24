@@ -41,3 +41,8 @@ async function fetchData() {
     </section>
   </main>
 </template>
+
+
+<style scoped>
+
+</style>

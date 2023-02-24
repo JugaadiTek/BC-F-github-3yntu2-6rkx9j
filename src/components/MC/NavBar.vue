@@ -11,18 +11,18 @@ defineProps({
     <figure class="logo menu-item" itemprop="logo" itemscope itemtype="https://schema.org/ImageObject">
       <a class="img" href="/" aria-current="page">
         <span>Go To Home</span>
-        <img itemprop="thumbnail" :src="navbtn.logoimg.imgUrl" width="141" height="51" :alt="navbtn.logoimg.imgAlt" />
+        <img itemprop="thumbnail" :src="navbtn.logoimg.imgUrl"  :alt="navbtn.logoimg.imgAlt" />
       </a>
       <figcaption itemprop="caption"></figcaption>
     </figure>
 
     <div  class="main-nav-links">
       <ul v-for="(mainLink, index) in navbtn.mainNav" :key="index" class="dropdown">
-        <li>
-          <a class="dropbtn" :href="mainLink.linkUrl">{{ mainLink.linkText }} </a>
+        <li class="dropbtn">
+          <a  :href="mainLink.linkUrl">{{ mainLink.linkText }} </a>
         </li>
-        <li class="dropdown-content" v-for="subLinks in mainLink.subNav" >
-          <a class="" :href="subLinks.url">{{ subLinks.text }}</a>
+        <li class="" v-for="subLinks in mainLink.subNav" >
+          <a class="dropdown-content" :href="subLinks.url">{{ subLinks.text }}</a>
         </li>
       </ul>
     </div>
@@ -34,21 +34,22 @@ defineProps({
         </li>
       </ul>
     </div>
+  
   </div>
 </template>
 
 <style scoped>
-/* .main-nav-links {
+.main-nav-links {
   margin-right: 0;
   width: 100%;
   text-align: right;
 }
 
-.main-nav-links a {
+/* .main-nav-links a {
   font-weight: var(--fw-bold);
   transition: 300ms;
   position: relative;
-}
+} */
 
 .main-nav-links a::after {
   content: "";
@@ -60,13 +61,13 @@ defineProps({
   bottom: 0;
   left: 0;
   transition: 500ms;
-} */
+}
 
-/* .main-nav-links li a:hover {
+.main-nav-links li a:hover {
   color: var(--secondary-light);
 }
 
-.main-nav-links li a:hover::after {
+/* .main-nav-links li a:hover::after {
   width: 100%;
   transition: 500ms;
   height: 4px;
@@ -92,12 +93,13 @@ img {
 ul {
   margin-top: auto;
   margin-bottom: auto;
+  padding: 20px;
 }
 
 li {
   display: inline;
   color: var(--bg-layer-100);
-  padding-right: 20px;
+  /* padding-right: 20px; */
   vertical-align: middle;
 }
 
@@ -109,8 +111,9 @@ li {
   height: auto;
   border-radius: 5px;
   padding: 4px 10px;
-
 }
+
+
 
 nav {
   display: flex;
@@ -120,6 +123,7 @@ nav {
   height: fit-content;
   padding: 12px 0;
 }
+
 .dropbtn {
   background-color: #4CAF50;
   color: white;
@@ -127,6 +131,7 @@ nav {
   font-size: 16px;
   border: none;
   cursor: pointer;
+  margin-top: 10px;
 }
 
 .dropdown {

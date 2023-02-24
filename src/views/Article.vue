@@ -166,65 +166,50 @@ function test(item,index)  {
   <!---============================================================================================================================================================================================================-->
   <!------------------------------------------------ MODOCOSM SLICE MASTER ------------------------------------------------------------------------------------------------------------------------------------------>
   <!---============================================================================================================================================================================================================-->
-  <!-- <h1> {{ JSON.stringify(ifError(article.title)) }}</h1> -->
-  <!-- <div v-if="test(article).v1 !== false"> -->
-          <!-- <section v-for="(slice, index) in myList.v1">
-              <span>{{index}} {{ slice }}</span> {{ JSON.stringify(myList.v1[index]) }}
-          </section> -->
-          <div class = "codecont">
-                <div class = "codeloop">
-                    <div>
-                            <div v-for="(item, index) in flattenObj(article).grab_a_slice" :key="index">
-                              <!-- <code>{{ ifError(item[index].nosql_datastore_id) }}</code> -->
-                              <code>
-                                {{ item }}
-                                {{ item.title }}
+  <h1> {{ ifError(JSON.stringify(article.title)) }}</h1>
+  <section v-for="(slice, index) in article.grab_a_slice" :class="[slice.alt, slice.component]" :id="`section_` + index"
+    :key="index">
+    <h1>{{ ifError(slice[index].nosql_datastore_id.json_datastore) }}</h1>
 
+    <div v-if="ifError(bullshitFixer(slice).SliceType) == 'hero'">
 
-                              </code>
-                                
-                                
-                            </div>
-                        <!-- </div>   -->
-                    </div>
-                </div>
-              
-        <!-- <div v-if="bullshitFixer(ifError(slice.SliceType)) == 'hero'"> -->
-          <!-- <hero :herocont="bullshitFixer(slice)[0].F4" /> -->
-        </div> 
-        <!--                 
-          <div :class="container" v-else-if="slice.component !== 'servicecard'">
-            <servicescard :servicecardCont="(JSON.stringify(bullshitFixer(slice)).F4[1].bricks)" />
-          </div>
-          
-          <div v-else-if="slice.component == 'imageWithContentList'">
-            <imageWithContentList :contPairCont="(bullshitFixer(slice)).F4[2].bricks" />
-          </div>
-          <div v-else-if="slice.component == 'ctaHero'">
-            <ctaHero :ctaHeroCont="slice.bricks" />
-          </div>
-          <div v-else-if="slice.component == 'ContentPairsRepeater'">
-            <ContentPairsRepeater :pairsRepeaterCont="slice.bricks" />
-          </div>
-          <div v-else-if="slice.component == 'imgSlider'">
-            <imgSlider :sliderCont="slice.bricks" />
-          </div>
-          <div :class="container" v-else-if="slice.component == 'artcont'">
-            <artcont :artcontent="slice.bricks" />
-          </div>
-          <div :class="container" v-else-if="slice.component == 'postfeed'">
-            <postfeed :postsCont="slice.bricks" />
-          </div>
-          
-          <div :class="container" v-else-if="slice.component == 'newsletter'">
-            <newsletter />
-          </div> -->
-          
-          <!-- </section> -->
-          
-          <!------------------------------------------------ END SLICE MASTER ---------------------------------------------------------------------------------------------------------------------------------------------------->
-        </template>
-        <!------------------------------------------------ FOOTER START ---------------------------------------------------------------------------------------------------------------------------------------------------->
-        
-        <!------------------------------------------------ FOOTER END ---------------------------------------------------------------------------------------------------------------------------------------------------->
-        
+      <hero :herocont="bullshitFixer(slice)[0].F4" />
+    </div>
+    <!--                 
+                                                <div :class="container" v-else-if="slice.component !== 'servicecard'">
+                                                    <servicescard :servicecardCont="(JSON.stringify(bullshitFixer(slice)).F4[1].bricks)" />
+                                                </div>
+                
+                                                <div v-else-if="slice.component == 'imageWithContentList'">
+                                                    <imageWithContentList :contPairCont="(bullshitFixer(slice)).F4[2].bricks" />
+                                                </div>
+                                                <div v-else-if="slice.component == 'ctaHero'">
+                                                    <ctaHero :ctaHeroCont="slice.bricks" />
+                                                </div>
+                                                <div v-else-if="slice.component == 'ContentPairsRepeater'">
+                                                    <ContentPairsRepeater :pairsRepeaterCont="slice.bricks" />
+                                                </div>
+                                                <div v-else-if="slice.component == 'imgSlider'">
+                                                    <imgSlider :sliderCont="slice.bricks" />
+                                                </div>
+                                                <div :class="container" v-else-if="slice.component == 'artcont'">
+                                                    <artcont :artcontent="slice.bricks" />
+                                                </div>
+                                                <div :class="container" v-else-if="slice.component == 'postfeed'">
+                                                    <postfeed :postsCont="slice.bricks" />
+                                                </div>
+                
+                                                <div :class="container" v-else-if="slice.component == 'newsletter'">
+                                                    <newsletter />
+                                                </div> -->
+
+  </section>
+
+  <!------------------------------------------------ END SLICE MASTER ---------------------------------------------------------------------------------------------------------------------------------------------------->
+</template>
+                <!------------------------------------------------ FOOTER START ---------------------------------------------------------------------------------------------------------------------------------------------------->
+                
+                <!------------------------------------------------ FOOTER END ---------------------------------------------------------------------------------------------------------------------------------------------------->
+<style scoped>
+
+</style>
