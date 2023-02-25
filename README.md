@@ -8,7 +8,7 @@
 > npm install
 > npm run dev
 
-2. Vue Router --   npm installvue-router@4 /  yarn add vue-router@4
+2. Vue Router --   npm install vue-router@4 /  yarn add vue-router@4
 3. Vite-ssg  --   npm i vite-ssg
 4. Directus SDK --  npm i @directus/sdk
 5. vite -- npm i vite
