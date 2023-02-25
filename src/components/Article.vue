@@ -1,4 +1,4 @@
-<script setup>
+<script setup lang="ts">
 import { RouterLink } from 'vue-router';
 import { getAssetURL } from '@/utils/get-asset-url';
 import axios from 'axios'
@@ -56,11 +56,11 @@ defineProps({
           style="color:green; !important"
           :to="`/articles/${article.id}`"
         >
-          {{ article.title }}
+          <!-- {{ article.title }} -->
         </RouterLink>
       </h1>
       <!-- <h1>{{ response.data }}</h1> -->
-      <h2>{{ response.data }}</h2>
+      <!-- <h2>{{ response.data }}</h2> -->
 
       <div class="article__detail">
         <div class="article__detailAuthor">

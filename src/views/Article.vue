@@ -3,14 +3,8 @@ import { ref } from 'vue';
 import { RouterLink, useRoute, useRouter } from 'vue-router';
 import { directus } from '@/services/directus';
 import { getAssetURL } from '@/utils/get-asset-url';
-import { isDefined } from '@/vueuse/core'
-// import error-boundary from '@/utils/error.vue';
 // =========================  COMPONENTS  ==========================================================
 import hero from "@/components/MC/hero.vue";
-// import { ifError } from 'assert';
-
-import { unescape } from 'querystring';
-// import { isUndefined } from 'util';
 //import servicescard from "@/components/MC/servicescard.vue";
 //import imageWithContentList from "@/components/MC/imageWithContentLIst.vue";
 //import imgSlider from "@/components/MC/imgSlider.vue";
@@ -20,9 +14,6 @@ import { unescape } from 'querystring';
 //import postfeed from "@/components/MC/postfeed.vue";
 //import newsletter from "@/components/MC/newsletter.vue";
 // =================================================================================================
-
-
-
 const router = useRouter();
 const route = useRoute();
 const article = ref(null);
@@ -32,9 +23,6 @@ fetchData();
 
 
 // Directus API call to get the article data via the directus sdk using the id from the route params
-// This is the function that is called when the page is loaded. It is an async function that is
-// awaiting the response from the directus API. It is then storing the response in the article
-// variable.
 async function fetchData() {
   const { id } = route.params;
   let articleResponse;
@@ -48,10 +36,11 @@ async function fetchData() {
       fields: ['id', 'title'],
       filter: {
         _and: [
-          { home_id: { _eq: articleResponse.id } },
+        { id: { _neq: articleResponse.id } },
+        { status: { _eq: 'published' } },
         ],
       },
-      limit: 200,
+      limit: 20,
     });
     
     const formattedMoreArticles = moreArticlesResponse.data.map(
@@ -81,7 +70,6 @@ async function fetchData() {
 //================================================================================================
 //=========== Function to flatten the object passed to it. =======================================
 //================================================================================================
-// A function that takes an object and returns a flattened version of that object.
 const flattenObj = (ob) => {                               // The object which contains the
   let result = {};                                       // final result
   for (const i in ob) {                                  // loop through the object "ob"
@@ -110,12 +98,12 @@ function bullshitFixer(shitToFix) {
   let dataformat_4 = {}
   let dataformat_5 = {}
   try { dataformat_1 = shitToFix } catch (err) { console.log("df1 failed", err); dataformat_1 = false } finally { }
-  try { dataformat_1a = ifError(dataformat_1.nosql_datastore_id) } catch (err) { console.log("df1a failed", err); dataformat_1a = false } finally { }
-  try { dataformat_1b = ifError(dataformat_1a.json_datastorea) } catch (err) { console.log("df1b failed", err); dataformat_1b = false } finally { }
+  try { dataformat_1a = dataformat_1.nosql_datastore_id } catch (err) { console.log("df1a failed", err); dataformat_1a = false } finally { }
+  try { dataformat_1b = dataformat_1a.json_datastore } catch (err) { console.log("df1b failed", err); dataformat_1b = false } finally { }
   try { dataformat_2 = unescape(dataformat_1b) } catch (err) { console.log("df2 failed", err); dataformat_2 = false } finally { }
   try { dataformat_3 = Object(JSON.parse(dataformat_2)) } catch (err) { console.log("df3 failed", err); dataformat_3 = false } finally { }
   try { dataformat_4 = Array(dataformat_3) } catch (err) { console.log("df4 failed", err); dataformat_4 = false } finally { }
-  try { dataformat_5 = ifError(dataformat_4, [0].component) } catch (err) { console.log("CT failed", err); dataformat_5 = false } finally { }
+  try { dataformat_5 = dataformat_4[0].component } catch (err) { console.log("CT failed", err); dataformat_5 = false } finally { }
   let fixedShit = {
     "F1": dataformat_1,
     "F1a": dataformat_1a,
@@ -125,7 +113,6 @@ function bullshitFixer(shitToFix) {
     "F4": dataformat_4,
     "SliceType": dataformat_5
   }
-
   console.log("===============================================================\n=========================", dataformat_5, "=========================\n===============================================================\n", fixedShit, "\n===============================================================");
   return fixedShit;
 }
@@ -145,7 +132,7 @@ function ifError(item) {
 </script>      
 <template>
   <!---============================================================================================================================================================================================================-->
-  <!------------------------------------------------ MODOCOSM SLICE MASTER ------------------------------------------------------------------------------------------------------------------------------------------>
+  <!------------------------------------------------ MODOCOSM SLICE MASTER ---------------------------------------------------------------------------------------------------------------------------------------------------->
   <!---============================================================================================================================================================================================================-->
   {{ JSON.stringify(pageblocks) }}
   <section v-for="(slice, index) in pageblocks" :class="[slice.alt, slice.component]" :id="`section_` + index" :key="index">
@@ -190,7 +177,6 @@ function ifError(item) {
   
   <!------------------------------------------------ END SLICE MASTER ---------------------------------------------------------------------------------------------------------------------------------------------------->
 </template>
-                <!------------------------------------------------ FOOTER START ---------------------------------------------------------------------------------------------------------------------------------------------------->
-                
-                <!------------------------------------------------ FOOTER END ---------------------------------------------------------------------------------------------------------------------------------------------------->
-<style scoped></style>
+<!------------------------------------------------ FOOTER START ---------------------------------------------------------------------------------------------------------------------------------------------------->
+
+<!------------------------------------------------ FOOTER END ---------------------------------------------------------------------------------------------------------------------------------------------------->

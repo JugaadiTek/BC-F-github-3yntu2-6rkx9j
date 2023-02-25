@@ -38,8 +38,7 @@ async function fetchData() {
             v-for="(article, index) in articles"
             :key="index"
             :article="article"
-            :bordered="index !== articles.length - 1"
-          />
+            :bordered="index !== articles.length - 1"      />
         </div>
       </div>
     </section>
