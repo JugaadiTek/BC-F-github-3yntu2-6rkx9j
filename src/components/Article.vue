@@ -56,7 +56,7 @@ defineProps({
           style="color:green; !important"
           :to="`/articles/${article.id}`"
         >
-          <!-- {{ article.title }} -->
+          {{ article.title }}
         </RouterLink>
       </h1>
       <!-- <h1>{{ response.data }}</h1> -->
