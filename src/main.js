@@ -4,6 +4,8 @@ import { createApp } from "vue";
 import "modern-normalize";
 import App from "./App.vue";
 import router from "./router";
+// import "modern-normalize";
+import "./stylesheet/main.css";
 
 
 

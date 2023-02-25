@@ -2,8 +2,6 @@
 defineProps({
   navbtn: []
 })
-
-
 </script>
   
 <template>

@@ -1,7 +1,7 @@
 <script setup>
 import { ref } from 'vue';
 import { directus } from '@/services/directus';
-import Hero from '@/components/Hero.vue';
+// import Hero from '@/components/Hero.vue';
 import Article from '@/components/Article.vue';
 
 const hero = ref(null);
