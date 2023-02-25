@@ -1,6 +1,33 @@
 <script setup>
 import { RouterLink } from 'vue-router';
 import { getAssetURL } from '@/utils/get-asset-url';
+import axios from 'axios'
+
+// var axios = require('axios');
+
+// var axios = require('axios');
+
+var config = {
+  method: 'get',
+maxBodyLength: Infinity,
+  url: 'https://cms-buychain-pb01.up.railway.app/items/home_nosql_datastore?fields=nosql_datastore_id,nosql_datastore_id.json_datastore',
+  headers: { }
+};
+
+axios(config)
+.then(function (response) {
+  console.log(JSON.stringify(response.data));
+  this.$props.response = response.data
+  
+
+const json = JSON.stringify(response.data);
+
+console.log(json.replace(/\\n/g, ''))
+})
+
+.catch(function (error) {
+  console.log(error);
+});
 
 defineProps({
   article: {
@@ -24,6 +51,7 @@ defineProps({
     </div> -->
     <div class="article__bottomWrapper">
       <h1 class="article__title">
+
         <RouterLink
           style="color:green; !important"
           :to="`/articles/${article.id}`"
@@ -31,6 +59,9 @@ defineProps({
           {{ article.title }}
         </RouterLink>
       </h1>
+      <!-- <h1>{{ response.data }}</h1> -->
+      <h2>{{ response.data }}</h2>
+
       <div class="article__detail">
         <div class="article__detailAuthor">
           <!-- <img
