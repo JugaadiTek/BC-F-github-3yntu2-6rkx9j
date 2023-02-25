@@ -1,10 +1,8 @@
 <script setup>
-defineProps({
-  navbtn: []
-})
-
-    
-    </script>
+// defineProps({
+//   navbtn: []
+// })
+</script>
   
 <template>
   <div class="container">
