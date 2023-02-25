@@ -1,7 +1,7 @@
 <script setup>
-// defineProps({
-//   navbtn: []
-// })
+defineProps({
+  navbtn: []
+})
 </script>
   
 <template>

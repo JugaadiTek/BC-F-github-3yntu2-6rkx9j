@@ -18,6 +18,7 @@ const router = useRouter();
 const route = useRoute();
 const article = ref(null);
 const moreArticles = ref(null);
+let pageblocks = "";
 fetchData();
 
 
@@ -27,30 +28,41 @@ async function fetchData() {
   let articleResponse;
   try {
     articleResponse = await directus.items('home').readOne(id, {
-      fields: ['grab_a_slice.nosql_datastore_id.json_datastore', 'id'],
+      fields: ['grab_a_slice.nosql_datastore_id.json_datastore', 'id',],
     });
     const formattedArticle = { ...articleResponse, };
-
+    
     const moreArticlesResponse = await directus.items('home').readByQuery({
       fields: ['id', 'title'],
       filter: {
         _and: [
-          { id: { _neq: articleResponse.id } },
-          { status: { _eq: 'published' } },
+        { id: { _neq: articleResponse.id } },
+        { status: { _eq: 'published' } },
         ],
       },
       limit: 20,
     });
-
+    
     const formattedMoreArticles = moreArticlesResponse.data.map(
-      (moreArticle) => {
-        return { ...moreArticle, };
-      }
+    (moreArticle) => {
+      return { ...moreArticle, };
+    }
     );
-
-    article.value = flattenObj(formattedArticle);
-    moreArticles.value = flattenObj(formattedMoreArticles);
-
+    
+    // article.value = flattenObj(formattedArticle);
+    // moreArticles.value = flattenObj(formattedMoreArticles);
+    article.value = formattedArticle;
+    moreArticles.value = formattedMoreArticles;
+    
+    try {
+      if (article.value.grab_a_slice > 0) {
+        pageblocks = article
+      }
+      return item
+    } catch (err) {
+      console.log("Error: ", err)
+      return "ERROR";
+    } 
   } catch (err) {
     router.replace({ name: 'not-found', params: { catchAll: route.path } });
   }
@@ -61,17 +73,17 @@ async function fetchData() {
 const flattenObj = (ob) => {                               // The object which contains the
   let result = {};                                       // final result
   for (const i in ob) {                                  // loop through the object "ob"
-    // We check the type of the i using                // typeof() function and recursively                // call the function again
-    if ((typeof ob[i]) === 'object' && !Array.isArray(ob[i])) {
-      const temp = flattenObj(ob[i]);
-      for (const j in temp) {
-        result[i + '.' + j] = temp[j];              // Store temp in result
-      }
+  // We check the type of the i using                // typeof() function and recursively                // call the function again
+  if ((typeof ob[i]) === 'object' && !Array.isArray(ob[i])) {
+    const temp = flattenObj(ob[i]);
+    for (const j in temp) {
+      result[i + '.' + j] = temp[j];              // Store temp in result
     }
-    else { result[i] = ob[i]; } // Else store ob[i] in result directly 
   }
-  console.log(result)
-  return result;
+  else { result[i] = ob[i]; } // Else store ob[i] in result directly 
+}
+console.log(result)
+return result;
 };
 
 //================================================================================================
@@ -104,63 +116,67 @@ function bullshitFixer(shitToFix) {
   console.log("===============================================================\n=========================", dataformat_5, "=========================\n===============================================================\n", fixedShit, "\n===============================================================");
   return fixedShit;
 }
-
+//================================================================================================
+//========== FUNCTION TO CHECK FOR ERRORS IN THE DATA ============================================
+//================================================================================================
 function ifError(item) {
-  console.log("error check")
+  console.log("starting ifError")
   try {
+    console.log("trying to return item")
     return item
   } catch (err) {
     console.log("Error: ", err)
-    return "ERROR ERROR ERROR";
-  } finally {
-    console.log("finally")
-  }
+    return "ERROR";
+  } 
 }
-
-</script>
-        
+</script>      
 <template>
   <!---============================================================================================================================================================================================================-->
   <!------------------------------------------------ MODOCOSM SLICE MASTER ---------------------------------------------------------------------------------------------------------------------------------------------------->
   <!---============================================================================================================================================================================================================-->
-  <!-- <h1> {{ ifError(JSON.stringify(article.title)) }}</h1> -->
-  <!-- <section v-for="(slice, index) in article.grab_a_slice" :class="[slice.alt, slice.component]" :id="`section_` + index"
-    :key="index"> -->
-    <!-- <h1>{{ ifError(slice[index].nosql_datastore_id.json_datastore) }}</h1> -->
-
-    <!-- <div v-if="ifError(bullshitFixer(slice).SliceType) == 'hero'">
-      <hero :herocont="bullshitFixer(slice)[0].F4" />
-    </div>              
-    <div :class="container" v-else-if="slice.component !== 'servicecard'">
-        <servicescard :servicecardCont="(JSON.stringify(bullshitFixer(slice)).F4[1].bricks)" />
+  {{ JSON.stringify(pageblocks) }}
+  <section v-for="(slice, index) in pageblocks" :class="[slice.alt, slice.component]" :id="`section_` + index" :key="index">
+    <div class ="codecont">
+      <div class = "codeloop">
+        <div>
+          <code>
+            {{ JSONslice }}
+          </code>
+        </div>
+      </div>
     </div>
-    <div v-else-if="slice.component == 'imageWithContentList'">
-        <imageWithContentList :contPairCont="(bullshitFixer(slice)).F4[2].bricks" />
-    </div>
-    <div v-else-if="slice.component == 'ctaHero'">
-        <ctaHero :ctaHeroCont="slice.bricks" />
-    </div>
-    <div v-else-if="slice.component == 'ContentPairsRepeater'">
-        <ContentPairsRepeater :pairsRepeaterCont="slice.bricks" />
-    </div>
-    <div v-else-if="slice.component == 'imgSlider'">
-        <imgSlider :sliderCont="slice.bricks" />
-    </div>
-    <div :class="container" v-else-if="slice.component == 'artcont'">
-        <artcont :artcontent="slice.bricks" />
-    </div>
-    <div :class="container" v-else-if="slice.component == 'postfeed'">
-        <postfeed :postsCont="slice.bricks" />
-    </div>
-    <div :class="container" v-else-if="slice.component == 'newsletter'">
-        <newsletter />
-    </div> -->
-
-  <!-- </section> -->
-
+  </section>
+  <!-- <div v-if="ifError(bullshitFixer(slice).SliceType) == 'hero'">
+    <hero :herocont="bullshitFixer(slice)[0].F4" />
+  </div>              
+  <div :class="container" v-else-if="slice.component !== 'servicecard'">
+    <servicescard :servicecardCont="(JSON.stringify(bullshitFixer(slice)).F4[1].bricks)" />
+  </div>
+  <div v-else-if="slice.component == 'imageWithContentList'">
+    <imageWithContentList :contPairCont="(bullshitFixer(slice)).F4[2].bricks" />
+  </div>
+  <div v-else-if="slice.component == 'ctaHero'">
+    <ctaHero :ctaHeroCont="slice.bricks" />
+  </div>
+  <div v-else-if="slice.component == 'ContentPairsRepeater'">
+    <ContentPairsRepeater :pairsRepeaterCont="slice.bricks" />
+  </div>
+  <div v-else-if="slice.component == 'imgSlider'">
+    <imgSlider :sliderCont="slice.bricks" />
+  </div>
+  <div :class="container" v-else-if="slice.component == 'artcont'">
+    <artcont :artcontent="slice.bricks" />
+  </div>
+  <div :class="container" v-else-if="slice.component == 'postfeed'">
+    <postfeed :postsCont="slice.bricks" />
+  </div>
+  <div :class="container" v-else-if="slice.component == 'newsletter'">
+    <newsletter />
+  </div> -->
+  
+  
   <!------------------------------------------------ END SLICE MASTER ---------------------------------------------------------------------------------------------------------------------------------------------------->
 </template>
-                <!------------------------------------------------ FOOTER START ---------------------------------------------------------------------------------------------------------------------------------------------------->
-                
-                <!------------------------------------------------ FOOTER END ---------------------------------------------------------------------------------------------------------------------------------------------------->
-               
+<!------------------------------------------------ FOOTER START ---------------------------------------------------------------------------------------------------------------------------------------------------->
+
+<!------------------------------------------------ FOOTER END ---------------------------------------------------------------------------------------------------------------------------------------------------->
