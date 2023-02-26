@@ -1,6 +1,10 @@
 <script setup>
+import { imagePrefix } from '@/utils/imgurlPrefix.js';
+
+
 defineProps({
   data: {Object},
+  preImgUrl: String,
   sliceType: String,
 })
 </script>
@@ -25,7 +29,7 @@ defineProps({
           </span>
         </div>
         <span v-for="image in JSON.parse(data).bricks.imageList">
-        <img class="ctaImg " :src="image.imageurl" alt="">
+        <img class="ctaImg " :src="[imagePrefix(preImgUrl)] + image.imageurl" alt="">
         </span>
       </div>
     </div>

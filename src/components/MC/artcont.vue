@@ -2,6 +2,7 @@
 defineProps({
   data: {Object},
   sliceType: String,
+  
 })
 </script>
 

@@ -1,8 +1,10 @@
 <script setup>
-// import { setSliceVars } from '@/utils/setSliceVars.js'
+import { imagePrefix } from '@/utils/imgurlPrefix.js';
+
 
 defineProps({
   data: {Object},
+  preImgUrl: String,
   sliceType: String,
 })
 </script>
@@ -20,7 +22,7 @@ defineProps({
       <div class="content-block">
         <div v-for="(repeater, index) in JSON.parse(data).bricks" :key="index">
 
-          <img :src="repeater.imgurl" alt="" height="220" width="370">
+          <img :src="[imagePrefix(preImgUrl)] + repeater.imgurl" alt="" height="220" width="370">
 
           <div>
             <code>

@@ -1,4 +1,5 @@
 <script setup>
+
 defineProps({
   data: [Object],
   sliceType: String,

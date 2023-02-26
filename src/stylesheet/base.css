@@ -369,11 +369,11 @@ li:active .answer,li:hover .answer, li:focus .answer {
 }
 
 .ctaHero {
-    background-image: url('src/assets/images/ctaHeroBG.jpg');
+    background-image: url('/src/images/ctaHeroBG.jpg');
     max-height: 613px;
 }
 .hero {
-    background-image: url('src/assets/images/heroBG.jpg');
+    background-image: url('/src/images/heroBG.jpg');
     height: 100vh;
     align-items: center;
     top: 50%;

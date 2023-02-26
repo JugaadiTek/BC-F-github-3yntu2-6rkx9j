@@ -2,20 +2,20 @@
 import { ref } from 'vue';
 import { directus } from '@/services/directus';
 import { RouterLink, useRoute, useRouter } from 'vue-router';
-import { getAssetURL } from '@/utils/get-asset-url';
 import sliceLogic from '@/utils/sliceLogic.vue';
+// import { getAssetURL } from '@/utils/get-asset-url';
 // =========================  COMPONENTS  ==========================================================
 // import hero from "@/components/MC/hero.vue";
 // import QueryString from 'qs';
 // import { KeyObject } from 'crypto';
-//import servicescard from "@/components/MC/servicescard.vue";
-//import imageWithContentList from "@/components/MC/imageWithContentLIst.vue";
-//import imgSlider from "@/components/MC/imgSlider.vue";
-//import ContentPairsRepeater from "@/components/MC/ContentPairsRepeater.vue";
-//import ctaHero from "@/components/MC/ctaHero.vue";
-//import artcont from "@/components/MC/artcont.vue";
-//import postfeed from "@/components/MC/postfeed.vue";
-//import newsletter from "@/components/MC/newsletter.vue";
+// import servicescard from "@/components/MC/servicescard.vue";
+// import imageWithContentList from "@/components/MC/imageWithContentLIst.vue";
+// import imgSlider from "@/components/MC/imgSlider.vue";
+// import ContentPairsRepeater from "@/components/MC/ContentPairsRepeater.vue";
+// import ctaHero from "@/components/MC/ctaHero.vue";
+// import artcont from "@/components/MC/artcont.vue";
+// import postfeed from "@/components/MC/postfeed.vue";
+// import newsletter from "@/components/MC/newsletter.vue";
 // =================================================================================================
 const router = useRouter();
 const route = useRoute();
@@ -24,6 +24,7 @@ const moreArticles = ref(null);
 // let pageblocks = "";
 fetchData();
 
+var preImgUrl = "https://cms-buychain-pb01.up.railway.app/";
 
 // Directus API call to get the article data via the directus sdk using the id from the route params
 async function fetchData() {
@@ -170,7 +171,7 @@ function createNewObject(sliceobj) {
   <!------------------------------------------------ MODOCOSM SLICE MASTER ---------------------------------------------------------------------------------------------------------------------------------------------------->
   <!---============================================================================================================================================================================================================-->
   
-  <section v-for="(slice, index) in article.grab_a_slice" >
+  <section v-for="(slice, index) in article.grab_a_slice"  >
     <sliceLogic 
     :sliceType="createNewObject(slice.nosql_datastore_id.json_datastore).component" 
     :sliceData="JSON.stringify(createNewObject(slice.nosql_datastore_id.json_datastore))" 

@@ -1,20 +1,23 @@
 <script setup>
+import { imagePrefix } from '@/utils/imgurlPrefix.js';
+
 
 defineProps({
-  data: {Object},
+  data: { Object },
   sliceType: String,
+  preImgUrl: String,
+
 })
 </script>
 
 
 <template>
-
-<div class="codecont">
+  <div class="codecont">
     <div class="codeloop">
       <h1>content pair</h1>
-    <code class="title">{{ JSON.parse(data) }}</code>
+      <code class="title">{{ JSON.parse(data) }}</code>
     </div>
-    </div>
+  </div>
   <div class="inner-container">
     <div class="content">
       <div class="content-block">
@@ -23,7 +26,7 @@ defineProps({
           <p>{{ JSON.parse(data).bricks.description }}</p>
         </span>
         <span>
-          <img v-for="image in cJSON.parse(data).bricks.imageList" :src="image.imageurl" alt="">
+          <img v-for="image in JSON.parse(data).bricks.imageList" :src="[imagePrefix(preImgUrl)] + image.imageurl" alt="">
         </span>
       </div>
     </div>
@@ -38,7 +41,7 @@ defineProps({
 }
 
 .content-block {
-   align-items: center;
+  align-items: center;
 }
 
 h2 {

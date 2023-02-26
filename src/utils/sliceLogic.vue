@@ -22,13 +22,13 @@ import flexItemDisplay from '@/components/MC/flexItemDisplay.vue';
 
 defineProps({
   sliceData: Object,
-  sliceType: String
+  sliceType: String,
 })
 
 </script>
 
 <template>
-  <div  v-if="sliceType == 'hero'">
+  <div  v-if="sliceType == 'hero'" :class="sliceType">
     <hero :data="sliceData" :sliceType="sliceType" />
   </div>
 
