@@ -1,6 +1,8 @@
-<script setup>
+<script setup lang="ts">
 defineProps({
-  footerCont: []
+  footerCont: {
+    type: Object,
+    required: true,}
 })
 </script>
 
@@ -8,7 +10,6 @@ defineProps({
 <template>
   <div class="container footer-container">
     <div class="content-block">
-
       <div>
         <ul>
           <li v-for="image in footerCont.imageList">

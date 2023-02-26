@@ -19,7 +19,7 @@
 } */
 
 .codeloop {
-    /* background: #100925; */
+    background: #100925;
     height: 100%;
     /* width: 500px; */
     display: block;
@@ -29,13 +29,13 @@
     /* right: -480px; */
     overflow-x: scroll;
     transition: 500ms;
-    /* box-shadow: 0 0 6px 2px #000000; */
+    box-shadow: 0 0 6px 2px #000000;
     transition-delay: 3s;
 }
 
 .codeloop:hover {
     /* right: 0; */
-    /* box-shadow: 0 0 160px 4px #202030; */
+    box-shadow: 0 0 160px 4px #202030;
     transition-delay: .4s;
 }
 
@@ -47,7 +47,7 @@
     
 }
 
-.codeloop div:has(>code) {
+.codeloop div:has(>pre) {
     background: #20406050;
     margin: 16px auto;
     box-shadow: 3px 3px 6px 1px #000000;

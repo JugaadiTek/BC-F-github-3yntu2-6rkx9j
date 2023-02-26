@@ -3,7 +3,7 @@ import NavBar from '@/components/MC/NavBar.vue';
 import { ref } from 'vue';
 
 
-const navigations = ref([
+let navigations = ref([
   {
     component: "NavBar",
     alt: ["nogap", "darkbg"],

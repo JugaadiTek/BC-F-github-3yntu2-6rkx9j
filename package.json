@@ -3,7 +3,7 @@
   "private": true,
   "scripts": {
     "dev": "vite --host",
-    "build": "vite build",
+    "build": "vite-ssg build",
     "preview": "vite preview --port 5050"
   },
   "dependencies": {

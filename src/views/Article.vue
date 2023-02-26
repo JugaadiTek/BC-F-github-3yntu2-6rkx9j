@@ -5,6 +5,8 @@ import { directus } from '@/services/directus';
 import { getAssetURL } from '@/utils/get-asset-url';
 // =========================  COMPONENTS  ==========================================================
 import hero from "@/components/MC/hero.vue";
+// import QueryString from 'qs';
+// import { KeyObject } from 'crypto';
 //import servicescard from "@/components/MC/servicescard.vue";
 //import imageWithContentList from "@/components/MC/imageWithContentLIst.vue";
 //import imgSlider from "@/components/MC/imgSlider.vue";
@@ -18,7 +20,7 @@ const router = useRouter();
 const route = useRoute();
 const article = ref(null);
 const moreArticles = ref(null);
-let pageblocks = "";
+// let pageblocks = "";
 fetchData();
 
 
@@ -28,7 +30,7 @@ async function fetchData() {
   let articleResponse;
   try {
     articleResponse = await directus.items('home').readOne(id, {
-      fields: ['grab_a_slice.nosql_datastore_id.json_datastore', 'id',],
+      fields: ['grab_a_slice.nosql_datastore_id.json_datastore', 'id'],
     });
     const formattedArticle = { ...articleResponse, };
     
@@ -36,8 +38,8 @@ async function fetchData() {
       fields: ['id', 'title'],
       filter: {
         _and: [
-        { id: { _neq: articleResponse.id } },
-        { status: { _eq: 'published' } },
+        { id: { _eq: articleResponse.id } },
+        { status: { _eq: 'archived' } },
         ],
       },
       limit: 20,
@@ -57,8 +59,8 @@ async function fetchData() {
     try {
       if (article.value.grab_a_slice > 0) {
         pageblocks = article
+        return pageblocks
       }
-      return item
     } catch (err) {
       console.log("Error: ", err)
       return "ERROR";
@@ -129,50 +131,86 @@ function ifError(item) {
     return "ERROR";
   } 
 }
-</script>      
+//================================================================================================
+//============function to convert object to array =================================================
+let freshArray = []
+
+function objectToArray(obj) {
+  freshArray = [obj]
+  console.log(freshArray,obj)
+  return freshArray
+}
+//================================================================================================
+//============function to remove first and last characters from string ===========================
+function removeFirstLastChar(str) {
+  str = str.slice(1, -1);
+  return str
+}
+//================================================================================================
+//============function to create a new object ====================================================
+//================================================================================================
+let newObj
+function createNewObject(sliceobj) {
+  sliceobj = {
+    bump: [
+    JSON.parse(sliceobj)
+    ]
+  }
+  // sliceobj= sliceobj.bump[0]
+  // ctype=obj.bump[0].component
+  console.log(sliceobj.bump[0])
+  return sliceobj.bump[0]
+}
+
+// get values from object
+</script>       
 <template>
   <!---============================================================================================================================================================================================================-->
   <!------------------------------------------------ MODOCOSM SLICE MASTER ---------------------------------------------------------------------------------------------------------------------------------------------------->
   <!---============================================================================================================================================================================================================-->
-  {{ JSON.stringify(pageblocks) }}
-  <section v-for="(slice, index) in pageblocks" :class="[slice.alt, slice.component]" :id="`section_` + index" :key="index">
-    <div class ="codecont">
-      <div class = "codeloop">
-        <div>
-          <code>
-            {{ JSONslice }}
-          </code>
+  
+
+      <section v-for="(slice, index) in article.grab_a_slice" >
+        <div class="devcont">
+    <div class = "devloop">
+        <div :sliceobj="JSON.stringify(createNewObject(slice.nosql_datastore_id.json_datastore))">
+          <pre class="title">{{ index }}-Output Raw
+             {{ JSON.stringify(createNewObject(slice.nosql_datastore_id.json_datastore)) }}</pre>
+          <pre style ="background:#33333350;" class="title">{{ index }}-Output sliceobj: 
+            {{ JSON.stringify(sliceobj) }}</pre>
+        <div  v-if="sliceobj == 'hero'">
+          <hero :herocont="sliceobj" />
         </div>
+        <div  v-else-if="sliceobj !== 'servicecard'" :class="container">
+          <servicescard :servicecardCont="sliceobj" />
+        </div>
+        <div v-else-if="sliceobj == 'imageWithContentList'">
+          <imageWithContentList :contPairCont="sliceobj" />
+        </div>
+        <div v-else-if="sliceobj == 'ctaHero'">
+          <ctaHero :ctaHeroCont="sliceobj" />
+        </div>
+        <div v-else-if="sliceobj == 'ContentPairsRepeater'">
+          <ContentPairsRepeater :pairsRepeaterCont="sliceobj" />
+        </div>
+        <div v-else-if="sliceobj == 'imgSlider'">
+          <imgSlider :sliderCont="sliceobj" />
+        </div>
+        <div v-else-if="sliceobj == 'artcont'"  :class="container">
+          <artcont :artcontent="sliceobj" />
+        </div>
+        <div v-else-if="sliceobj == 'postfeed'" :class="container">
+          <postfeed :postsCont="sliceobj" />
+        </div>
+        <div v-else-if="sliceobj == 'newsletter'" :class="container">
+          <newsletter />
+        </div> 
       </div>
     </div>
-  </section>
-  <!-- <div v-if="ifError(bullshitFixer(slice).SliceType) == 'hero'">
-    <hero :herocont="bullshitFixer(slice)[0].F4" />
-  </div>              
-  <div :class="container" v-else-if="slice.component !== 'servicecard'">
-    <servicescard :servicecardCont="(JSON.stringify(bullshitFixer(slice)).F4[1].bricks)" />
   </div>
-  <div v-else-if="slice.component == 'imageWithContentList'">
-    <imageWithContentList :contPairCont="(bullshitFixer(slice)).F4[2].bricks" />
-  </div>
-  <div v-else-if="slice.component == 'ctaHero'">
-    <ctaHero :ctaHeroCont="slice.bricks" />
-  </div>
-  <div v-else-if="slice.component == 'ContentPairsRepeater'">
-    <ContentPairsRepeater :pairsRepeaterCont="slice.bricks" />
-  </div>
-  <div v-else-if="slice.component == 'imgSlider'">
-    <imgSlider :sliderCont="slice.bricks" />
-  </div>
-  <div :class="container" v-else-if="slice.component == 'artcont'">
-    <artcont :artcontent="slice.bricks" />
-  </div>
-  <div :class="container" v-else-if="slice.component == 'postfeed'">
-    <postfeed :postsCont="slice.bricks" />
-  </div>
-  <div :class="container" v-else-if="slice.component == 'newsletter'">
-    <newsletter />
-  </div> -->
+</section>
+  
+  
   
   
   <!------------------------------------------------ END SLICE MASTER ---------------------------------------------------------------------------------------------------------------------------------------------------->

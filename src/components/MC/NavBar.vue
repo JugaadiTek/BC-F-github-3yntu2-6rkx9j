@@ -1,6 +1,8 @@
-<script setup>
+<script setup lang="ts">
+import { arrayBuffer } from 'stream/consumers';
+
 defineProps({
-  navbtn: []
+  navbtn: {type:Object, required:true}
 })
 </script>
   
