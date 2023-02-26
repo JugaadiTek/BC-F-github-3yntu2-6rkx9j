@@ -1,5 +1,5 @@
 <script setup>
-import { setSliceVars } from '@/utils/setSliceVars.js'
+// import { setSliceVars } from '@/utils/setSliceVars.js'
 defineProps({
   herocont: { Object },
   sliceType: String,
@@ -30,7 +30,7 @@ defineProps({
           </span>
         </div>
         <div>
-          <!-- <img v-for="(image, index) in herocont.bricks.imageList" :src="image.imageurl" :alt="image.alt"> -->
+          <img v-for="(image, index) in JSON.parse(herocont).bricks.imageList" :src="image.imageurl" :alt="image.alt">
         </div>
       </div>
     </div>

@@ -1,7 +1,7 @@
 <script setup>
-import { ref } from 'vue';
-import { directus } from '@/services/directus';
-import { RouterLink, useRoute, useRouter } from 'vue-router';
+// import { ref } from 'vue';
+// import { directus } from '@/services/directus';
+// import { RouterLink, useRoute, useRouter } from 'vue-router';
 // =========================  COMPONENTS  ==========================================================
 import hero from "@/components/MC/hero.vue";
 // import QueryString from 'qs';
@@ -15,6 +15,9 @@ import artcont from "@/components/MC/artcont.vue";
 import postfeed from "@/components/MC/postfeed.vue";
 import newsletter from "@/components/MC/newsletter.vue";
 import contentPair from "@/components/MC/contentPair.vue";
+import FAQs from "@/components/MC/FAQs.vue";
+import contentPairsWithLists from "@/components/MC/contentPairsWithLists.vue";
+import flexItemDisplay from '@/components/MC/flexItemDisplay.vue';
 // =================================================================================================
 
 defineProps({
@@ -33,19 +36,19 @@ defineProps({
     <servicescard :servicecardCont="sliceData" />
   </div>
 
-  <div v-else-if="sliceType == 'imageWithContentList'">
+  <div v-else-if="sliceType == 'imageWithContentList'" :class="container">
     <imageWithContentList :data="sliceData" />
   </div>
 
-  <div v-else-if="sliceType == 'ctaHero'">
+  <div v-else-if="sliceType == 'ctaHero'" :class="container">
     <ctaHero :data="sliceData" />
   </div>
   
-  <div v-else-if="sliceType == 'ContentPairsRepeater'">
+  <div v-else-if="sliceType == 'ContentPairsRepeater'" :class="container">
     <ContentPairsRepeater :data="sliceData" />
   </div>
   
-  <div v-else-if="sliceType == 'imgSlider'">
+  <div v-else-if="sliceType == 'imgSlider'" :class="container">
     <imgSlider :data="sliceData" />
   </div>
   
@@ -65,8 +68,16 @@ defineProps({
     <contentPair :data="sliceData"/>
   </div> 
 
-  <div v-else-if="sliceType == 'ctaHero'" :class="container">
-    <ctaHero />
+  <div v-else-if="sliceType == 'FAQs'" :class="container">
+    <FAQs :data="sliceData"/>
+  </div> 
+
+  <div v-else-if="sliceType == 'contentPairsWithLists'" :class="container">
+    <contentPairsWithLists :data="sliceData"/>
+  </div> 
+
+  <div v-else-if="sliceType == 'flexItemDisplay'" :class="container">
+    <flexItemDisplay :data="sliceData"/>
   </div> 
 
 </template>
