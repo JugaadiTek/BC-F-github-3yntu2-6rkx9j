@@ -21,13 +21,6 @@ defineProps({
       <h2>
         {{ JSON.parse(data).bricks.title }}
       </h2>
-      <!-- <ul v-for=" ques in JSON.parse(data).bricks.items_list">
-              <li>
-                <span class = "question">{{ ques.question }}</span>
-                <span class = "category">{{ ques.category }}</span>
-                <span class = "answer">Oh, you're gonna be in a coma, all right. I'm a monster. As you may or may not know, Lindsay and I have hit a bit of a rough patch. Steve Holt! Army had half a day.Well, what do you expect, mother? Well, what do you expect, mother? Did you enjoy your meal, Mom? You drank it fast enough. I'm half machine. I'm a monster It's a hug, Michael. I'm hugging you. Steve Holt! Army had half a day. We just call it a sausage.</span>
-              </li>
-            </ul> -->
       
       <div class="wrap-collabsible" v-for=" (ques, index) in JSON.parse(data).bricks.items_list" key="index">
         <input :id="'collapsible2' + index" class="toggle" type="checkbox" checked="">
