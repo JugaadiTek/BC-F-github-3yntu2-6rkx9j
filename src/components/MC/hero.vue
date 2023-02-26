@@ -1,7 +1,5 @@
 <script setup>
-// import { setSliceVars } from '@/utils/setSliceVars.js'
 import { imagePrefix } from '@/utils/imgurlPrefix.js';
-// import preImgUrl from '@/compnents/MC/article.vue'
 
 defineProps({
   data: { Object },
@@ -23,24 +21,25 @@ defineProps({
 
 
   <div class="inner-container">
-    <img class="hero" :src="JSON.parse(data).bricks.heroBG" :alt="JSON.parse(data).bricks.AltText">
+    <!-- <img class="hero" :src="JSON.parse(data).heroBG" :alt="JSON.parse(data).AltText"> -->
     <div class="content">
       <div class="content-block">
         <div>
-          <img v-for="(logo, index) in JSON.parse(data).imageList" 
-            :key="index"
+          <span v-for="(logo, index) in JSON.parse(data).bricks.imageList" 
+            :key="index">
+          <img v-if="logo.type == 'aboveImg_logo'"
             :src="[imagePrefix(preImgUrl)] + logo.imageurl" 
             :alt="JSON.parse(data).bricks.AltText">
+          </span>
           <h2>{{ JSON.parse(data).bricks.title }}</h2>
           <p>{{ JSON.parse(data).bricks.description }}</p>
-          <span v-for="(atom, index) in JSON.parse(data).bricks.atoms" :key="index">
+          <span v-for="(atom, index) in JSON.parse(data).bricks.atoms" :key="index" >
             <a :class="[atom.type, atom.variant, atom.styleMods]" :href="atom.url">{{ atom.text }}</a>
           </span>
         </div>
-        <div>
-          <img v-for="(image, index) in JSON.parse(data).bricks.imageList" :key="index"
-            :src="[imagePrefix(preImgUrl)] + image.imageurl" :alt="image.alt">
-        </div>
+        <span v-for="(image, index) in JSON.parse(data).bricks.imageList" :key="index">
+          <img v-if="image.type== 'img_halfContent'" :src="[imagePrefix(preImgUrl)] + image.imageurl" :alt="image.alt">
+        </span>
       </div>
     </div>
   </div>
@@ -53,7 +52,7 @@ defineProps({
   gap: 100px;
 }
 
-.content-block>div:last-of-type>img {
+.content-block>span>img {
   border: 22px solid var(--bg-layer-100);
   border-radius: 20px;
 }
