@@ -29,11 +29,11 @@ defineProps({
 
 <template>
   <div  v-if="sliceType == 'hero'">
-    <hero :herocont="sliceData" :sliceType="sliceType" />
+    <hero :data="sliceData" :sliceType="sliceType" />
   </div>
 
   <div  v-else-if="sliceType == 'servicecard'" :class="container">
-    <servicescard :servicecardCont="sliceData" />
+    <servicescard :data="sliceData" />
   </div>
 
   <div v-else-if="sliceType == 'imageWithContentList'" :class="container">

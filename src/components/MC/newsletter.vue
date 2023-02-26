@@ -12,7 +12,7 @@ defineProps({
 <div class="codecont">
     <div class="codeloop">
       <h1>news letter</h1>
-      <pre class="title">{{ JSON.parse(data) }}</pre>
+      <code class="title">{{ JSON.parse(data) }}</code>
     </div>
   </div>
       <!-- <div class="inner-container">

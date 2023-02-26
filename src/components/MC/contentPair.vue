@@ -13,7 +13,7 @@ defineProps({
 <div class="codecont">
     <div class="codeloop">
       <h1>service card</h1>
-    <pre class="title">{{ JSON.parse(data) }}</pre>
+    <code class="title">{{ JSON.parse(data) }}</code>
     <code>{{ setSliceVars(data) }}</code>
     </div>
     </div>
