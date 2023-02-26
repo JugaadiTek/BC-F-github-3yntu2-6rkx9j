@@ -138,26 +138,26 @@ function removeFirstLastChar(str) {
 //================================================================================================
 //============function to create a new object ====================================================
 //================================================================================================
-let newObj
+let json
 function createNewObject(sliceobj) {
-  sliceobj = {
+  json = {
     bump: [
     JSON.parse(sliceobj)
     ]
   }
+  constant sliceobj.replace(/\\n/g, ' ');
   // sliceobj= sliceobj.bump[0]
   // ctype=obj.bump[0].component
-  console.log(sliceobj.bump[0])
-  return sliceobj.bump[0]
+  return json.replace(sliceobj.bump[0])
+  // return sliceobj.bump[0]
 }
-
 // get values from object
 </script>       
 <template>
   <!---============================================================================================================================================================================================================-->
   <!------------------------------------------------ MODOCOSM SLICE MASTER ---------------------------------------------------------------------------------------------------------------------------------------------------->
   <!---============================================================================================================================================================================================================-->
-  
+
   <section v-for="(slice, index) in article.grab_a_slice" >
     <sliceLogic 
     :sliceType="createNewObject(slice.nosql_datastore_id.json_datastore).component" 
