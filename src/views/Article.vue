@@ -169,11 +169,9 @@ function createNewObject(sliceobj) {
   <!------------------------------------------------ MODOCOSM SLICE MASTER ---------------------------------------------------------------------------------------------------------------------------------------------------->
   <!---============================================================================================================================================================================================================-->
   
+  <!-- <div :sliceobj="JSON.stringify(createNewObject(slice.nosql_datastore_id.json_datastore))"> -->
 
       <section v-for="(slice, index) in article.grab_a_slice" >
-        <div class="devcont">
-    <div class = "devloop">
-        <div :sliceobj="JSON.stringify(createNewObject(slice.nosql_datastore_id.json_datastore))">
           <pre class="title">{{ index }}-Output Raw
              {{ JSON.stringify(createNewObject(slice.nosql_datastore_id.json_datastore)) }}</pre>
           <pre style ="background:#33333350;" class="title">{{ index }}-Output sliceobj: 
@@ -205,9 +203,6 @@ function createNewObject(sliceobj) {
         <div v-else-if="sliceobj == 'newsletter'" :class="container">
           <newsletter />
         </div> 
-      </div>
-    </div>
-  </div>
 </section>
   
   
