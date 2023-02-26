@@ -27,7 +27,9 @@ OPTIONAL
 ```JSX
 <section v-for="(slice, index) in article.grab_a_slice" >
     <slicelogic 
-    :sliceType="createNewObject(slice.nosql_datastore_id.json_datastore).component" :sliceData="JSON.stringify(createNewObject(slice.nosql_datastore_id.json_datastore))" :index="index" />
+    :sliceData="JSON.stringify(createNewObject(slice.nosql_datastore_id.json_datastore))" 
+    :index="index" />
+    :sliceType="sliceData.component" 
 </section>
 ```
 In slicelogic.vue

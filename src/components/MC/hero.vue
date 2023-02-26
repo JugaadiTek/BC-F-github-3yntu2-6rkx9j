@@ -1,7 +1,8 @@
 <script setup>
 import { setSliceVars } from '@/utils/setSliceVars.js'
 defineProps({
-  herocont: []
+  herocont: {Object},
+  sliceType: String,
 })
 
 </script>
@@ -15,23 +16,24 @@ defineProps({
 </div>
 
 
-  <!-- <div class="inner-container">
+  <div class="inner-container">
+    <img class = "hero" :src="herocont.bricks.heroBG" :alt="herocont.bricks.AltText">
                 <div class="content">
                   <div class="content-block">
                     <div>
-                      <img src="" alt="">
-                      <h2>{{ herocont.title }}</h2>
-                      <p>{{ herocont.description }}</p>
-                      <span v-for="(atom, index) in herocont.atoms" :key="index">
+                      <img class = "hero" :src="herocont.bricks.heroBG" :alt="herocont.bricks.AltText">
+                      <h2>{{ herocont.bricks.title }}</h2>
+                      <p>{{ herocont.bricks.description }}</p>
+                      <span v-for="(atom, index) in herocont.bricks.atoms" :key="index">
                         <a :class="[atom.type, atom.variant, atom.styleMods]" :href="atom.url">{{ atom.text }}</a>
                       </span>
                     </div>
                     <div>
-                      <img v-for="image in herocont.imageList" :src="image.imageurl" alt="">
+                      <img v-for="(image,index) in herocont.bricks.imageList" :src="image.imageurl" :alt="image.alt">
                     </div>
                   </div>
                 </div>
-              </div> -->
+              </div>
 </template>
 
 <style scoped>
