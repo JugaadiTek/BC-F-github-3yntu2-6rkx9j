@@ -16,7 +16,7 @@ defineProps({
     <code>{{ setSliceVars(servicecardCont) }}</code>
     </div>
     </div>
-  <!-- <div class="inner-container">
+  <div class="inner-container">
     <div class="content">
       <div class="content-block">
         <span>
@@ -28,7 +28,7 @@ defineProps({
         </span>
       </div>
     </div>
-  </div> -->
+  </div>
 </template>
 
 <style scoped>

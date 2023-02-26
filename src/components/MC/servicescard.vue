@@ -4,6 +4,7 @@ import { setSliceVars } from '@/utils/setSliceVars.js'
 defineProps({
   servicecardCont: []
 })
+
 </script>
 
 
