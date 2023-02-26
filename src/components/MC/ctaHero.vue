@@ -1,24 +1,30 @@
 <script setup>
 defineProps({
-  ctaHeroCont: []
+  data: {Object},
+  sliceType: String,
 })
-
-
 </script>
 
 
 <template>
+
+<div class="codecont">
+    <div class="codeloop">
+      <h1>cta hero</h1>
+      <pre class="title">{{ JSON.parse(data) }}</pre>
+    </div>
+  </div>
   <div class="inner-container">
     <div class="content">
       <div class="content-block flexClass">
         <div>
-          <h2>{{ ctaHeroCont.title }}</h2>
-          <p>{{ ctaHeroCont.description }}</p>
-          <span v-for="button in ctaHeroCont.atoms">
+          <h2>{{ JSON.parse(data).bricks.title }}</h2>
+          <p>{{ JSON.parse(data).bricks.description }}</p>
+          <span v-for="button in JSON.parse(data).bricks.atoms">
           <a :class="[button.type, button.variant, button.styleModifiers]" :href="button.url">Schedule demo</a>
           </span>
         </div>
-        <span v-for="image in ctaHeroCont.imageList">
+        <span v-for="image in JSON.parse(data).bricks.imageList">
         <img class="ctaImg " :src="image.imageurl" alt="">
         </span>
       </div>

@@ -1,15 +1,22 @@
 <script setup>
 defineProps({
-  sliderCont: []
+  data: [Object],
+  sliceType: String,
 })
 </script>
 
 
 <template>
+  <div class="codecont">
+    <div class="codeloop">
+      <h1>imgSlider</h1>
+      <pre class="title">{{ JSON.parse(data) }}</pre>
+    </div>
+  </div>
   <div class="inner-container">
     <div class="content">
       <div class="content-block">
-        <div v-for="slide in sliderCont.slides" >
+        <div v-for="slide in JSON.parse(data).bricks.slides" >
           <p>{{ slide.icon }}</p>
           <h3>{{ slide.testimony }}</h3>
           <span>

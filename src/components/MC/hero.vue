@@ -25,7 +25,7 @@ defineProps({
           <img class="hero" :src="JSON.parse(herocont).bricks.heroBG" :alt="JSON.parse(herocont).bricks.AltText">
           <h2>{{JSON.parse(herocont).bricks.title}}</h2>
           <p>{{JSON.parse(herocont).bricks.description}}</p>
-          <span v-for="(atom, index) in JSON.parse(herocont).bricks.title" :key="index">
+          <span v-for="(atom, index) in JSON.parse(herocont).bricks.atoms" :key="index">
             <a :class="[atom.type, atom.variant, atom.styleMods]" :href="atom.url">{{ atom.text }}</a>
           </span>
         </div>

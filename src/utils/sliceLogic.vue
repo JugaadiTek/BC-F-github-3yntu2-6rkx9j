@@ -2,10 +2,10 @@
 // import { ref } from 'vue';
 // import { directus } from '@/services/directus';
 // import { RouterLink, useRoute, useRouter } from 'vue-router';
+// import { KeyObject } from 'crypto';
+// import QueryString from 'querystring';
 // =========================  COMPONENTS  ==========================================================
 import hero from "@/components/MC/hero.vue";
-// import QueryString from 'qs';
-// import { KeyObject } from 'crypto';
 import servicescard from "@/components/MC/servicescard.vue";
 import imageWithContentList from "@/components/MC/imageWithContentLIst.vue";
 import imgSlider from "@/components/MC/imgSlider.vue";

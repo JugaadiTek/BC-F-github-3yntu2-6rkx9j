@@ -1,12 +1,19 @@
 <script setup>
 defineProps({
-  servicecardCont: []
+  servicecardCont: [Object],
+  sliceType: String,
 })
 
 </script>
 
 
 <template>
+  <div class="codecont">
+    <div class="codeloop">
+      <h1>service card</h1>
+      <pre class="title">{{ JSON.parse(servicecardCont) }}</pre>
+    </div>
+  </div>
   <div class="inner-container">
     <div class="content">
       <div class="content-block">

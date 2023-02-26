@@ -1,21 +1,27 @@
 <script setup>
 defineProps({
-  artcontent: {Object},
+  data: {Object},
   sliceType: String,
 })
 </script>
 
 
 <template>
+  <div class="codecont">
+    <div class="codeloop">
+      <h1>art cont</h1>
+      <pre class="title">{{ JSON.parse(data) }}</pre>
+    </div>
+  </div>
   <div class="inner-container">
     <div class="content">
       <div class="content-block">
-        <h2>{{ JSON.parse(artcont).title }}</h2>
-        <p> {{ JSON.parse(artcont).description }} </p>
-        <p> {{ JSON.parse(artcont).description2 }} </p>
+        <h2>{{ JSON.parse(data).bricks.title }}</h2>
+        <p> {{ JSON.parse(data).bricks.description }} </p>
+        <p> {{ JSON.parse(data).bricks.description2 }} </p>
       </div>
       <span>
-        <a :class="[button.type, button.variant]" v-for="button in JSON.parse(artcont).atoms" href="">{{ button.text }} </a>
+        <a :class="[button.type, button.variant]" v-for="button in JSON.parse(data).bricks.atoms" href="">{{ button.text }} </a>
       </span>
     </div>
   </div>

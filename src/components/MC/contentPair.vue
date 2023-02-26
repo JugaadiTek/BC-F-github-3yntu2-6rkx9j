@@ -2,7 +2,8 @@
 import { setSliceVars } from '@/utils/setSliceVars.js'
 
 defineProps({
-  contentPairData: []
+  data: {Object},
+  sliceType: String,
 })
 </script>
 
@@ -12,8 +13,8 @@ defineProps({
 <div class="codecont">
     <div class="codeloop">
       <h1>service card</h1>
-    <pre class="title">{{ JSON.parse(servicecardCont) }}</pre>
-    <code>{{ setSliceVars(servicecardCont) }}</code>
+    <pre class="title">{{ JSON.parse(data) }}</pre>
+    <code>{{ setSliceVars(data) }}</code>
     </div>
     </div>
   <div class="inner-container">

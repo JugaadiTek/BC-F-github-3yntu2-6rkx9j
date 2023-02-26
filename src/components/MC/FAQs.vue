@@ -1,12 +1,21 @@
 <script setup>
 defineProps({
-  FAQcont: []
+  data: {Object},
+  sliceType: String,
 })
 </script>
 
 
 <template>
-  <div class="inner-container">
+
+<div class="codecont">
+    <div class="codeloop">
+      <h1>faqs</h1>
+      <pre class="title">{{ JSON.parse(data) }}</pre>
+    </div>
+  </div>
+  
+  <!-- <div class="inner-container">
 
     <div class="content-block">
       <h2>
@@ -19,8 +28,8 @@ defineProps({
                 <span class = "answer">Oh, you're gonna be in a coma, all right. I'm a monster. As you may or may not know, Lindsay and I have hit a bit of a rough patch. Steve Holt! Army had half a day.Well, what do you expect, mother? Well, what do you expect, mother? Did you enjoy your meal, Mom? You drank it fast enough. I'm half machine. I'm a monster It's a hug, Michael. I'm hugging you. Steve Holt! Army had half a day. We just call it a sausage.</span>
               </li>
             </ul>
-      <!-- ========================================================== -->
-      <!-- <div class="wrap-collabsible" v-for=" (ques, index) in FAQcont.items_list" key="index">
+      
+      <div class="wrap-collabsible" v-for=" (ques, index) in FAQcont.items_list" key="index">
         <input :id="'collapsible2' + index" class="toggle" type="checkbox" checked="">
         <label :for="'collapsible2' + index" class="lbl-toggle">{{ ques.question }} <span><i
               class="fa-solid fa-user"></i></span> </label>
@@ -30,11 +39,10 @@ defineProps({
             <p>{{ ques.category }}</p>
           </div>
         </div>
-      </div> -->
-      <!-- ========================================================== -->
-    </div>
+      </div>
 
-  </div>
+    </div>
+  </div> -->
 </template>
 
 <style scoped>

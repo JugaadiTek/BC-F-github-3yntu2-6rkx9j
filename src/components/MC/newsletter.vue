@@ -1,11 +1,24 @@
 <script setup>
+
+defineProps({
+  data: {Object},
+  sliceType: String,
+})
+
 </script>
 
 <template>
-      <div class="inner-container">
+
+<div class="codecont">
+    <div class="codeloop">
+      <h1>news letter</h1>
+      <pre class="title">{{ JSON.parse(data) }}</pre>
+    </div>
+  </div>
+      <!-- <div class="inner-container">
         <div class="content-block ">
           <form action="">
-            <!-- check if this is right way to do  -->
+            
             <span>
               <h2>Join Our Newsletter</h2>
             </span>
@@ -29,7 +42,7 @@
 
           </form>
         </div>
-      </div>
+      </div> -->
 </template>
 
 <style scoped >

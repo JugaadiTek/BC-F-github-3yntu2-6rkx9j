@@ -2,22 +2,23 @@
 // import { setSliceVars } from '@/utils/setSliceVars.js'
 
 defineProps({
-  pairsRepeaterCont: []
+  data: {Object},
+  sliceType: String,
 })
 </script>
 
 
 <template>
-   <div class="codecont">
+  <div class="codecont">
     <div class="codeloop">
-      <h1>Hero</h1>
-      <pre class="title">{{ JSON.parse(herocont) }}</pre>
+      <h1>ContentPairsRepeater</h1>
+      <pre class="title">{{ JSON.parse(data) }}</pre>
     </div>
   </div>
-  <!-- <div class="inner-container">
+  <div class="inner-container">
     <div class="content">
       <div class="content-block">
-        <div v-for="(repeater, index) in pairsRepeaterCont" :key="index">
+        <div v-for="(repeater, index) in JSON.parse(data).bricks" :key="index">
 
           <img :src="repeater.imgurl" alt="" height="220" width="370">
 
@@ -35,7 +36,7 @@ defineProps({
         </div>
       </div>
     </div>
-  </div> -->
+  </div>
 </template>
 
 <style scoped>

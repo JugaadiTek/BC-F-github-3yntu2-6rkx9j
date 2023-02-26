@@ -1,21 +1,29 @@
 <script setup>
 defineProps({
-  optionsliceCont: []
+  data: {Object},
+  sliceType: String,
 })
 </script>
 
 <template>
-  <!--<div class="inner-container">
+  <div class="codecont">
+    <div class="codeloop">
+      <h1>flex item display</h1>
+      <pre class="title">{{ JSON.parse(data) }}</pre>
+    </div>
+  </div>
+
+  <!-- <div class="inner-container">
     <div class="content">
-      <div class="content-block">-->
+      <div class="content-block">
   <ul>
     <li v-for="(tokyo, index) in optionsliceCont.gridItems" :key="index">
       <span> <i class="fa-solid fa-user"></i> {{ tokyo.item }}</span>
     </li>
   </ul>
-  <!--</div>
+  </div>
     </div>
-  </div>-->
+  </div> -->
 </template>
 
 <style scoped>

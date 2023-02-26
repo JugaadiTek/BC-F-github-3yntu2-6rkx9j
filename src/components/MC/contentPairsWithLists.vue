@@ -1,11 +1,18 @@
 <script setup>
 defineProps({
-  contentPairListData: []
+  data: {Object},
+  sliceType: String,
 })
 </script>
 
 <template>
-  <div class="inner-container">
+  <div class="codecont">
+    <div class="codeloop">
+      <h1>content paires with lists</h1>
+      <pre class="title">{{ JSON.parse(data) }}</pre>
+    </div>
+  </div>
+  <!-- <div class="inner-container">
     <div class="content">
       <div class="content-block">
         <div>
@@ -22,7 +29,7 @@ defineProps({
         </div>
       </div>
     </div>
-  </div>
+  </div> -->
 </template>
 
 <style scoped>
