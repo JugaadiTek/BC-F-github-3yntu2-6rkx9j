@@ -24,5 +24,4 @@ defineProps({
 .content {
   text-align: center;
 }
-
 </style>
