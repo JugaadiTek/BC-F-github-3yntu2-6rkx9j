@@ -10,12 +10,12 @@ defineProps({
 
 </script>
 <template>
-  <div class="codecont">
+  <!-- <div class="codecont">
     <div class="codeloop">
       <h1>Hero</h1>
       <pre class="title">{{ JSON.parse(data) }}</pre>
     </div>
-  </div>
+  </div> -->
   <!-- <code>{{ setSliceVars(herocont) }}</code> -->
   <!-- <p>{{ imagePrefix(preImgUrl) }}</p> -->
 

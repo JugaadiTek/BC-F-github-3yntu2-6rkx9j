@@ -8,15 +8,14 @@ defineProps({
 
 <template>
 
-<div class="codecont">
+<!-- <div class="codecont">
     <div class="codeloop">
       <h1>faqs</h1>
       <code class="title">{{ JSON.parse(data) }}</code>
     </div>
-  </div>
+  </div> -->
   
   <div class="inner-container">
-
     <div class="content-block">
       <h2>
         {{ JSON.parse(data).bricks.title }}

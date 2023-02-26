@@ -11,12 +11,12 @@ defineProps({
 
 
 <template>
-  <div class="codecont">
+  <!-- <div class="codecont">
     <div class="codeloop">
       <h1>ContentPairsRepeater</h1>
       <code class="title">{{ JSON.parse(data) }}</code>
     </div>
-  </div>
+  </div> -->
   <div class="inner-container">
     <div class="content">
       <div class="content-block">
