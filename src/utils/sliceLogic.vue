@@ -18,9 +18,7 @@ import hero from "@/components/MC/hero.vue";
 
 defineProps({
   sliceData: Object,
-  sliceType: String,
-  // pindex: Number,
-  // required: true
+  sliceType: String
 })
 
 </script>

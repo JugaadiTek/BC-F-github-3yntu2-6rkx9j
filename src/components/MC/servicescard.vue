@@ -1,4 +1,6 @@
 <script setup>
+import { setSliceVars } from '@/utils/setSliceVars.js'
+
 defineProps({
   servicecardCont: []
 })
@@ -6,14 +8,21 @@ defineProps({
 
 
 <template>
-  <div class="inner-container">
+  <div class="codecont">
+    <div class="codeloop">
+      <h1>service card</h1>
+    <pre class="title">{{ JSON.stringify(servicecardCont) }}</pre>
+    <code>{{ setSliceVars(servicecardCont) }}</code>
+    </div>
+    </div>
+  <!-- <div class="inner-container">
     <div class="content">
       <div class="content-block">
         <h2>{{ servicecardCont.title }}</h2>
         <p>{{ servicecardCont.description }}</p>
-        <div>
+        <div> -->
           <!-- cards -->
-          <div v-for="(cardcont, index) in servicecardCont.gridItems" :key="index">
+          <!-- <div v-for="(cardcont, index) in servicecardCont.gridItems" :key="index">
             <p>{{ cardcont.category }}</p>
             <h3> {{ cardcont.icon }} {{ cardcont.sub_header }}</h3>
             <p>{{ cardcont.description }}</p>
@@ -21,9 +30,9 @@ defineProps({
             <h4>{{ cardcont.heading }}</h4>
             <ul>
               <li v-for="(items, index) in cardcont.itemsList" :key="index"> {{ items.icon }} {{ items.item }}</li>
-            </ul>
+            </ul> -->
             <!-- buttons -->
-            <div v-for="(button, index) in cardcont.atoms" :key="index">
+            <!-- <div v-for="(button, index) in cardcont.atoms" :key="index">
               <a :class="[button.type, button.variant]" :href="button.url">{{ button.text }}</a>
             </div>
 
@@ -31,7 +40,7 @@ defineProps({
         </div>
       </div>
     </div>
-  </div>
+  </div> -->
 </template>
 
 <style scoped>
