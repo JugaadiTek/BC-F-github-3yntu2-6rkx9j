@@ -7,8 +7,8 @@
 defineProps({
   sliceData: {},
   sliceType: String,
-  pindex: number,
-  required: true,
+  // pindex: number,
+  // required: true,
 })
 
 </script>

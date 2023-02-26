@@ -2,7 +2,7 @@
 import { ref } from 'vue';
 import { directus } from '@/services/directus';
 import { RouterLink, useRoute, useRouter } from 'vue-router';
-import { getAssetURL } from '@/utils/get-asset-url';
+// import { getAssetURL } from '@/utils/get-asset-url';
 import sliceLogic from '@/utils/sliceLogic.vue';
 // =========================  COMPONENTS  ==========================================================
 // import hero from "@/components/MC/hero.vue";
