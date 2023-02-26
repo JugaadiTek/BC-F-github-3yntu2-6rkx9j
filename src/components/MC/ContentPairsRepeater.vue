@@ -1,5 +1,5 @@
 <script setup>
-import { setSliceVars } from '@/utils/setSliceVars.js'
+// import { setSliceVars } from '@/utils/setSliceVars.js'
 
 defineProps({
   pairsRepeaterCont: []
@@ -10,11 +10,10 @@ defineProps({
 <template>
    <div class="codecont">
     <div class="codeloop">
-      <h1>comtent pair repeater</h1>
-    <pre class="title">{{ JSON.stringify(servicecardCont) }}</pre>
-    <code>{{ setSliceVars(servicecardCont) }}</code>
+      <h1>Hero</h1>
+      <pre class="title">{{ JSON.parse(herocont) }}</pre>
     </div>
-    </div>
+  </div>
   <!-- <div class="inner-container">
     <div class="content">
       <div class="content-block">

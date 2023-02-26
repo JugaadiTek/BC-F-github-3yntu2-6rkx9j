@@ -12,7 +12,7 @@ defineProps({
 <div class="codecont">
     <div class="codeloop">
       <h1>service card</h1>
-    <pre class="title">{{ JSON.stringify(servicecardCont) }}</pre>
+    <pre class="title">{{ JSON.parse(servicecardCont) }}</pre>
     <code>{{ setSliceVars(servicecardCont) }}</code>
     </div>
     </div>

@@ -1,22 +1,29 @@
 <script setup>
 defineProps({
-  contPairCont: []
+  data: {Object},
+  siceType: String,
 })
 </script>
 
 
 <template>
+   <div class="codecont">
+    <div class="codeloop">
+      <h1>image with content list</h1>
+      <pre class="title">{{ JSON.parse(data) }}</pre>
+    </div>
+  </div>
   <div class="inner-container">
     <div class="content">
       <div class="content-block">
         <div>
-          <h2>{{ contPairCont.title }}</h2>
-          <p>{{ contPairCont.description }}</p>
-          <span v-for="(atom, index) in contPairCont.atoms" :key="index">
+          <h2>{{ JSON.parse(data).bricks.title }}</h2>
+          <p>{{ JSON.parse(data).bricks.description }}</p>
+          <span v-for="(atom, index) in JSON.parse(data).bricks.atoms" :key="index">
             <a :href="atom.url"> {{ atom.icon }} {{ atom.text }}</a>
           </span>
         </div>
-        <img v-for="image in contPairCont.imageList" :src="image.imageurl" alt="">
+        <img v-for="image in JSON.parse(data).bricks.imageList" :src="image.imageurl" alt="">
       </div>
     </div>
   </div>
