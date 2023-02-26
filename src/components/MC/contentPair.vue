@@ -1,5 +1,4 @@
 <script setup>
-import { setSliceVars } from '@/utils/setSliceVars.js'
 
 defineProps({
   data: {Object},
@@ -12,20 +11,19 @@ defineProps({
 
 <div class="codecont">
     <div class="codeloop">
-      <h1>service card</h1>
+      <h1>content pair</h1>
     <code class="title">{{ JSON.parse(data) }}</code>
-    <code>{{ setSliceVars(data) }}</code>
     </div>
     </div>
   <div class="inner-container">
     <div class="content">
       <div class="content-block">
         <span>
-          <h2>{{ contentPairData.title }}</h2>
-          <p>{{ contentPairData.description }}</p>
+          <h2>{{ JSON.parse(data).bricks.title }}</h2>
+          <p>{{ JSON.parse(data).bricks.description }}</p>
         </span>
         <span>
-          <img v-for="image in contentPairData.imageList" :src="image.imageurl" alt="">
+          <img v-for="image in cJSON.parse(data).bricks.imageList" :src="image.imageurl" alt="">
         </span>
       </div>
     </div>
