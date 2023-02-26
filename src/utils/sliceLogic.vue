@@ -1,9 +1,13 @@
 <script setup>
-// import { ref } from 'vue';
-// import { directus } from '@/services/directus';
-
-// import { RouterLink, useRoute, useRouter } from 'vue-router';
-
+import hero from "@/components/MC/hero.vue";
+import servicescard from "@/components/MC/servicescard.vue";
+import imageWithContentList from "@/components/MC/imageWithContentLIst.vue";
+import imgSlider from "@/components/MC/imgSlider.vue";
+import ContentPairsRepeater from "@/components/MC/ContentPairsRepeater.vue";
+import ctaHero from "@/components/MC/ctaHero.vue";
+import artcont from "@/components/MC/artcont.vue";
+import postfeed from "@/components/MC/postfeed.vue";
+import newsletter from "@/components/MC/newsletter.vue";
 defineProps({
   sliceData: {},
   sliceType: String,
@@ -20,6 +24,7 @@ defineProps({
   </div>
 
   <div  v-else-if="sliceType == 'servicecard'" :class="container">
+    
     <servicescard :servicecardCont="sliceData" />
   </div>
 

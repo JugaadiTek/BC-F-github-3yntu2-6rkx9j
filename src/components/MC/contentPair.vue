@@ -1,4 +1,6 @@
 <script setup>
+import { setSliceVars } from '@/utils/setSliceVars.js'
+
 defineProps({
   contentPairData: []
 })
@@ -6,7 +8,15 @@ defineProps({
 
 
 <template>
-  <div class="inner-container">
+
+<div class="codecont">
+    <div class="codeloop">
+      <h1>service card</h1>
+    <pre class="title">{{ JSON.stringify(servicecardCont) }}</pre>
+    <code>{{ setSliceVars(servicecardCont) }}</code>
+    </div>
+    </div>
+  <!-- <div class="inner-container">
     <div class="content">
       <div class="content-block">
         <span>
@@ -18,7 +28,7 @@ defineProps({
         </span>
       </div>
     </div>
-  </div>
+  </div> -->
 </template>
 
 <style scoped>

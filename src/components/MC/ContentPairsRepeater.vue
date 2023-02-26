@@ -1,4 +1,6 @@
 <script setup>
+import { setSliceVars } from '@/utils/setSliceVars.js'
+
 defineProps({
   pairsRepeaterCont: []
 })
@@ -6,25 +8,32 @@ defineProps({
 
 
 <template>
-  <div class="inner-container">
+   <div class="codecont">
+    <div class="codeloop">
+      <h1>comtent pair repeater</h1>
+    <pre class="title">{{ JSON.stringify(servicecardCont) }}</pre>
+    <code>{{ setSliceVars(servicecardCont) }}</code>
+    </div>
+    </div>
+  <!-- <div class="inner-container">
     <div class="content">
       <div class="content-block">
         <div v-for="(repeater, index) in pairsRepeaterCont" :key="index">
 
           <img :src="repeater.imgurl" alt="" height="220" width="370">
+
           <div>
             <h2>{{ repeater.title }}</h2>
             <p> {{ repeater.description }}</p>
             <span v-for="button in repeater.atoms">
               <a :class="[button.type, button.variant]"  :href="button.url">{{ button.text }} </a>
             </span>
-
           </div>
 
         </div>
       </div>
     </div>
-  </div>
+  </div> -->
 </template>
 
 <style scoped>

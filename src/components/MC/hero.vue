@@ -6,13 +6,13 @@ defineProps({
 
 </script>
 <template>
-  <div class="codecont">
-  <div class="codeloop">
-    <h1>Hero</h1>
+    <div class="codecont">
+    <div class="codeloop">
+      <h1>Hero</h1>
     <pre class="title">{{ JSON.stringify(herocont) }}</pre>
     <code>{{ setSliceVars(herocont) }}</code>
-  </div>
-</div>
+    </div>
+    </div>
 
 
   <!-- <div class="inner-container">
