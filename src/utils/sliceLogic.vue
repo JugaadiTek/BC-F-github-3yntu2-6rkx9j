@@ -24,7 +24,6 @@ defineProps({
   </div>
 
   <div  v-else-if="sliceType == 'servicecard'" :class="container">
-    
     <servicescard :servicecardCont="sliceData" />
   </div>
 

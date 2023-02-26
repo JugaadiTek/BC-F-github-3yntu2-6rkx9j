@@ -8,14 +8,14 @@ defineProps({
 
 
 <template>
-   <div class="codecont">
+   <!-- <div class="codecont">
     <div class="codeloop">
       <h1>comtent pair repeater</h1>
     <pre class="title">{{ JSON.stringify(servicecardCont) }}</pre>
     <code>{{ setSliceVars(servicecardCont) }}</code>
     </div>
-    </div>
-  <!-- <div class="inner-container">
+    </div> -->
+  <div class="inner-container">
     <div class="content">
       <div class="content-block">
         <div v-for="(repeater, index) in pairsRepeaterCont" :key="index">
@@ -23,6 +23,9 @@ defineProps({
           <img :src="repeater.imgurl" alt="" height="220" width="370">
 
           <div>
+            <code>
+              
+            </code>
             <h2>{{ repeater.title }}</h2>
             <p> {{ repeater.description }}</p>
             <span v-for="button in repeater.atoms">
@@ -33,7 +36,7 @@ defineProps({
         </div>
       </div>
     </div>
-  </div> -->
+  </div>
 </template>
 
 <style scoped>
