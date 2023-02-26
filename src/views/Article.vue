@@ -1,10 +1,11 @@
 <script setup>
 import { ref } from 'vue';
-import { RouterLink, useRoute, useRouter } from 'vue-router';
 import { directus } from '@/services/directus';
+import { RouterLink, useRoute, useRouter } from 'vue-router';
 import { getAssetURL } from '@/utils/get-asset-url';
+import sliceLogic from '@/utils/sliceLogic.vue';
 // =========================  COMPONENTS  ==========================================================
-import hero from "@/components/MC/hero.vue";
+// import hero from "@/components/MC/hero.vue";
 // import QueryString from 'qs';
 // import { KeyObject } from 'crypto';
 //import servicescard from "@/components/MC/servicescard.vue";
@@ -169,9 +170,17 @@ function createNewObject(sliceobj) {
   <!------------------------------------------------ MODOCOSM SLICE MASTER ---------------------------------------------------------------------------------------------------------------------------------------------------->
   <!---============================================================================================================================================================================================================-->
   
-  <!-- <div :sliceobj="JSON.stringify(createNewObject(slice.nosql_datastore_id.json_datastore))"> -->
+  <section v-for="(slice, index) in article.grab_a_slice" >
+    <sliceLogic 
+    :sliceType="createNewObject(slice.nosql_datastore_id.json_datastore).component" 
+    :sliceData="JSON.stringify(createNewObject(slice.nosql_datastore_id.json_datastore))" 
+    :pindex="index" />
+  </section>
 
-      <section v-for="(slice, index) in article.grab_a_slice" >
+
+
+  <!-- <div :sliceobj="JSON.stringify(createNewObject(slice.nosql_datastore_id.json_datastore))"> -->
+      <!-- <section v-for="(slice, index) in article.grab_a_slice" >
           <pre class="title">{{ index }}-Output Raw
              {{ JSON.stringify(createNewObject(slice.nosql_datastore_id.json_datastore)) }}</pre>
           <pre style ="background:#33333350;" class="title">{{ index }}-Output sliceobj: 
@@ -203,7 +212,7 @@ function createNewObject(sliceobj) {
         <div v-else-if="sliceobj == 'newsletter'" :class="container">
           <newsletter />
         </div> 
-</section>
+</section> -->
   
   
   

@@ -1,7 +1,7 @@
 <script setup lang="ts">
 import { RouterLink } from 'vue-router';
-import { getAssetURL } from '@/utils/get-asset-url';
-import axios from 'axios'
+// import { getAssetURL } from '@/utils/get-asset-url';
+// import axios from 'axios'
 
 // var axios = require('axios');
 
@@ -54,8 +54,7 @@ defineProps({
 
         <RouterLink
           style="color:green; !important"
-          :to="`/articles/${article.id}`"
-        >
+          :to="`/articles/${article.id}`">
           {{ article.title }}
         </RouterLink>
       </h1>
