@@ -28,3 +28,20 @@ function bullshitFixer(shitToFix) {
     console.log("===============================================================\n=========================", dataformat_5, "=========================\n===============================================================\n", fixedShit, "\n===============================================================");
     return fixedShit;
 }
+
+
+
+//================================================================================================
+//============function to convert object to array =================================================
+let freshArray = []
+function objectToArray(obj) {
+  freshArray = [obj]
+  console.log(freshArray,obj)
+  return freshArray
+}
+//================================================================================================
+//============function to remove first and last characters from string ===========================
+function removeFirstLastChar(str) {
+  str = str.slice(1, -1);
+  return str
+}

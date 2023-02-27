@@ -18,12 +18,7 @@ const _sfc_main$e = {
   },
   setup(__props) {
     return (_ctx, _push, _parent, _attrs) => {
-      _push(`<!--[--><!-- <div class="codecont">
-    <div class="codeloop">
-      <h1>Hero</h1>
-      <pre class="title">{{ JSON.parse(data) }}</pre>
-    </div>
-  </div> --><!-- <code>{{ setSliceVars(herocont) }}</code> --><!-- <p>{{ imagePrefix(preImgUrl) }}</p> --><div${ssrRenderAttrs(mergeProps({ class: "inner-container" }, _attrs))} data-v-03bae51a><!-- <img class="hero" :src="JSON.parse(data).heroBG" :alt="JSON.parse(data).AltText"> --><div class="content" data-v-03bae51a><div class="content-block" data-v-03bae51a><div data-v-03bae51a><!--[-->`);
+      _push(`<div${ssrRenderAttrs(mergeProps({ class: "mcFix" }, _attrs))} data-v-03bae51a><div class="container" data-v-03bae51a><div class="inner-container" data-v-03bae51a><div class="content" data-v-03bae51a><div class="content-block" data-v-03bae51a><div data-v-03bae51a><!--[-->`);
       ssrRenderList(JSON.parse(__props.data).bricks.imageList, (logo, index) => {
         _push(`<span data-v-03bae51a>`);
         if (logo.type == "aboveImg_logo") {
@@ -47,7 +42,7 @@ const _sfc_main$e = {
         }
         _push(`</span>`);
       });
-      _push(`<!--]--></div></div></div><!--]-->`);
+      _push(`<!--]--></div></div></div></div></div>`);
     };
   }
 };
@@ -63,17 +58,12 @@ const _sfc_main$d = {
   __name: "servicescard",
   __ssrInlineRender: true,
   props: {
-    data: [Object],
+    data: { Object },
     sliceType: String
   },
   setup(__props) {
     return (_ctx, _push, _parent, _attrs) => {
-      _push(`<!--[--><!-- <div class="codecont">
-    <div class="codeloop">
-      <h1>service card</h1>
-      <code class="title">{{ JSON.parse(data) }}</code>
-    </div>
-  </div> --><div${ssrRenderAttrs(mergeProps({ class: "inner-container" }, _attrs))} data-v-6325c232><div class="content" data-v-6325c232><div class="content-block" data-v-6325c232><h2 data-v-6325c232>${ssrInterpolate(JSON.parse(__props.data).bricks.title)}</h2><p data-v-6325c232>${ssrInterpolate(JSON.parse(__props.data).bricks.description)}</p><div data-v-6325c232><!-- cards --><!--[-->`);
+      _push(`<div${ssrRenderAttrs(mergeProps({ class: "mcFix" }, _attrs))} data-v-6325c232><div class="container" data-v-6325c232><div class="inner-container" data-v-6325c232><div class="content" data-v-6325c232><div class="content-block" data-v-6325c232><h2 data-v-6325c232>${ssrInterpolate(JSON.parse(__props.data).bricks.title)}</h2><p data-v-6325c232>${ssrInterpolate(JSON.parse(__props.data).bricks.description)}</p><div data-v-6325c232><!-- cards --><!--[-->`);
       ssrRenderList(JSON.parse(__props.data).bricks.gridItems, (cardcont, index) => {
         _push(`<div data-v-6325c232><p data-v-6325c232>${ssrInterpolate(cardcont.category)}</p><h3 data-v-6325c232><span data-v-6325c232>${cardcont.icon}</span> ${ssrInterpolate(cardcont.sub_header)}</h3><p data-v-6325c232>${ssrInterpolate(cardcont.description)}</p><hr data-v-6325c232><h4 data-v-6325c232>${ssrInterpolate(cardcont.heading)}</h4><ul data-v-6325c232><!--[-->`);
         ssrRenderList(cardcont.itemsList, (items, index2) => {
@@ -85,7 +75,7 @@ const _sfc_main$d = {
         });
         _push(`<!--]--></div>`);
       });
-      _push(`<!--]--></div></div></div></div><!--]-->`);
+      _push(`<!--]--></div></div></div></div></div></div>`);
     };
   }
 };
@@ -107,16 +97,11 @@ const _sfc_main$c = {
   },
   setup(__props) {
     return (_ctx, _push, _parent, _attrs) => {
-      _push(`<!--[--><!-- <div class="codecont">
-    <div class="codeloop">
-      <h1>image with content list</h1>
-      <pre class="title">{{ JSON.parse(data) }}</pre>
-    </div>
-  </div> --><div${ssrRenderAttrs(mergeProps({ class: "inner-container" }, _attrs))} data-v-4a84968f><div class="content" data-v-4a84968f><div class="content-block" data-v-4a84968f><!--[-->`);
+      _push(`<div${ssrRenderAttrs(mergeProps({ class: "mcFix" }, _attrs))} data-v-4a84968f><div class="container" data-v-4a84968f><div class="inner-container" data-v-4a84968f><div class="content" data-v-4a84968f><div class="content-block" data-v-4a84968f><!--[-->`);
       ssrRenderList(JSON.parse(__props.data).bricks, (contetntList, index) => {
         _push(`<div data-v-4a84968f><h2 data-v-4a84968f>${ssrInterpolate(contetntList.title)}</h2><p data-v-4a84968f>${ssrInterpolate(contetntList.description)}</p><!--[-->`);
         ssrRenderList(contetntList.atoms, (btn, index2) => {
-          _push(`<span data-v-4a84968f><a${ssrRenderAttr("href", btn.url)} class="${ssrRenderClass([btn.type, btn.variant, btn.styleModifiers])}" data-v-4a84968f><span data-v-4a84968f>${btn.icon}</span> <span data-v-4a84968f>${ssrInterpolate(btn.text)}</span></a></span>`);
+          _push(`<span data-v-4a84968f><a${ssrRenderAttr("href", btn.url)} class="${ssrRenderClass([btn.type, btn.variant, btn.styleModifiers])}" data-v-4a84968f><span data-v-4a84968f>${btn.icon}</span><span data-v-4a84968f>${ssrInterpolate(btn.text)}</span></a></span>`);
         });
         _push(`<!--]--></div>`);
       });
@@ -124,7 +109,7 @@ const _sfc_main$c = {
       ssrRenderList(JSON.parse(__props.data).imageList, (image) => {
         _push(`<img${ssrRenderAttr("src", [unref(imagePrefix)(__props.preImgUrl)] + image.imageurl)} alt="" data-v-4a84968f>`);
       });
-      _push(`<!--]--></span></div></div></div><!--]-->`);
+      _push(`<!--]--></span></div></div></div></div></div>`);
     };
   }
 };
@@ -140,21 +125,16 @@ const _sfc_main$b = {
   __name: "imgSlider",
   __ssrInlineRender: true,
   props: {
-    data: [Object],
+    data: { Object },
     sliceType: String
   },
   setup(__props) {
     return (_ctx, _push, _parent, _attrs) => {
-      _push(`<!--[--><!-- <div class="codecont">
-    <div class="codeloop">
-      <h1>imgSlider</h1>
-      <code class="title">{{ JSON.parse(data) }}</code>
-    </div>
-  </div> --><div${ssrRenderAttrs(mergeProps({ class: "inner-container" }, _attrs))} data-v-1a15dbdb><div class="content" data-v-1a15dbdb><div class="content-block" data-v-1a15dbdb><!--[-->`);
+      _push(`<div${ssrRenderAttrs(mergeProps({ class: "mcFix" }, _attrs))} data-v-1a15dbdb><div class="container" data-v-1a15dbdb><div class="inner-container" data-v-1a15dbdb><div class="content" data-v-1a15dbdb><div class="content-block" data-v-1a15dbdb><!--[-->`);
       ssrRenderList(JSON.parse(__props.data).bricks.slides, (slide) => {
         _push(`<div data-v-1a15dbdb><span data-v-1a15dbdb>${slide.icon}</span><span data-v-1a15dbdb>${slide.icon}</span><span data-v-1a15dbdb>${slide.icon}</span><span data-v-1a15dbdb>${slide.icon}</span><span data-v-1a15dbdb>${slide.icon}</span><h3 data-v-1a15dbdb>${ssrInterpolate(slide.testimony)}</h3><span data-v-1a15dbdb><h4 data-v-1a15dbdb>${ssrInterpolate(slide.name)}</h4><p data-v-1a15dbdb>${ssrInterpolate(slide.title)}</p></span></div>`);
       });
-      _push(`<!--]--></div></div></div><!--]-->`);
+      _push(`<!--]--></div></div></div></div></div>`);
     };
   }
 };
@@ -176,12 +156,7 @@ const _sfc_main$a = {
   },
   setup(__props) {
     return (_ctx, _push, _parent, _attrs) => {
-      _push(`<!--[--><!-- <div class="codecont">
-    <div class="codeloop">
-      <h1>ContentPairsRepeater</h1>
-      <code class="title">{{ JSON.parse(data) }}</code>
-    </div>
-  </div> --><div${ssrRenderAttrs(mergeProps({ class: "inner-container" }, _attrs))} data-v-fe73f7be><div class="content" data-v-fe73f7be><div class="content-block" data-v-fe73f7be><!--[-->`);
+      _push(`<div${ssrRenderAttrs(mergeProps({ class: "mcFix" }, _attrs))} data-v-fe73f7be><div class="container" data-v-fe73f7be><div class="inner-container" data-v-fe73f7be><div class="content" data-v-fe73f7be><div class="content-block" data-v-fe73f7be><!--[-->`);
       ssrRenderList(JSON.parse(__props.data).bricks, (repeater, index) => {
         _push(`<div data-v-fe73f7be><img${ssrRenderAttr("src", [unref(imagePrefix)(__props.preImgUrl)] + repeater.imgurl)} alt="" height="220" width="370" data-v-fe73f7be><div data-v-fe73f7be><h2 data-v-fe73f7be>${ssrInterpolate(repeater.title)}</h2><p data-v-fe73f7be>${ssrInterpolate(repeater.description)}</p><!--[-->`);
         ssrRenderList(repeater.atoms, (button) => {
@@ -189,7 +164,7 @@ const _sfc_main$a = {
         });
         _push(`<!--]--></div></div>`);
       });
-      _push(`<!--]--></div></div></div><!--]-->`);
+      _push(`<!--]--></div></div></div></div></div>`);
     };
   }
 };
@@ -211,12 +186,7 @@ const _sfc_main$9 = {
   },
   setup(__props) {
     return (_ctx, _push, _parent, _attrs) => {
-      _push(`<!--[--><!-- <div class="codecont">
-    <div class="codeloop">
-      <h1>cta hero</h1>
-      <code class="title">{{ JSON.parse(data) }}</code>
-    </div>
-  </div> --><div${ssrRenderAttrs(mergeProps({ class: "inner-container" }, _attrs))} data-v-091f1c41><div class="content" data-v-091f1c41><div class="content-block flexClass" data-v-091f1c41><div data-v-091f1c41><h2 data-v-091f1c41>${ssrInterpolate(JSON.parse(__props.data).bricks.title)}</h2><p data-v-091f1c41>${ssrInterpolate(JSON.parse(__props.data).bricks.description)}</p><!--[-->`);
+      _push(`<div${ssrRenderAttrs(mergeProps({ class: "mcFix" }, _attrs))} data-v-091f1c41><div class="container" data-v-091f1c41><div class="inner-container" data-v-091f1c41><div class="content" data-v-091f1c41><div class="content-block flexClass" data-v-091f1c41><div data-v-091f1c41><h2 data-v-091f1c41>${ssrInterpolate(JSON.parse(__props.data).bricks.title)}</h2><p data-v-091f1c41>${ssrInterpolate(JSON.parse(__props.data).bricks.description)}</p><!--[-->`);
       ssrRenderList(JSON.parse(__props.data).bricks.atoms, (button) => {
         _push(`<span data-v-091f1c41><a class="${ssrRenderClass([button.type, button.variant, button.styleModifiers])}"${ssrRenderAttr("href", button.url)} data-v-091f1c41>Schedule demo</a></span>`);
       });
@@ -224,7 +194,7 @@ const _sfc_main$9 = {
       ssrRenderList(JSON.parse(__props.data).bricks.imageList, (image) => {
         _push(`<span data-v-091f1c41><img class="ctaImg"${ssrRenderAttr("src", [unref(imagePrefix)(__props.preImgUrl)] + image.imageurl)} alt="" data-v-091f1c41></span>`);
       });
-      _push(`<!--]--></div></div></div><!--]-->`);
+      _push(`<!--]--></div></div></div></div></div>`);
     };
   }
 };
@@ -246,12 +216,7 @@ const _sfc_main$8 = {
   },
   setup(__props) {
     return (_ctx, _push, _parent, _attrs) => {
-      _push(`<!--[--><!-- <div class="codecont">
-    <div class="codeloop">
-      <h1>art cont</h1>
-      <pre class="title">{{ JSON.parse(data) }}</pre>
-    </div>
-  </div> --><div${ssrRenderAttrs(mergeProps({ class: "inner-container" }, _attrs))} data-v-11ef9ea8><div class="content" data-v-11ef9ea8><div class="content-block" data-v-11ef9ea8><h2 data-v-11ef9ea8>${ssrInterpolate(JSON.parse(__props.data).bricks.title)}</h2><p data-v-11ef9ea8>${ssrInterpolate(JSON.parse(__props.data).bricks.description)}</p>`);
+      _push(`<div${ssrRenderAttrs(mergeProps({ class: "mcFix" }, _attrs))} data-v-11ef9ea8><div class="container" data-v-11ef9ea8><div class="inner-container" data-v-11ef9ea8><div class="content" data-v-11ef9ea8><div class="content-block" data-v-11ef9ea8><h2 data-v-11ef9ea8>${ssrInterpolate(JSON.parse(__props.data).bricks.title)}</h2><p data-v-11ef9ea8>${ssrInterpolate(JSON.parse(__props.data).bricks.description)}</p>`);
       if (JSON.parse(__props.data).bricks.description2 == false) {
         _push(`<p data-v-11ef9ea8>${ssrInterpolate(JSON.parse(__props.data).bricks.description2)}</p>`);
       } else {
@@ -265,7 +230,7 @@ const _sfc_main$8 = {
       ssrRenderList(JSON.parse(__props.data).bricks.imageList, (image) => {
         _push(`<img${ssrRenderAttr("src", [unref(imagePrefix)(__props.preImgUrl)] + image.imageurl)}${ssrRenderAttr("alt", image.alt)} data-v-11ef9ea8>`);
       });
-      _push(`<!--]--></div></div><!--]-->`);
+      _push(`<!--]--></div></div></div></div>`);
     };
   }
 };
@@ -286,7 +251,7 @@ const _sfc_main$7 = {
   },
   setup(__props) {
     return (_ctx, _push, _parent, _attrs) => {
-      _push(`<!--[--><div${ssrRenderAttrs(mergeProps({ class: "codecont" }, _attrs))} data-v-2d915d92><div class="codeloop" data-v-2d915d92><h1 data-v-2d915d92>post feed</h1><pre class="title" data-v-2d915d92>${ssrInterpolate(JSON.parse(__props.data))}</pre></div></div><!-- <div class="inner-container">
+      _push(`<div${ssrRenderAttrs(mergeProps({ class: "mcFix" }, _attrs))} data-v-2d915d92><div class="container" data-v-2d915d92><!-- <div class="inner-container">
     <div class="content">
       <div class="content-block">
         <h2>{{ postsCont.title }}</h2>
@@ -296,14 +261,14 @@ const _sfc_main$7 = {
             <h3>{{ cardcont.title }}</h3>
             <p>{{ cardcont.excerpt }}</p>
             <a :href="postsCont.readmore_url">Read more ></a>
+              </div>
+            </div>
           </div>
+          <span v-for="button in postsCont.atoms">
+            <a :class="[button.type, button.variant]" :href="postsCont">{{button.text}}</a>
+          </span>
         </div>
-      </div>
-      <span v-for="button in postsCont.atoms">
-        <a :class="[button.type, button.variant]" :href="postsCont">{{button.text}}</a>
-      </span>
-    </div>
-  </div> --><!--]-->`);
+      </div> --></div></div>`);
     };
   }
 };
@@ -324,7 +289,7 @@ const _sfc_main$6 = {
   },
   setup(__props) {
     return (_ctx, _push, _parent, _attrs) => {
-      _push(`<!--[--><div${ssrRenderAttrs(mergeProps({ class: "codecont" }, _attrs))} data-v-69801df2><div class="codeloop" data-v-69801df2><h1 data-v-69801df2>news letter</h1><code class="title" data-v-69801df2>${ssrInterpolate(JSON.parse(__props.data))}</code></div></div><!-- <div class="inner-container">
+      _push(`<div${ssrRenderAttrs(mergeProps({ class: "mcFix" }, _attrs))} data-v-69801df2><div class="container" data-v-69801df2><!-- <div class="inner-container">
         <div class="content-block ">
           <form action="">
             
@@ -343,15 +308,15 @@ const _sfc_main$6 = {
             </span>
 
             <span>
-              <label for="workemail">EMAIL</label>
-              <input type="text" id="workemail" name="workemail" placeholder="Email">
-            </span>
+                <label for="workemail">EMAIL</label>
+                <input type="text" id="workemail" name="workemail" placeholder="Email">
+              </span>
 
-            <span><input class="button type_01" type="submit" value="Sign Up"></span>
+              <span><input class="button type_01" type="submit" value="Sign Up"></span>
 
-          </form>
-        </div>
-      </div> --><!--]-->`);
+            </form>
+          </div>
+        </div> --></div></div>`);
     };
   }
 };
@@ -373,16 +338,11 @@ const _sfc_main$5 = {
   },
   setup(__props) {
     return (_ctx, _push, _parent, _attrs) => {
-      _push(`<!--[--><!-- <div class="codecont">
-    <div class="codeloop">
-      <h1>content pair</h1>
-      <code class="title">{{ JSON.parse(data) }}</code>
-    </div>
-  </div> --><div${ssrRenderAttrs(mergeProps({ class: "inner-container" }, _attrs))} data-v-6b29210a><div class="content" data-v-6b29210a><div class="content-block" data-v-6b29210a><span data-v-6b29210a><h2 data-v-6b29210a>${ssrInterpolate(JSON.parse(__props.data).bricks.title)}</h2><p data-v-6b29210a>${ssrInterpolate(JSON.parse(__props.data).bricks.description)}</p></span><span data-v-6b29210a><!--[-->`);
+      _push(`<div${ssrRenderAttrs(mergeProps({ class: "mcFix" }, _attrs))} data-v-6b29210a><div class="container" data-v-6b29210a><div class="inner-container" data-v-6b29210a><div class="content" data-v-6b29210a><div class="content-block" data-v-6b29210a><span data-v-6b29210a><h2 data-v-6b29210a>${ssrInterpolate(JSON.parse(__props.data).bricks.title)}</h2><p data-v-6b29210a>${ssrInterpolate(JSON.parse(__props.data).bricks.description)}</p></span><span data-v-6b29210a><!--[-->`);
       ssrRenderList(JSON.parse(__props.data).bricks.imageList, (image) => {
         _push(`<img${ssrRenderAttr("src", [unref(imagePrefix)(__props.preImgUrl)] + image.imageurl)} alt="" data-v-6b29210a>`);
       });
-      _push(`<!--]--></span></div></div></div><!--]-->`);
+      _push(`<!--]--></span></div></div></div></div></div>`);
     };
   }
 };
@@ -403,16 +363,11 @@ const _sfc_main$4 = {
   },
   setup(__props) {
     return (_ctx, _push, _parent, _attrs) => {
-      _push(`<!--[--><!-- <div class="codecont">
-    <div class="codeloop">
-      <h1>faqs</h1>
-      <code class="title">{{ JSON.parse(data) }}</code>
-    </div>
-  </div> --><div${ssrRenderAttrs(mergeProps({ class: "inner-container" }, _attrs))} data-v-ec7a9794><div class="content-block" data-v-ec7a9794><h2 data-v-ec7a9794>${ssrInterpolate(JSON.parse(__props.data).bricks.title)}</h2><!--[-->`);
+      _push(`<div${ssrRenderAttrs(mergeProps({ class: "mcFix" }, _attrs))} data-v-ec7a9794><div class="container" data-v-ec7a9794><div class="inner-container" data-v-ec7a9794><div class="content-block" data-v-ec7a9794><h2 data-v-ec7a9794>${ssrInterpolate(JSON.parse(__props.data).bricks.title)}</h2><!--[-->`);
       ssrRenderList(JSON.parse(__props.data).bricks.items_list, (ques, index) => {
         _push(`<div class="wrap-collabsible" data-v-ec7a9794><input${ssrRenderAttr("id", "collapsible2" + index)} class="toggle" type="checkbox" checked="" data-v-ec7a9794><label${ssrRenderAttr("for", "collapsible2" + index)} class="lbl-toggle" data-v-ec7a9794>${ssrInterpolate(ques.question)} <span data-v-ec7a9794>${ques.icon}</span></label><div class="collapsible-content" data-v-ec7a9794><div class="content-inner" data-v-ec7a9794><p data-v-ec7a9794>${ssrInterpolate(ques.content)}</p></div></div></div>`);
       });
-      _push(`<!--]--></div></div><!--]-->`);
+      _push(`<!--]--></div></div></div></div>`);
     };
   }
 };
@@ -433,12 +388,7 @@ const _sfc_main$3 = {
   },
   setup(__props) {
     return (_ctx, _push, _parent, _attrs) => {
-      _push(`<!--[--><!-- <div class="codecont">
-    <div class="codeloop">
-      <h1>content paires with lists</h1>
-      <pre class="title">{{ JSON.parse(data) }}</pre>
-    </div>
-  </div> --><div${ssrRenderAttrs(mergeProps({ class: "inner-container" }, _attrs))} data-v-5598c4fd><div class="content" data-v-5598c4fd><!--[-->`);
+      _push(`<div${ssrRenderAttrs(mergeProps({ class: "mcFix" }, _attrs))} data-v-5598c4fd><div class="container" data-v-5598c4fd><div class="inner-container" data-v-5598c4fd><div class="content" data-v-5598c4fd><!--[-->`);
       ssrRenderList(JSON.parse(__props.data).bricks.details, (slice, index) => {
         _push(`<div class="content-block"${ssrRenderAttr("id", "flexItemLinkedSlice_" + index)} data-v-5598c4fd><div data-v-5598c4fd><h2 data-v-5598c4fd><span data-v-5598c4fd>${slice.icon}</span> ${ssrInterpolate(slice.title)}</h2><p data-v-5598c4fd>${ssrInterpolate(slice.description)}</p><!--[-->`);
         ssrRenderList(slice.atoms, (btn) => {
@@ -450,7 +400,7 @@ const _sfc_main$3 = {
         });
         _push(`<!--]--></ul></div></div>`);
       });
-      _push(`<!--]--></div></div><!--]-->`);
+      _push(`<!--]--></div></div></div></div>`);
     };
   }
 };
@@ -471,16 +421,11 @@ const _sfc_main$2 = {
   },
   setup(__props) {
     return (_ctx, _push, _parent, _attrs) => {
-      _push(`<!--[--><!-- <div class="codecont">
-    <div class="codeloop">
-      <h1>flex item display</h1>
-      <code class="title">{{ JSON.parse(data) }}</code>
-    </div>
-  </div> --><div${ssrRenderAttrs(mergeProps({ class: "inner-container" }, _attrs))} data-v-161394e6><div class="content" data-v-161394e6><div class="content-block" data-v-161394e6><ul data-v-161394e6><!--[-->`);
+      _push(`<div${ssrRenderAttrs(mergeProps({ class: "mcFix" }, _attrs))} data-v-161394e6><div class="container" data-v-161394e6><div class="inner-container" data-v-161394e6><div class="content" data-v-161394e6><div class="content-block" data-v-161394e6><ul data-v-161394e6><!--[-->`);
       ssrRenderList(JSON.parse(__props.data).gridItems, (flexItem, index) => {
         _push(`<li${ssrRenderAttr("id", "flexitem_" + index)} data-v-161394e6><span data-v-161394e6>${flexItem.icon}</span> ${ssrInterpolate(flexItem.item)}</li>`);
       });
-      _push(`<!--]--></ul></div></div></div><!--]-->`);
+      _push(`<!--]--></ul></div></div></div></div></div>`);
     };
   }
 };
@@ -495,92 +440,88 @@ const _sfc_main$1 = {
   __name: "sliceLogic",
   __ssrInlineRender: true,
   props: {
-    sliceData: Object,
-    sliceType: String
+    sliceData: Object
   },
   setup(__props) {
     return (_ctx, _push, _parent, _attrs) => {
-      if (__props.sliceType == "hero") {
-        _push(`<div${ssrRenderAttrs(mergeProps({
-          class: [__props.sliceType]
-        }, _attrs))}>`);
-        _push(ssrRenderComponent(hero, {
-          data: __props.sliceData,
-          sliceType: __props.sliceType
-        }, null, _parent));
-        _push(`</div>`);
-      } else if (__props.sliceType == "servicecard") {
-        _push(`<div${ssrRenderAttrs(mergeProps({
-          class: [__props.sliceType]
-        }, _attrs))}>`);
-        _push(ssrRenderComponent(servicescard, { data: __props.sliceData }, null, _parent));
-        _push(`</div>`);
-      } else if (__props.sliceType == "imageWithContentList") {
-        _push(`<div${ssrRenderAttrs(mergeProps({
-          class: [__props.sliceType]
-        }, _attrs))}>`);
-        _push(ssrRenderComponent(imageWithContentList, { data: __props.sliceData }, null, _parent));
-        _push(`</div>`);
-      } else if (__props.sliceType == "ctaHero") {
-        _push(`<div${ssrRenderAttrs(mergeProps({
-          class: [__props.sliceType]
-        }, _attrs))}>`);
-        _push(ssrRenderComponent(ctaHero, { data: __props.sliceData }, null, _parent));
-        _push(`</div>`);
-      } else if (__props.sliceType == "ContentPairsRepeater") {
-        _push(`<div${ssrRenderAttrs(mergeProps({
-          class: [__props.sliceType]
-        }, _attrs))}>`);
-        _push(ssrRenderComponent(ContentPairsRepeater, { data: __props.sliceData }, null, _parent));
-        _push(`</div>`);
-      } else if (__props.sliceType == "imgSlider") {
-        _push(`<div${ssrRenderAttrs(mergeProps({
-          class: [__props.sliceType]
-        }, _attrs))}>`);
-        _push(ssrRenderComponent(imgSlider, { data: __props.sliceData }, null, _parent));
-        _push(`</div>`);
-      } else if (__props.sliceType == "artcont") {
-        _push(`<div${ssrRenderAttrs(mergeProps({
-          class: [__props.sliceType]
-        }, _attrs))}>`);
-        _push(ssrRenderComponent(artcont, { data: __props.sliceData }, null, _parent));
-        _push(`</div>`);
-      } else if (__props.sliceType == "postfeed") {
-        _push(`<div${ssrRenderAttrs(mergeProps({
-          class: [__props.sliceType]
-        }, _attrs))}>`);
-        _push(ssrRenderComponent(postfeed, { data: __props.sliceData }, null, _parent));
-        _push(`</div>`);
-      } else if (__props.sliceType == "newsletter") {
-        _push(`<div${ssrRenderAttrs(mergeProps({
-          class: [__props.sliceType]
-        }, _attrs))}>`);
-        _push(ssrRenderComponent(newsletter, null, null, _parent));
-        _push(`</div>`);
-      } else if (__props.sliceType == "contentPair") {
-        _push(`<div${ssrRenderAttrs(mergeProps({
-          class: [__props.sliceType]
-        }, _attrs))}>`);
-        _push(ssrRenderComponent(contentPair, { data: __props.sliceData }, null, _parent));
-        _push(`</div>`);
-      } else if (__props.sliceType == "FAQs") {
-        _push(`<div${ssrRenderAttrs(mergeProps({
-          class: [__props.sliceType]
-        }, _attrs))}>`);
-        _push(ssrRenderComponent(FAQs, { data: __props.sliceData }, null, _parent));
-        _push(`</div>`);
-      } else if (__props.sliceType == "content_pairs_with_list") {
-        _push(`<div${ssrRenderAttrs(mergeProps({
-          class: [__props.sliceType]
-        }, _attrs))}>`);
-        _push(ssrRenderComponent(contentPairsWithList, { data: __props.sliceData }, null, _parent));
-        _push(`</div>`);
-      } else if (__props.sliceType == "flex_item_display") {
-        _push(`<div${ssrRenderAttrs(mergeProps({
-          class: [__props.sliceType]
-        }, _attrs))}>`);
-        _push(ssrRenderComponent(flexItemDisplay, { data: __props.sliceData }, null, _parent));
-        _push(`</div>`);
+      if (__props.sliceData.component == "hero") {
+        _push(ssrRenderComponent(hero, mergeProps({
+          class: [__props.sliceData.component],
+          data: JSON.stringify(__props.sliceData),
+          sliceType: __props.sliceData.component
+        }, _attrs), null, _parent));
+      } else if (__props.sliceData.component == "servicecard") {
+        _push(ssrRenderComponent(servicescard, mergeProps({
+          class: [__props.sliceData.component],
+          data: JSON.stringify(__props.sliceData),
+          sliceType: __props.sliceData.component
+        }, _attrs), null, _parent));
+      } else if (__props.sliceData.component == "imageWithContentList") {
+        _push(ssrRenderComponent(imageWithContentList, mergeProps({
+          class: [__props.sliceData.component],
+          data: JSON.stringify(__props.sliceData),
+          sliceType: __props.sliceData.component
+        }, _attrs), null, _parent));
+      } else if (__props.sliceData.component == "ctaHero") {
+        _push(ssrRenderComponent(ctaHero, mergeProps({
+          class: [__props.sliceData.component],
+          data: JSON.stringify(__props.sliceData),
+          sliceType: __props.sliceData.component
+        }, _attrs), null, _parent));
+      } else if (__props.sliceData.component == "ContentPairsRepeater") {
+        _push(ssrRenderComponent(ContentPairsRepeater, mergeProps({
+          class: [__props.sliceData.component],
+          data: JSON.stringify(__props.sliceData),
+          sliceType: __props.sliceData.component
+        }, _attrs), null, _parent));
+      } else if (__props.sliceData.component == "imgSlider") {
+        _push(ssrRenderComponent(imgSlider, mergeProps({
+          class: [__props.sliceData.component],
+          data: JSON.stringify(__props.sliceData),
+          sliceType: __props.sliceData.component
+        }, _attrs), null, _parent));
+      } else if (__props.sliceData.component == "artcont") {
+        _push(ssrRenderComponent(artcont, mergeProps({
+          class: [__props.sliceData.component],
+          data: JSON.stringify(__props.sliceData),
+          sliceType: __props.sliceData.component
+        }, _attrs), null, _parent));
+      } else if (__props.sliceData.component == "postfeed") {
+        _push(ssrRenderComponent(postfeed, mergeProps({
+          class: [__props.sliceData.component],
+          data: JSON.stringify(__props.sliceData),
+          sliceType: __props.sliceData.component
+        }, _attrs), null, _parent));
+      } else if (__props.sliceData.component == "newsletter") {
+        _push(ssrRenderComponent(newsletter, mergeProps({
+          class: [__props.sliceData.component],
+          data: JSON.stringify(__props.sliceData),
+          sliceType: __props.sliceData.component
+        }, _attrs), null, _parent));
+      } else if (__props.sliceData.component == "contentPair") {
+        _push(ssrRenderComponent(contentPair, mergeProps({
+          class: [__props.sliceData.component],
+          data: JSON.stringify(__props.sliceData),
+          sliceType: __props.sliceData.component
+        }, _attrs), null, _parent));
+      } else if (__props.sliceData.component == "FAQs") {
+        _push(ssrRenderComponent(FAQs, mergeProps({
+          class: [__props.sliceData.component],
+          data: JSON.stringify(__props.sliceData),
+          sliceType: __props.sliceData.component
+        }, _attrs), null, _parent));
+      } else if (__props.sliceData.component == "content_pairs_with_list") {
+        _push(ssrRenderComponent(contentPairsWithList, mergeProps({
+          class: [__props.sliceData.component],
+          data: JSON.stringify(__props.sliceData),
+          sliceType: __props.sliceData.component
+        }, _attrs), null, _parent));
+      } else if (__props.sliceData.component == "flex_item_display") {
+        _push(ssrRenderComponent(flexItemDisplay, mergeProps({
+          class: [__props.sliceData.component],
+          data: JSON.stringify(__props.sliceData),
+          sliceType: __props.sliceData.component
+        }, _attrs), null, _parent));
       } else {
         _push(`<!---->`);
       }
@@ -600,42 +541,23 @@ const _sfc_main = {
     const router = useRouter();
     const route = useRoute();
     const article = ref(null);
-    const moreArticles = ref(null);
+    ref(null);
     fetchData();
     async function fetchData() {
-      const { id } = route.params;
       let articleResponse;
       try {
-        articleResponse = await directus.items("home").readOne(id, {
-          fields: ["grab_a_slice.nosql_datastore_id.json_datastore", "id"]
-        });
-        const formattedArticle = { ...articleResponse };
-        const moreArticlesResponse = await directus.items("home").readByQuery({
-          fields: ["id", "title"],
+        articleResponse = await directus.items("home_nosql_datastore").readByQuery({
+          fields: ["sort,nosql_datastore_id,nosql_datastore_id.Slice_Type,id,nosql_datastore_id.short_title,nosql_datastore_id.json_datastore"],
           filter: {
             _and: [
-              { id: { _eq: articleResponse.id } },
-              { status: { _eq: "archived" } }
+              { home_id: { _eq: route.params.id } },
+              { id: { _gt: 0 } }
             ]
           },
-          limit: 20
+          sort: ["sort"]
         });
-        const formattedMoreArticles = moreArticlesResponse.data.map(
-          (moreArticle) => {
-            return { ...moreArticle };
-          }
-        );
+        const formattedArticle = { ...articleResponse };
         article.value = formattedArticle;
-        moreArticles.value = formattedMoreArticles;
-        try {
-          if (article.value.grab_a_slice > 0) {
-            pageblocks = article;
-            return pageblocks;
-          }
-        } catch (err) {
-          console.log("Error: ", err);
-          return "ERROR";
-        }
       } catch (err) {
         router.replace({ name: "not-found", params: { catchAll: route.path } });
       }
@@ -651,49 +573,21 @@ const _sfc_main = {
       return newobj.bump[0];
     }
     return (_ctx, _push, _parent, _attrs) => {
-      _push(`<!--[--><!---============================================================================================================================================================================================================--><!------------------------------------------------ MODOCOSM SLICE MASTER ----------------------------------------------------------------------------------------------------------------------------------------------------><!---============================================================================================================================================================================================================--><!--[-->`);
-      ssrRenderList(article.value.grab_a_slice, (slice, index) => {
-        _push(`<section>`);
-        _push(ssrRenderComponent(_sfc_main$1, {
-          sliceType: createNewObject(slice.nosql_datastore_id.json_datastore).component,
-          sliceData: JSON.stringify(createNewObject(slice.nosql_datastore_id.json_datastore)),
-          pindex: index
-        }, null, _parent));
-        _push(`</section>`);
-      });
-      _push(`<!--]--><!-- <div :sliceobj="JSON.stringify(createNewObject(slice.nosql_datastore_id.json_datastore))"> --><!-- <section v-for="(slice, index) in article.grab_a_slice" >
-          <pre class="title">{{ index }}-Output Raw
-             {{ JSON.stringify(createNewObject(slice.nosql_datastore_id.json_datastore)) }}</pre>
-          <pre style ="background:#33333350;" class="title">{{ index }}-Output sliceobj: 
-            {{ JSON.stringify(sliceobj) }}</pre>
-        <div  v-if="sliceobj == 'hero'">
-          <hero :herocont="sliceobj" />
-        </div>
-        <div  v-else-if="sliceobj !== 'servicecard'" :class="container">
-          <servicescard :servicecardCont="sliceobj" />
-        </div>
-        <div v-else-if="sliceobj == 'imageWithContentList'">
-          <imageWithContentList :contPairCont="sliceobj" />
-        </div>
-        <div v-else-if="sliceobj == 'ctaHero'">
-          <ctaHero :ctaHeroCont="sliceobj" />
-        </div>
-        <div v-else-if="sliceobj == 'ContentPairsRepeater'">
-          <ContentPairsRepeater :pairsRepeaterCont="sliceobj" />
-        </div>
-        <div v-else-if="sliceobj == 'imgSlider'">
-          <imgSlider :sliderCont="sliceobj" />
-        </div>
-        <div v-else-if="sliceobj == 'artcont'"  :class="container">
-          <artcont :artcontent="sliceobj" />
-        </div>
-        <div v-else-if="sliceobj == 'postfeed'" :class="container">
-          <postfeed :postsCont="sliceobj" />
-        </div>
-        <div v-else-if="sliceobj == 'newsletter'" :class="container">
-          <newsletter />
-        </div> 
-</section> --><!------------------------------------------------ END SLICE MASTER ----------------------------------------------------------------------------------------------------------------------------------------------------><!--]-->`);
+      _push(`<!--[--><!---============================================================================================================================================================================================================--><!------------------------------------------------ MODOCOSM SLICE MASTER ----------------------------------------------------------------------------------------------------------------------------------------------------><!---============================================================================================================================================================================================================-->`);
+      if (article.value != void 0) {
+        _push(`<div${ssrRenderAttrs(_attrs)}><!--[-->`);
+        ssrRenderList(article.value.data, (slice, index) => {
+          _push(`<section><!-- <code>{{ createNewObject(JSON.stringify(article.data[index])).nosql_datastore_id.json_datastore }}</code> --><!-- <code>{{ createNewObject(article.data[index].nosql_datastore_id.json_datastore) }}</code> --><!-- <h1>{{ createNewObject(slice.nosql_datastore_id.json_datastore).component }} </h1> --><!-- {{ JSON.stringify(createNewObject(slice.nosql_datastore_id.json_datastore)) }} -->`);
+          _push(ssrRenderComponent(_sfc_main$1, {
+            sliceData: createNewObject(article.value.data[index].nosql_datastore_id.json_datastore)
+          }, null, _parent));
+          _push(`</section>`);
+        });
+        _push(`<!--]--></div>`);
+      } else {
+        _push(`<!---->`);
+      }
+      _push(`<!------------------------------------------------ END SLICE MASTER ----------------------------------------------------------------------------------------------------------------------------------------------------><!--]-->`);
     };
   }
 };

@@ -20,8 +20,10 @@ defineProps({
               <h2>{{ contetntList.title }}</h2>
               <p>{{ contetntList.description }}</p>
               <span v-for="(btn, index) in contetntList.atoms" :key="index">
-                <a :href="btn.url" :class="[btn.type, btn.variant, btn.styleModifiers]"> <span v-html="btn.icon"> </span>
-                  <span> {{ btn.text }} </span> </a>
+                <a :href="btn.url" :class="[btn.type, btn.variant, btn.styleModifiers]"> 
+                  <span v v-html="btn.icon"> </span>
+                  <span> {{ btn.text }} </span> 
+                </a>
               </span>
             </div>
             <span>
