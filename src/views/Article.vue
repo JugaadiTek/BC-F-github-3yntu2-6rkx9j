@@ -49,7 +49,7 @@ async function fetchData() {
           { id: { _gt:0 }},
         ],
       },
-      sort: ['-sort'],
+      sort: ['sort'],
     });
     // itemDetails(articleResponse);
 
