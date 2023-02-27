@@ -1,7 +1,7 @@
 <script setup lang="ts">
 import { RouterLink } from 'vue-router';
 defineProps({
-  article: {
+  rawpage: {
     type: Object,
     required: true,
   },
@@ -12,14 +12,10 @@ defineProps({
 });
 </script>
 <template>
-  <br>
+  
   <RouterLink
-    style="color:green; !important"
-    :to="`/articles/${article.id}`">
-    <span>      <b>      {{ article.title }}     </b>    {{ article.id }}    </span>
+    style="color:blueviolet; !important"
+    :to="`/rawpage/${rawpage.id}`">
+    {{ rawpage.title }}
   </RouterLink>
 </template>
-
-<style scoped>
-
-</style>

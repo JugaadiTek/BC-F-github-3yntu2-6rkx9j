@@ -1,11 +1,43 @@
 <script setup>
-import Header from '../components/Header.vue';
-import Footer from '../components/Footer.vue';
+import { ref } from 'vue';
+import { directus } from '@/services/directus';
+import { RouterLink, useRoute, useRouter } from 'vue-router';
+import { getAssetURL } from '@/utils/get-asset-url';
+// import sliceLogic from '@/utils/sliceLogic.vue';
+// import QueryString from 'qs';
+// =========================importing components==================================================
+const router = useRouter();
+const route = useRoute();
+const rawPage = ref(null);
+const moreRawPage = ref(null);
+// let pageblocks = "";
+//---prepping data---------------------------------------------------------------------------
+fetchDataRaw();
+var preImgUrl = "https://cms-buychain-pb01.up.railway.app/";
 
-defineProps({
-  data: { Object },
-  sliceType: String,
-})
+// Directus API call to get the article data via the directus sdk using the id from the route params
+async function fetchDataRaw() {
+  const { id } = route.params;
+  let rawPageResponse;
+  try {
+    articleResponse = await directus.items('rawpage').readByQuery(id,{
+      fields: ['id','title','slug','status', 'banner','wysiwyg','sort'],
+      filter: {
+        _and: [
+          { id: { _eq: route.params.id } },
+          { status: { _eq: 'published' }},
+        ],
+      },
+      sort: ['sort'],
+    });
+
+    const formattedRawPage = { ...rawPageResponse, }
+    rawPage.value = formattedRawPage;
+
+  } catch (err) {
+    router.replace({ name: 'not-found', params: { catchAll: route.path } });
+  }
+}
 </script>
 
 <template>

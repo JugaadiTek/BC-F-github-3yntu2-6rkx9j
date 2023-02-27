@@ -24,16 +24,16 @@ async function fetchData() {
       fields: ['sort,nosql_datastore_id,nosql_datastore_id.Slice_Type,id,nosql_datastore_id.short_title,nosql_datastore_id.json_datastore' ],
       filter: {
         _and: [
-          { home_id: { _eq: route.params.id } },
-          { id: { _gt:0 }},
+        { home_id: { _eq: route.params.id } },
+        { id: { _gt:0 }},
         ],
       },
       sort: ['sort'],
     });
-
+    
     const formattedArticle = { ...articleResponse, }
     article.value = formattedArticle;
-
+    
   } catch (err) {
     router.replace({ name: 'not-found', params: { catchAll: route.path } });
   }
@@ -86,14 +86,14 @@ function mch(obj) {
   <!---============================================================================================================================================================================================================-->
   
   <div v-if="article !=undefined">
-  <section v-for="(slice, index) in article.data" >
-    <!-- <code>{{ createNewObject(JSON.stringify(article.data[index])).nosql_datastore_id.json_datastore }}</code> -->
-    <!-- <code>{{ createNewObject(article.data[index].nosql_datastore_id.json_datastore) }}</code> -->
-    <!-- <h1>{{ createNewObject(slice.nosql_datastore_id.json_datastore).component }} </h1> -->
-    <!-- {{ JSON.stringify(createNewObject(slice.nosql_datastore_id.json_datastore)) }} -->
-    <sliceLogic 
-  :sliceData="createNewObject(article.data[index].nosql_datastore_id.json_datastore)"  />
-  </section>
+    <section v-for="(slice, index) in article.data" >
+      <!-- <code>{{ createNewObject(JSON.stringify(article.data[index])).nosql_datastore_id.json_datastore }}</code> -->
+      <!-- <code>{{ createNewObject(article.data[index].nosql_datastore_id.json_datastore) }}</code> -->
+      <!-- <h1>{{ createNewObject(slice.nosql_datastore_id.json_datastore).component }} </h1> -->
+      <!-- {{ JSON.stringify(createNewObject(slice.nosql_datastore_id.json_datastore)) }} -->
+      <sliceLogic 
+      :sliceData="createNewObject(article.data[index].nosql_datastore_id.json_datastore)"  />
+    </section>
   </div>
   <!------------------------------------------------ END SLICE MASTER ---------------------------------------------------------------------------------------------------------------------------------------------------->
 </template>
