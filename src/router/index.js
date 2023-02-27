@@ -14,6 +14,16 @@ const router = createRouter({
       name: 'articles',
       component: () => import('@/views/Article.vue'),
     },
+    {
+      path: '/get-started/:id',
+      name: 'landers',
+      component: () => import('@/views/lander.vue'),
+    },
+    {
+      path: '/rawpage/:id',
+      name: 'rawPage',
+      component: () => import('@/views/rawPage.vue'),
+    },
     // {
     //   path: "/:catchAll(.*)",
     //   name: "not-found",
