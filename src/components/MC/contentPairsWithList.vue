@@ -9,27 +9,28 @@ defineProps({
   <div class="codecont">
     <div class="codeloop">
       <h1>content paires with lists</h1>
-      <code class="title">{{ JSON.parse(data) }}</code>
+      <pre class="title">{{ JSON.parse(data) }}</pre>
     </div>
   </div>
-  <!-- <div class="inner-container">
+  <div class="inner-container">
     <div class="content">
-      <div class="content-block">
+      <div class="content-block" v-for=" (slice, index) in JSON.parse(data).bricks.details" :key="index">
         <div>
-          <h2> <i class="fa-solid fa-user"></i> {{ optionsliceArtCont.details.title }}</h2>
-          <p>{{ optionsliceArtCont.details.description }}</p>
-          <a href="">Demo</a>
+          <h2> <i class="fa-solid fa-user"></i>{{ slice.icon }} {{ slice.title }}</h2>
+          <p>{{ slice.description }}</p>
+
+          <!-- <a :href="slice.details.url">Demo</a> -->
         </div>
-        <div>
+        <!-- <div>
           <ul>
             <li v-for="ghoul, index in optionsliceArtCont.details.dataList" :key="index">
               {{ ghoul.item }}
             </li>
           </ul>
-        </div>
+        </div> -->
       </div>
     </div>
-  </div> -->
+  </div>
 </template>
 
 <style scoped>

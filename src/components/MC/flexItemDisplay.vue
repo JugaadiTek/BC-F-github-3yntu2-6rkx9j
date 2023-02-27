@@ -1,6 +1,6 @@
 <script setup>
 defineProps({
-  data: {Object},
+  data: { Object },
   sliceType: String,
 })
 </script>
@@ -13,17 +13,17 @@ defineProps({
     </div>
   </div>
 
-  <!-- <div class="inner-container">
+  <div class="inner-container">
     <div class="content">
       <div class="content-block">
-  <ul>
-    <li v-for="(tokyo, index) in optionsliceCont.gridItems" :key="index">
-      <span> <i class="fa-solid fa-user"></i> {{ tokyo.item }}</span>
-    </li>
-  </ul>
-  </div>
+        <ul>
+          <li v-for="(flexItem, index) in JSON.parse(data).gridItems" :key="index">
+            <span> {{ flexItem.icon }} {{ flexItem.item }} </span>
+          </li>
+        </ul>
+      </div>
     </div>
-  </div> -->
+  </div>
 </template>
 
 <style scoped>

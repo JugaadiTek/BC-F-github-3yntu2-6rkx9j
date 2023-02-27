@@ -16,7 +16,7 @@ import postfeed from "@/components/MC/postfeed.vue";
 import newsletter from "@/components/MC/newsletter.vue";
 import contentPair from "@/components/MC/contentPair.vue";
 import FAQs from "@/components/MC/FAQs.vue";
-import contentPairsWithLists from "@/components/MC/contentPairsWithLists.vue";
+import contentPairsWithList from "@/components/MC/contentPairsWithList.vue";
 import flexItemDisplay from '@/components/MC/flexItemDisplay.vue';
 // =================================================================================================
 
@@ -72,11 +72,11 @@ defineProps({
     <FAQs :data="sliceData"/>
   </div> 
 
-  <div v-else-if="sliceType == 'contentPairsWithLists'" :class="[sliceType, container]">
-    <contentPairsWithLists :data="sliceData"/>
+  <div v-else-if="sliceType == 'content pairs with list'" :class="[sliceType, container]">
+    <contentPairsWithList :data="sliceData"/>
   </div> 
 
-  <div v-else-if="sliceType == 'flexItemDisplay'" :class="[sliceType, container]">
+  <div v-else-if="sliceType == 'flex_item_display'" :class="[sliceType, container]">
     <flexItemDisplay :data="sliceData"/>
   </div> 
 
