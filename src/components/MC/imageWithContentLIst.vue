@@ -2,7 +2,7 @@
 import { imagePrefix } from '@/utils/imgurlPrefix.js';
 
 defineProps({
-  data: {Object},
+  data: { Object },
   siceType: String,
   preImgUrl: String,
 
@@ -11,26 +11,24 @@ defineProps({
 
 
 <template>
-   <!-- <div class="codecont">
-    <div class="codeloop">
-      <h1>image with content list</h1>
-      <pre class="title">{{ JSON.parse(data) }}</pre>
-    </div>
-  </div> -->
-
-  <div class="inner-container">
-    <div class="content">
-      <div class="content-block">
-        <div v-for="(contetntList, index) in JSON.parse(data).bricks" :key="index">
-          <h2>{{ contetntList.title }}</h2>
-          <p>{{ contetntList.description }}</p>
-          <span v-for="(btn, index) in contetntList.atoms" :key="index">
-            <a :href="btn.url" :class="[btn.type, btn.variant, btn.styleModifiers]"> <span v-html="btn.icon"> </span> <span> {{ btn.text }} </span> </a>
-          </span>
+  <div class="mcFix">
+    <div class="container">
+      <div class="inner-container">
+        <div class="content">
+          <div class="content-block">
+            <div v-for="(contetntList, index) in JSON.parse(data).bricks" :key="index">
+              <h2>{{ contetntList.title }}</h2>
+              <p>{{ contetntList.description }}</p>
+              <span v-for="(btn, index) in contetntList.atoms" :key="index">
+                <a :href="btn.url" :class="[btn.type, btn.variant, btn.styleModifiers]"> <span v-html="btn.icon"> </span>
+                  <span> {{ btn.text }} </span> </a>
+              </span>
+            </div>
+            <span>
+              <img v-for="image in JSON.parse(data).imageList" :src="[imagePrefix(preImgUrl)] + image.imageurl" alt="">
+            </span>
+          </div>
         </div>
-        <span >
-          <img v-for="image in JSON.parse(data).imageList" :src="[imagePrefix(preImgUrl)] + image.imageurl" alt="">
-        </span>
       </div>
     </div>
   </div>

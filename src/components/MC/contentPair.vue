@@ -12,22 +12,21 @@ defineProps({
 
 
 <template>
-  <!-- <div class="codecont">
-    <div class="codeloop">
-      <h1>content pair</h1>
-      <code class="title">{{ JSON.parse(data) }}</code>
-    </div>
-  </div> -->
-  <div class="inner-container">
-    <div class="content">
-      <div class="content-block">
-        <span>
-          <h2>{{ JSON.parse(data).bricks.title }}</h2>
-          <p>{{ JSON.parse(data).bricks.description }}</p>
-        </span>
-        <span>
-          <img v-for="image in JSON.parse(data).bricks.imageList" :src="[imagePrefix(preImgUrl)] + image.imageurl" alt="">
-        </span>
+  <div class="mcFix">
+    <div class="container">
+      <div class="inner-container">
+        <div class="content">
+          <div class="content-block">
+            <span>
+              <h2>{{ JSON.parse(data).bricks.title }}</h2>
+              <p>{{ JSON.parse(data).bricks.description }}</p>
+            </span>
+            <span>
+              <img v-for="image in JSON.parse(data).bricks.imageList" :src="[imagePrefix(preImgUrl)] + image.imageurl"
+                alt="">
+            </span>
+          </div>
+        </div>
       </div>
     </div>
   </div>

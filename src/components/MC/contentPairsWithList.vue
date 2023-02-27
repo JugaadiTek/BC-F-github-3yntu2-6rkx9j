@@ -6,13 +6,9 @@ defineProps({
 </script>
 
 <template>
-  <!-- <div class="codecont">
-    <div class="codeloop">
-      <h1>content paires with lists</h1>
-      <pre class="title">{{ JSON.parse(data) }}</pre>
-    </div>
-  </div> -->
-  <div class="inner-container">
+<div class="mcFix">
+  <div class="container">
+    <div class="inner-container">
     <div class="content">
       <div class="content-block" v-for=" (slice, index) in JSON.parse(data).bricks.details" :key="index" :id="'flexItemLinkedSlice_' + index">
         <div>
@@ -32,6 +28,9 @@ defineProps({
       </div>
     </div>
   </div>
+  </div>
+</div>
+  
 </template>
 
 <style scoped>

@@ -11,13 +11,9 @@ defineProps({
 
 
 <template>
-  <!-- <div class="codecont">
-    <div class="codeloop">
-      <h1>ContentPairsRepeater</h1>
-      <code class="title">{{ JSON.parse(data) }}</code>
-    </div>
-  </div> -->
-  <div class="inner-container">
+ <div class="mcFix">
+  <div class="container">
+    <div class="inner-container">
     <div class="content">
       <div class="content-block">
         <div v-for="(repeater, index) in JSON.parse(data).bricks" :key="index">
@@ -36,6 +32,9 @@ defineProps({
       </div>
     </div>
   </div>
+  </div>
+ </div>
+  
 </template>
 
 <style scoped>

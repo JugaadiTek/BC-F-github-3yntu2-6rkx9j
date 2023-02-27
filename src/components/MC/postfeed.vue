@@ -1,19 +1,16 @@
 <script setup>
 defineProps({
-  data: {Object},
+  data: { Object },
   sliceType: String,
 })
 </script>
 
 
 <template>
-  <div class="codecont">
-    <div class="codeloop">
-      <h1>post feed</h1>
-      <pre class="title">{{ JSON.parse(data) }}</pre>
-    </div>
-  </div>
-  <!-- <div class="inner-container">
+  <div class="mcFix">
+  <div class="container">
+
+    <!-- <div class="inner-container">
     <div class="content">
       <div class="content-block">
         <h2>{{ postsCont.title }}</h2>
@@ -23,18 +20,19 @@ defineProps({
             <h3>{{ cardcont.title }}</h3>
             <p>{{ cardcont.excerpt }}</p>
             <a :href="postsCont.readmore_url">Read more ></a>
+              </div>
+            </div>
           </div>
+          <span v-for="button in postsCont.atoms">
+            <a :class="[button.type, button.variant]" :href="postsCont">{{button.text}}</a>
+          </span>
         </div>
-      </div>
-      <span v-for="button in postsCont.atoms">
-        <a :class="[button.type, button.variant]" :href="postsCont">{{button.text}}</a>
-      </span>
+      </div> -->
     </div>
-  </div> -->
+  </div>
 </template>
 
 <style scoped>
-
 div.content {
   text-align: center;
 }

@@ -8,33 +8,32 @@ defineProps({
 
 
 <template>
-  <!-- <div class="codecont">
-    <div class="codeloop">
-      <h1>service card</h1>
-      <code class="title">{{ JSON.parse(data) }}</code>
-    </div>
-  </div> -->
-  <div class="inner-container">
-    <div class="content">
-      <div class="content-block">
-        <h2>{{ JSON.parse(data).bricks.title }}</h2>
-        <p>{{ JSON.parse(data).bricks.description }}</p>
-        <div>
-          <!-- cards -->
-          <div v-for="(cardcont, index) in JSON.parse(data).bricks.gridItems" :key="index">
-            <p>{{ cardcont.category }}</p>
-            <h3> <span v-html="cardcont.icon"> </span>  {{ cardcont.sub_header }}</h3>
-            <p>{{ cardcont.description }}</p>
-            <hr>
-            <h4>{{ cardcont.heading }}</h4>
-            <ul>
-              <li v-for="(items, index) in cardcont.itemsList" :key="index"> <span v-html="items.icon"> </span>  {{ items.item }}</li>
-            </ul>
-            <!-- buttons -->
-            <div v-for="(button, index) in cardcont.atoms" :key="index">
-              <a :class="[button.type, button.variant]" :href="button.url">{{ button.text }}</a>
-            </div>
+  <div class="mcFix">
+    <div class="container">
+      <div class="inner-container">
+        <div class="content">
+          <div class="content-block">
+            <h2>{{ JSON.parse(data).bricks.title }}</h2>
+            <p>{{ JSON.parse(data).bricks.description }}</p>
+            <div>
+              <!-- cards -->
+              <div v-for="(cardcont, index) in JSON.parse(data).bricks.gridItems" :key="index">
+                <p>{{ cardcont.category }}</p>
+                <h3> <span v-html="cardcont.icon"> </span> {{ cardcont.sub_header }}</h3>
+                <p>{{ cardcont.description }}</p>
+                <hr>
+                <h4>{{ cardcont.heading }}</h4>
+                <ul>
+                  <li v-for="(items, index) in cardcont.itemsList" :key="index"> <span v-html="items.icon"> </span> {{
+                    items.item }}</li>
+                </ul>
+                <!-- buttons -->
+                <div v-for="(button, index) in cardcont.atoms" :key="index">
+                  <a :class="[button.type, button.variant]" :href="button.url">{{ button.text }}</a>
+                </div>
 
+              </div>
+            </div>
           </div>
         </div>
       </div>
