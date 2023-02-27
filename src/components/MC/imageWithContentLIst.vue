@@ -20,14 +20,9 @@ defineProps({
               <h2>{{ contetntList.title }}</h2>
               <p>{{ contetntList.description }}</p>
 
-              <span v-for="(btn, index) in contetntList.atoms" :key="index" >
-                
-                <a v-if="btn.type== 'button' " :href="btn.url" :class="[btn.type, btn.variant, btn.styleModifiers]"> 
-                  <span v-html="btn.icon"> </span>
-                  <span> {{ btn.text }} </span> 
-                </a>
+              <span v-for="(btn, index) in contetntList.atoms" :key="index">
 
-                <a v-if="btn.type== 'icon-btn' " :href="btn.url" :class="[btn.type, btn.variant, btn.styleModifiers]"> 
+                <a :href="btn.url" :class="[btn.type, btn.variant, btn.styleModifiers]"> 
                   <span v-html="btn.icon"> </span>
                   <span> {{ btn.text }} </span> 
                 </a>
@@ -86,18 +81,22 @@ img {
   border-radius: 8px;
   padding: 20px;
   width: 170px;
-  /* gap: 20px; */
   text-align: center;
-  /* display: inline-fl; */
 }
 
 .content-block> div > span {
-  /* display: flex; */
+  /* display: grid; */
   /* flex-direction: row; */
   /* align-items: center; */
   /* justify-content: center; */
   /* gap:30px; */
+  /* grid-template-columns: 1fr 1fr 1fr; */
   font-weight: bold;
+}
+
+.icon-btn {
+  display: grid;
+  /* display: block; */
 }
 
 .icon-btn > span {
@@ -110,6 +109,6 @@ img {
   color: red;
 }
 .icon-btn > span:last-of-type {
-  display: inline-flex;
+  /* display: inline-flex; */
 }
 </style>
