@@ -359,6 +359,7 @@ li:active .answer,li:hover .answer, li:focus .answer {
 
 * {
     box-sizing: border-box;
+
 }
 
 
@@ -382,7 +383,7 @@ li:active .answer,li:hover .answer, li:focus .answer {
 }
 
 .imgSlider {
-    background-image: url('src/assets/images/testimonial.jpg');
+    background-image: url('/src/images/testimonial.jpg');
     color: var(--brand-white);
 }
 

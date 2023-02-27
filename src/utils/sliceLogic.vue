@@ -32,7 +32,7 @@ defineProps({
     <hero :data="sliceData" :sliceType="sliceType" />
   </div>
 
-  <div  v-else-if="sliceType == 'servicecard'" :class="container">
+  <div  v-else-if="sliceType == 'servicecard'" :class="[sliceType, container]">
     <servicescard :data="sliceData" />
   </div>
 

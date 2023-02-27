@@ -25,9 +25,6 @@ defineProps({
           <img :src="[imagePrefix(preImgUrl)] + repeater.imgurl" alt="" height="220" width="370">
 
           <div>
-            <code>
-
-            </code>
             <h2>{{ repeater.title }}</h2>
             <p> {{ repeater.description }}</p>
             <span v-for="button in repeater.atoms">
@@ -60,6 +57,7 @@ h2{
 
 .content-block>div>div {
   align-self: center;
+  vertical-align: middle;
 }
 
 img {
