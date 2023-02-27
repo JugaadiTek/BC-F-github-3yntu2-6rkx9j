@@ -24,48 +24,68 @@ const moreArticles = ref(null);
 // let pageblocks = "";
 fetchData();
 
+// function itemDetails(itemDetails) {
+//   let itemDetails;
+//   let slice = {}
+//   for (slice of itemDetails.nosql_datastore_id ) {
+//     console.log(slice)
+//     articleResponse.extra = directus.items('nosql_datastore').readOne(slice, {
+//       fields: ['*.*.*'],
+//     });
+//   }
+// }
+    
 
 // Directus API call to get the article data via the directus sdk using the id from the route params
 async function fetchData() {
-  const { id } = route.params;
+  // const { id } = route.params;
   let articleResponse;
   try {
-    articleResponse = await directus.items('home').readOne(id, {
-      fields: ['grab_a_slice.nosql_datastore_id.json_datastore', 'id'],
-    });
-    const formattedArticle = { ...articleResponse, };
-    
-    const moreArticlesResponse = await directus.items('home').readByQuery({
-      fields: ['id', 'title'],
+    articleResponse = await directus.items('home_nosql_datastore').readByQuery({
+      fields: ['sort,nosql_datastore_id,nosql_datastore_id.Slice_Type,id,nosql_datastore_id.short_title,nosql_datastore_id.json_datastore' ],
       filter: {
         _and: [
-        { id: { _eq: articleResponse.id } },
-        { status: { _eq: 'archived' } },
+          { home_id: { _eq: route.params.id } },
+          { id: { _gt:0 }},
         ],
       },
-      limit: 20,
+      sort: ['-sort'],
     });
+    // itemDetails(articleResponse);
+
+    const formattedArticle = { ...articleResponse, }
     
-    const formattedMoreArticles = moreArticlesResponse.data.map(
-    (moreArticle) => {
-      return { ...moreArticle, };
-    }
-    );
+    // const moreArticlesResponse = await directus.items('home').readByQuery({
+    //   fields: ['id', 'title'],
+    //   filter: {
+    //     _and: [
+    //     { id: { _eq: articleResponse.id } },
+    //     { status: { _eq: 'archived' } },
+    //     ],
+    //   },
+    //   limit: 1
+    // });
+    
+    // const formattedMoreArticles = moreArticlesResponse.data.map(
+    // (moreArticle) => {
+    //   return { ...moreArticle, };
+    // }
+    // );
     
     // article.value = flattenObj(formattedArticle);
     // moreArticles.value = flattenObj(formattedMoreArticles);
     article.value = formattedArticle;
-    moreArticles.value = formattedMoreArticles;
+    // moreArticles.value = formattedMoreArticles;
     
-    try {
-      if (article.value.grab_a_slice > 0) {
-        pageblocks = article
-        return pageblocks
-      }
-    } catch (err) {
-      console.log("Error: ", err)
-      return "ERROR";
-    } 
+    // try {
+    //   if (article.value.grab_a_slice > 0) {
+    //     pageblocks = article
+    //     return pageblocks
+    //   }
+    // } catch (err) {
+    //   console.log("Error: ", err)
+    //   return "ERROR";
+    // } 
   } catch (err) {
     router.replace({ name: 'not-found', params: { catchAll: route.path } });
   }
@@ -170,7 +190,7 @@ function createNewObject(sliceobj) {
   <!------------------------------------------------ MODOCOSM SLICE MASTER ---------------------------------------------------------------------------------------------------------------------------------------------------->
   <!---============================================================================================================================================================================================================-->
   
-  <section v-for="(slice, index) in article.grab_a_slice" >
+  <section v-for="(slice, index) in article" >
     <sliceLogic 
     :sliceType="createNewObject(slice.nosql_datastore_id.json_datastore).component" 
     :sliceData="JSON.stringify(createNewObject(slice.nosql_datastore_id.json_datastore))" 
