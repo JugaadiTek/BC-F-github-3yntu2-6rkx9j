@@ -1,6 +1,6 @@
 <script setup>
 defineProps({
-  data: [Object],
+  data: {Object},
   sliceType: String,
 })
 

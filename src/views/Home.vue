@@ -11,23 +11,16 @@ fetchData();
 
 async function fetchData() {
   const response = await directus.items('home').readByQuery({
-    fields: ['*'],
-    // sort: '-publish_date',
+    fields: ['id','title','slug','status'],
   });
-
   const formattedArticles = response.data.map((article) => {
-    return {
-      ...article,
-      // publish_date: formatRelativeTime(new Date(article.publish_date)),
-    };
+    return { ...article };
   });
-
   const [first, ...rest] = formattedArticles;
   hero.value = first;
   articles.value = rest;
 }
 </script>
-
 <template>
   <main>
     <section class="main-content">
