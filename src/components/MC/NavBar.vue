@@ -2,39 +2,42 @@
 import { arrayBuffer } from 'stream/consumers';
 
 defineProps({
-  navbtn: {type:Object, required:true}
+  navbtn: { type: Object, required: true }
 })
 </script>
   
 <template>
-  <div class="container">
-    <figure class="logo menu-item" itemprop="logo" itemscope itemtype="https://schema.org/ImageObject">
-      <a class="img" href="/" aria-current="page">
-      <span>Go To Home</span>
-      <img itemprop="thumbnail" :src="navbtn.logoimg.imgUrl"  :alt="navbtn.logoimg.imgAlt" />
-      </a>
-      <figcaption itemprop="caption"></figcaption>
-    </figure>
+  <div class="mcFix">
+    <div class="container">
+      <div class="inner-container">
+        <figure class="logo menu-item" itemprop="logo" itemscope itemtype="https://schema.org/ImageObject">
+          <a class="img" href="/" aria-current="page">
+            <span>Go To Home</span>
+            <img itemprop="thumbnail" :src="navbtn.logoimg.imgUrl" :alt="navbtn.logoimg.imgAlt" />
+          </a>
+          <figcaption itemprop="caption"></figcaption>
+        </figure>
 
-    <div  class="main-nav-links">
-      <ul v-for="(mainLink, index) in navbtn.mainNav" :key="index" class="dropdown">
-        <li class="dropbtn">
-          <a  :href="mainLink.linkUrl">{{ mainLink.linkText }} </a>
-        </li>
-        <li class="" v-for="subLinks in mainLink.subNav" >
-          <a class="dropdown-content" :href="subLinks.url">{{ subLinks.text }}</a>
-        </li>
-      </ul>
-    </div>
+        <div class="main-nav-links">
+          <ul v-for="(mainLink, index) in navbtn.mainNav" :key="index" class="dropdown">
+            <li class="dropbtn">
+              <a :href="mainLink.linkUrl">{{ mainLink.linkText }} </a>
+            </li>
+            <li class="" v-for="subLinks in mainLink.subNav">
+              <a class="dropdown-content" :href="subLinks.url">{{ subLinks.text }}</a>
+            </li>
+          </ul>
+        </div>
 
-    <div v-for="btn in navbtn.buttonLinks" class=" main-nav-links">
-      <ul>
-        <li class="demo-btn" >
-          <a  :href="btn.linkUrl">{{ btn.linkText }}</a>
-        </li>
-      </ul>
+        <div v-for="btn in navbtn.buttonLinks" class=" main-nav-links">
+          <ul>
+            <li class="demo-btn">
+              <a :href="btn.linkUrl">{{ btn.linkText }}</a>
+            </li>
+          </ul>
+        </div>
+      </div>
     </div>
-  
   </div>
 </template>
 
@@ -144,7 +147,7 @@ nav {
   position: absolute;
   background-color: #f9f9f9;
   min-width: 160px;
-  box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+  box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
   z-index: 1;
 }
 
@@ -155,7 +158,9 @@ nav {
   display: block;
 }
 
-.dropdown-content a:hover {background-color: #f1f1f1}
+.dropdown-content a:hover {
+  background-color: #f1f1f1
+}
 
 .dropdown:hover .dropdown-content {
   display: block;
@@ -164,6 +169,4 @@ nav {
 .dropdown:hover .dropbtn {
   background-color: #3e8e41;
 }
-
-
 </style>

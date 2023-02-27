@@ -1,37 +1,34 @@
 <script setup>
 defineProps({
-  data: {Object},
+  data: { Object },
   sliceType: String,
 })
 </script>
 
 
 <template>
+  <div class="mcFix">
+    <div class="container">
+      <div class="inner-container">
+        <div class="content-block">
+          <h2>
+            {{ JSON.parse(data).bricks.title }}
+          </h2>
 
-<!-- <div class="codecont">
-    <div class="codeloop">
-      <h1>faqs</h1>
-      <code class="title">{{ JSON.parse(data) }}</code>
-    </div>
-  </div> -->
-  
-  <div class="inner-container">
-    <div class="content-block">
-      <h2>
-        {{ JSON.parse(data).bricks.title }}
-      </h2>
-      
-      <div class="wrap-collabsible" v-for=" (ques, index) in JSON.parse(data).bricks.items_list" key="index">
-        <input :id="'collapsible2' + index" class="toggle" type="checkbox" checked="">
-        <label :for="'collapsible2' + index" class="lbl-toggle">{{ ques.question }} <span v-html="ques.icon"> </span> </label>
+          <div class="wrap-collabsible" v-for=" (ques, index) in JSON.parse(data).bricks.items_list" key="index">
+            <input :id="'collapsible2' + index" class="toggle" type="checkbox" checked="">
+            <label :for="'collapsible2' + index" class="lbl-toggle">{{ ques.question }} <span v-html="ques.icon"> </span>
+            </label>
 
-        <div class="collapsible-content">
-          <div class="content-inner">
-            <p>{{ ques.content }}</p>
+            <div class="collapsible-content">
+              <div class="content-inner">
+                <p>{{ ques.content }}</p>
+              </div>
+            </div>
           </div>
+
         </div>
       </div>
-
     </div>
   </div>
 </template>

@@ -2,36 +2,41 @@
 defineProps({
   footerCont: {
     type: Object,
-    required: true,}
+    required: true,
+  }
 })
 </script>
 
 
 <template>
-  <div class="container footer-container">
-    <div class="content-block">
-      <div>
-        <ul>
-          <li v-for="image in footerCont.imageList">
-            <img :src="image.imageurl" alt="">
-          </li>
-          <li class="copyrightTop">
-            <p v-for="text in footerCont.copyright_text">
-              {{ text.text }}
-            </p>
-          </li>
-        </ul>
-      </div>
+  <div class="mcFix">
+    <div class="container">
+      <div class="inner-container">
+        <div class="content-block">
+          <div>
+            <ul>
+              <li v-for="image in footerCont.imageList">
+                <img :src="image.imageurl" alt="">
+              </li>
+              <li class="copyrightTop">
+                <p v-for="text in footerCont.copyright_text">
+                  {{ text.text }}
+                </p>
+              </li>
+            </ul>
+          </div>
 
-      <div v-for="linksInfo in footerCont.atoms">
-        <ul>
-          <li class="linkHead">{{ linksInfo.label }}</li>
-          <li v-for="links in linksInfo.linksList">
-            <a :class="links.styleModifiers" :href="links.url">{{ links.text }}</a>
-          </li>
-        </ul>
-      </div>
+          <div v-for="linksInfo in footerCont.atoms">
+            <ul>
+              <li class="linkHead">{{ linksInfo.label }}</li>
+              <li v-for="links in linksInfo.linksList">
+                <a :class="links.styleModifiers" :href="links.url">{{ links.text }}</a>
+              </li>
+            </ul>
+          </div>
 
+        </div>
+      </div>
     </div>
   </div>
 </template>
@@ -79,12 +84,13 @@ li {
   color: red;
 }
 
-.horizontal-line{
-width: 135px;
-border-top: 2px solid white;
-padding-top: 5px;
-pointer-events: none;
-display: inline-block;  /*  -For IE11/ MS Edge bug  ///-code copied from net */
+.horizontal-line {
+  width: 135px;
+  border-top: 2px solid white;
+  padding-top: 5px;
+  pointer-events: none;
+  display: inline-block;
+  /*  -For IE11/ MS Edge bug  ///-code copied from net */
 }
 
 a:hover {

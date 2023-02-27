@@ -6,21 +6,18 @@ defineProps({
 </script>
 
 <template>
-  <!-- <div class="codecont">
-    <div class="codeloop">
-      <h1>flex item display</h1>
-      <code class="title">{{ JSON.parse(data) }}</code>
-    </div>
-  </div> -->
-
-  <div class="inner-container">
-    <div class="content">
-      <div class="content-block">
-        <ul>
-          <li v-for="(flexItem, index) in JSON.parse(data).gridItems" :key="index" :id=" 'flexitem_' + index  ">
-            <span v-html="flexItem.icon"></span>  {{ flexItem.item }}
-          </li>
-        </ul>
+  <div class="mcFix">
+    <div class="container">
+      <div class="inner-container">
+        <div class="content">
+          <div class="content-block">
+            <ul>
+              <li v-for="(flexItem, index) in JSON.parse(data).gridItems" :key="index" :id="'flexitem_' + index">
+                <span v-html="flexItem.icon"></span> {{ flexItem.item }}
+              </li>
+            </ul>
+          </div>
+        </div>
       </div>
     </div>
   </div>
