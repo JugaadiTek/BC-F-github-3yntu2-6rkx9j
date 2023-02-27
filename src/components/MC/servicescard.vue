@@ -23,12 +23,12 @@ defineProps({
           <!-- cards -->
           <div v-for="(cardcont, index) in JSON.parse(data).bricks.gridItems" :key="index">
             <p>{{ cardcont.category }}</p>
-            <h3> {{ cardcont.icon }} {{ cardcont.sub_header }}</h3>
+            <h3> <span v-html="cardcont.icon"> </span>  {{ cardcont.sub_header }}</h3>
             <p>{{ cardcont.description }}</p>
             <hr>
             <h4>{{ cardcont.heading }}</h4>
             <ul>
-              <li v-for="(items, index) in cardcont.itemsList" :key="index"> {{ items.icon }} {{ items.item }}</li>
+              <li v-for="(items, index) in cardcont.itemsList" :key="index"> <span v-html="items.icon"> </span>  {{ items.item }}</li>
             </ul>
             <!-- buttons -->
             <div v-for="(button, index) in cardcont.atoms" :key="index">

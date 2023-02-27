@@ -23,7 +23,7 @@ defineProps({
       
       <div class="wrap-collabsible" v-for=" (ques, index) in JSON.parse(data).bricks.items_list" key="index">
         <input :id="'collapsible2' + index" class="toggle" type="checkbox" checked="">
-        <label :for="'collapsible2' + index" class="lbl-toggle">{{ ques.question }} <span>{{ ques.icon }}</span> </label>
+        <label :for="'collapsible2' + index" class="lbl-toggle">{{ ques.question }} <span v-html="ques.icon"> </span> </label>
 
         <div class="collapsible-content">
           <div class="content-inner">

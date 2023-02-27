@@ -18,7 +18,7 @@ defineProps({
       <div class="content-block">
         <ul>
           <li v-for="(flexItem, index) in JSON.parse(data).gridItems" :key="index" :id=" 'flexitem_' + index  ">
-            {{ flexItem.icon }} {{ flexItem.item }}
+            <span v-html="flexItem.icon"></span>  {{ flexItem.item }}
           </li>
         </ul>
       </div>

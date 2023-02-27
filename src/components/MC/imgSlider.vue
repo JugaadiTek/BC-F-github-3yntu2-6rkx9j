@@ -18,7 +18,7 @@ defineProps({
     <div class="content">
       <div class="content-block">
         <div v-for="slide in JSON.parse(data).bricks.slides" >
-          <p>{{ slide.icon }}</p>
+          <span v-html="slide.icon"> </span><span v-html="slide.icon"> </span><span v-html="slide.icon"> </span><span v-html="slide.icon"> </span><span v-html="slide.icon"> </span>
           <h3>{{ slide.testimony }}</h3>
           <span>
             <h4>{{ slide.name }}</h4>
