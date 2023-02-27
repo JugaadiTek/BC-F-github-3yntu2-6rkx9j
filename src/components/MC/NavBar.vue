@@ -1,6 +1,4 @@
-<script setup lang="ts">
-import { arrayBuffer } from 'stream/consumers';
-
+<script setup>
 defineProps({
   navbtn: { type: Object, required: true }
 })
@@ -127,7 +125,7 @@ nav {
   padding: 12px 0;
 }
 
-.dropbtn {
+/* .dropbtn {
   background-color: #4CAF50;
   color: white;
   padding: 16px;
@@ -168,5 +166,5 @@ nav {
 
 .dropdown:hover .dropbtn {
   background-color: #3e8e41;
-}
+} */
 </style>
