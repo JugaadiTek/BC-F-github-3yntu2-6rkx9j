@@ -72,7 +72,7 @@ defineProps({
     <FAQs :data="sliceData"/>
   </div> 
 
-  <div v-else-if="sliceType == 'content pairs with list'" :class="[sliceType, container]">
+  <div v-else-if="sliceType == 'content_pairs_with_list'" :class="[sliceType, container]">
     <contentPairsWithList :data="sliceData"/>
   </div> 
 

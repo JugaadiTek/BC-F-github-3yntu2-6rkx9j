@@ -14,7 +14,7 @@ defineProps({
   </div> -->
   <div class="inner-container">
     <div class="content">
-      <div class="content-block" v-for=" (slice, index) in JSON.parse(data).bricks.details" :key="index">
+      <div class="content-block" v-for=" (slice, index) in JSON.parse(data).bricks.details" :key="index" :id="'flexItemLinkedSlice_' + index">
         <div>
           <h2>{{ slice.icon }} {{ slice.title }}</h2>
           <p>{{ slice.description }}</p>

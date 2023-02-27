@@ -17,15 +17,15 @@ defineProps({
       <pre class="title">{{ JSON.parse(data) }}</pre>
     </div>
   </div> -->
-  
+
   <div class="inner-container">
     <div class="content">
       <div class="content-block">
-        <div v-for=" contetntList in JSON.parse(data).bricks">
+        <div v-for="(contetntList, index) in JSON.parse(data).bricks" :key="index">
           <h2>{{ contetntList.title }}</h2>
           <p>{{ contetntList.description }}</p>
           <span v-for="(btn, index) in contetntList.atoms" :key="index">
-            <a :href="btn.url" :class="[btn.type, btn.variant, btn.styleModifiers]"> {{ btn.icon }} {{ btn.text }}</a>
+            <a :href="btn.url" :class="[btn.type, btn.variant, btn.styleModifiers]"> <span>{{ btn.icon }}</span> <span> {{ btn.text }} </span> </a>
           </span>
         </div>
         <span >
