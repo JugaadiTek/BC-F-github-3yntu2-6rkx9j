@@ -62,4 +62,5 @@ defineProps({
 div>span {
   padding-right: 20px;
 }
+
 </style>

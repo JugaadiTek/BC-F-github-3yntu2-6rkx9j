@@ -294,7 +294,7 @@ section.darkbg .font-300 {
 ░░░░▓░░ BUTTONS AND BUTTON VARIENTS ░░▓░░░░
 ░░░░▓█████████████████████████████████▓░░░░
 ╔╾┈┈┈┈┈CLASSES┈╼╤╾┈┈┈┈┈┈┈┈┈┈BACKGROUND┈COLOR┈┈┈┈┈┈┈┈┈┈┈┈╼╤╾┈┈┈┈┈┈┈┈┈┈┈┈BORDER┈COLOR ┈┈┈┈┈┈┈┈┈┈┈╼╤╾┈┈BORDER┈RADIUS┈┈┈╼╤╾┈┈┈BORDER┈WIDTH┈┈┈╼╗    other-button-styles                                          */
-.button         { background-color : var(--primary)      ; border-color : var(--primary)        ; border-radius : 5px;  border-width : 2px;    border-style: solid; padding: 5px 10px; font-weight: bold;}
+.button         { background-color : var(--primary)      ; border-color : var(--primary)        ; border-radius : 5px;  border-width : 3px;    border-style: solid; padding: 5px 10px; font-weight: bold;}
 .button.type_01 { background-color : var(--primary)      ; border-color : var(--primary)        ;                                              color: var(--brand-white)              }
 .button.type_02 { background-color : var(--bg-layer-600) ; border-color : var(--primary)        ; border-radius : 5px;                                                                }
 .button.type_03 { background-color : var(--secondary)    ; border-color : var(--secondary)      ; border-radius : 5px;                                                                }
@@ -416,3 +416,4 @@ li:active .answer,li:hover .answer, li:focus .answer {
 header {
     background-color: var(--primary);
 }
+

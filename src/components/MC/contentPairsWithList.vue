@@ -15,13 +15,13 @@ defineProps({
           <h2> <span v-html="slice.icon"></span>  {{ slice.title }}</h2>
           <p>{{ slice.description }}</p>
           <span v-for="btn in slice.atoms">
-            <a :href="slice.atoms.url" :class="[btn.type, btn.variant, btn.styleModifiers]">{{ btn.text }}</a>
+            <a :href="btn.url" :class="[btn.type, btn.variant, btn.styleModifiers]">{{ btn.text }}</a>
           </span>
         </div>
         <div>
           <ul>
             <li v-for="ghoul, index in slice.dataList" :key="index">
-              <i class="fa-solid fa-circle-check"></i>{{ ghoul.item }}
+              <i class="fa-solid fa-circle-check"></i> {{ ghoul.item }}
             </li>
           </ul>
         </div>
@@ -34,24 +34,6 @@ defineProps({
 </template>
 
 <style scoped>
-h2 {
-  text-align: left;
-}
-
-ul {
-  text-align: center;
-  padding: unset;
-}
-
-a {
-  display: inline-block;
-  border: 4px solid #280071;
-  background-color: #280071;
-  color: #ffffff;
-  border-radius: 4px;
-  margin-top: 10px;
-  padding: 2px 56px;
-}
 
 .content-block {
   display: grid;
@@ -65,7 +47,7 @@ a {
   display: grid;
   grid-template-columns: 1fr 1fr;
   gap: 6px;
-  background-color: #e9e5f1;
+  background-color: var(--bg-layer-600);
   padding: 60px;
 }
 
