@@ -28,55 +28,55 @@ defineProps({
 </script>
 
 <template>
-  <div  v-if="sliceType == 'hero'" :class="[sliceType, container]" >
+  <div  v-if="sliceType == 'hero'" :class="[sliceType]" >
     <hero :data="sliceData" :sliceType="sliceType" />
   </div>
 
-  <div  v-else-if="sliceType == 'servicecard'" :class="[sliceType, container]">
+  <div  v-else-if="sliceType == 'servicecard'" :class="[sliceType]">
     <servicescard :data="sliceData" />
   </div>
 
-  <div v-else-if="sliceType == 'imageWithContentList'" :class="[sliceType, container]">
+  <div v-else-if="sliceType == 'imageWithContentList'" :class="[sliceType]">
     <imageWithContentList :data="sliceData" />
   </div>
 
-  <div v-else-if="sliceType == 'ctaHero'" :class="[sliceType, container]">
+  <div v-else-if="sliceType == 'ctaHero'" :class="[sliceType]">
     <ctaHero :data="sliceData" />
   </div>
   
-  <div v-else-if="sliceType == 'ContentPairsRepeater'" :class="[sliceType, container]">
+  <div v-else-if="sliceType == 'ContentPairsRepeater'" :class="[sliceType]">
     <ContentPairsRepeater :data="sliceData" />
   </div>
   
-  <div v-else-if="sliceType == 'imgSlider'" :class="[sliceType, container]">
+  <div v-else-if="sliceType == 'imgSlider'" :class="[sliceType]">
     <imgSlider :data="sliceData" />
   </div>
   
-  <div v-else-if="sliceType == 'artcont'"  :class="[sliceType, container]">
+  <div v-else-if="sliceType == 'artcont'"  :class="[sliceType]">
     <artcont :data="sliceData" />
   </div>
   
-  <div v-else-if="sliceType == 'postfeed'" :class="[sliceType, container]">
+  <div v-else-if="sliceType == 'postfeed'" :class="[sliceType]">
     <postfeed :data="sliceData" />
   </div>
   
-  <div v-else-if="sliceType == 'newsletter'" :class="[sliceType, container]">
+  <div v-else-if="sliceType == 'newsletter'" :class="[sliceType]">
     <newsletter />
   </div> 
 
-  <div v-else-if="sliceType == 'contentPair'" :class="[sliceType, container]">
+  <div v-else-if="sliceType == 'contentPair'" :class="[sliceType]">
     <contentPair :data="sliceData"/>
   </div> 
 
-  <div v-else-if="sliceType == 'FAQs'" :class="[sliceType, container]">
+  <div v-else-if="sliceType == 'FAQs'" :class="[sliceType]">
     <FAQs :data="sliceData"/>
   </div> 
 
-  <div v-else-if="sliceType == 'content_pairs_with_list'" :class="[sliceType, container]">
+  <div v-else-if="sliceType == 'content_pairs_with_list'" :class="[sliceType]">
     <contentPairsWithList :data="sliceData"/>
   </div> 
 
-  <div v-else-if="sliceType == 'flex_item_display'" :class="[sliceType, container]">
+  <div v-else-if="sliceType == 'flex_item_display'" :class="[sliceType]">
     <flexItemDisplay :data="sliceData"/>
   </div> 
 
