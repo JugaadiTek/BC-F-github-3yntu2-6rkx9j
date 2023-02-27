@@ -305,7 +305,7 @@ section.darkbg .font-300 {
 ░░░░▓░░ PSUDO ELEMENTS ::BEFORE AND ::AFTER ░░▓░░░░
 ░░░░▓█████████████████████████████████████████▓░░░░ 
 ╔╾┈┈┈┈┈SELECTORS┈┈┈┈┈┈┈┈┈┈┈╼╤╾┈┈┈FONT┈FAMILY┈/┈ICON┈SET┈┈┈┈┈┈┈┈┈╼╤╾┈ CHOOSE┈YOUR┈ICON┈┈┈┈╤╾┈┈DISPLAY┈SETTING┈┈┈┈┈┈┈╼╤╾┈┈┈┈FONT┈SIZE┈┈┈┈┈┈╼╤╾┈┈┈┈┈POSITION┈SETTING┈┈┈┈╼╗              */
-a.readmore::after           {   font-family : Font Awesome 5 Free;  Content : "/#3333"   ;  display : inline-block  ;  font-size : inherit;  position    :   relative;}
+a.readmore::after           {   font-family : Font Awesome 5 Free;  content : "/#3333"   ;  display : inline-block  ;  font-size : inherit;  position    :   relative;}
 /* 
 ███████████████████████████████████████████████████████████
 ░░░░▓░░ CONTAINER/INNERCONTAINER/POSITIONER CLASSES ░░▓░░░░
