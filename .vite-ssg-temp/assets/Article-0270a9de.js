@@ -75,9 +75,9 @@ const _sfc_main$d = {
     </div>
   </div> --><div${ssrRenderAttrs(mergeProps({ class: "inner-container" }, _attrs))} data-v-6325c232><div class="content" data-v-6325c232><div class="content-block" data-v-6325c232><h2 data-v-6325c232>${ssrInterpolate(JSON.parse(__props.data).bricks.title)}</h2><p data-v-6325c232>${ssrInterpolate(JSON.parse(__props.data).bricks.description)}</p><div data-v-6325c232><!-- cards --><!--[-->`);
       ssrRenderList(JSON.parse(__props.data).bricks.gridItems, (cardcont, index) => {
-        _push(`<div data-v-6325c232><p data-v-6325c232>${ssrInterpolate(cardcont.category)}</p><h3 data-v-6325c232>${ssrInterpolate(cardcont.icon)} ${ssrInterpolate(cardcont.sub_header)}</h3><p data-v-6325c232>${ssrInterpolate(cardcont.description)}</p><hr data-v-6325c232><h4 data-v-6325c232>${ssrInterpolate(cardcont.heading)}</h4><ul data-v-6325c232><!--[-->`);
+        _push(`<div data-v-6325c232><p data-v-6325c232>${ssrInterpolate(cardcont.category)}</p><h3 data-v-6325c232><span data-v-6325c232>${cardcont.icon}</span> ${ssrInterpolate(cardcont.sub_header)}</h3><p data-v-6325c232>${ssrInterpolate(cardcont.description)}</p><hr data-v-6325c232><h4 data-v-6325c232>${ssrInterpolate(cardcont.heading)}</h4><ul data-v-6325c232><!--[-->`);
         ssrRenderList(cardcont.itemsList, (items, index2) => {
-          _push(`<li data-v-6325c232>${ssrInterpolate(items.icon)} ${ssrInterpolate(items.item)}</li>`);
+          _push(`<li data-v-6325c232><span data-v-6325c232>${items.icon}</span> ${ssrInterpolate(items.item)}</li>`);
         });
         _push(`<!--]--></ul><!-- buttons --><!--[-->`);
         ssrRenderList(cardcont.atoms, (button, index2) => {
@@ -116,7 +116,7 @@ const _sfc_main$c = {
       ssrRenderList(JSON.parse(__props.data).bricks, (contetntList, index) => {
         _push(`<div data-v-4a84968f><h2 data-v-4a84968f>${ssrInterpolate(contetntList.title)}</h2><p data-v-4a84968f>${ssrInterpolate(contetntList.description)}</p><!--[-->`);
         ssrRenderList(contetntList.atoms, (btn, index2) => {
-          _push(`<span data-v-4a84968f><a${ssrRenderAttr("href", btn.url)} class="${ssrRenderClass([btn.type, btn.variant, btn.styleModifiers])}" data-v-4a84968f><span data-v-4a84968f>${ssrInterpolate(btn.icon)}</span> <span data-v-4a84968f>${ssrInterpolate(btn.text)}</span></a></span>`);
+          _push(`<span data-v-4a84968f><a${ssrRenderAttr("href", btn.url)} class="${ssrRenderClass([btn.type, btn.variant, btn.styleModifiers])}" data-v-4a84968f><span data-v-4a84968f>${btn.icon}</span> <span data-v-4a84968f>${ssrInterpolate(btn.text)}</span></a></span>`);
         });
         _push(`<!--]--></div>`);
       });
@@ -152,7 +152,7 @@ const _sfc_main$b = {
     </div>
   </div> --><div${ssrRenderAttrs(mergeProps({ class: "inner-container" }, _attrs))} data-v-1a15dbdb><div class="content" data-v-1a15dbdb><div class="content-block" data-v-1a15dbdb><!--[-->`);
       ssrRenderList(JSON.parse(__props.data).bricks.slides, (slide) => {
-        _push(`<div data-v-1a15dbdb><p data-v-1a15dbdb>${ssrInterpolate(slide.icon)}</p><h3 data-v-1a15dbdb>${ssrInterpolate(slide.testimony)}</h3><span data-v-1a15dbdb><h4 data-v-1a15dbdb>${ssrInterpolate(slide.name)}</h4><p data-v-1a15dbdb>${ssrInterpolate(slide.title)}</p></span></div>`);
+        _push(`<div data-v-1a15dbdb><span data-v-1a15dbdb>${slide.icon}</span><span data-v-1a15dbdb>${slide.icon}</span><span data-v-1a15dbdb>${slide.icon}</span><span data-v-1a15dbdb>${slide.icon}</span><span data-v-1a15dbdb>${slide.icon}</span><h3 data-v-1a15dbdb>${ssrInterpolate(slide.testimony)}</h3><span data-v-1a15dbdb><h4 data-v-1a15dbdb>${ssrInterpolate(slide.name)}</h4><p data-v-1a15dbdb>${ssrInterpolate(slide.title)}</p></span></div>`);
       });
       _push(`<!--]--></div></div></div><!--]-->`);
     };
@@ -410,7 +410,7 @@ const _sfc_main$4 = {
     </div>
   </div> --><div${ssrRenderAttrs(mergeProps({ class: "inner-container" }, _attrs))} data-v-ec7a9794><div class="content-block" data-v-ec7a9794><h2 data-v-ec7a9794>${ssrInterpolate(JSON.parse(__props.data).bricks.title)}</h2><!--[-->`);
       ssrRenderList(JSON.parse(__props.data).bricks.items_list, (ques, index) => {
-        _push(`<div class="wrap-collabsible" data-v-ec7a9794><input${ssrRenderAttr("id", "collapsible2" + index)} class="toggle" type="checkbox" checked="" data-v-ec7a9794><label${ssrRenderAttr("for", "collapsible2" + index)} class="lbl-toggle" data-v-ec7a9794>${ssrInterpolate(ques.question)} <span data-v-ec7a9794>${ssrInterpolate(ques.icon)}</span></label><div class="collapsible-content" data-v-ec7a9794><div class="content-inner" data-v-ec7a9794><p data-v-ec7a9794>${ssrInterpolate(ques.content)}</p></div></div></div>`);
+        _push(`<div class="wrap-collabsible" data-v-ec7a9794><input${ssrRenderAttr("id", "collapsible2" + index)} class="toggle" type="checkbox" checked="" data-v-ec7a9794><label${ssrRenderAttr("for", "collapsible2" + index)} class="lbl-toggle" data-v-ec7a9794>${ssrInterpolate(ques.question)} <span data-v-ec7a9794>${ques.icon}</span></label><div class="collapsible-content" data-v-ec7a9794><div class="content-inner" data-v-ec7a9794><p data-v-ec7a9794>${ssrInterpolate(ques.content)}</p></div></div></div>`);
       });
       _push(`<!--]--></div></div><!--]-->`);
     };
@@ -440,7 +440,7 @@ const _sfc_main$3 = {
     </div>
   </div> --><div${ssrRenderAttrs(mergeProps({ class: "inner-container" }, _attrs))} data-v-5598c4fd><div class="content" data-v-5598c4fd><!--[-->`);
       ssrRenderList(JSON.parse(__props.data).bricks.details, (slice, index) => {
-        _push(`<div class="content-block"${ssrRenderAttr("id", "flexItemLinkedSlice_" + index)} data-v-5598c4fd><div data-v-5598c4fd><h2 data-v-5598c4fd>${ssrInterpolate(slice.icon)} ${ssrInterpolate(slice.title)}</h2><p data-v-5598c4fd>${ssrInterpolate(slice.description)}</p><!--[-->`);
+        _push(`<div class="content-block"${ssrRenderAttr("id", "flexItemLinkedSlice_" + index)} data-v-5598c4fd><div data-v-5598c4fd><h2 data-v-5598c4fd><span data-v-5598c4fd>${slice.icon}</span> ${ssrInterpolate(slice.title)}</h2><p data-v-5598c4fd>${ssrInterpolate(slice.description)}</p><!--[-->`);
         ssrRenderList(slice.atoms, (btn) => {
           _push(`<span data-v-5598c4fd><a${ssrRenderAttr("href", slice.atoms.url)} class="${ssrRenderClass([btn.type, btn.variant, btn.styleModifiers])}" data-v-5598c4fd>${ssrInterpolate(btn.text)}</a></span>`);
         });
@@ -478,7 +478,7 @@ const _sfc_main$2 = {
     </div>
   </div> --><div${ssrRenderAttrs(mergeProps({ class: "inner-container" }, _attrs))} data-v-161394e6><div class="content" data-v-161394e6><div class="content-block" data-v-161394e6><ul data-v-161394e6><!--[-->`);
       ssrRenderList(JSON.parse(__props.data).gridItems, (flexItem, index) => {
-        _push(`<li${ssrRenderAttr("id", "flexitem_" + index)} data-v-161394e6>${ssrInterpolate(flexItem.icon)} ${ssrInterpolate(flexItem.item)}</li>`);
+        _push(`<li${ssrRenderAttr("id", "flexitem_" + index)} data-v-161394e6><span data-v-161394e6>${flexItem.icon}</span> ${ssrInterpolate(flexItem.item)}</li>`);
       });
       _push(`<!--]--></ul></div></div></div><!--]-->`);
     };
@@ -502,7 +502,7 @@ const _sfc_main$1 = {
     return (_ctx, _push, _parent, _attrs) => {
       if (__props.sliceType == "hero") {
         _push(`<div${ssrRenderAttrs(mergeProps({
-          class: [__props.sliceType, _ctx.container]
+          class: [__props.sliceType]
         }, _attrs))}>`);
         _push(ssrRenderComponent(hero, {
           data: __props.sliceData,
@@ -511,73 +511,73 @@ const _sfc_main$1 = {
         _push(`</div>`);
       } else if (__props.sliceType == "servicecard") {
         _push(`<div${ssrRenderAttrs(mergeProps({
-          class: [__props.sliceType, _ctx.container]
+          class: [__props.sliceType]
         }, _attrs))}>`);
         _push(ssrRenderComponent(servicescard, { data: __props.sliceData }, null, _parent));
         _push(`</div>`);
       } else if (__props.sliceType == "imageWithContentList") {
         _push(`<div${ssrRenderAttrs(mergeProps({
-          class: [__props.sliceType, _ctx.container]
+          class: [__props.sliceType]
         }, _attrs))}>`);
         _push(ssrRenderComponent(imageWithContentList, { data: __props.sliceData }, null, _parent));
         _push(`</div>`);
       } else if (__props.sliceType == "ctaHero") {
         _push(`<div${ssrRenderAttrs(mergeProps({
-          class: [__props.sliceType, _ctx.container]
+          class: [__props.sliceType]
         }, _attrs))}>`);
         _push(ssrRenderComponent(ctaHero, { data: __props.sliceData }, null, _parent));
         _push(`</div>`);
       } else if (__props.sliceType == "ContentPairsRepeater") {
         _push(`<div${ssrRenderAttrs(mergeProps({
-          class: [__props.sliceType, _ctx.container]
+          class: [__props.sliceType]
         }, _attrs))}>`);
         _push(ssrRenderComponent(ContentPairsRepeater, { data: __props.sliceData }, null, _parent));
         _push(`</div>`);
       } else if (__props.sliceType == "imgSlider") {
         _push(`<div${ssrRenderAttrs(mergeProps({
-          class: [__props.sliceType, _ctx.container]
+          class: [__props.sliceType]
         }, _attrs))}>`);
         _push(ssrRenderComponent(imgSlider, { data: __props.sliceData }, null, _parent));
         _push(`</div>`);
       } else if (__props.sliceType == "artcont") {
         _push(`<div${ssrRenderAttrs(mergeProps({
-          class: [__props.sliceType, _ctx.container]
+          class: [__props.sliceType]
         }, _attrs))}>`);
         _push(ssrRenderComponent(artcont, { data: __props.sliceData }, null, _parent));
         _push(`</div>`);
       } else if (__props.sliceType == "postfeed") {
         _push(`<div${ssrRenderAttrs(mergeProps({
-          class: [__props.sliceType, _ctx.container]
+          class: [__props.sliceType]
         }, _attrs))}>`);
         _push(ssrRenderComponent(postfeed, { data: __props.sliceData }, null, _parent));
         _push(`</div>`);
       } else if (__props.sliceType == "newsletter") {
         _push(`<div${ssrRenderAttrs(mergeProps({
-          class: [__props.sliceType, _ctx.container]
+          class: [__props.sliceType]
         }, _attrs))}>`);
         _push(ssrRenderComponent(newsletter, null, null, _parent));
         _push(`</div>`);
       } else if (__props.sliceType == "contentPair") {
         _push(`<div${ssrRenderAttrs(mergeProps({
-          class: [__props.sliceType, _ctx.container]
+          class: [__props.sliceType]
         }, _attrs))}>`);
         _push(ssrRenderComponent(contentPair, { data: __props.sliceData }, null, _parent));
         _push(`</div>`);
       } else if (__props.sliceType == "FAQs") {
         _push(`<div${ssrRenderAttrs(mergeProps({
-          class: [__props.sliceType, _ctx.container]
+          class: [__props.sliceType]
         }, _attrs))}>`);
         _push(ssrRenderComponent(FAQs, { data: __props.sliceData }, null, _parent));
         _push(`</div>`);
       } else if (__props.sliceType == "content_pairs_with_list") {
         _push(`<div${ssrRenderAttrs(mergeProps({
-          class: [__props.sliceType, _ctx.container]
+          class: [__props.sliceType]
         }, _attrs))}>`);
         _push(ssrRenderComponent(contentPairsWithList, { data: __props.sliceData }, null, _parent));
         _push(`</div>`);
       } else if (__props.sliceType == "flex_item_display") {
         _push(`<div${ssrRenderAttrs(mergeProps({
-          class: [__props.sliceType, _ctx.container]
+          class: [__props.sliceType]
         }, _attrs))}>`);
         _push(ssrRenderComponent(flexItemDisplay, { data: __props.sliceData }, null, _parent));
         _push(`</div>`);

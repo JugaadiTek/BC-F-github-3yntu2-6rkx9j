@@ -1,9 +1,4 @@
 <script setup>
-// import { ref } from 'vue';
-// import { directus } from '@/services/directus';
-// import { RouterLink, useRoute, useRouter } from 'vue-router';
-// import { KeyObject } from 'crypto';
-// import QueryString from 'querystring';
 // =========================  COMPONENTS  ==========================================================
 import hero from "@/components/MC/hero.vue";
 import servicescard from "@/components/MC/servicescard.vue";

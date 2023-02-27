@@ -369,7 +369,7 @@ const router = createRouter({
     {
       path: "/articles/:id",
       name: "articles",
-      component: () => import("./assets/Article-cc1fc2c7.js")
+      component: () => import("./assets/Article-0270a9de.js")
     }
     // {
     //   path: "/:catchAll(.*)",
