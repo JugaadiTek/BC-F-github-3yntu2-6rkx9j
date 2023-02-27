@@ -40,12 +40,10 @@ defineProps({
   gap: 100px;
 }
 
-h2 {
+h2, p {
   text-align: left;
-}
+  color: var(--bg-layer-100);
 
-p {
-  text-align: left;
 }
 
 .ctaImg {

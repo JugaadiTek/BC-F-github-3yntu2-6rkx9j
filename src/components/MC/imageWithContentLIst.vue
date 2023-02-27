@@ -47,6 +47,9 @@ defineProps({
 </template>
 
 <style scoped>
+h2 {
+  text-align: left;
+}
 .content-block {
   display: grid;
   grid-template-columns: 1fr 1fr;

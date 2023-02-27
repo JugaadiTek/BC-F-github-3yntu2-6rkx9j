@@ -38,6 +38,12 @@ defineProps({
 </template>
 
 <style scoped>
+
+h2, p {
+  text-align: left;
+  color: var(--bg-layer-100);
+
+}
 .content-block {
   display: grid;
   grid-template-columns: 1fr 1fr;

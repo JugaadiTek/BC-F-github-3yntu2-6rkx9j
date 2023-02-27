@@ -34,6 +34,13 @@ defineProps({
 </template>
 
 <style scoped>
+h2 {
+  text-align: left;
+}
+
+i {
+  color: var(--primary);
+}
 
 .content-block {
   display: grid;
