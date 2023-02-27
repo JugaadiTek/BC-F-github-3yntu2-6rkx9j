@@ -6,20 +6,21 @@ defineProps({
 </script>
 
 <template>
-  <div class="codecont">
+  <!-- <div class="codecont">
     <div class="codeloop">
       <h1>content paires with lists</h1>
       <pre class="title">{{ JSON.parse(data) }}</pre>
     </div>
-  </div>
+  </div> -->
   <div class="inner-container">
     <div class="content">
       <div class="content-block" v-for=" (slice, index) in JSON.parse(data).bricks.details" :key="index">
         <div>
           <h2>{{ slice.icon }} {{ slice.title }}</h2>
           <p>{{ slice.description }}</p>
-
-          <a :href="slice.atoms.url" :class="[slice.atoms.type, slice.atoms.variant, slice.atoms.styleModifiers]">{{ text }}</a>
+          <span v-for="btn in slice.atoms">
+            <a :href="slice.atoms.url" :class="[btn.type, btn.variant, btn.styleModifiers]">{{ btn.text }}</a>
+          </span>
         </div>
         <div>
           <ul>
