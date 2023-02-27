@@ -1,6 +1,6 @@
 <script setup>
 defineProps({
-  servicecardCont: [Object],
+  data: [Object],
   sliceType: String,
 })
 
@@ -8,20 +8,20 @@ defineProps({
 
 
 <template>
-  <div class="codecont">
+  <!-- <div class="codecont">
     <div class="codeloop">
       <h1>service card</h1>
-      <pre class="title">{{ JSON.parse(servicecardCont) }}</pre>
+      <code class="title">{{ JSON.parse(data) }}</code>
     </div>
-  </div>
+  </div> -->
   <div class="inner-container">
     <div class="content">
       <div class="content-block">
-        <h2>{{ JSON.parse(servicecardCont).bricks.title }}</h2>
-        <p>{{ JSON.parse(servicecardCont).bricks.description }}</p>
+        <h2>{{ JSON.parse(data).bricks.title }}</h2>
+        <p>{{ JSON.parse(data).bricks.description }}</p>
         <div>
           <!-- cards -->
-          <div v-for="(cardcont, index) in JSON.parse(servicecardCont).bricks.gridItems" :key="index">
+          <div v-for="(cardcont, index) in JSON.parse(data).bricks.gridItems" :key="index">
             <p>{{ cardcont.category }}</p>
             <h3> {{ cardcont.icon }} {{ cardcont.sub_header }}</h3>
             <p>{{ cardcont.description }}</p>

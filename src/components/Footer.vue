@@ -26,16 +26,6 @@ const footerSliceCont = ref([
             { url: "https://www.flaticon.com", text: "Retailers", type: "", variant: "type_03", styleModifiers: "" }
           ]
         },
-
-        {
-          label: "Resources",
-          linksList: [
-            { url: "https://www.flaticon.com", text: "Data Dashboard", type: "", variant: "type_03", styleModifiers: "" },
-            { url: "https://www.flaticon.com", text: "Newsroom", type: "", variant: "type_03", styleModifiers: "" },
-            { url: "https://www.flaticon.com", text: "Events", type: "", variant: "type_03", styleModifiers: "" },
-            { url: "https://www.flaticon.com", text: "How To Guides", type: "", variant: "type_03", styleModifiers: "" }
-          ]
-        },
         {
           label: "About Us",
           linksList: [
@@ -44,7 +34,6 @@ const footerSliceCont = ref([
             { url: "https://www.flaticon.com", text: "Get In Touch", type: "", variant: "type_03", styleModifiers: "" }
           ]
         },
-
         {
           label: "Legal",
           linksList: [

@@ -1,31 +1,30 @@
 <script setup>
-// import { setSliceVars } from '@/utils/setSliceVars.js'
+import { imagePrefix } from '@/utils/imgurlPrefix.js';
+
 
 defineProps({
   data: {Object},
+  preImgUrl: String,
   sliceType: String,
 })
 </script>
 
 
 <template>
-  <div class="codecont">
+  <!-- <div class="codecont">
     <div class="codeloop">
       <h1>ContentPairsRepeater</h1>
-      <pre class="title">{{ JSON.parse(data) }}</pre>
+      <code class="title">{{ JSON.parse(data) }}</code>
     </div>
-  </div>
+  </div> -->
   <div class="inner-container">
     <div class="content">
       <div class="content-block">
         <div v-for="(repeater, index) in JSON.parse(data).bricks" :key="index">
 
-          <img :src="repeater.imgurl" alt="" height="220" width="370">
+          <img :src="[imagePrefix(preImgUrl)] + repeater.imgurl" alt="" height="220" width="370">
 
           <div>
-            <code>
-
-            </code>
             <h2>{{ repeater.title }}</h2>
             <p> {{ repeater.description }}</p>
             <span v-for="button in repeater.atoms">
@@ -58,6 +57,7 @@ h2{
 
 .content-block>div>div {
   align-self: center;
+  vertical-align: middle;
 }
 
 img {

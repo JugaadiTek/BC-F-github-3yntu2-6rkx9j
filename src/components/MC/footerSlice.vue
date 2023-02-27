@@ -59,7 +59,7 @@ li {
 
 .content-block {
   display: grid;
-  grid-template-columns: 4fr 1fr 1fr 1fr 1fr;
+  grid-template-columns: 4fr 1.2fr 1.2fr 1fr;
   grid-gap: 10px;
   padding: 4.5rem 0;
 }

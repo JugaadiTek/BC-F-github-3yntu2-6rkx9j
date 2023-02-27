@@ -6,30 +6,32 @@ defineProps({
 </script>
 
 <template>
-  <div class="codecont">
+  <!-- <div class="codecont">
     <div class="codeloop">
       <h1>content paires with lists</h1>
       <pre class="title">{{ JSON.parse(data) }}</pre>
     </div>
-  </div>
-  <!-- <div class="inner-container">
+  </div> -->
+  <div class="inner-container">
     <div class="content">
-      <div class="content-block">
+      <div class="content-block" v-for=" (slice, index) in JSON.parse(data).bricks.details" :key="index" :id="'flexItemLinkedSlice_' + index">
         <div>
-          <h2> <i class="fa-solid fa-user"></i> {{ optionsliceArtCont.details.title }}</h2>
-          <p>{{ optionsliceArtCont.details.description }}</p>
-          <a href="">Demo</a>
+          <h2>{{ slice.icon }} {{ slice.title }}</h2>
+          <p>{{ slice.description }}</p>
+          <span v-for="btn in slice.atoms">
+            <a :href="slice.atoms.url" :class="[btn.type, btn.variant, btn.styleModifiers]">{{ btn.text }}</a>
+          </span>
         </div>
         <div>
           <ul>
-            <li v-for="ghoul, index in optionsliceArtCont.details.dataList" :key="index">
-              {{ ghoul.item }}
+            <li v-for="ghoul, index in slice.dataList" :key="index">
+              <i class="fa-solid fa-circle-check"></i>{{ ghoul.item }}
             </li>
           </ul>
         </div>
       </div>
     </div>
-  </div> -->
+  </div>
 </template>
 
 <style scoped>

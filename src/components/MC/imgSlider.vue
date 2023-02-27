@@ -1,4 +1,5 @@
 <script setup>
+
 defineProps({
   data: [Object],
   sliceType: String,
@@ -7,12 +8,12 @@ defineProps({
 
 
 <template>
-  <div class="codecont">
+  <!-- <div class="codecont">
     <div class="codeloop">
       <h1>imgSlider</h1>
-      <pre class="title">{{ JSON.parse(data) }}</pre>
+      <code class="title">{{ JSON.parse(data) }}</code>
     </div>
-  </div>
+  </div> -->
   <div class="inner-container">
     <div class="content">
       <div class="content-block">
