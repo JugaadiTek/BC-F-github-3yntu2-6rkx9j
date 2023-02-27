@@ -12,7 +12,6 @@ defineProps({
 });
 </script>
 <template>
-  
   <RouterLink
     style="color:blueviolet; !important"
     :to="`/rawpage/${rawpage.id}`">

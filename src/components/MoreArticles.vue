@@ -16,8 +16,7 @@ defineProps({
       <div v-if="articles.length !== 0" class="articles-grid">
         <Article
           v-for="(article, index) in articles"
-          :key="index"
-          :article="article"
+          :key="index"      :article="article"
           :bordered="index !== articles.length - 1"
         />
       </div>

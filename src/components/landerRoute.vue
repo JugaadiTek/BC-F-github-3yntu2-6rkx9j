@@ -5,7 +5,7 @@ defineProps({
     type: Object,
     required: true,
   },
-  bordered2: {
+  bordered: {
     type: Boolean,
     required: true,
   },
@@ -13,7 +13,7 @@ defineProps({
 </script>
 <template>
   <RouterLink
-    style="color:green; !important"
+    style="color:red; !important"
     :to="`/lander/${lander.id}`">
     {{ lander.title }}
   </RouterLink>

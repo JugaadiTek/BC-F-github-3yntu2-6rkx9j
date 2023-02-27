@@ -59,15 +59,15 @@ async function fetchData() {
             :article  = "article"
             :bordered = "index !== articles.length - 1" />
           <rawpage
-            v-for="(rawp, index) in rawpage"
-            :key="index"
-            :rawpage="rawp"
-            :bordered="index !== rawpage.length - 1" />
+            v-for     = "(rawp, index) in rawpage"
+            :key      = "index"
+            :rawpage  = "rawp"
+            :bordered = "index !== rawpage.length - 1" />
           <lander
             v-for="(lander, index) in landers"
-            :key="index"
-            :lander="lander"
-            :bordered="index !== landers.length - 1" />
+            :key      = "index"
+            :lander   = "lander"
+            :bordered ="index !== landers.length - 1" />
         </div>
       </div>
     </section>
