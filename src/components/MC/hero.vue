@@ -11,11 +11,11 @@ defineProps({
 </script>
 <template>
   <!-- <div class="codecont">
-        <div class="codeloop">
-          <h1>Hero</h1>
-          <pre class="title">{{ JSON.parse(data) }}</pre>
-        </div>
-      </div> -->
+    <div class="codeloop">
+      <h1>Hero</h1>
+      <pre class="title">{{ JSON.parse(data) }}</pre>
+    </div>
+  </div> -->
   <!-- <code>{{ setSliceVars(herocont) }}</code> -->
   <!-- <p>{{ imagePrefix(preImgUrl) }}</p> -->
 
@@ -25,8 +25,7 @@ defineProps({
       <div class="content-block">
         <div>
           <span v-for="(logo, index) in JSON.parse(data).bricks.imageList" :key="index">
-            <img v-if="logo.type == 'aboveImg_logo'" :src="[imagePrefix(preImgUrl)] + logo.imageurl"
-              :alt="JSON.parse(data).bricks.AltText">
+            <img v-if="logo.type == 'aboveImg_logo'" :src="[imagePrefix(preImgUrl)] + logo.imageurl" :alt="JSON.parse(data).bricks.AltText">
           </span>
           <h2>{{ JSON.parse(data).bricks.title }}</h2>
           <p>{{ JSON.parse(data).bricks.description }}</p>

@@ -22,9 +22,8 @@ defineProps({
             </div>
 
             <div class="wysiwyg" v-html="JSON.parse(data)">
-
             </div>            
-
+            
           </div>
         </div>
       </div>
