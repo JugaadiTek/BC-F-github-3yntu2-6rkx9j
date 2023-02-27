@@ -16,18 +16,18 @@ defineProps({
     <div class="content">
       <div class="content-block" v-for=" (slice, index) in JSON.parse(data).bricks.details" :key="index">
         <div>
-          <h2> <i class="fa-solid fa-user"></i>{{ slice.icon }} {{ slice.title }}</h2>
+          <h2>{{ slice.icon }} {{ slice.title }}</h2>
           <p>{{ slice.description }}</p>
 
-          <!-- <a :href="slice.details.url">Demo</a> -->
+          <a :href="slice.atoms.url" :class="[slice.atoms.type, slice.atoms.variant, slice.atoms.styleModifiers]">{{ text }}</a>
         </div>
-        <!-- <div>
+        <div>
           <ul>
-            <li v-for="ghoul, index in optionsliceArtCont.details.dataList" :key="index">
-              {{ ghoul.item }}
+            <li v-for="ghoul, index in slice.dataList" :key="index">
+              <i class="fa-solid fa-circle-check"></i>{{ ghoul.item }}
             </li>
           </ul>
-        </div> -->
+        </div>
       </div>
     </div>
   </div>
