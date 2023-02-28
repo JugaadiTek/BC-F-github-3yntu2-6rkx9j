@@ -30,7 +30,7 @@ const _sfc_main$e = {
       });
       _push(`<!--]--><h2 data-v-03bae51a>${ssrInterpolate(JSON.parse(__props.data).bricks.title)}</h2><p data-v-03bae51a>${ssrInterpolate(JSON.parse(__props.data).bricks.description)}</p><!--[-->`);
       ssrRenderList(JSON.parse(__props.data).bricks.atoms, (atom, index) => {
-        _push(`<span data-v-03bae51a><a class="${ssrRenderClass([atom.type, atom.variant, atom.styleMods])}"${ssrRenderAttr("href", atom.url)} data-v-03bae51a>${ssrInterpolate(atom.text)}</a></span>`);
+        _push(`<span data-v-03bae51a><a class="${ssrRenderClass([atom.type, atom.variant, atom.styleModifiers])}"${ssrRenderAttr("href", atom.url)} data-v-03bae51a>${ssrInterpolate(atom.text)}</a></span>`);
       });
       _push(`<!--]--></div><!--[-->`);
       ssrRenderList(JSON.parse(__props.data).bricks.imageList, (image, index) => {
@@ -101,15 +101,15 @@ const _sfc_main$c = {
       ssrRenderList(JSON.parse(__props.data).bricks, (contetntList, index) => {
         _push(`<div data-v-4a84968f><h2 data-v-4a84968f>${ssrInterpolate(contetntList.title)}</h2><p data-v-4a84968f>${ssrInterpolate(contetntList.description)}</p><!--[-->`);
         ssrRenderList(contetntList.atoms, (btn, index2) => {
-          _push(`<span data-v-4a84968f><a${ssrRenderAttr("href", btn.url)} class="${ssrRenderClass([btn.type, btn.variant, btn.styleModifiers])}" data-v-4a84968f><span data-v-4a84968f>${btn.icon}</span><span data-v-4a84968f>${ssrInterpolate(btn.text)}</span></a></span>`);
+          _push(`<span data-v-4a84968f><a${ssrRenderAttr("href", btn.url)} class="${ssrRenderClass([btn.type, btn.variant, btn.styleModifiers])}" data-v-4a84968f><span data-v-4a84968f>${btn.icon}</span> ${ssrInterpolate(btn.text)}</a></span>`);
         });
         _push(`<!--]--></div>`);
       });
-      _push(`<!--]--><span data-v-4a84968f><!--[-->`);
+      _push(`<!--]--><div data-v-4a84968f><!--[-->`);
       ssrRenderList(JSON.parse(__props.data).imageList, (image) => {
         _push(`<img${ssrRenderAttr("src", [unref(imagePrefix)(__props.preImgUrl)] + image.imageurl)} alt="" data-v-4a84968f>`);
       });
-      _push(`<!--]--></span></div></div></div></div></div>`);
+      _push(`<!--]--></div></div></div></div></div></div>`);
     };
   }
 };
@@ -132,7 +132,7 @@ const _sfc_main$b = {
     return (_ctx, _push, _parent, _attrs) => {
       _push(`<div${ssrRenderAttrs(mergeProps({ class: "mcFix" }, _attrs))} data-v-1a15dbdb><div class="container" data-v-1a15dbdb><div class="inner-container" data-v-1a15dbdb><div class="content" data-v-1a15dbdb><div class="content-block" data-v-1a15dbdb><!--[-->`);
       ssrRenderList(JSON.parse(__props.data).bricks.slides, (slide) => {
-        _push(`<div data-v-1a15dbdb><span data-v-1a15dbdb>${slide.icon}</span><span data-v-1a15dbdb>${slide.icon}</span><span data-v-1a15dbdb>${slide.icon}</span><span data-v-1a15dbdb>${slide.icon}</span><span data-v-1a15dbdb>${slide.icon}</span><h3 data-v-1a15dbdb>${ssrInterpolate(slide.testimony)}</h3><span data-v-1a15dbdb><h4 data-v-1a15dbdb>${ssrInterpolate(slide.name)}</h4><p data-v-1a15dbdb>${ssrInterpolate(slide.title)}</p></span></div>`);
+        _push(`<div data-v-1a15dbdb><span data-v-1a15dbdb>${slide.icon}</span> <span data-v-1a15dbdb>${slide.icon}</span> <span data-v-1a15dbdb>${slide.icon}</span> <span data-v-1a15dbdb>${slide.icon}</span> <span data-v-1a15dbdb>${slide.icon}</span><h3 data-v-1a15dbdb>${ssrInterpolate(slide.testimony)}</h3><span data-v-1a15dbdb><h4 data-v-1a15dbdb>${ssrInterpolate(slide.name)}</h4><p data-v-1a15dbdb>${ssrInterpolate(slide.title)}</p></span></div>`);
       });
       _push(`<!--]--></div></div></div></div></div>`);
     };
@@ -392,11 +392,11 @@ const _sfc_main$3 = {
       ssrRenderList(JSON.parse(__props.data).bricks.details, (slice, index) => {
         _push(`<div class="content-block"${ssrRenderAttr("id", "flexItemLinkedSlice_" + index)} data-v-5598c4fd><div data-v-5598c4fd><h2 data-v-5598c4fd><span data-v-5598c4fd>${slice.icon}</span> ${ssrInterpolate(slice.title)}</h2><p data-v-5598c4fd>${ssrInterpolate(slice.description)}</p><!--[-->`);
         ssrRenderList(slice.atoms, (btn) => {
-          _push(`<span data-v-5598c4fd><a${ssrRenderAttr("href", slice.atoms.url)} class="${ssrRenderClass([btn.type, btn.variant, btn.styleModifiers])}" data-v-5598c4fd>${ssrInterpolate(btn.text)}</a></span>`);
+          _push(`<span data-v-5598c4fd><a${ssrRenderAttr("href", btn.url)} class="${ssrRenderClass([btn.type, btn.variant, btn.styleModifiers])}" data-v-5598c4fd>${ssrInterpolate(btn.text)}</a></span>`);
         });
         _push(`<!--]--></div><div data-v-5598c4fd><ul data-v-5598c4fd><!--[-->`);
         ssrRenderList(slice.dataList, (ghoul, index2) => {
-          _push(`<li data-v-5598c4fd><i class="fa-solid fa-circle-check" data-v-5598c4fd></i>${ssrInterpolate(ghoul.item)}</li>`);
+          _push(`<li data-v-5598c4fd><i class="fa-solid fa-circle-check" data-v-5598c4fd></i> ${ssrInterpolate(ghoul.item)}</li>`);
         });
         _push(`<!--]--></ul></div></div>`);
       });

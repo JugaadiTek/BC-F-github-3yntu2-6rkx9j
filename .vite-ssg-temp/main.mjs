@@ -1,4 +1,4 @@
-import { useSSRContext, mergeProps, ref, unref, defineComponent, withCtx, createTextVNode, toDisplayString, resolveComponent, createApp } from "vue";
+import { useSSRContext, mergeProps, ref, unref, defineComponent, withCtx, createVNode, toDisplayString, createTextVNode, resolveComponent, createApp } from "vue";
 import { ssrRenderAttrs, ssrRenderAttr, ssrRenderList, ssrInterpolate, ssrRenderComponent, ssrRenderClass } from "vue/server-renderer";
 import { RouterView, RouterLink, createRouter, createWebHistory } from "vue-router";
 import { Directus } from "@directus/sdk";
@@ -10,15 +10,15 @@ const _export_sfc = (sfc, props) => {
   }
   return target;
 };
-const _sfc_main$8 = {};
-const _sfc_setup$8 = _sfc_main$8.setup;
-_sfc_main$8.setup = (props, ctx) => {
+const _sfc_main$a = {};
+const _sfc_setup$a = _sfc_main$a.setup;
+_sfc_main$a.setup = (props, ctx) => {
   const ssrContext = useSSRContext();
   (ssrContext.modules || (ssrContext.modules = /* @__PURE__ */ new Set())).add("src/components/Notice.vue");
-  return _sfc_setup$8 ? _sfc_setup$8(props, ctx) : void 0;
+  return _sfc_setup$a ? _sfc_setup$a(props, ctx) : void 0;
 };
 const NavBar_vue_vue_type_style_index_0_scoped_true_lang = "";
-const _sfc_main$7 = {
+const _sfc_main$9 = {
   __name: "NavBar",
   __ssrInlineRender: true,
   props: {
@@ -42,14 +42,14 @@ const _sfc_main$7 = {
     };
   }
 };
-const _sfc_setup$7 = _sfc_main$7.setup;
-_sfc_main$7.setup = (props, ctx) => {
+const _sfc_setup$9 = _sfc_main$9.setup;
+_sfc_main$9.setup = (props, ctx) => {
   const ssrContext = useSSRContext();
   (ssrContext.modules || (ssrContext.modules = /* @__PURE__ */ new Set())).add("src/components/MC/NavBar.vue");
-  return _sfc_setup$7 ? _sfc_setup$7(props, ctx) : void 0;
+  return _sfc_setup$9 ? _sfc_setup$9(props, ctx) : void 0;
 };
-const NavBar = /* @__PURE__ */ _export_sfc(_sfc_main$7, [["__scopeId", "data-v-ee2e436e"]]);
-const _sfc_main$6 = {
+const NavBar = /* @__PURE__ */ _export_sfc(_sfc_main$9, [["__scopeId", "data-v-ee2e436e"]]);
+const _sfc_main$8 = {
   __name: "Header",
   __ssrInlineRender: true,
   setup(__props) {
@@ -110,21 +110,21 @@ const _sfc_main$6 = {
     };
   }
 };
-const _sfc_setup$6 = _sfc_main$6.setup;
-_sfc_main$6.setup = (props, ctx) => {
+const _sfc_setup$8 = _sfc_main$8.setup;
+_sfc_main$8.setup = (props, ctx) => {
   const ssrContext = useSSRContext();
   (ssrContext.modules || (ssrContext.modules = /* @__PURE__ */ new Set())).add("src/components/Header.vue");
-  return _sfc_setup$6 ? _sfc_setup$6(props, ctx) : void 0;
+  return _sfc_setup$8 ? _sfc_setup$8(props, ctx) : void 0;
 };
-const _sfc_main$5 = {};
-const _sfc_setup$5 = _sfc_main$5.setup;
-_sfc_main$5.setup = (props, ctx) => {
+const _sfc_main$7 = {};
+const _sfc_setup$7 = _sfc_main$7.setup;
+_sfc_main$7.setup = (props, ctx) => {
   const ssrContext = useSSRContext();
   (ssrContext.modules || (ssrContext.modules = /* @__PURE__ */ new Set())).add("src/components/Info.vue");
-  return _sfc_setup$5 ? _sfc_setup$5(props, ctx) : void 0;
+  return _sfc_setup$7 ? _sfc_setup$7(props, ctx) : void 0;
 };
 const footerSlice_vue_vue_type_style_index_0_scoped_true_lang = "";
-const _sfc_main$4 = {
+const _sfc_main$6 = {
   __name: "footerSlice",
   __ssrInlineRender: true,
   props: {
@@ -155,14 +155,14 @@ const _sfc_main$4 = {
     };
   }
 };
-const _sfc_setup$4 = _sfc_main$4.setup;
-_sfc_main$4.setup = (props, ctx) => {
+const _sfc_setup$6 = _sfc_main$6.setup;
+_sfc_main$6.setup = (props, ctx) => {
   const ssrContext = useSSRContext();
   (ssrContext.modules || (ssrContext.modules = /* @__PURE__ */ new Set())).add("src/components/MC/footerSlice.vue");
-  return _sfc_setup$4 ? _sfc_setup$4(props, ctx) : void 0;
+  return _sfc_setup$6 ? _sfc_setup$6(props, ctx) : void 0;
 };
-const footerSlice = /* @__PURE__ */ _export_sfc(_sfc_main$4, [["__scopeId", "data-v-147058ce"]]);
-const _sfc_main$3 = {
+const footerSlice = /* @__PURE__ */ _export_sfc(_sfc_main$6, [["__scopeId", "data-v-147058ce"]]);
+const _sfc_main$5 = {
   __name: "Footer",
   __ssrInlineRender: true,
   setup(__props) {
@@ -224,36 +224,36 @@ const _sfc_main$3 = {
     };
   }
 };
-const _sfc_setup$3 = _sfc_main$3.setup;
-_sfc_main$3.setup = (props, ctx) => {
+const _sfc_setup$5 = _sfc_main$5.setup;
+_sfc_main$5.setup = (props, ctx) => {
   const ssrContext = useSSRContext();
   (ssrContext.modules || (ssrContext.modules = /* @__PURE__ */ new Set())).add("src/components/Footer.vue");
-  return _sfc_setup$3 ? _sfc_setup$3(props, ctx) : void 0;
+  return _sfc_setup$5 ? _sfc_setup$5(props, ctx) : void 0;
 };
-const _sfc_main$2 = {
+const _sfc_main$4 = {
   __name: "App",
   __ssrInlineRender: true,
   setup(__props) {
     return (_ctx, _push, _parent, _attrs) => {
       _push(`<div${ssrRenderAttrs(mergeProps({ class: "layout" }, _attrs))}><!-- <Notice /> -->`);
-      _push(ssrRenderComponent(_sfc_main$6, null, null, _parent));
+      _push(ssrRenderComponent(_sfc_main$8, null, null, _parent));
       _push(ssrRenderComponent(unref(RouterView), {
         key: _ctx.$route.fullPath
       }, null, _parent));
       _push(`<!-- <Info /> -->`);
-      _push(ssrRenderComponent(_sfc_main$3, null, null, _parent));
+      _push(ssrRenderComponent(_sfc_main$5, null, null, _parent));
       _push(`</div>`);
     };
   }
 };
-const _sfc_setup$2 = _sfc_main$2.setup;
-_sfc_main$2.setup = (props, ctx) => {
+const _sfc_setup$4 = _sfc_main$4.setup;
+_sfc_main$4.setup = (props, ctx) => {
   const ssrContext = useSSRContext();
   (ssrContext.modules || (ssrContext.modules = /* @__PURE__ */ new Set())).add("src/App.vue");
-  return _sfc_setup$2 ? _sfc_setup$2(props, ctx) : void 0;
+  return _sfc_setup$4 ? _sfc_setup$4(props, ctx) : void 0;
 };
 const directus = new Directus("https://cms-buychain-pb01.up.railway.app");
-const _sfc_main$1 = /* @__PURE__ */ defineComponent({
+const _sfc_main$3 = /* @__PURE__ */ defineComponent({
   __name: "Article",
   __ssrInlineRender: true,
   props: {
@@ -268,49 +268,124 @@ const _sfc_main$1 = /* @__PURE__ */ defineComponent({
   },
   setup(__props) {
     return (_ctx, _push, _parent, _attrs) => {
-      _push(`<article${ssrRenderAttrs(mergeProps({
-        class: ["article", { bordered: __props.bordered }]
-      }, _attrs))}><!-- <div class="article__topWrapper">
-      <div class="article__imageWrapper">
-        <img :src="getAssetURL(article.cover_image)" alt="" loading="lazy" />
-      </div>
-      <span aria-hidden="true" class="tag">Writing</span>
-    </div> --><div class="article__bottomWrapper"><h1 class="article__title">`);
+      _push(`<!--[--><br>`);
       _push(ssrRenderComponent(unref(RouterLink), {
         style: { "color": "green" },
         to: `/articles/${__props.article.id}`
       }, {
         default: withCtx((_, _push2, _parent2, _scopeId) => {
           if (_push2) {
-            _push2(`${ssrInterpolate(__props.article.title)}`);
+            _push2(`<span${_scopeId}><b${_scopeId}>${ssrInterpolate(__props.article.title)}</b> ${ssrInterpolate(__props.article.id)}</span>`);
           } else {
             return [
-              createTextVNode(toDisplayString(__props.article.title), 1)
+              createVNode("span", null, [
+                createVNode("b", null, toDisplayString(__props.article.title), 1),
+                createTextVNode(" " + toDisplayString(__props.article.id), 1)
+              ])
             ];
           }
         }),
         _: 1
       }, _parent));
-      _push(`</h1><!-- <h1>{{ response.data }}</h1> --><!-- <h2>{{ response.data }}</h2> --><div class="article__detail"><div class="article__detailAuthor"><!-- <img
-            :src="getAssetURL(article.author.avatar)"
-            alt=""
-            loading="lazy"
-          /> --></div><div class="article__detailInner"><div class="article__detailInnerAuthor"><!-- {{ \`\${article.author.first_name} \${article.author.last_name}\` }} --></div><!-- <div class="article__detailInnerTime">{{ article.publish_date }}</div> --><div class="article__detailInnerCategory">Writing</div></div></div></div></article>`);
+      _push(`<!--]-->`);
+    };
+  }
+});
+const _sfc_setup$3 = _sfc_main$3.setup;
+_sfc_main$3.setup = (props, ctx) => {
+  const ssrContext = useSSRContext();
+  (ssrContext.modules || (ssrContext.modules = /* @__PURE__ */ new Set())).add("src/components/Article.vue");
+  return _sfc_setup$3 ? _sfc_setup$3(props, ctx) : void 0;
+};
+const _sfc_main$2 = /* @__PURE__ */ defineComponent({
+  __name: "rawPageRoute",
+  __ssrInlineRender: true,
+  props: {
+    rawpage: {
+      type: Object,
+      required: true
+    },
+    bordered: {
+      type: Boolean,
+      required: true
+    }
+  },
+  setup(__props) {
+    return (_ctx, _push, _parent, _attrs) => {
+      _push(ssrRenderComponent(unref(RouterLink), mergeProps({
+        style: { "color": "blueviolet" },
+        to: `/rawpage/${__props.rawpage.id}`
+      }, _attrs), {
+        default: withCtx((_, _push2, _parent2, _scopeId) => {
+          if (_push2) {
+            _push2(`${ssrInterpolate(__props.rawpage.title)}`);
+          } else {
+            return [
+              createTextVNode(toDisplayString(__props.rawpage.title), 1)
+            ];
+          }
+        }),
+        _: 1
+      }, _parent));
+    };
+  }
+});
+const _sfc_setup$2 = _sfc_main$2.setup;
+_sfc_main$2.setup = (props, ctx) => {
+  const ssrContext = useSSRContext();
+  (ssrContext.modules || (ssrContext.modules = /* @__PURE__ */ new Set())).add("src/components/rawPageRoute.vue");
+  return _sfc_setup$2 ? _sfc_setup$2(props, ctx) : void 0;
+};
+const _sfc_main$1 = /* @__PURE__ */ defineComponent({
+  __name: "landerRoute",
+  __ssrInlineRender: true,
+  props: {
+    lander: {
+      type: Object,
+      required: true
+    },
+    bordered: {
+      type: Boolean,
+      required: true
+    }
+  },
+  setup(__props) {
+    return (_ctx, _push, _parent, _attrs) => {
+      _push(ssrRenderComponent(unref(RouterLink), mergeProps({
+        style: { "color": "red" },
+        to: `/lander/${__props.lander.id}`
+      }, _attrs), {
+        default: withCtx((_, _push2, _parent2, _scopeId) => {
+          if (_push2) {
+            _push2(`${ssrInterpolate(__props.lander.title)}`);
+          } else {
+            return [
+              createTextVNode(toDisplayString(__props.lander.title), 1)
+            ];
+          }
+        }),
+        _: 1
+      }, _parent));
     };
   }
 });
 const _sfc_setup$1 = _sfc_main$1.setup;
 _sfc_main$1.setup = (props, ctx) => {
   const ssrContext = useSSRContext();
-  (ssrContext.modules || (ssrContext.modules = /* @__PURE__ */ new Set())).add("src/components/Article.vue");
+  (ssrContext.modules || (ssrContext.modules = /* @__PURE__ */ new Set())).add("src/components/landerRoute.vue");
   return _sfc_setup$1 ? _sfc_setup$1(props, ctx) : void 0;
 };
+const Home_vue_vue_type_style_index_0_lang = "";
 const _sfc_main = {
   __name: "Home",
   __ssrInlineRender: true,
   setup(__props) {
     const hero = ref(null);
+    const hero2 = ref(null);
+    const hero3 = ref(null);
     const articles = ref(null);
+    const landers = ref(null);
+    const rawpages = ref(null);
     fetchData();
     async function fetchData() {
       const response = await directus.items("home").readByQuery({
@@ -319,25 +394,69 @@ const _sfc_main = {
       const formattedArticles = response.data.map((article) => {
         return { ...article };
       });
+      const response2 = await directus.items("rawpage").readByQuery({
+        fields: ["id", "title", "slug", "status"]
+      });
+      response2.data.map((rawpage) => {
+        return { ...rawpage };
+      });
+      const response3 = await directus.items("landers").readByQuery({
+        fields: ["id", "title", "slug", "status"]
+      });
+      response3.data.map((lander) => {
+        return { ...lander };
+      });
       const [first, ...rest] = formattedArticles;
       hero.value = first;
       articles.value = rest;
+      const [first2, ...rest2] = formattedRawPages;
+      hero2.value = first2;
+      rawpages.value = rest2;
+      const [first3, ...rest3] = formattedLanders;
+      hero3.value = first3;
+      landers.value = rest3;
     }
     return (_ctx, _push, _parent, _attrs) => {
       const _component_Hero = resolveComponent("Hero");
-      _push(`<main${ssrRenderAttrs(_attrs)}><section class="main-content"><div class="container">`);
+      _push(`<main${ssrRenderAttrs(mergeProps({ class: "siteMap" }, _attrs))}><section class="main-content"><div class="container">`);
       if (hero.value) {
         _push(ssrRenderComponent(_component_Hero, { article: hero.value }, null, _parent));
+      } else {
+        _push(`<!---->`);
+      }
+      if (hero2.value) {
+        _push(ssrRenderComponent(_component_Hero, { rawpage: hero2.value }, null, _parent));
+      } else {
+        _push(`<!---->`);
+      }
+      if (hero3.value) {
+        _push(ssrRenderComponent(_component_Hero, { lander: hero3.value }, null, _parent));
       } else {
         _push(`<!---->`);
       }
       if (articles.value) {
         _push(`<div class="articles-grid"><!--[-->`);
         ssrRenderList(articles.value, (article, index) => {
-          _push(ssrRenderComponent(_sfc_main$1, {
+          _push(ssrRenderComponent(_sfc_main$3, {
             key: index,
             article,
             bordered: index !== articles.value.length - 1
+          }, null, _parent));
+        });
+        _push(`<!--]--><!--[-->`);
+        ssrRenderList(_sfc_main$2, (rawp, index) => {
+          _push(ssrRenderComponent(_sfc_main$2, {
+            key: index,
+            rawpage: rawp,
+            bordered: index !== _sfc_main$2.length - 1
+          }, null, _parent));
+        });
+        _push(`<!--]--><!--[-->`);
+        ssrRenderList(landers.value, (lander, index) => {
+          _push(ssrRenderComponent(lander, {
+            key: index,
+            lander,
+            bordered: index !== landers.value.length - 1
           }, null, _parent));
         });
         _push(`<!--]--></div>`);
@@ -365,17 +484,17 @@ const router = createRouter({
     {
       path: "/articles/:id",
       name: "articles",
-      component: () => import("./assets/Article-f8f0a4d5.js")
+      component: () => import("./assets/Article-78b0d5b7.js")
     },
     {
       path: "/get-started/:id",
       name: "landers",
-      component: () => import("./assets/lander-634b6843.js")
+      component: () => import("./assets/lander-e653f6c8.js")
     },
     {
       path: "/rawpage/:id",
       name: "rawPage",
-      component: () => import("./assets/rawPage-3c6a347f.js")
+      component: () => import("./assets/rawPage-dcda76fc.js")
     }
     // {
     //   path: "/:catchAll(.*)",
@@ -384,12 +503,10 @@ const router = createRouter({
     // },
   ]
 });
-const app = createApp(_sfc_main$2);
+const app = createApp(_sfc_main$4);
 app.use(router);
 app.mount("#app");
 export {
   _export_sfc as _,
-  _sfc_main$6 as a,
-  _sfc_main$3 as b,
   directus as d
 };

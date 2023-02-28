@@ -62,16 +62,6 @@ img {
   box-shadow: -1px 1px 10px 1px rgb(219, 218, 218);
 }
 
-
-.icon-btn > span:first-of-type {
-  display: block;
-  align-items: center;
-  justify-content: center;
-  gap: 10px;
-  padding: 10px;
-
-}
-
 .icon-btn {
   color: var(--primary);
   background-color: var(--bg-layer-600);
@@ -80,15 +70,17 @@ img {
   padding: 20px;
   width: 170px;
   text-align: center;
+  display: inline;
 }
+.content-block>div
 
 .content-block> div > span {
-  display: grid;
-  grid-template-columns: 1fr 1fr 1fr;
-  align-items: center;
+  display: flex;
+  /* grid-template-columns: 1fr 1fr 1fr;
   justify-content: center;
-  gap:30px;
-  font-weight: bold;
+  gap:30px;*/
+  align-items: center;
+  font-weight: bold; 
 }
 
 .icon-btn > span {
@@ -96,6 +88,11 @@ img {
 }
 
 .icon-btn > span:first-of-type {
+  /* display: inline-block; */
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  padding: 10px;
   font-size: 70px;
   /* color: red; */
 }
