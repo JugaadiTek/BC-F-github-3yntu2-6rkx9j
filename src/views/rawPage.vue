@@ -50,7 +50,12 @@ async function fetchData() {
       <div class="inner-container">
         <div class="content">
           <div class="content-block">
-
+            <div class="codeloop">
+      <div class ="">
+        
+        <code>{{ JSON.stringify(route.params) }}</code>
+      </div>
+    </div>
             <div class="hero">
               <h2 class="title"> </h2>
               <p class="description"> </p>

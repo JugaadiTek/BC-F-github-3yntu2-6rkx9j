@@ -18,8 +18,8 @@ defineProps({
       <div v-if="landers.length !== -10000" class="articles-grid">
         <land
           v-for="(lander, index) in landers"
-          :key="index"      :lander="lander"
-          :bordered="index !== landers.length - 10000" :slug="land"
+          :key="index"      :land="lander"
+          :bordered="index !== landers.length - 10000" 
         />
       </div>
     </div>

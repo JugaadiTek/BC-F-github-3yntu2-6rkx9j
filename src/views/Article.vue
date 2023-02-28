@@ -3,64 +3,60 @@ import { ref } from 'vue';
 import { directus } from '@/services/directus';
 import { RouterLink, useRoute, useRouter } from 'vue-router';
 import { getAssetURL } from '@/utils/get-asset-url';
-import MoreArticles from '@/components/MoreArticles.vue';
+import { defineProps } from 'vue';
+import MorePages from '@/components/MoreArticles.vue';
 import sliceLogic from '@/utils/sliceLogic.vue';
                                 console.log("Article.Vue","imports Done","\nref","\ndirectus","\nRouterLink","\nuseRoute","\nuseRouter","\ngetAssetURL","\nsliceLogic")
-// import QueryString from 'qs';
+
 // =========================importing components==================================================
 const router = useRouter();     
 const route = useRoute();       
-const article = ref(null);      
-const moreArticles = ref(null); 
+const page = ref(null);      
+const morePages = ref(null); 
 //---prepping data---------------------------------------------------------------------------
 fetchData();                    
 var preImgUrl = "https://cms-buychain-pb01.up.railway.app/";
-const { idrp } = route.params;
-let articleResponse;
-console.log("=============================================\n====       ARTICLE.vue API HANDLER       ====\n=============================================");
-async function fetchData() {
-  try {                    
-    //   const res = await directus.items('home').readByQuery(idrp,{
+
+
+
+//   const res = await directus.items('home').readByQuery(idrp,{
     //   fields: ['*'],
     //   filter: {
-    //     _and: [
-    //       { id: { _eq: route.params.id } },
-    //       { status: { _eq: 'published' }},
-    //     ],
-    //   }
-    // })
-    console.log("=============================================\n====       ARTICLE.vue API HANDLER       ====\n=============================================");
-    const articleResponse = await directus.items('home_nosql_datastore').readByQuery(idrp,{ 
+      //     _and: [
+        //       { id: { _eq: route.params.id } },
+        //       { status: { _eq: 'published' }},
+        //     ],
+        //   }
+        // })
+        
+async function fetchData() {
+  const { id } = route.params;
+  let pageResponse;
+  try {
+    pageResponse = await directus.items('home_nosql_datastore').readOne(id, {
+      fields: ['sort,nosql_datastore_id,nosql_datastore_id.Slice_Type,id,nosql_datastore_id.short_title,nosql_datastore_id.json_datastore'],
+    });
+    const formattedpage = { ...pageResponse, }
+    morepageResponse = await directus.items('home_nosql_datastore').readByQuery(id,{ 
       fields: ['sort,nosql_datastore_id,nosql_datastore_id.Slice_Type,id,nosql_datastore_id.short_title,nosql_datastore_id.json_datastore' ],
       filter: {
         _and: [
         { home_id: { _eq: route.params.id } },
         { status: { _eq: 'published' }},
-    
         ],
       },
       sort: ['sort'],
     });
     
-    const formattedArticle = { ...articleResponse, }
-    article.value = formattedArticle;
+    const formattedmorePages = morepagesResponse.data.map(
+     (moreArticle) => {      return { ...moreArticle, };   }    );
+    morePages.value = formattedmorePages;
+    page.value = formattedpage;
   } catch (err) {
     router.replace({ name: 'not-found', params: { catchAll: route.path } });
   }
 }
     
-    // console.log("Article.Vue","articleResponse");
-    //     (moreArticle) => { return {        ...moreArticle,  };  }
-    // const formattedMoreArticles = moreArticlesResponse.data.map(
-    // );
-    // articleResponse.value = article.value;
-    // article.value = formattedArticle;
-    // moreArticles.value = formattedMoreArticles;
-    // console.log("=============================================\n====       ARTICLE.vue API HANDLER       ====\n=============================================");
-    // console.log("Article.Vue","catch (err");
-    
-
-// console.log("Article.vue");
 //================================================================================================
 //============function to create a new object ====================================================
 //================================================================================================
@@ -92,17 +88,22 @@ function mch(obj) {
   <!---============================================================================================================================================================================================================-->
   <!------------------------------------------------ MODOCOSM SLICE MASTER ---------------------------------------------------------------------------------------------------------------------------------------------------->
   <!---============================================================================================================================================================================================================-->
-  
-  <div v-if="article !=undefined">
-    <section v-for="(slice, index) in article.data" >
-      <!-- <code>{{ createNewObject(JSON.stringify(article.data[index])).nosql_datastore_id.json_datastore }}</code> -->
-      <!-- <code>{{ createNewObject(article.data[index].nosql_datastore_id.json_datastore) }}</code> -->
+  <!-- <div v-if="page !=undefined"> -->
+
+    <section v-for="(slice, index) in page.data" >
+      <div class="codeloop">
+      <div class ="">
+        
+        <code>{{ JSON.stringify(route.params) }}</code>
+      </div>
+    </div>
+      <!-- <code>{{ createNewObject(JSON.stringify(page.data[index])).nosql_datastore_id.json_datastore }}</code> -->
+      <!-- <code>{{ createNewObject(page.data[index].nosql_datastore_id.json_datastore) }}</code> -->
       <!-- <h1>{{ createNewObject(slice.nosql_datastore_id.json_datastore).component }} </h1> -->
       <!-- {{ JSON.stringify(createNewObject(slice.nosql_datastore_id.json_datastore)) }} -->
-      <sliceLogic 
-      :sliceData="createNewObject(article.data[index].nosql_datastore_id.json_datastore)"  />
+      <!-- <sliceLogic :sliceData="page.data[index].nosql_datastore_id.json_datastore"  /> -->
     </section>
-  </div>
+  <!-- </div> -->
   <!------------------------------------------------ END SLICE MASTER ---------------------------------------------------------------------------------------------------------------------------------------------------->
 </template>
 <!------------------------------------------------ FOOTER START ---------------------------------------------------------------------------------------------------------------------------------------------------->
