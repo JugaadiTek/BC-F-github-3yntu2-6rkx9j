@@ -5,25 +5,26 @@ import Home from '@/views/Home.vue';
 const router = createRouter({
   history: createWebHistory(import.meta.env.BASE_URL),
   routes: [
+    
     {
-      path: '/',
-      name: 'home',
-      component: Home,
-    },
-    {
-      path: '/page:slug',
+      path: '/page/:slug',
       name: 'page',
       component: () => import('@/views/Article.vue'),
     },
     {
-      path: '/land:slug',
+      path: '/land/:slug',
       name: 'land',
       component: () => import('@/views/lander.vue'),
     },
     {
-      path: '/raw:slug',
+      path: '/rawp/:slug',
       name: 'rawp',
       component: () => import('@/views/rawpage.vue'),
+    },
+    {
+      path: '/',
+      name: 'home',
+      component: Home,
     },
     {
       path: "/:catchAll(.*)",

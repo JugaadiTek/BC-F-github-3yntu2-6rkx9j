@@ -17,7 +17,7 @@ defineProps({
         <page
           v-for="(page, index) in pages"
           :key="index"      :page="page"
-          :bordered="index !== pages.length - 100"
+          :bordered="index !== pages.length - 100" :slug="page"
         />
       </div>
     </div>
