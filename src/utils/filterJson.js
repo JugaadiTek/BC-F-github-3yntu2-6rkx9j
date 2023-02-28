@@ -6,3 +6,6 @@ function filterLander(gLander) {
     console.log(gLander);
 }  
 
+// group a json by key
+
+

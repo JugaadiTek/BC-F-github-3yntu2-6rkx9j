@@ -72,21 +72,21 @@ console.log("==      END SITEMAP NAVIGATION HOME.vue    ==\n====================
     <section class="main-content">
       <div class="container">
         <div  v-if    ="pages" class = "articles-grid" >
-          <Page
+          <page
             v-for     = "(page, index) in pages"
             :key      = "index" 
             :page     = "page"
             :bordered = "index !== pages.length - 200 " />
         </div>
         <div v-if     = "raws" class = "articles-grid" >
-          <Rawp
+          <rawp
             v-for     = "(raw, index) in raws"
             :key      = "index"
             :rawp     = "raw"
             :bordered = "index !== raws.length-200" />
         </div>
         <div v-if     = "landers" class = "articles-grid" >
-          <Land
+          <land
             v-for     ="(lander, index) in landers"
             :key      = "index"
             :land     = "lander"
