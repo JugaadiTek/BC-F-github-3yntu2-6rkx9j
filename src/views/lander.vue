@@ -13,7 +13,7 @@ const moreLanders = ref(null);
 // let pageblocks = "";
 //---prepping data---------------------------------------------------------------------------
 fetchData();
-var preImgUrl = "https://cms-buychain-pb01.up.railway.app/";
+// var preImgUrl = "https://cms-buychain-pb01.up.railway.app/";
 
 // Directus API call to get the article data via the directus sdk using the id from the route params
 async function fetchData() {
@@ -41,24 +41,21 @@ async function fetchData() {
 }
 </script>
 
-<template>
-  
+<template>  
   <main>
     <div class="container">
       <div class="inner-container">
         <div class="content">
-          <div class="content-block">
+          
+          <div class="content-block" v-for="data in JSON.parse(JSON.stringify(lander.data))">
             <div class="left-column">
-              <div class="wysiwyg">
-
+              <div class="wysiwyg" v-html="data.wysiwyg">
               </div>
             </div>
             <div class="right-column">
               <div class="form">
-
               </div>
               <div class="wysiwyg">
-
               </div>
             </div>
           </div>
@@ -66,7 +63,6 @@ async function fetchData() {
       </div>
     </div>
   </main>
-  
 </template>
 
 
