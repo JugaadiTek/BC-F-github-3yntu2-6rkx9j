@@ -1,5 +1,5 @@
 <script setup>
-import land from "@/components/landerRoute.vue";
+import landers from "@/components/landerRoute.vue";
 import { defineProps } from 'vue';
 import { RouterLink } from 'vue-router';
 

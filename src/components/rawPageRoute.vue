@@ -4,7 +4,7 @@ const routes = [
   { path: '/rawp/:slug' }
 ]
 defineProps({
-  raw: {
+  rawp: {
     type: Object,
     required: true,
   },
@@ -17,7 +17,7 @@ defineProps({
 <template>
   <RouterLink
     style="color:blueviolet; !important"
-    :to="`/rawp/${raw.slug}`">
-    <span>      <b>      {{ raw.title }}     </b>    {{ raw.id }}    </span>
+    :to="`/rawp/${rawp.slug}`">
+    <span>      <b>      {{ rawp.title }}     </b>    {{ rawp.id }}    </span>
   </RouterLink>
 </template>

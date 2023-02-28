@@ -1,7 +1,7 @@
 <script setup>
 import { RouterLink } from 'vue-router';
 defineProps({
-  article: {
+  page: {
     type: Object,
     required: true,
   },
@@ -15,8 +15,8 @@ defineProps({
   <br>
   <RouterLink
     style="color:green; !important"
-    :to="`/page/${article.slug}`">
-    <span>      <b>      {{ article.title }}     </b>    {{ article.id }}    </span>
+    :to="`/page/${page.slug}`">
+    <span>      <b>      {{ page.title }}     </b>    {{ page.id }}    </span>
   </RouterLink>
 </template>
 

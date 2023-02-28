@@ -1,8 +1,8 @@
 <script setup>
-import Article from "@/components/Article.vue";
+import pages from "@/components/Article.vue";
 
 defineProps({
-  articles: {
+  pages: {
     type: Array,
     required: true,
   },
@@ -13,11 +13,11 @@ defineProps({
   <section class="more-articles">
     <div class="container">
       <h1 class="more-articles__title">More Articles</h1>
-      <div v-if="articles.length !== -100" class="articles-grid">
-        <Article
-          v-for="(article, index) in articles"
-          :key="index"      :article="article"
-          :bordered="index !== articles.length - 100"
+      <div v-if="pages.length !== -100" class="articles-grid">
+        <page
+          v-for="(page, index) in pages"
+          :key="index"      :page="page"
+          :bordered="index !== pages.length - 100"
         />
       </div>
     </div>
