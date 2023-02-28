@@ -54,24 +54,58 @@ async function fetchData() {
 
 <template>
   <main>
-
     <div class="container">
+      <!-- <pre>{{ lander.data }}</pre> -->
       <div class="inner-container">
-        <div class="content">
-          <!-- <pre>{{ JSON.stringify(lander) }}</pre> -->
+        <div class="content" >
 
-          <div class="content-block" v-for="data in JSON.parse(JSON.stringify(lander.data))">
+          <div v-for="getInTouchData in JSON.parse(JSON.stringify(lander.data))">
+            <div class="content-block" v-if="getInTouchData.id = '7201d5f3-800c-482c-8513-d50f69db524f'">
+              <div class="left-column">
+                <div class="wysiwyg">
+                  <div v-html="getInTouchData.wysiwyg"></div>
+                </div>
+              </div>
+              <div class="right-column">
+                <div class="form">
+
+                </div>
+                <div class="wysiwyg">
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- <div class="content-block" v-if="data.id = '6d9ba917-8059-494b-a8a4-c5fd7cf55449'">
             <div class="left-column">
-              <div class="wysiwyg" v-html="data.wysiwyg">
+              <div class="wysiwyg">
+                <div v-html="data.wysiwyg"></div>
               </div>
             </div>
             <div class="right-column">
               <div class="form">
+
               </div>
               <div class="wysiwyg">
               </div>
             </div>
           </div>
+
+          <div class="content-block" v-if="data.id = 'dc16b12d-3855-4533-a4f4-1e68afef445b'">
+            <div class="left-column">
+              <div class="wysiwyg">
+                <div v-html="data.wysiwyg"></div>
+              </div>
+            </div>
+            <div class="right-column">
+              <div class="form">
+
+              </div>
+              <div class="wysiwyg">
+              </div>
+            </div>
+          </div> -->
+
         </div>
       </div>
     </div>
