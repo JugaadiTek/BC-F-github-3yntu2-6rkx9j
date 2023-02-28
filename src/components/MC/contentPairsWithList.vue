@@ -45,7 +45,7 @@ i {
 .content-block {
   display: grid;
   grid-template-columns: 1fr 1fr;
-  gap: 10px;
+  gap: 56px;
   align-self: center;
   text-align: left;
 }
