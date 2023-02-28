@@ -1,7 +1,10 @@
-<script setup lang="ts">
+<script setup>
 import { RouterLink } from 'vue-router';
+const routes = [
+  { path: '/rawp/:slug' }
+]
 defineProps({
-  rawpage: {
+  raw: {
     type: Object,
     required: true,
   },
@@ -14,7 +17,7 @@ defineProps({
 <template>
   <RouterLink
     style="color:blueviolet; !important"
-    :to="`/rawpage/${rawpage.id}`">
-    {{ rawpage.title }}
+    :to="`/rawp/${raw.slug}`">
+    <span>      <b>      {{ raw.title }}     </b>    {{ raw.id }}    </span>
   </RouterLink>
 </template>

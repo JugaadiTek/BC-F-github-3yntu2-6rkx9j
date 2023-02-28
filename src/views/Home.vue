@@ -1,64 +1,80 @@
 <script setup>
-import { ref } from 'vue';
-import { directus } from '@/services/directus';
-// import Hero from '@/components/Hero.vue';
-import Article from '@/components/Article.vue';
-import rawpage from '@/components/rawPageRoute.vue';
-import lander from '@/components/landerRoute.vue';
-
-const hero = ref(null);
-const hero2 = ref(null);
-const hero3 = ref(null);
-
-const articles = ref(null);
-const landers = ref(null);
-const rawpages = ref(null);
-fetchData();
-
+import    { ref }       from   'vue';                                
+import    { directus }  from   '@/services/directus';
+// import Hero          from   '@/components/Hero.vue';
+import    page       from   '@/components/Article.vue';
+import    rawp           from   '@/components/rawPageRoute.vue';
+import    land        from   '@/components/landerRoute.vue';      
+const     articles    = ref(null);                          
+const     landers     = ref(null);                          
+const     raws        = ref(null);                          
+fetchData();                                  
+fetchData2();                                 
+fetchData3();        
+console.log("=============================================\n====     SITEMAP NAVIGATION HOME.vue     ====");
 async function fetchData() {
+  console.log("=Home.vue->Pages->FETCH");
   const response = await directus.items('home').readByQuery({
     fields: ['id', 'title', 'slug', 'status'],
   });
   const formattedArticles = response.data.map((article) => {
     return { ...article };
   });
+  console.log("=Home.vue->Pages->SEND");
+  const [...rest] = formattedArticles;
+  articles.value = rest;
+}
+async function fetchData2() {
+  console.log("=Home.vue->Rawpages->FETCH");
   const response2 = await directus.items('rawpage').readByQuery({
-    fields: ['id', 'title', 'slug', 'status'],
+    fields: ['*'],
   });
-  const formattedRawPage = response2.data.map((rawpage) => {
-    return { ...rawpage };
+  console.log("response2",response2);
+  const formattedRaws = response2.data.map((raw) => {
+    return {...raw };
   });
+  console.log("=Home.vue->RawPages->SEND");
+  const [...rest2] = formattedRaws;
+  raws.value = rest2;
+}
+  async function fetchData3() {
+    console.log("=Home.vue->Landers->FETCH");
   const response3 = await directus.items('landers').readByQuery({
-    fields: ['id', 'title', 'slug', 'status'],
+    fields: ['*'],
   });
-  const formattedLander = response3.data.map((lander) => {
+  const formattedLanders = response3.data.map((lander) => {
     return { ...lander };
   });
-  const [first, ...rest] = formattedArticles;
-  hero.value = first;
-  articles.value = rest;
-  const [first2, ...rest2] = formattedRawPages;
-  hero2.value = first2;
-  rawpages.value = rest2;
-  const [first3, ...rest3] = formattedLanders;
-  hero3.value = first3;
+  const [...rest3] = formattedLanders;
   landers.value = rest3;
+  console.log("=Home.vue->Landers --> -->",landers);
 }
+console.log("==      END SITEMAP NAVIGATION HOME.vue    ==\n=============================================");
 </script>
-<template>
-  <main class="siteMap">
+<template> 
+  <main class = "siteMap">
     <section class="main-content">
       <div class="container">
-        <Hero v-if="hero" :article="hero" />
-        <Hero v-if="hero2" :rawpage="hero2" />
-        <Hero v-if="hero3" :lander="hero3" />
-        <div v-if="articles" class="articles-grid">
-          <Article v-for="(article, index) in articles" :key="index" :article="article"
-            :bordered="index !== articles.length - 1" />
-          <rawpage v-for="(rawp, index) in rawpage" :key="index" :rawpage="rawp"
-            :bordered="index !== rawpage.length - 1" />
-          <lander v-for="(lander, index) in landers" :key="index" :lander="lander"
-            :bordered="index !== landers.length - 1" />
+        <div  v-if    ="articles" class = "articles-grid" >
+          <page
+            v-for     = "(article, index) in articles"
+            :key      = "index" 
+            :page     = "article"
+            :bordered = "index !== articles.length - 200 " />
+        </div>
+        <div v-if     = "raws" class = "articles-grid" >
+          <rawp
+            v-for     = "(raw, index) in raws"
+            :key      = "index"
+            :rawp     = "raw"
+            :bordered = "index !== raws.length-200" />
+        </div>
+        <div v-if     = "landers" class = "articles-grid" >
+          <land
+            v-for     ="(lander, index) in landers"
+            :key      = "index"
+            :land     = "lander"
+            :bordered ="index !== landers.length-200" />
         </div>
       </div>
     </section>

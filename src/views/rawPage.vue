@@ -3,36 +3,39 @@ import { ref } from 'vue';
 import { directus } from '@/services/directus';
 import { RouterLink, useRoute, useRouter } from 'vue-router';
 import { getAssetURL } from '@/utils/get-asset-url';
-// import sliceLogic from '@/utils/sliceLogic.vue';
+import sliceLogic from '@/utils/sliceLogic.vue';
 // import QueryString from 'qs';
 // =========================importing components==================================================
 const router = useRouter();
 const route = useRoute();
-const rawPage = ref(null);
-const moreRawPage = ref(null);
+const rawOld = ref();
+const raw = ref(null);
+const moreRaws = ref(null);
 // let pageblocks = "";
 //---prepping data---------------------------------------------------------------------------
-fetchDataRaw();
+fetchData();
 var preImgUrl = "https://cms-buychain-pb01.up.railway.app/";
 
 // Directus API call to get the article data via the directus sdk using the id from the route params
-async function fetchDataRaw() {
-  const { id } = route.params;
-  let rawPageResponse;
+
+async function fetchData() {
+  console.log("=============================================\n====  RAWPAGE.vue API HANDLER HANDLER    ====\n=============================================");
+  // const { id2 } = route.params;
+  let rawResponse;
   try {
-    articleResponse = await directus.items('rawpage').readByQuery(id,{
-      fields: ['id','title','slug','status', 'banner','wysiwyg','sort'],
+    rawResponse = await directus.items('rawpage').readByQuery({
+      fields: ['*'],
       filter: {
         _and: [
-          { id: { _eq: route.params.id } },
+          { home_id: { _eq: rawOld.id } },
           { status: { _eq: 'published' }},
         ],
       },
       sort: ['sort'],
     });
 
-    const formattedRawPage = { ...rawPageResponse, }
-    rawPage.value = formattedRawPage;
+    const formattedRaw = { ...rawResponse, }
+    raw.value = formattedRaw;
 
   } catch (err) {
     router.replace({ name: 'not-found', params: { catchAll: route.path } });
@@ -53,8 +56,8 @@ async function fetchDataRaw() {
               <p class="description"> </p>
             </div>
 
-            <div class="wysiwyg" v-html="JSON.parse(data)">
-            </div>            
+            <!-- <div class="wysiwyg" v-html="JSON.parse(data)">
+            </div>             -->
             
           </div>
         </div>
@@ -64,5 +67,3 @@ async function fetchDataRaw() {
   <Footer />
 </template>
 
-
-<style scoped></style>
