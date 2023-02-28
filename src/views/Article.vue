@@ -16,49 +16,51 @@ const moreArticles = ref(null);
 fetchData();                    
 var preImgUrl = "https://cms-buychain-pb01.up.railway.app/";
 const { idrp } = route.params;
+let articleResponse;
 console.log("=============================================\n====       ARTICLE.vue API HANDLER       ====\n=============================================");
 async function fetchData() {
   try {                    
-      const res = await directus.items('home').readByQuery(idrp,{
-      fields: ['*'],
-      filter: {
-        _and: [
-          { slug: { _eq: idrp } },
-          { status: { _eq: 'published' }},
-        ],
-      }
-    })
-    console.log("=============================================\n===="+(res)+"       ARTICLE.vue API HANDLER       ====\n=============================================");
-    const articleResponse = await directus.items('home_nosql_datastore').readByQuery({ 
+    //   const res = await directus.items('home').readByQuery(idrp,{
+    //   fields: ['*'],
+    //   filter: {
+    //     _and: [
+    //       { id: { _eq: route.params.id } },
+    //       { status: { _eq: 'published' }},
+    //     ],
+    //   }
+    // })
+    console.log("=============================================\n====       ARTICLE.vue API HANDLER       ====\n=============================================");
+    const articleResponse = await directus.items('home_nosql_datastore').readByQuery(idrp,{ 
       fields: ['sort,nosql_datastore_id,nosql_datastore_id.Slice_Type,id,nosql_datastore_id.short_title,nosql_datastore_id.json_datastore' ],
       filter: {
         _and: [
-        { sort: { _gt: 0 } },
-        { id: { _gt:0 }},
+        { home_id: { _eq: route.params.id } },
+        { status: { _eq: 'published' }},
+    
         ],
       },
       sort: ['sort'],
     });
     
-    console.log("Article.Vue","articleResponse");
     const formattedArticle = { ...articleResponse, }
-    const formattedMoreArticles = moreArticlesResponse.data.map(
-    (moreArticle) => { return {        ...moreArticle,  };  }
-    );
-    
     article.value = formattedArticle;
-    articleResponse.value = article.value;
-      
-    article.value = formattedArticle;
-    moreArticles.value = formattedMoreArticles;
-    console.log("=============================================\n====       ARTICLE.vue API HANDLER       ====\n=============================================");
-    
   } catch (err) {
-    console.log("Article.Vue","catch (err");
     router.replace({ name: 'not-found', params: { catchAll: route.path } });
   }
 }
-console.log("Article.vue");
+    
+    // console.log("Article.Vue","articleResponse");
+    //     (moreArticle) => { return {        ...moreArticle,  };  }
+    // const formattedMoreArticles = moreArticlesResponse.data.map(
+    // );
+    // articleResponse.value = article.value;
+    // article.value = formattedArticle;
+    // moreArticles.value = formattedMoreArticles;
+    // console.log("=============================================\n====       ARTICLE.vue API HANDLER       ====\n=============================================");
+    // console.log("Article.Vue","catch (err");
+    
+
+// console.log("Article.vue");
 //================================================================================================
 //============function to create a new object ====================================================
 //================================================================================================

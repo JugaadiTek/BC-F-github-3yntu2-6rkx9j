@@ -9,7 +9,7 @@ import { getAssetURL } from '@/utils/get-asset-url';
 const router = useRouter();
 const route = useRoute();
 const lander = ref(null);
-const morelanders = ref(null);
+const moreLanders = ref(null);
 // let pageblocks = "";
 //---prepping data---------------------------------------------------------------------------
 fetchData();
@@ -42,7 +42,7 @@ async function fetchData() {
 </script>
 
 <template>
-  <Header />
+  
   <main>
     <div class="container">
       <div class="inner-container">
@@ -66,7 +66,7 @@ async function fetchData() {
       </div>
     </div>
   </main>
-  <Footer />
+  
 </template>
 
 

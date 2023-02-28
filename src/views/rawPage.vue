@@ -20,14 +20,14 @@ var preImgUrl = "https://cms-buychain-pb01.up.railway.app/";
 
 async function fetchData() {
   console.log("=============================================\n====  RAWPAGE.vue API HANDLER HANDLER    ====\n=============================================");
-  // const { id2 } = route.params;
+  const { id2 } = route.params;
   let rawResponse;
   try {
-    rawResponse = await directus.items('rawpage').readByQuery({
+    rawResponse = await directus.items('rawpage').readByQuery(id2,{
       fields: ['*'],
       filter: {
         _and: [
-          { home_id: { _eq: rawOld.id } },
+          { home_id: { _eq: route.params.id } },
           { status: { _eq: 'published' }},
         ],
       },
@@ -44,7 +44,7 @@ async function fetchData() {
 </script>
 
 <template>
-  <Header />
+  
   <main>
     <div class="container">
       <div class="inner-container">
@@ -64,6 +64,6 @@ async function fetchData() {
       </div>
     </div>
   </main>
-  <Footer />
+  
 </template>
 

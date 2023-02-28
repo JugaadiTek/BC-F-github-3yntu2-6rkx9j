@@ -1,5 +1,8 @@
 <script setup>
+import { propsToAttrMap } from '@vue/shared';
 import { RouterLink } from 'vue-router';
+import { defineProps } from 'vue';
+
 defineProps({
   page: {
     type: Object,
@@ -10,6 +13,8 @@ defineProps({
     required: true,
   },
 });
+console.log(RouterLink);
+console.log(propsToAttrMap);
 </script>
 <template>
   <br>

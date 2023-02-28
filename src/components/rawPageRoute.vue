@@ -1,8 +1,7 @@
 <script setup>
+import { propsToAttrMap } from '@vue/shared';
 import { RouterLink } from 'vue-router';
-const routes = [
-  { path: '/rawp/:slug' }
-]
+import { defineProps } from 'vue';
 defineProps({
   rawp: {
     type: Object,
@@ -13,6 +12,9 @@ defineProps({
     required: true,
   },
 });
+console.log(RouterLink);
+console.log(propsToAttrMap);
+// const rawp = route;
 </script>
 <template>
   <RouterLink
