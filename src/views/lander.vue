@@ -3,6 +3,8 @@ import { ref } from 'vue';
 import { directus } from '@/services/directus';
 import { RouterLink, useRoute, useRouter } from 'vue-router';
 import { getAssetURL } from '@/utils/get-asset-url';
+// import { o } from '../../dist/assets/app-cb1ccfc7';
+import { defineProps } from 'vue';
 // import sliceLogic from '@/utils/sliceLogic.vue';
 // import QueryString from 'qs';
 // =========================importing components==================================================
@@ -26,7 +28,7 @@ async function fetchData() {
       fields: ['id', 'title', 'slug', 'status', 'wysiwyg', 'sort'],
       filter: {
         _and: [
-          { id: { _eq: route.params.id } },
+          { slug: { _eq: route.params.id } },
           { status: { _eq: 'published' } },
         ],
       },
@@ -56,20 +58,20 @@ async function fetchData() {
     <div class="container">
       <div class="inner-container">
         <div class="content">
-          <!-- {{ JSON.stringify(pid) }} -->
+          <!-- <pre>{{ JSON.stringify(lander) }}</pre> -->
 
           <div class="content-block" v-for="data in JSON.parse(JSON.stringify(lander.data))">
-              <div class="left-column">
-                <div class="wysiwyg" v-html="data.wysiwyg">
-                </div>
-              </div>
-              <div class="right-column">
-                <div class="form">
-                </div>
-                <div class="wysiwyg">
-                </div>
+            <div class="left-column">
+              <div class="wysiwyg" v-html="data.wysiwyg">
               </div>
             </div>
+            <div class="right-column">
+              <div class="form">
+              </div>
+              <div class="wysiwyg">
+              </div>
+            </div>
+          </div>
         </div>
       </div>
     </div>

@@ -1,16 +1,16 @@
 <script setup>
-import    { ref }       from   'vue';                                
-import    { directus }  from   '@/services/directus';
+import { ref } from 'vue';
+import { directus } from '@/services/directus';
 // import Hero          from   '@/components/Hero.vue';
-import    page       from   '@/components/Article.vue';
-import    rawp           from   '@/components/rawPageRoute.vue';
-import    land        from   '@/components/landerRoute.vue';      
-const     articles    = ref(null);                          
-const     landers     = ref(null);                          
-const     raws        = ref(null);                          
-fetchData();                                  
-fetchData2();                                 
-fetchData3();        
+import page from '@/components/Article.vue';
+import rawp from '@/components/rawPageRoute.vue';
+import land from '@/components/landerRoute.vue';
+const articles = ref(null);
+const landers = ref(null);
+const raws = ref(null);
+fetchData();
+fetchData2();
+fetchData3();
 console.log("=============================================\n====     SITEMAP NAVIGATION HOME.vue     ====");
 async function fetchData() {
   console.log("=Home.vue->Pages->FETCH");
@@ -29,16 +29,16 @@ async function fetchData2() {
   const response2 = await directus.items('rawpage').readByQuery({
     fields: ['*'],
   });
-  console.log("response2",response2);
+  console.log("response2", response2);
   const formattedRaws = response2.data.map((raw) => {
-    return {...raw };
+    return { ...raw };
   });
   console.log("=Home.vue->RawPages->SEND");
   const [...rest2] = formattedRaws;
   raws.value = rest2;
 }
-  async function fetchData3() {
-    console.log("=Home.vue->Landers->FETCH");
+async function fetchData3() {
+  console.log("=Home.vue->Landers->FETCH");
   const response3 = await directus.items('landers').readByQuery({
     fields: ['*'],
   });
@@ -47,34 +47,25 @@ async function fetchData2() {
   });
   const [...rest3] = formattedLanders;
   landers.value = rest3;
-  console.log("=Home.vue->Landers --> -->",landers);
+  console.log("=Home.vue->Landers --> -->", landers);
 }
 console.log("==      END SITEMAP NAVIGATION HOME.vue    ==\n=============================================");
 </script>
-<template> 
-  <main class = "siteMap">
+<template>
+  <main class="siteMap">
     <section class="main-content">
       <div class="container">
-        <div  v-if    ="articles" class = "articles-grid" >
-          <page
-            v-for     = "(article, index) in articles"
-            :key      = "index" 
-            :page     = "article"
-            :bordered = "index !== articles.length - 200 " />
+        <div v-if="articles" class="articles-grid">
+          <page v-for="(article, index) in articles" :key="index" :page="article" :fuck="index"
+            :bordered="index !== articles.length - 200" />
         </div>
-        <div v-if     = "raws" class = "articles-grid" >
-          <rawp
-            v-for     = "(raw, index) in raws"
-            :key      = "index"
-            :rawp     = "raw"
-            :bordered = "index !== raws.length-200" />
+        <div v-if="raws" class="articles-grid">
+          <rawp v-for="(raw, index) in raws" :key="index" :fuck="index" :rawp="raw"
+            :bordered="index !== raws.length - 200" />
         </div>
-        <div v-if     = "landers" class = "articles-grid" >
-          <land
-            v-for     ="(lander, index) in landers"
-            :key      = "index"
-            :land     = "lander"
-            :bordered ="index !== landers.length-200" />
+        <div v-if="landers" class="articles-grid">
+          <land v-for="(lander, index) in landers" :key="index" :fuck="index" :land="lander"
+            :bordered="index !== landers.length - 200" />
         </div>
       </div>
     </section>

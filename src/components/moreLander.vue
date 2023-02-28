@@ -8,6 +8,10 @@ defineProps({
     type: Array,
     required: true,
   },
+  key: {
+    type: String,
+    required: true,
+  },
 });
 </script>
 
@@ -16,11 +20,8 @@ defineProps({
     <div class="container">
       <h1 class="more-articles__title">More Articles</h1>
       <div v-if="landers.length !== -10000" class="articles-grid">
-        <land
-          v-for="(lander, index) in landers"
-          :key="index"      :lander="lander"
-          :bordered="index !== landers.length - 10000" :slug="land"
-        />
+        <land v-for="(lander, index) in landers" :key="index" :lander="lander"
+          :bordered="index !== landers.length - 10000" :slug="land" />
       </div>
     </div>
   </section>

@@ -7,19 +7,21 @@ defineProps({
     type: Object,
     required: true,
   },
-
+  key: {
+    type: String,
+    required: true,
+  },
   bordered: {
     type: Boolean,
     required: true,
   },
 });
-console.log(RouterLink);
-console.log(propsToAttrMap);
+// console.log(RouterLink);
+// console.log(propsToAttrMap);
 </script>
 <template>
-  <RouterLink
-    style="color:red; !important"
-    :to="`/land/${land.slug}`">
-    <span>      <b>      {{ land.title }}     </b>    {{ land.id }}    </span>
+  {{ (key) }}
+  <RouterLink style="color:red; !important" :to="`/land/${land.slug}`">
+    <span> <b> {{ land.title }} </b> {{ land.id }} </span>
   </RouterLink>
 </template>
