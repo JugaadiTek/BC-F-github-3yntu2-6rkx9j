@@ -8,6 +8,10 @@ defineProps({
     type: Array,
     required: true,
   },
+  key: {
+    type: String,
+    required: true,
+  },
 });
 </script>
 

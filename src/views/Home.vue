@@ -1,12 +1,12 @@
 <script setup>
-import    { ref }       from   'vue';                                
-import    { directus }  from   '@/services/directus';
+import { ref } from 'vue';
+import { directus } from '@/services/directus';
 // import Hero          from   '@/components/Hero.vue';
-import    page       from   '@/components/Article.vue';
-import    rawp           from   '@/components/rawPageRoute.vue';
-import    land        from   '@/components/landerRoute.vue';      
+import    page          from   '@/components/Article.vue';
+import    rawp          from   '@/components/rawPageRoute.vue';
+import    land          from   '@/components/landerRoute.vue';      
 import    { defineProps } from 'vue';
-const     pages    = ref(null);                          
+const     pages       = ref(null);                          
 const     landers     = ref(null);                          
 const     raws        = ref(null);
 
@@ -45,16 +45,16 @@ async function fetchData2() {
   const response2 = await directus.items('rawpage').readByQuery({
     fields: ['id', 'title', 'slug', 'status'],
   });
-  console.log("response2",response2);
+  console.log("response2", response2);
   const formattedRaws = response2.data.map((raw) => {
-    return {...raw };
+    return { ...raw };
   });
   console.log("=Home.vue->RawPages->SEND");
   const [...rest2] = formattedRaws;
   raws.value = rest2;
 }
-  async function fetchData3() {
-    console.log("=Home.vue->Landers->FETCH");
+async function fetchData3() {
+  console.log("=Home.vue->Landers->FETCH");
   const response3 = await directus.items('landers').readByQuery({
     fields: ['id', 'title', 'slug', 'status'],
   });
@@ -63,12 +63,12 @@ async function fetchData2() {
   });
   const [...rest3] = formattedLanders;
   landers.value = rest3;
-  console.log("=Home.vue->Landers --> -->",landers);
+  console.log("=Home.vue->Landers --> -->", landers);
 }
 console.log("==      END SITEMAP NAVIGATION HOME.vue    ==\n=============================================");
 </script>
-<template> 
-  <main class = "siteMap">
+<template>
+  <main class="siteMap">
     <section class="main-content">
       <div class="container">
         <div  v-if    ="pages" class = "articles-grid" >

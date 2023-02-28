@@ -23,6 +23,7 @@ defineProps ({
 const router = useRouter();
 const route = useRoute();
 const lander = ref(null);
+
 const moreLanders = ref(null);
 const landercount = 0;
 
@@ -65,55 +66,65 @@ async function fetchData() {
     router.replace({ name: 'not-found', params: { catchAll: route.path } });
   }
 }
-//filter the lander.data array to only include the route.params.slug
-
-
-
 </script>
 //================================================================================================
 <template>
-  <!-- <div v-if="landerResponse=route.params.slug"> -->
-    <!-- {{ JSON.stringify(route.params) }} -->
-    
-  <!-- </div>  -->
-  {{ filteredLander(lander) }}
-  <div class = "codeloop" for="blah in lander.data">
-    <div for ="">
-      <!-- <code style = "color:white;">{{ blah }}</code> -->
-      
-    </div>
-  </div>  
-  <!-- <pre>{{ id }}</pre> -->
   <main>
     <div class="container">
+      <!-- <pre>{{ JSON.parse(JSON.stringify(lander)) }}</pre> -->
+      <pre>{{ JSON.parse(JSON.stringify(lander.data[0])) }}</pre>
       <div class="inner-container">
-        <div class="content">
-          <div class="content-block">
-            <div class="left-column">
-              <div class="wysiwyg">
-                <!-- <h1>{{ lander.title }}</h1> -->
-                <!-- <p>{{ lander.wysiwyg }}</p> -->
-                <div class="codeloop">
-                  
-      <div class ="">
-      </div>
-    </div>
+        
+          <!-- <div v-html="getInTouchData.wysiwyg"></div> -->
+          <!-- v-for="getInTouchData in JSON.parse(JSON.stringify(lander.data))" -->
+          
+              <div class="content-block">
+                <div class="left-column">
+                  <div class="wysiwyg" v-html="JSON.parse(JSON.stringify(lander.data[0].wysiwyg))">
+                  </div>
+                </div>
+                <div class="right-column">
+                  <div class="form" v-html="JSON.parse(JSON.stringify(lander.data[0].code))">
+                  </div>
+                  <div class="right_wysiwyg" v-html="JSON.parse(JSON.stringify(lander.data[0].right_wysiwyg))">
+                  </div>
+                </div>
+              </div>
+
+          <!-- <div class="content-block" v-if="data.id = '6d9ba917-8059-494b-a8a4-c5fd7cf55449'">
+              <div class="left-column">
+                <div class="wysiwyg">
+                  <div v-html="data.wysiwyg"></div>
+                </div>
+              </div>
+              <div class="right-column">
+                <div class="form">
+
+                </div>
+                <div class="wysiwyg">
+                </div>
               </div>
             </div>
-            <div class="right-column">
-              <div class="form">
 
+            <div class="content-block" v-if="data.id = 'dc16b12d-3855-4533-a4f4-1e68afef445b'">
+              <div class="left-column">
+                <div class="wysiwyg">
+                  <div v-html="data.wysiwyg"></div>
+                </div>
               </div>
-              <div class="wysiwyg">
+              <div class="right-column">
+                <div class="form">
 
+                </div>
+                <div class="wysiwyg">
+                </div>
               </div>
-            </div>
-          </div>
-        </div>
+            </div> -->
+
+        
       </div>
     </div>
   </main>
-  
 </template>
 
 
