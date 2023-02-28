@@ -9,6 +9,7 @@ import { getAssetURL } from '@/utils/get-asset-url';
 const router = useRouter();
 const route = useRoute();
 const lander = ref(null);
+
 const moreLanders = ref(null);
 // let pageblocks = "";
 //---prepping data---------------------------------------------------------------------------
@@ -21,12 +22,12 @@ async function fetchData() {
   const { id } = route.params;
   let landerResponse;
   try {
-    landerResponse = await directus.items('landers').readByQuery(id,{
-      fields: ['id','title','slug','status','wysiwyg','sort'],
+    landerResponse = await directus.items('landers').readByQuery(id, {
+      fields: ['id', 'title', 'slug', 'status', 'wysiwyg', 'sort'],
       filter: {
         _and: [
           { id: { _eq: route.params.id } },
-          { status: { _eq: 'published' }},
+          { status: { _eq: 'published' } },
         ],
       },
       sort: ['sort'],
@@ -39,26 +40,36 @@ async function fetchData() {
     router.replace({ name: 'not-found', params: { catchAll: route.path } });
   }
 }
+
+// function getPID() {
+//   const pids = route.params.id
+//   return pids;
+// }
+
+// const pid = route.params.id;
+// console.log(pid);
 </script>
 
-<template>  
+<template>
   <main>
+
     <div class="container">
       <div class="inner-container">
         <div class="content">
-          
+          <!-- {{ JSON.stringify(pid) }} -->
+
           <div class="content-block" v-for="data in JSON.parse(JSON.stringify(lander.data))">
-            <div class="left-column">
-              <div class="wysiwyg" v-html="data.wysiwyg">
+              <div class="left-column">
+                <div class="wysiwyg" v-html="data.wysiwyg">
+                </div>
+              </div>
+              <div class="right-column">
+                <div class="form">
+                </div>
+                <div class="wysiwyg">
+                </div>
               </div>
             </div>
-            <div class="right-column">
-              <div class="form">
-              </div>
-              <div class="wysiwyg">
-              </div>
-            </div>
-          </div>
         </div>
       </div>
     </div>
