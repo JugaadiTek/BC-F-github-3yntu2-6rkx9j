@@ -1,18 +1,18 @@
 ## SUMMARY AND CONVERTED TO EST
-| <big><big>STEP</big></big>  |<big><big>ACT</big></big>| <big><big>EST</big></big>      |      <big><big>IST</big></big> |
-|:------|:------:|---------:|---------:|
-||||
-|<small><small>STEP</small></small> <kbd><big><big>`1`</big></big></kbd>| <kbd><big>TILL</big></kbd> |<kbd><big> 8:30pm<big> <kbd>`EST`</kbd><kbd>|<kbd><big> 7:00am   <kbd>`IST`</kbd></big></kdb>|  WILLIAM FOCUS
-|<small><small>STEP</small></small> <kbd><big><big>`2`</big></big></kbd>| <kbd><big>LTST</big></kbd> |<kbd><big> 9:30pm<big> <kbd>`EST`</kbd><kbd>|<kbd><big> 8:00am   <kbd>`IST`</kbd></big></kdb>|  WAKE PAURUSH LATEST
-||||
-|<small><small>-BUP</small></small> <kbd><big><big>`A`</big></big></kbd>| <kbd><big>FROM</big></kbd> |<kbd><big>11:30pm<big> <kbd>`EST`</kbd><kbd>|<kbd><big>10:00am   <kbd>`IST`</kbd></big></kdb>| +?QA FOLKS
-|<small><small>-BUP</small></small> <kbd><big><big>`B`</big></big></kbd>| <kbd><big>FROM</big></kbd> |<kbd><big>12:30am<big> <kbd>`EST`</kbd><kbd>|<kbd><big>11:00am   <kbd>`IST`</kbd></big></kdb>| +?ENGINEERS
-|<small><small>-BUP</small></small> <kbd><big><big>`C`</big></big></kbd>| <kbd><big>FROM</big></kbd> |<kbd><big> 1:30am<big> <kbd>`EST`</kbd><kbd>|<kbd><big>12:00pm   <kbd>`IST`</kbd></big></kdb>| -?HAIL MARY
-||||
-|<small><small>STEP</small></small> <kbd><big><big>`3`</big></big></kbd>| <kbd><big>EXAC</big></kbd> |<kbd><big> 6:00am<big> <kbd>`EST`</kbd><kbd>|<kbd><big> 4:30pm   <kbd>`IST`</kbd></big></kdb>|  GO LIVE
-|<small><small>STEP</small></small> <kbd><big><big>`4`</big></big></kbd>| <kbd><big>TILL</big></kbd> |<kbd><big>11:00am<big> <kbd>`EST`</kbd><kbd>|<kbd><big> 9:30pm   <kbd>`IST`</kbd></big></kdb>|  NON CRITICAL EDITS
-||||
-|<small><small>STEP</small></small> <kbd><big><big>`5`</big></big></kbd>| <kbd><big>SLEP</big></kbd> |  w/phone    | ON CHEST |  Incase emergency 
+| <big><big>STEP</big></big>  |<big><big>ACT</big></big>| <big><big>EST</big></big>      |      <big><big>IST</big></big> |<big><big>ITEM</big></big>|
+|:------|:------:|---------:|---------:|:--|
+|||||
+|<small><small>STEP</small></small> <kbd><big><big>`1`</big></big></kbd>| <kbd><big>TILL</big></kbd> |<kbd><big> 8:30pm</big> <kbd>`EST`</kbd><kbd>|<kbd><big> 7:00am   <kbd>`IST`</kbd></big></kdb>|  <small>WILLIAM FOCUS </small>|
+|<small><small>STEP</small></small> <kbd><big><big>`2`</big></big></kbd>| <kbd><big>LTST</big></kbd> |<kbd><big> 9:30pm</big> <kbd>`EST`</kbd><kbd>|<kbd><big> 8:00am   <kbd>`IST`</kbd></big></kdb>|  <small>WAKE PAURUSH LATEST </small>|
+|||||
+|<small><small>-BUP</small></small> <kbd><big><big>`A`</big></big></kbd>| <kbd><big>FROM</big></kbd> |<kbd><big>11:30pm</big> <kbd>`EST`</kbd><kbd>|<kbd><big>10:00am   <kbd>`IST`</kbd></big></kdb>| +? <small>QA FOLKS </small>|
+|<small><small>-BUP</small></small> <kbd><big><big>`B`</big></big></kbd>| <kbd><big>FROM</big></kbd> |<kbd><big>12:30am</big> <kbd>`EST`</kbd><kbd>|<kbd><big>11:00am   <kbd>`IST`</kbd></big></kdb>| +? <small>ENGINEERS</small> |
+|<small><small>-BUP</small></small> <kbd><big><big>`C`</big></big></kbd>| <kbd><big>FROM</big></kbd> |<kbd><big> 1:30am</big> <kbd>`EST`</kbd><kbd>|<kbd><big>12:00pm   <kbd>`IST`</kbd></big></kdb>| -? <small>HAIL MARY</small> |
+|||||
+|<small><small>STEP</small></small> <kbd><big><big>`3`</big></big></kbd>| <kbd><big>EXAC</big></kbd> |<kbd><big> 6:00am</big> <kbd>`EST`</kbd><kbd>|<kbd><big> 4:30pm   <kbd>`IST`</kbd></big></kdb>|  <small>GO LIVE </small>|
+|<small><small>STEP</small></small> <kbd><big><big>`4`</big></big></kbd>| <kbd><big>TILL</big></kbd> |<kbd><big>11:00am</big> <kbd>`EST`</kbd><kbd>|<kbd><big> 9:30pm   <kbd>`IST`</kbd></big></kdb>|  <small>NON CRITICAL EDITS </small>|
+|||||
+|<small><small>STEP</small></small> <kbd><big><big>`5`</big></big></kbd>| <kbd><big>SLEP</big></kbd> |  w/phone    | ON CHEST |  Incase emergency |
 
 *** 
 
