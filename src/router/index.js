@@ -1,6 +1,7 @@
 import { createRouter, createWebHistory } from 'vue-router';
 import Home from '@/views/Home.vue';
 
+
 const router = createRouter({
   history: createWebHistory(import.meta.env.BASE_URL),
   routes: [
@@ -10,26 +11,25 @@ const router = createRouter({
       component: Home,
     },
     {
-      path: '/articles/:id',
-      name: 'articles',
+      path: '/page:slug',
+      name: 'page',
       component: () => import('@/views/Article.vue'),
     },
     {
-      path: '/get-started/:id',
-      name: 'landers',
+      path: '/land:slug',
+      name: 'land',
       component: () => import('@/views/lander.vue'),
     },
     {
-      path: '/rawpage/:id',
-      name: 'rawPage',
-      component: () => import('@/views/rawPage.vue'),
+      path: '/raw:slug',
+      name: 'rawp',
+      component: () => import('@/views/rawpage.vue'),
     },
-    // {
-    //   path: "/:catchAll(.*)",
-    //   name: "not-found",
-    //   component: () => import("@/views/NotFound.vue"),
-    // },
+    {
+      path: "/:catchAll(.*)",
+      name: "not-found",
+      component: () => import("@/views/NotFound.vue"),
+    },
   ],
 });
-
 export default router;

@@ -3,41 +3,62 @@ import { ref } from 'vue';
 import { directus } from '@/services/directus';
 import { RouterLink, useRoute, useRouter } from 'vue-router';
 import { getAssetURL } from '@/utils/get-asset-url';
+import MoreArticles from '@/components/MoreArticles.vue';
 import sliceLogic from '@/utils/sliceLogic.vue';
+                                console.log("Article.Vue","imports Done","\nref","\ndirectus","\nRouterLink","\nuseRoute","\nuseRouter","\ngetAssetURL","\nsliceLogic")
 // import QueryString from 'qs';
 // =========================importing components==================================================
-const router = useRouter();
-const route = useRoute();
-const article = ref(null);
-const moreArticles = ref(null);
-// let pageblocks = "";
+const router = useRouter();     
+const route = useRoute();       
+const article = ref(null);      
+const moreArticles = ref(null); 
 //---prepping data---------------------------------------------------------------------------
-fetchData();
+fetchData();                    
 var preImgUrl = "https://cms-buychain-pb01.up.railway.app/";
-
-// Directus API call to get the article data via the directus sdk using the id from the route params
+const { idrp } = route.params;
+console.log("=============================================\n====       ARTICLE.vue API HANDLER       ====\n=============================================");
 async function fetchData() {
-  // const { id } = route.params;
-  let articleResponse;
-  try {
-    articleResponse = await directus.items('home_nosql_datastore').readByQuery({
+  try {                    
+      const res = await directus.items('home').readByQuery(idrp,{
+      fields: ['*'],
+      filter: {
+        _and: [
+          { slug: { _eq: idrp } },
+          { status: { _eq: 'published' }},
+        ],
+      }
+    })
+    console.log("=============================================\n===="+(res)+"       ARTICLE.vue API HANDLER       ====\n=============================================");
+    const articleResponse = await directus.items('home_nosql_datastore').readByQuery({ 
       fields: ['sort,nosql_datastore_id,nosql_datastore_id.Slice_Type,id,nosql_datastore_id.short_title,nosql_datastore_id.json_datastore' ],
       filter: {
         _and: [
-        { home_id: { _eq: route.params.id } },
+        { sort: { _gt: 0 } },
         { id: { _gt:0 }},
         ],
       },
       sort: ['sort'],
     });
     
+    console.log("Article.Vue","articleResponse");
     const formattedArticle = { ...articleResponse, }
+    const formattedMoreArticles = moreArticlesResponse.data.map(
+    (moreArticle) => { return {        ...moreArticle,  };  }
+    );
+    
     article.value = formattedArticle;
+    articleResponse.value = article.value;
+      
+    article.value = formattedArticle;
+    moreArticles.value = formattedMoreArticles;
+    console.log("=============================================\n====       ARTICLE.vue API HANDLER       ====\n=============================================");
     
   } catch (err) {
+    console.log("Article.Vue","catch (err");
     router.replace({ name: 'not-found', params: { catchAll: route.path } });
   }
 }
+console.log("Article.vue");
 //================================================================================================
 //============function to create a new object ====================================================
 //================================================================================================

@@ -9,7 +9,7 @@ import { getAssetURL } from '@/utils/get-asset-url';
 const router = useRouter();
 const route = useRoute();
 const lander = ref(null);
-const morelander = ref(null);
+const morelanders = ref(null);
 // let pageblocks = "";
 //---prepping data---------------------------------------------------------------------------
 fetchData();
@@ -17,10 +17,11 @@ var preImgUrl = "https://cms-buychain-pb01.up.railway.app/";
 
 // Directus API call to get the article data via the directus sdk using the id from the route params
 async function fetchData() {
+  console.log("=============================================\n=====  LANDER.vue API HANDLER HANDLER    ====\n=============================================");
   const { id } = route.params;
   let landerResponse;
   try {
-    articleResponse = await directus.items('lander').readByQuery(id,{
+    landerResponse = await directus.items('landers').readByQuery(id,{
       fields: ['id','title','slug','status','wysiwyg','sort'],
       filter: {
         _and: [
@@ -31,8 +32,8 @@ async function fetchData() {
       sort: ['sort'],
     });
 
-    const formattedlander = { ...landerResponse, }
-    lander.value = formattedlander;
+    const formattedLander = { ...landerResponse, }
+    lander.value = formattedLander;
 
   } catch (err) {
     router.replace({ name: 'not-found', params: { catchAll: route.path } });
