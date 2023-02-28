@@ -35,6 +35,7 @@ h3,
 h4,
 p {
   margin: auto;
+  color: var(--bg-layer-100);
 }
 
 .content {

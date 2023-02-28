@@ -23,7 +23,7 @@ defineProps({
               <h2>{{ JSON.parse(data).bricks.title }}</h2>
               <p>{{ JSON.parse(data).bricks.description }}</p>
               <span v-for="(atom, index) in JSON.parse(data).bricks.atoms" :key="index">
-                <a :class="[atom.type, atom.variant, atom.styleMods]" :href="atom.url">{{ atom.text }}</a>
+                <a :class="[atom.type, atom.variant, atom.styleModifiers]" :href="atom.url">{{ atom.text }}</a>
               </span>
             </div>
             <span v-for="(image, index) in JSON.parse(data).bricks.imageList" :key="index">
@@ -38,6 +38,12 @@ defineProps({
 </template>
 
 <style scoped>
+
+h2, p {
+  text-align: left;
+  color: var(--bg-layer-100);
+
+}
 .content-block {
   display: grid;
   grid-template-columns: 1fr 1fr;
@@ -62,4 +68,5 @@ defineProps({
 div>span {
   padding-right: 20px;
 }
+
 </style>

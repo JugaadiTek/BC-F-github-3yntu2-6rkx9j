@@ -15,7 +15,7 @@ console.log("=============================================\n====     SITEMAP NAV
 async function fetchData() {
   console.log("=Home.vue->Pages->FETCH");
   const response = await directus.items('home').readByQuery({
-    fields: ['id','title','slug','status','grab_a_slice.nosql_datastore_id'],
+    fields: ['id', 'title', 'slug', 'status'],
   });
   const formattedArticles = response.data.map((article) => {
     return { ...article };
@@ -55,28 +55,25 @@ console.log("==      END SITEMAP NAVIGATION HOME.vue    ==\n====================
   <main class = "siteMap">
     <section class="main-content">
       <div class="container">
-        <div  v-if="articles" class = "articles-grid" >
+        <div  v-if    ="articles" class = "articles-grid" >
           <page
             v-for     = "(article, index) in articles"
-            
             :key      = "index" 
-            :article  = "article"
+            :page     = "article"
             :bordered = "index !== articles.length - 200 " />
         </div>
-        <div v-if = "raws" class = "articles-grid" >
+        <div v-if     = "raws" class = "articles-grid" >
           <rawp
             v-for     = "(raw, index) in raws"
-            
             :key      = "index"
-            :raw      = "raw"
+            :rawp     = "raw"
             :bordered = "index !== raws.length-200" />
         </div>
-        <div v-if = "landers" class = "articles-grid" >
+        <div v-if     = "landers" class = "articles-grid" >
           <land
-            v-for="(lander, index) in landers"
-            
+            v-for     ="(lander, index) in landers"
             :key      = "index"
-            :lander   = "lander"
+            :land     = "lander"
             :bordered ="index !== landers.length-200" />
         </div>
       </div>
@@ -85,22 +82,28 @@ console.log("==      END SITEMAP NAVIGATION HOME.vue    ==\n====================
 </template>
 <style>
 .siteMap a {
-  background:var(--accent);
-  padding:8px 8px;
-  margin:4px;
-  border-radius:4px;
-  display:inline-block;
-  box-shadow:0 0 3px 1px rgba(0,0,0,0.3);
+  background: var(--accent);
+  padding: 8px 8px;
+  margin: 4px;
+  border-radius: 4px;
+  display: inline-block;
+  box-shadow: 0 0 3px 1px rgba(0, 0, 0, 0.3);
   text-align: center;
 }
-.siteMap a >span {
-  font-size:0.6em;
+
+.siteMap a>span {
+  font-size: 0.6em;
   line-height: 1em;
 }
-.siteMap a span, 
-.siteMap a span > b {  text-decoration:underline;text-transform: capitalize;}
-.siteMap a span > b {
-  display:block;
-  font-size:1.5em;
+
+.siteMap a span,
+.siteMap a span>b {
+  text-decoration: underline;
+  text-transform: capitalize;
+}
+
+.siteMap a span>b {
+  display: block;
+  font-size: 1.5em;
 }
 </style>
