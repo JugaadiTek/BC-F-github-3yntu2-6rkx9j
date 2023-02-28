@@ -9,7 +9,7 @@ import sliceLogic from '@/utils/sliceLogic.vue';
 
 // import { get } from 'http';
 
-defineProps ({
+defineProps({
   lander: {
     type: Object,
     required: true,
@@ -26,16 +26,12 @@ const lander = ref(null);
 
 const moreLanders = ref(null);
 const landercount = 0;
-
 // let pageblocks = "";
 //---prepping data---------------------------------------------------------------------------
 fetchData();
-
 // defineProps([
 //   'land.slug'
 // ]);
-
-
 // var preImgUrl = "https://cms-buychain-pb01.up.railway.app/";
 
 // Directus API call to get the article data via the directus sdk using the id from the route params
@@ -44,21 +40,17 @@ async function fetchData() {
   const { id } = route.params;
   let landerResponse;
   try {
-    landerResponse = await directus.items('landers').readByQuery(id,{
+    landerResponse = await directus.items('landers').readByQuery(id, {
       fields: ['*'],
       filter: {
         _and: [
           { slug: { _eq: route.params.slug } },
-          { status: { _eq: 'published' }},
+          { status: { _eq: 'published' } },
         ],
       },
       sort: ['sort'],
     },
-    
     )
-    
-    
-
     const formattedLander = { ...landerResponse, }
     lander.value = formattedLander;
     // console.log(landerResponse.slug[0],route.params);
@@ -67,55 +59,53 @@ async function fetchData() {
   }
 }
 </script>
-//================================================================================================
+<!-- //================================================================================================ -->
 <template>
   <main>
     <div class="container">
       <!-- <pre>{{ JSON.parse(JSON.stringify(lander)) }}</pre> -->
       <!-- <pre>{{ JSON.parse(JSON.stringify(lander)) }}</pre> -->
       <div class="inner-container">
-        
-          <!-- <div v-html="getInTouchData.wysiwyg"></div> -->
-          <!-- v-for="getInTouchData in JSON.parse(JSON.stringify(lander.data))" -->
-          
-              <div class="content-block">
-                <div class="left-column">
-                  <div class="wysiwyg" v-html="JSON.parse(JSON.stringify(lander.data[0].wysiwyg))">
-                  </div>
-                </div>
-                <div class="right-column">
-                  <div class="form" v-html="JSON.parse(JSON.stringify(lander.data[0].code))">
-                  </div>
-                  <div class="right_wysiwyg" v-html="JSON.parse(JSON.stringify(lander.data[0].right_wysiwyg))">
-                  </div>
-                </div>
-              </div>
+        <!-- <div v-html="getInTouchData.wysiwyg"></div> -->
+        <!-- v-for="getInTouchData in JSON.parse(JSON.stringify(lander.data))" -->
+        <div class="content-block" >
+          <div class="left-column">
+            <div class="wysiwyg" v-html="JSON.parse(JSON.stringify(lander.data[0].wysiwyg))">
+            </div>
+          </div>
+          <div class="right-column" >
+            <div class="form" v-html="JSON.parse(JSON.stringify(lander.data[0].code))">
+            </div>
+            <div class="right_wysiwyg" v-html="JSON.parse(JSON.stringify(lander.data[0].right_wysiwyg))">
+            </div>
+          </div>
+        </div>
 
-              <div class="content-block">
-                <div class="left-column">
-                  <div class="wysiwyg" v-html="JSON.parse(JSON.stringify(lander.data[1].wysiwyg))">
-                  </div>
-                </div>
-                <div class="right-column">
-                  <div class="form" v-html="JSON.parse(JSON.stringify(lander.data[1].code))">
-                  </div>
-                  <div class="right_wysiwyg" v-html="JSON.parse(JSON.stringify(lander.data[1].right_wysiwyg))">
-                  </div>
-                </div>
-              </div>
+        <div class="content-block" >
+          <div class="left-column">
+            <div class="wysiwyg" v-html="JSON.parse(JSON.stringify(lander.data[1].wysiwyg))">
+            </div>
+          </div>
+          <div class="right-column">
+            <div class="form" v-html="JSON.parse(JSON.stringify(lander.data[1].code))">
+            </div>
+            <div class="right_wysiwyg" v-html="JSON.parse(JSON.stringify(lander.data[1].right_wysiwyg))">
+            </div>
+          </div>
+        </div>
 
-              <div class="content-block">
-                <div class="left-column">
-                  <div class="wysiwyg" v-html="JSON.parse(JSON.stringify(lander.data[2].wysiwyg))">
-                  </div>
-                </div>
-                <div class="right-column">
-                  <div class="form" v-html="JSON.parse(JSON.stringify(lander.data[2].code))">
-                  </div>
-                  <div class="right_wysiwyg" v-html="JSON.parse(JSON.stringify(lander.data[2].right_wysiwyg))">
-                  </div>
-                </div>
-              </div>
+        <div class="content-block">
+          <div class="left-column">
+            <div class="wysiwyg" v-html="JSON.parse(JSON.stringify(lander.data[2].wysiwyg))">
+            </div>
+          </div>
+          <div class="right-column">
+            <div class="form" v-html="JSON.parse(JSON.stringify(lander.data[2].code))">
+            </div>
+            <div class="right_wysiwyg" v-html="JSON.parse(JSON.stringify(lander.data[2].right_wysiwyg))">
+            </div>
+          </div>
+        </div>
       </div>
     </div>
   </main>
