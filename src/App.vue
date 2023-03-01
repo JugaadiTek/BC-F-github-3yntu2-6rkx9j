@@ -4,7 +4,7 @@ import Notice from "@/components/Notice.vue";
 import Header from "@/components/Header.vue";
 import Info from "@/components/Info.vue";
 import Footer from "@/components/Footer.vue";
-
+console.log("=======================================\n=====    MAIN APP.VUE HANDLER    ======\n=======================================")
 </script>
 
 <template>

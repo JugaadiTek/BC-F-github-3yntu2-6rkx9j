@@ -14,8 +14,8 @@ let navigations = ref([
           linkText: "Home",
           linkUrl: "link",
           subNav: [
-            { url: "https://www.flaticon.com", text: "Buychain Operations", type: "link", variant: "", styleModifiers: "" },
-            { url: "https://www.flaticon.com", text: "Buychain Capital", type: "link", variant: "", styleModifiers: "" },
+            { url: "https://www.flaticon.com", text: "Operations", type: "link", variant: "", styleModifiers: "" },
+            { url: "https://www.flaticon.com", text: "Capital", type: "link", variant: "", styleModifiers: "" },
             { url: "https://www.flaticon.com", text: "Distributors", type: "link", variant: "", styleModifiers: "" },
             { url: "https://www.flaticon.com", text: "Suppliers", type: "link", variant: "", styleModifiers: "" },
             { url: "https://www.flaticon.com", text: "Retailers", type: "link", variant: "", styleModifiers: "" }
@@ -32,8 +32,8 @@ let navigations = ref([
           linkText: "About Us",
           linkUrl: "button",
           subNav: [
-            { url: "https://www.flaticon.com", text: "Schedule A Demo", type: "link", variant: "", styleModifiers: "" },
-            { url: "https://www.flaticon.com", text: "Join The Waitlist", type: "link", variant: "", styleModifiers: "" },
+            { url: "https://www.flaticon.com", text: "Schedule Demo", type: "link", variant: "", styleModifiers: "" },
+            { url: "https://www.flaticon.com", text: "Join Waitlist", type: "link", variant: "", styleModifiers: "" },
             { url: "https://www.flaticon.com", text: "Get In Touch", type: "link", variant: "", styleModifiers: "" }
           ]
         }
@@ -53,7 +53,7 @@ let navigations = ref([
 
 <template>
   <header>
-    <nav class="container mainNav nogap darkbg" v-for="navigationbar in navigations">
+    <nav class="" v-for="navigationbar in navigations">
       <!--- Here ----->
       <NavBar :navbtn="navigationbar.bricks" />
     </nav>
@@ -62,6 +62,9 @@ let navigations = ref([
 
   
 <style scoped>
+
+
+
 
 
 </style>

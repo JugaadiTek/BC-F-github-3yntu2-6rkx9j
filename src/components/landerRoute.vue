@@ -2,10 +2,13 @@
 import { propsToAttrMap } from '@vue/shared';
 import { RouterLink } from 'vue-router';
 import { defineProps } from 'vue';
-
 defineProps({
-  page: {
+  land: {
     type: Object,
+    required: true,
+  },
+  key: {
+    type: String,
     required: true,
   },
   bordered: {
@@ -13,15 +16,12 @@ defineProps({
     required: true,
   },
 });
-console.log(RouterLink);
-console.log(propsToAttrMap);
+// console.log(RouterLink);
+// console.log(propsToAttrMap);
 </script>
 <template>
-  <br>
-  <RouterLink
-    style="color:green; !important"
-    :to="`/page/${page.slug}`">
-    <span>      <b>      {{ page.title }}     </b>    {{ page.id }}    </span>
+  {{ (key) }}
+  <RouterLink style="color:red; !important" :to="`/land/${land.slug}`">
+    <span> <b> {{ land.title }} </b> {{ land.id }} </span>
   </RouterLink>
 </template>
-

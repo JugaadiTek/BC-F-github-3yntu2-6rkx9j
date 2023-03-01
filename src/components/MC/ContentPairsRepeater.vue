@@ -3,7 +3,7 @@ import { imagePrefix } from '@/utils/imgurlPrefix.js';
 
 
 defineProps({
-  data: {Object},
+  data: { Object },
   preImgUrl: String,
   sliceType: String,
 })
@@ -11,30 +11,29 @@ defineProps({
 
 
 <template>
- <div class="mcFix">
-  <div class="container">
-    <div class="inner-container">
-    <div class="content">
-      <div class="content-block">
-        <div v-for="(repeater, index) in JSON.parse(data).bricks" :key="index">
+  <div class="mcFix">
+    <div class="container">
+      <div class="inner-container">
+        <div class="content">
+          <div class="content-block">
+            <div v-for="(repeater, index) in JSON.parse(data).bricks" :key="index">
 
-          <img :src="[imagePrefix(preImgUrl)] + repeater.imgurl" alt="" height="220" width="370">
+              <img :src="[imagePrefix(preImgUrl)] + repeater.imgurl" alt="" height="220" width="370">
 
-          <div>
-            <h2>{{ repeater.title }}</h2>
-            <p> {{ repeater.description }}</p>
-            <span v-for="button in repeater.atoms">
-              <a :class="[button.type, button.variant]"  :href="button.url">{{ button.text }} </a>
-            </span>
+              <div>
+                <h2>{{ repeater.title }}</h2>
+                <p> {{ repeater.description }}</p>
+                <span v-for="button in repeater.atoms">
+                  <a :class="[button.type, button.variant]" :href="button.url">{{ button.text }} </a>
+                </span>
+              </div>
+
+            </div>
           </div>
-
         </div>
       </div>
     </div>
   </div>
-  </div>
- </div>
-  
 </template>
 
 <style scoped>
@@ -48,7 +47,7 @@ defineProps({
   padding: 10px;
 }
 
-h2{
+h2 {
   text-align: left;
   margin: auto;
   padding-bottom: 10px;
@@ -68,7 +67,7 @@ img {
 }
 
 span {
-  padding-right: 20px; 
+  padding-right: 20px;
 }
 
 

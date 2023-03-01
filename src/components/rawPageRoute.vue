@@ -2,9 +2,8 @@
 import { propsToAttrMap } from '@vue/shared';
 import { RouterLink } from 'vue-router';
 import { defineProps } from 'vue';
-
 defineProps({
-  page: {
+  rawp: {
     type: Object,
     required: true,
   },
@@ -15,13 +14,13 @@ defineProps({
 });
 console.log(RouterLink);
 console.log(propsToAttrMap);
+// const rawp = route;
 </script>
 <template>
-  <br>
   <RouterLink
-    style="color:green; !important"
-    :to="`/page/${page.slug}`">
-    <span>      <b>      {{ page.title }}     </b>    {{ page.id }}    </span>
+    style="color:blueviolet; !important"
+    :to="`/rawp/${rawp.slug}`">
+    <span>      <b>      {{ rawp.title }}     </b>    {{ rawp.id }}    </span>
   </RouterLink>
+  
 </template>
-

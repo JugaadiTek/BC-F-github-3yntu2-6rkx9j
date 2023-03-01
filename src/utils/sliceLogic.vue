@@ -17,63 +17,75 @@ import flexItemDisplay from '@/components/MC/flexItemDisplay.vue';
 
 defineProps({
   sliceData: Object,
-  sliceType: String,
 })
 
 </script>
-
 <template>
-  <div  v-if="sliceType == 'hero'" :class="[sliceType]" >
-    <hero :data="sliceData" :sliceType="sliceType" />
-  </div>
-
-  <div  v-else-if="sliceType == 'servicecard'" :class="[sliceType]">
-    <servicescard :data="sliceData" />
-  </div>
-
-  <div v-else-if="sliceType == 'imageWithContentList'" :class="[sliceType]">
-    <imageWithContentList :data="sliceData" />
-  </div>
-
-  <div v-else-if="sliceType == 'ctaHero'" :class="[sliceType]">
-    <ctaHero :data="sliceData" />
-  </div>
-  
-  <div v-else-if="sliceType == 'ContentPairsRepeater'" :class="[sliceType]">
-    <ContentPairsRepeater :data="sliceData" />
-  </div>
-  
-  <div v-else-if="sliceType == 'imgSlider'" :class="[sliceType]">
-    <imgSlider :data="sliceData" />
-  </div>
-  
-  <div v-else-if="sliceType == 'artcont'"  :class="[sliceType]">
-    <artcont :data="sliceData" />
-  </div>
-  
-  <div v-else-if="sliceType == 'postfeed'" :class="[sliceType]">
-    <postfeed :data="sliceData" />
-  </div>
-  
-  <div v-else-if="sliceType == 'newsletter'" :class="[sliceType]">
-    <newsletter />
-  </div> 
-
-  <div v-else-if="sliceType == 'contentPair'" :class="[sliceType]">
-    <contentPair :data="sliceData"/>
-  </div> 
-
-  <div v-else-if="sliceType == 'FAQs'" :class="[sliceType]">
-    <FAQs :data="sliceData"/>
-  </div> 
-
-  <div v-else-if="sliceType == 'content_pairs_with_list'" :class="[sliceType]">
-    <contentPairsWithList :data="sliceData"/>
-  </div> 
-
-  <div v-else-if="sliceType == 'flex_item_display'" :class="[sliceType]">
-    <flexItemDisplay :data="sliceData"/>
-  </div> 
+    <hero              v-if="sliceData.component       == 'hero'" 
+    :class        =   "[sliceData.component]" 
+    :data         =   "JSON.stringify(sliceData)"
+    :sliceType    =   "sliceData.component"
+    />
+    <servicescard     v-else-if="sliceData.component  == 'servicecard'" 
+    :class        =   "[sliceData.component]"
+    :data         =   "JSON.stringify(sliceData)"
+    :sliceType    =   "sliceData.component"
+    />
+    <imageWithContentList  v-else-if="sliceData.component == 'imageWithContentList'" 
+    :class        =   "[sliceData.component]"
+    :data         =   "JSON.stringify(sliceData)"
+    :sliceType    =   "sliceData.component"
+    />
+    <ctaHero          v-else-if="sliceData.component == 'ctaHero'" 
+    :class        =   "[sliceData.component]"
+    :data         =   "JSON.stringify(sliceData)"
+    :sliceType    =   "sliceData.component"
+    />
+    <ContentPairsRepeater  v-else-if="sliceData.component == 'ContentPairsRepeater'" 
+    :class        =   "[sliceData.component]"
+    :data         =   "JSON.stringify(sliceData)"
+    :sliceType    =   "sliceData.component"
+    />
+    <imgSlider        v-else-if="sliceData.component == 'imgSlider'" 
+    :class        =   "[sliceData.component]"
+    :data         =   "JSON.stringify(sliceData)"
+    :sliceType    =   "sliceData.component"
+    />
+    <artcont          v-else-if="sliceData.component == 'artcont'" 
+    :class        =   "[sliceData.component]"
+    :data         =   "JSON.stringify(sliceData)"
+    :sliceType    =   "sliceData.component"
+    />
+    <postfeed         v-else-if="sliceData.component == 'postfeed'" 
+    :class        =   "[sliceData.component]"
+    :data         =   "JSON.stringify(sliceData)"
+    :sliceType    =   "sliceData.component"
+    />
+    <newsletter       v-else-if="sliceData.component == 'newsletter'" 
+    :class        =   "[sliceData.component]"
+    :data         =   "JSON.stringify(sliceData)"
+    :sliceType    =   "sliceData.component"
+    /> 
+    <contentPair      v-else-if="sliceData.component == 'contentPair'" 
+    :class        =   "[sliceData.component]"
+    :data         =   "JSON.stringify(sliceData)"
+    :sliceType    =   "sliceData.component"
+    /> 
+    <FAQs             v-else-if="sliceData.component == 'FAQs'" 
+    :class        =   "[sliceData.component]"
+    :data         =   "JSON.stringify(sliceData)"
+    :sliceType    =   "sliceData.component"
+    /> 
+    <contentPairsWithList  v-else-if="sliceData.component == 'content_pairs_with_list'" 
+    :class        =   "[sliceData.component]"
+    :data         =   "JSON.stringify(sliceData)"
+    :sliceType    =   "sliceData.component"
+    /> 
+    <flexItemDisplay  v-else-if="sliceData.component == 'flex_item_display'" 
+    :class        =   "[sliceData.component]"
+    :data         =   "JSON.stringify(sliceData)"
+    :sliceType    =   "sliceData.component"
+    />
 
 </template>
 

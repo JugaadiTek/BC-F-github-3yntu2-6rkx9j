@@ -281,10 +281,10 @@ section.darkbg .font-300 {
     
 }
 /* Added by Paurush */
-.darkbg {
+/* .darkbg {
     background-color: var(--primary);
     color:var(--bg-layer-100);
-}
+} */
 .lavanderBg {
     background-color: var(--bg-layer-600);
     color: var(--primary);
@@ -294,7 +294,7 @@ section.darkbg .font-300 {
 ░░░░▓░░ BUTTONS AND BUTTON VARIENTS ░░▓░░░░
 ░░░░▓█████████████████████████████████▓░░░░
 ╔╾┈┈┈┈┈CLASSES┈╼╤╾┈┈┈┈┈┈┈┈┈┈BACKGROUND┈COLOR┈┈┈┈┈┈┈┈┈┈┈┈╼╤╾┈┈┈┈┈┈┈┈┈┈┈┈BORDER┈COLOR ┈┈┈┈┈┈┈┈┈┈┈╼╤╾┈┈BORDER┈RADIUS┈┈┈╼╤╾┈┈┈BORDER┈WIDTH┈┈┈╼╗    other-button-styles                                          */
-.button         { background-color : var(--primary)      ; border-color : var(--primary)        ; border-radius : 5px;  border-width : 2px;    border-style: solid; padding: 5px 10px; font-weight: bold;}
+.button         { background-color : var(--primary)      ; border-color : var(--primary)        ; border-radius : 5px;  border-width : 2.5px;    border-style: solid; padding: 5px 10px; font-weight: bold;}
 .button.type_01 { background-color : var(--primary)      ; border-color : var(--primary)        ;                                              color: var(--brand-white)              }
 .button.type_02 { background-color : var(--bg-layer-600) ; border-color : var(--primary)        ; border-radius : 5px;                                                                }
 .button.type_03 { background-color : var(--secondary)    ; border-color : var(--secondary)      ; border-radius : 5px;                                                                }
@@ -305,7 +305,7 @@ section.darkbg .font-300 {
 ░░░░▓░░ PSUDO ELEMENTS ::BEFORE AND ::AFTER ░░▓░░░░
 ░░░░▓█████████████████████████████████████████▓░░░░ 
 ╔╾┈┈┈┈┈SELECTORS┈┈┈┈┈┈┈┈┈┈┈╼╤╾┈┈┈FONT┈FAMILY┈/┈ICON┈SET┈┈┈┈┈┈┈┈┈╼╤╾┈ CHOOSE┈YOUR┈ICON┈┈┈┈╤╾┈┈DISPLAY┈SETTING┈┈┈┈┈┈┈╼╤╾┈┈┈┈FONT┈SIZE┈┈┈┈┈┈╼╤╾┈┈┈┈┈POSITION┈SETTING┈┈┈┈╼╗              */
-a.readmore::after           {   font-family : Font Awesome 5 Free;  Content : "/#3333"   ;  display : inline-block  ;  font-size : inherit;  position    :   relative;}
+a.readmore::after           {   font-family : Font Awesome 5 Free;  content : "/#3333"   ;  display : inline-block  ;  font-size : inherit;  position    :   relative;}
 /* 
 ███████████████████████████████████████████████████████████
 ░░░░▓░░ CONTAINER/INNERCONTAINER/POSITIONER CLASSES ░░▓░░░░
@@ -389,7 +389,6 @@ li:active .answer,li:hover .answer, li:focus .answer {
 
 .footerSlice {
     background-color: var(--primary);
-
 }
 
 /* burrons */
@@ -415,4 +414,9 @@ li:active .answer,li:hover .answer, li:focus .answer {
 
 header {
     background-color: var(--primary);
+}
+
+.link {
+    color: var(--primary);
+    text-decoration: underline;
 }

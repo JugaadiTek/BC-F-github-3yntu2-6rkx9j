@@ -1,4 +1,4 @@
-<script setup lang="ts">
+<script setup>
 defineProps({
   footerCont: {
     type: Object,
@@ -11,7 +11,7 @@ defineProps({
 <template>
   <div class="mcFix">
     <div class="container">
-      <div class="inner-container">
+      <div class="">
         <div class="content-block">
           <div>
             <ul>
@@ -90,7 +90,6 @@ li {
   padding-top: 5px;
   pointer-events: none;
   display: inline-block;
-  /*  -For IE11/ MS Edge bug  ///-code copied from net */
 }
 
 a:hover {

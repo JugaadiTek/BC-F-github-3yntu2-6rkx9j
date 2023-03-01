@@ -14,8 +14,8 @@ defineProps({
         <div class="content">
           <div class="content-block">
             <div v-for="slide in JSON.parse(data).bricks.slides">
-              <span v-html="slide.icon"> </span><span v-html="slide.icon"> </span><span v-html="slide.icon"> </span><span
-                v-html="slide.icon"> </span><span v-html="slide.icon"> </span>
+              <span v-html="slide.icon"></span> <span v-html="slide.icon"></span> <span v-html="slide.icon"></span> <span
+                v-html="slide.icon"></span> <span v-html="slide.icon"></span>
               <h3>{{ slide.testimony }}</h3>
               <span>
                 <h4>{{ slide.name }}</h4>
@@ -35,6 +35,7 @@ h3,
 h4,
 p {
   margin: auto;
+  color: var(--bg-layer-100);
 }
 
 .content {

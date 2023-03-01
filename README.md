@@ -5,61 +5,44 @@
 1. vue project setup  --  npm init vue@latest
 
 > cd `<your-project-name>`
-> npm install
-> npm run dev
+> npm install 
+>> npm run dev
 
 2. Vue Router --   npm install vue-router@4 /  yarn add vue-router@4
-3. Vite-ssg  --   npm i vite-ssg
+3. Vite-ssg  --    npm i vite-ssg
 4. Directus SDK --  npm i @directus/sdk
 5. vite -- npm i vite
 
-OPTIONAL
-
+## OPTIONAL
 1. vue use core -- npm i @vueuse/core
 2. vue use head -- npm i @vueuse/head
-
-
-
-
-
-
+```
+```cli
+npm init vue@latest <your-project-name>
+cd <your-project-name> 
+npm vue-router@4    vite-ssg    @directus/sdk    vite    @vueuse/core    @vueuse/head
+npm install
+```
 ### In Article.vue
 ```JSX
 <section v-for="(slice, index) in article.grab_a_slice" >
     <slicelogic 
     :sliceData="JSON.stringify(createNewObject(slice.nosql_datastore_id.json_datastore))" 
     :index="index" />
-    :sliceType="sliceData.component" 
+    :sliceType="sliceData.component" />
 </section>
 ```
 In slicelogic.vue
-```jsx
-        <div  v-if="sliceType == 'hero'">
-          <hero :herocont="sliceData" />
-        </div>
-        <div  v-else-if="sliceType !== 'servicecard'" :class="container">
-          <servicescard :servicecardCont="sliceData" />
-        </div>
-        <div v-else-if="sliceType == 'imageWithContentList'">
-          <imageWithContentList :contPairCont="sliceData" />
-        </div>
-        <div v-else-if="sliceType == 'ctaHero'">
-          <ctaHero :ctaHeroCont="sliceData" />
-        </div>
-        <div v-else-if="sliceType == 'ContentPairsRepeater'">
-          <ContentPairsRepeater :pairsRepeaterCont="sliceData" />
-        </div>
-        <div v-else-if="sliceType == 'imgSlider'">
-          <imgSlider :sliderCont="sliceData" />
-        </div>
-        <div v-else-if="sliceType == 'artcont'"  :class="container">
-          <artcont :artcontent="sliceData" />
-        </div>
-        <div v-else-if="sliceType == 'postfeed'" :class="container">
-          <postfeed :postsCont="sliceData" />
-        </div>
-        <div v-else-if="sliceType == 'newsletter'" :class="container">
-          <newsletter />
-        </div> 
+```JSX
+    <hero             v-if="sliceData.component       == 'hero'" 
+    :class        =   "[sliceData.component]" 
+    :data         =   "JSON.stringify(sliceData)"
+    :sliceType    =   "sliceData.component"
+    />
+    <servicescard     v-else-if="sliceData.component  == 'servicecard'" 
+    :class        =   "[sliceData.component]"
+    :data         =   "JSON.stringify(sliceData)"
+    :sliceType    =   "sliceData.component"
+    />
 ```
 ### Follow with the normal template files.

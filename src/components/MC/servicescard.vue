@@ -1,6 +1,6 @@
 <script setup>
 defineProps({
-  data: [Object],
+  data: {Object},
   sliceType: String,
 })
 
@@ -55,6 +55,9 @@ h4 {
   margin: auto;
 }
 
+li > span {
+  color: var(--primary);
+}
 
 .content-block>div>div {
   padding: 45px 40px;
@@ -85,18 +88,6 @@ hr {
   padding-left: 1rem;
 }
 
-/* .content-block>div>div>div>a {
-  color: #280071;
-  border: 1.5px solid #280071;
-  font-weight: bold;
-  border-radius: 3px;
-}
-
-a {
-  color: whitesmoke;
-  font-weight: bold;
-  background-color: #280071;
-} */
 
 @media (max-width: 800px) {
   .content-block>div {
