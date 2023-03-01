@@ -27,7 +27,7 @@ defineProps({
           </ul>
         </div>
 
-        <div v-for="btn in navbtn.buttonLinks" class=" main-nav-links">
+        <div v-for="btn in navbtn.buttonLinks" class=" main-nav-btns">
           <ul>
             <li class="demo-btn">
               <a :href="btn.linkUrl">{{ btn.linkText }}</a>
@@ -44,6 +44,10 @@ defineProps({
   margin-right: 0;
   width: 100%;
   text-align: right;
+  display: flex;
+  flex-direction: row;
+  flex: end ;
+
 }
 
 /* .main-nav-links a {
@@ -57,7 +61,7 @@ defineProps({
   display: block;
   position: absolute;
   height: 4px;
-  background: var(--accent-light);
+  background: var(--secondary);
   width: 0px;
   bottom: 0;
   left: 0;
@@ -65,7 +69,7 @@ defineProps({
 }
 
 .main-nav-links li a:hover {
-  color: var(--secondary-light);
+  color: var(--secondary);
 }
 
 /* .main-nav-links li a:hover::after {

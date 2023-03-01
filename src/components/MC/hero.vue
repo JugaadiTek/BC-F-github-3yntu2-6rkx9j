@@ -12,7 +12,7 @@ defineProps({
 <template>
   <div class="mcFix">
     <div class="container">
-      <div class="inner-container">
+      <div class="">
         <div class="content">
           <div class="content-block">
             <div>

@@ -62,8 +62,8 @@ async function fetchData() {
 <!-- //================================================================================================ -->
 <template>
   <main>
-    <div class="container">
-      <div class="inner-container">
+    <div class="">
+      <div class="">
 
         <div class="content-block">
           <div class="left-column">

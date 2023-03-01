@@ -1,4 +1,4 @@
-<script setup>
+<script>
 import { ref } from 'vue';
 import { directus } from '@/services/directus';
 import { RouterLink, useRoute, useRouter } from 'vue-router';
@@ -51,9 +51,9 @@ async function fetchData() {
         <div class="content">
           <div class="content-block">
 
-            <div class="hero">
-              <!-- <h2 class="title">{{ JSON.parse(JSON.stringify(raw.data)) }} </h2> -->
-              <!-- <h2 class="title">{{ JSON.parse(JSON.stringify(formattedRaw)) }} </h2> -->
+            <div class="">
+              <h2 class="title">{{ JSON.parse(JSON.stringify(raw.data)) }} </h2>
+              <h2 class="title">{{ JSON.parse(JSON.stringify(formattedRaw)) }} </h2>
               <p class="description"> </p>
             </div>
 
@@ -122,3 +122,20 @@ async function fetchData() {
   </div>
 </main></template>
 
+<style scoped>
+/* trying to change bullet of list */
+
+/* li::before {
+  content: "::before";
+  background: lightgray;
+  border-radius: 1ch;
+  padding-inline: 1ch;
+  margin-inline-end: 1ch;
+  list-style-type: '😒';
+}
+
+ ol > li::marker {
+  content: counter(list-item) "› ";
+  color: hotpink;
+} */
+</style>
