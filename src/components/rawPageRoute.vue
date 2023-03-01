@@ -22,4 +22,5 @@ console.log(propsToAttrMap);
     :to="`/rawp/${rawp.slug}`">
     <span>      <b>      {{ rawp.title }}     </b>    {{ rawp.id }}    </span>
   </RouterLink>
+  
 </template>

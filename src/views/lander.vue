@@ -63,53 +63,82 @@ async function fetchData() {
 <template>
   <main>
     <div class="container">
-      <!-- <pre>{{ JSON.parse(JSON.stringify(lander)) }}</pre> -->
-      <!-- <pre>{{ JSON.parse(JSON.stringify(lander)) }}</pre> -->
       <div class="inner-container">
-        <!-- <div v-html="getInTouchData.wysiwyg"></div> -->
-        <!-- v-for="getInTouchData in JSON.parse(JSON.stringify(lander.data))" -->
-        <div class="content-block" >
-          <div class="left-column">
-            <div class="wysiwyg" v-html="JSON.parse(JSON.stringify(lander.data[0].wysiwyg))">
-            </div>
-          </div>
-          <div class="right-column" >
-            <div class="form" v-html="JSON.parse(JSON.stringify(lander.data[0].code))">
-            </div>
-            <div class="right_wysiwyg" v-html="JSON.parse(JSON.stringify(lander.data[0].right_wysiwyg))">
-            </div>
-          </div>
-        </div>
-
-        <div class="content-block" >
-          <div class="left-column">
-            <div class="wysiwyg" v-html="JSON.parse(JSON.stringify(lander.data[1].wysiwyg))">
-            </div>
-          </div>
-          <div class="right-column">
-            <div class="form" v-html="JSON.parse(JSON.stringify(lander.data[1].code))">
-            </div>
-            <div class="right_wysiwyg" v-html="JSON.parse(JSON.stringify(lander.data[1].right_wysiwyg))">
-            </div>
-          </div>
-        </div>
 
         <div class="content-block">
           <div class="left-column">
-            <div class="wysiwyg" v-html="JSON.parse(JSON.stringify(lander.data[2].wysiwyg))">
-            </div>
+            <div class="wysiwyg" v-html="JSON.parse(JSON.stringify(lander.data[0].wysiwyg))"></div>
           </div>
           <div class="right-column">
-            <div class="form" v-html="JSON.parse(JSON.stringify(lander.data[2].code))">
+            <div class="formContainer">
+              <div class="form" v-html="JSON.parse(JSON.stringify(lander.data[0].code))"></div>
             </div>
-            <div class="right_wysiwyg" v-html="JSON.parse(JSON.stringify(lander.data[2].right_wysiwyg))">
-            </div>
+            <div class="right_wysiwyg" v-html="JSON.parse(JSON.stringify(lander.data[0].right_wysiwyg))"></div>
           </div>
         </div>
+
+        <!-- <div class="content-block" >
+              <div class="left-column">
+                <div class="wysiwyg" v-html="JSON.parse(JSON.stringify(lander.data[1].wysiwyg))">
+                </div>
+              </div>
+              <div class="right-column">
+                <div class="form" v-html="JSON.parse(JSON.stringify(lander.data[1].code))">
+                </div>
+                <div class="right_wysiwyg" v-html="JSON.parse(JSON.stringify(lander.data[1].right_wysiwyg))">
+                </div>
+              </div>
+            </div>
+
+            <div class="content-block">
+              <div class="left-column">
+                <div class="wysiwyg" v-html="JSON.parse(JSON.stringify(lander.data[2].wysiwyg))">
+                </div>
+              </div>
+              <div class="right-column">
+                <div class="form" v-html="JSON.parse(JSON.stringify(lander.data[2].code))">
+                </div>
+                <div class="right_wysiwyg" v-html="JSON.parse(JSON.stringify(lander.data[2].right_wysiwyg))">
+                </div>
+              </div>
+            </div> -->
+
       </div>
     </div>
   </main>
 </template>
 
 
-<style scoped></style>
+<style scoped>
+
+h2, h2+p {
+  color: #f5f5f5;
+}
+.content-block {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-gap: 170px;
+  padding-top: 150px;
+}
+
+iframe {
+  height: 400px;
+}
+
+.container {
+  background-image: url(/src/images/ctaHeroBG.jpg);
+  background-repeat: no-repeat;
+}
+
+.formContainer {
+  background-color: #f5f5f5;
+  padding: 2px;
+  border: 4px solid #f5f5f5;
+  border-radius: 10px;
+}
+
+img {
+  width: 100%;
+  height: auto;
+}
+</style>
