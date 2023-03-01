@@ -2,10 +2,10 @@
 import { ref } from 'vue';
 import { directus } from '@/services/directus';
 import { RouterLink, useRoute, useRouter } from 'vue-router';
-import { getAssetURL } from '@/utils/get-asset-url';
+// import { getAssetURL } from '@/utils/get-asset-url';
 import { defineProps } from 'vue';
-import MorePages from '@/components/MoreArticles.vue';
-import sliceLogic from '@/utils/sliceLogic.vue';
+// import MorePages from '@/components/MoreArticles.vue';
+// import sliceLogic from '@/utils/sliceLogic.vue';
 
 // import { get } from 'http';
 
@@ -67,6 +67,7 @@ async function fetchData() {
 
         <div class="content-block">
           <div class="left-column">
+            <div class="top_wysiwyg" v-html="JSON.parse(JSON.stringify(lander.data[0].top_wysiwyg))"></div>
             <div class="wysiwyg" v-html="JSON.parse(JSON.stringify(lander.data[0].wysiwyg))"></div>
           </div>
           <div class="right-column">
@@ -77,31 +78,31 @@ async function fetchData() {
           </div>
         </div>
 
-        <!-- <div class="content-block" >
-              <div class="left-column">
-                <div class="wysiwyg" v-html="JSON.parse(JSON.stringify(lander.data[1].wysiwyg))">
-                </div>
-              </div>
-              <div class="right-column">
-                <div class="form" v-html="JSON.parse(JSON.stringify(lander.data[1].code))">
-                </div>
-                <div class="right_wysiwyg" v-html="JSON.parse(JSON.stringify(lander.data[1].right_wysiwyg))">
-                </div>
-              </div>
+        <!-- <div class="content-block">
+          <div class="left-column">
+            <div class="top_wysiwyg" v-html="JSON.parse(JSON.stringify(lander.data[1].top_wysiwyg))"></div>
+            <div class="wysiwyg" v-html="JSON.parse(JSON.stringify(lander.data[1].wysiwyg))"></div>
+          </div>
+          <div class="right-column">
+            <div class="formContainer">
+              <div class="form" v-html="JSON.parse(JSON.stringify(lander.data[1].code))"></div>
             </div>
+            <div class="right_wysiwyg" v-html="JSON.parse(JSON.stringify(lander.data[1].right_wysiwyg))"></div>
+          </div>
+        </div>
 
-            <div class="content-block">
-              <div class="left-column">
-                <div class="wysiwyg" v-html="JSON.parse(JSON.stringify(lander.data[2].wysiwyg))">
-                </div>
-              </div>
-              <div class="right-column">
-                <div class="form" v-html="JSON.parse(JSON.stringify(lander.data[2].code))">
-                </div>
-                <div class="right_wysiwyg" v-html="JSON.parse(JSON.stringify(lander.data[2].right_wysiwyg))">
-                </div>
-              </div>
-            </div> -->
+        <div class="content-block">
+          <div class="left-column">
+            <div class="top_wysiwyg" v-html="JSON.parse(JSON.stringify(lander.data[2].top_wysiwyg))"></div>
+            <div class="wysiwyg" v-html="JSON.parse(JSON.stringify(lander.data[2].wysiwyg))"></div>
+          </div>
+          <div class="right-column">
+            <div class="formContainer">
+              <div class="form" v-html="JSON.parse(JSON.stringify(lander.data[2].code))"></div>
+            </div>
+            <div class="right_wysiwyg" v-html="JSON.parse(JSON.stringify(lander.data[2].right_wysiwyg))"></div>
+          </div>
+        </div> -->
 
       </div>
     </div>
@@ -111,8 +112,9 @@ async function fetchData() {
 
 <style scoped>
 
-h2, h2+p {
-  color: #f5f5f5;
+ h1 {
+  background-color: green;
+  color: red;
 }
 .content-block {
   display: grid;
@@ -138,7 +140,7 @@ iframe {
 }
 
 img {
-  width: 100%;
+  width: 100vw;
   height: auto;
 }
 </style>
