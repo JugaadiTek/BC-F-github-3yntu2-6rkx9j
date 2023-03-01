@@ -52,8 +52,8 @@ async function fetchData() {
           <div class="content-block">
 
             <div class="">
-              <h2 class="title">{{ JSON.parse(JSON.stringify(raw.data)) }} </h2>
-              <h2 class="title">{{ JSON.parse(JSON.stringify(formattedRaw)) }} </h2>
+              <!-- <h2 class="title">{{ JSON.parse(JSON.stringify(raw)) }} </h2> -->
+              <!-- <h2 class="title">{{ JSON.parse(JSON.stringify(formattedRaw)) }} </h2> -->
               <p class="description"> </p>
             </div>
 

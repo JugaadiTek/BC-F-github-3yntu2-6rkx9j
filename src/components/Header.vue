@@ -53,7 +53,7 @@ let navigations = ref([
 
 <template>
   <header>
-    <nav class="container mainNav nogap darkbg" v-for="navigationbar in navigations">
+    <nav class="" v-for="navigationbar in navigations">
       <!--- Here ----->
       <NavBar :navbtn="navigationbar.bricks" />
     </nav>
@@ -62,6 +62,9 @@ let navigations = ref([
 
   
 <style scoped>
+
+
+
 
 
 </style>

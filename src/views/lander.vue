@@ -62,8 +62,8 @@ async function fetchData() {
 <!-- //================================================================================================ -->
 <template>
   <main>
-    <div class="">
-      <div class="">
+    <div class="container">
+      <div class="inner-container">
 
         <div class="content-block">
           <div class="left-column">
@@ -79,30 +79,30 @@ async function fetchData() {
         </div>
 
         <!-- <div class="content-block">
-          <div class="left-column">
-            <div class="top_wysiwyg" v-html="JSON.parse(JSON.stringify(lander.data[1].top_wysiwyg))"></div>
-            <div class="wysiwyg" v-html="JSON.parse(JSON.stringify(lander.data[1].wysiwyg))"></div>
-          </div>
-          <div class="right-column">
-            <div class="formContainer">
-              <div class="form" v-html="JSON.parse(JSON.stringify(lander.data[1].code))"></div>
+            <div class="left-column">
+              <div class="top_wysiwyg" v-html="JSON.parse(JSON.stringify(lander.data[1].top_wysiwyg))"></div>
+              <div class="wysiwyg" v-html="JSON.parse(JSON.stringify(lander.data[1].wysiwyg))"></div>
             </div>
-            <div class="right_wysiwyg" v-html="JSON.parse(JSON.stringify(lander.data[1].right_wysiwyg))"></div>
+            <div class="right-column">
+              <div class="formContainer">
+                <div class="form" v-html="JSON.parse(JSON.stringify(lander.data[1].code))"></div>
+              </div>
+              <div class="right_wysiwyg" v-html="JSON.parse(JSON.stringify(lander.data[1].right_wysiwyg))"></div>
+            </div>
           </div>
-        </div>
 
-        <div class="content-block">
-          <div class="left-column">
-            <div class="top_wysiwyg" v-html="JSON.parse(JSON.stringify(lander.data[2].top_wysiwyg))"></div>
-            <div class="wysiwyg" v-html="JSON.parse(JSON.stringify(lander.data[2].wysiwyg))"></div>
-          </div>
-          <div class="right-column">
-            <div class="formContainer">
-              <div class="form" v-html="JSON.parse(JSON.stringify(lander.data[2].code))"></div>
+          <div class="content-block">
+            <div class="left-column">
+              <div class="top_wysiwyg" v-html="JSON.parse(JSON.stringify(lander.data[2].top_wysiwyg))"></div>
+              <div class="wysiwyg" v-html="JSON.parse(JSON.stringify(lander.data[2].wysiwyg))"></div>
             </div>
-            <div class="right_wysiwyg" v-html="JSON.parse(JSON.stringify(lander.data[2].right_wysiwyg))"></div>
-          </div>
-        </div> -->
+            <div class="right-column">
+              <div class="formContainer">
+                <div class="form" v-html="JSON.parse(JSON.stringify(lander.data[2].code))"></div>
+              </div>
+              <div class="right_wysiwyg" v-html="JSON.parse(JSON.stringify(lander.data[2].right_wysiwyg))"></div>
+            </div>
+          </div> -->
 
       </div>
     </div>
@@ -111,11 +111,11 @@ async function fetchData() {
 
 
 <style scoped>
-
- h1 {
+h1 {
   background-color: green;
   color: red;
 }
+
 .content-block {
   display: grid;
   grid-template-columns: 1fr 1fr;
