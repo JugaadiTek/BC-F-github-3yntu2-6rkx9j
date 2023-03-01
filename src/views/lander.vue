@@ -67,12 +67,12 @@ async function fetchData() {
 
         <div class="content-block">
           <div class="left-column">
-            <div class="top_wysiwyg" v-html="JSON.parse(JSON.stringify(lander.data[0].top_wysiwyg))"></div>
+            <div class="top_wysiwyg darkbg" v-html="JSON.parse(JSON.stringify(lander.data[0].top_wysiwyg))"></div>
             <div class="wysiwyg" v-html="JSON.parse(JSON.stringify(lander.data[0].wysiwyg))"></div>
           </div>
           <div class="right-column">
-            <div class="formContainer">
-              <div class="form" v-html="JSON.parse(JSON.stringify(lander.data[0].code))"></div>
+            <div class="formContainer" style="width: 524px; height: 1030px; overflow: hidden">
+              <div class="form" style="position: relative; left: 0px; top: -110px" v-html="JSON.parse(JSON.stringify(lander.data[0].code))"></div>
             </div>
             <div class="right_wysiwyg" v-html="JSON.parse(JSON.stringify(lander.data[0].right_wysiwyg))"></div>
           </div>
@@ -116,6 +116,11 @@ h1 {
   color: red;
 }
 
+.container {
+  background-image: url(/src/images/ctaHeroBG.jpg);
+  background-repeat: no-repeat;
+}
+
 .content-block {
   display: grid;
   grid-template-columns: 1fr 1fr;
@@ -123,13 +128,17 @@ h1 {
   padding-top: 150px;
 }
 
-iframe {
-  height: 400px;
+.wysiwyg {
+  padding: 260px 0px;
+
+
 }
 
-.container {
-  background-image: url(/src/images/ctaHeroBG.jpg);
-  background-repeat: no-repeat;
+#app > div > main > div > div > div > div.left-column > div.top_wysiwyg.darkbg > h1 {
+  color: #f5f5f5;
+  padding: 2px;
+  /* border: 4px solid #f5f5f5; */
+  border-radius: 10px;
 }
 
 .formContainer {
@@ -143,4 +152,12 @@ img {
   width: 100vw;
   height: auto;
 }
+
+.darkbg > h1 {
+  color: #f5f5f5;
+  padding: 2px;
+  /* border: 4px solid #f5f5f5; */
+  border-radius: 10px;
+}
+
 </style>
