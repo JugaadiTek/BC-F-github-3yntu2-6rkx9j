@@ -1,27 +1,16 @@
 <script setup>
-import { propsToAttrMap } from '@vue/shared';
 import { RouterLink } from 'vue-router';
 import { defineProps } from 'vue';
+import { propsToAttrMap } from '@vue/shared';
 defineProps({
-  land: {
-    type: Object,
-    required: true,
-  },
-  key: {
-    type: String,
-    required: true,
-  },
-  bordered: {
-    type: Boolean,
-    required: true,
-  },
+  land:     {    type: Object,    required: true,  },
+  key:      {    type: String,    required: true,  },
+  bordered: {    type: Boolean,   required: true,  },
 });
-// console.log(RouterLink);
-// console.log(propsToAttrMap);
 </script>
 <template>
   {{ (key) }}
   <RouterLink style="color:red; !important" :to="`/land/${land.slug}`">
-    <span> <b> {{ land.title }} </b> {{ land.id }} </span>
+    <span><b> {{ land.title }} </b> {{ land.id }} </span>
   </RouterLink>
 </template>

@@ -1,6 +1,6 @@
 <script setup>
-import NavBar from '@/components/MC/NavBar.vue';
 import { ref } from 'vue';
+import NavBar from '@/components/MC/NavBar.vue';
 
 
 let navigations = ref([

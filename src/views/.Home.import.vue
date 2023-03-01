@@ -1,5 +1,4 @@
 <script setup>
-
 import NavBar from "./components/NavBar.vue";
 import hero from "./components/hero.vue";
 import servicescard from "./components/servicescard.vue";

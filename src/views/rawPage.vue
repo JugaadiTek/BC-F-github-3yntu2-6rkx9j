@@ -1,69 +1,82 @@
-<script setup>
+<script>
 import { ref } from 'vue';
 import { directus } from '@/services/directus';
 import { RouterLink, useRoute, useRouter } from 'vue-router';
 import { getAssetURL } from '@/utils/get-asset-url';
-import sliceLogic from '@/utils/sliceLogic.vue';
-// import QueryString from 'qs';
-// =========================importing components==================================================
+
+console.log("==============\n==== RAWPAGE.VUE ====\n==============");
+// ======== COMPONENTS ======== /VIEWS/RAWPAGE.VUE ======== COMPONENTS ========//
 const router = useRouter();
 const route = useRoute();
 const rawOld = ref();
-const raw = ref(null);
-const moreRaws = ref(null);
-// let pageblocks = "";
-//---prepping data---------------------------------------------------------------------------
+const rawp = ref(null);
+const moreRawps = ref(null);
+const preImgUrl = "https://cms-buychain-pb01.up.railway.app/";
+
+// ======== FETCH DATA ======== /VIEWS/RAWPAGE.VUE ======== FETCH DATA ========//
 fetchData();
-var preImgUrl = "https://cms-buychain-pb01.up.railway.app/";
-
-// Directus API call to get the article data via the directus sdk using the id from the route params
-
 async function fetchData() {
-  console.log("=============================================\n====  RAWPAGE.vue API HANDLER HANDLER    ====\n=============================================");
-  const { id2 } = route.params;
-  let rawResponse;
-  try {
-    rawResponse = await directus.items('rawpage').readByQuery(id2,{
+    const { id } = route.params;
+    let rawpResponse;
+    try {
+
+//=================================================================================//
+//=======================  /VIEWS/RAWPAGE.VUE =====================================//
+//======================= 1. READ ONE RAWPAGE =====================================//
+//=================================================================================//
+console.log("= INDIVIDUAL----FETCH ==\n== START---RAWPAGE.VUE =");
+    rawpResponse = await directus.items("rawpage").readOne(id, { fields: ["*"],  },
+      console.log("==-INDIVIDUAL----FETCH-===- END ---RAWPAGE.VUE-==")           );    
+// 1.1 FORMATTING DATA ---- /views/Rawpage.vue ---- FORMATTING DATA ----===========//
+    console.log("==-INDIVIDUAL---SET-==-VARIABLES---RAWPAGE.VUE-==");
+        formattedRawp = { ...rawpResponse,};
+        rawp.value = formattedRawp;
+// 1.2 SETTING THE DATA ---- /views/Rawppage.vue ---- SETTING THE DATA ----========//
+        console.log("==INDIVIDUAL==\n==== RAWPAGE.VUE ====\n======END=====");
+//=================================================================================//
+//=======================  /VIEWS/RAWPAGE.VUE =====================================//
+//======================= 2. READ ONE RAWPAGE =====================================//
+//=================================================================================//
+console.log("= INDIVIDUAL----FETCH ==\n== START---RAWPAGE.VUE =");
+    rawpResponse = await directus.items('rawpage').readByQuery(id,{
       fields: ['*'],
       filter: {
         _and: [
-          { home_id: { _eq: route.params.id } },
+          { id: { _eq: route.params.id } },
           { status: { _eq: 'published' }},
         ],
       },
       sort: ['sort'],
     });
-
-    const formattedRaw = { ...rawResponse, }
-    raw.value = formattedRaw;
-
-  } catch (err) {
-    router.replace({ name: 'not-found', params: { catchAll: route.path } });
-  }
-}
+// 2.1 FORMATTING DATA ---- /views/Rawpage.vue ---- FORMATTING DATA ----=========//
+    const formattedMoreRawps = moreRawpsResponse.data.map(
+      (moreRawp) => {
+        return {
+          ...moreRawp,
+          publish_date: formatRelativeTime(new Date(moreRawp.publish_date)),
+        }; 
+      }
+    );
+// 2.2 SETTING THE DATA ---- /views/Rawpage.vue ---- SETTING THE DATA ----=======//
+    const   formattedRawp  =  { ...rawpResponse, } 
+            rawp.value     =  formattedRawp;
+// 2.3 SETTING THE DATA ---- /views/Rawpage.vue ---- SETTING THE DATA ----=======//
+  } catch (err) {   router.replace({ name: 'not-found', params: { catchAll: route.path } });  }
+                    console.log("==INDIVIDUAL==\n==== RAWPAGE.VUE ====\n======END====="       );    }
 </script>
-
-<template>
-  
-  <main>
-    <div class="container">
-      <div class="inner-container">
-        <div class="content">
-          <div class="content-block">
-
-            <div class="hero">
-              <h2 class="title"> </h2>
-              <p class="description"> </p>
-            </div>
-
-            <!-- <div class="wysiwyg" v-html="JSON.parse(data)">
-            </div>             -->
-            
-          </div>
+<!--//🔳💹💹💹💹💹💹💹💹💹💹💹💹💹💹💹 💹💹💹💹💹💹💹💹💹💹💹💹💹💹🔳*/ // -->
+<!--//🔳🟩||🟩 COMPONENTS 🟩🟩🟩 /VIEWS/RAWPAGE.VUE 🟩🟩🟩COMPONENTS 🟩🟩🔳*/ // -->
+<!--//🔳🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩🔳*/ // -->
+<!--//🔳🟩||🟩 VUEJS SCRIPT HEAD 🟩🟩🟩🟩🟩🟩🟩🟩 VUEJS SCRIPT HEAD 🟩🟩🔳*/ // -->
+<!--//🔳🔳🔳🔳🔳🔳🔳🔳🔳🔳🔳🔳🔳🔳🔳🔳🔳🔳🔳🔳🔳🔳🔳🔳🔳🔳🔳🔳🔳🔳// -->
+<!--//🔳🟧🟧🟧🟧🟧🟧 VUEJS SINGLE FILE COMPONENTS BASED TEMPLATE 🟧🟧🟧🟧🔳// -->
+<!--//🔳🟧🟧🟧🟧🟧🟧🟧🟧🟧🟧🟧🟧🟧🟧🟧🟧🟧🟧🟧🟧🟧🟧🟧🟧🟧🟧🟧🟧🔳// -->
+<!--//🔳🟧🟧🟧 COMPONENTS ======= /VIEWS/RAWPAGE.VUE====== COMPONENTS🟧🟧🟧🔳// -->
+<!--//🔳🔻🔻🔻🔻🔻🔻🔻🔻🔻🔻🔻🔻🔻🔻🔻🔻🔻🔻🔻🔻🔻🔻🔻🔻🔻🔻🔻🔻🔳// -->
+<template><main><div class="container"><div class="inner-container"><!-- MC Containers -->
+    <div class="content"><!-- MC CONTENT--><div class="content-block"><!-- MC CONTENT BLOCK-->
+        <div class="hero">
+            <h2 class="title"></h2><p class="description"></p>
         </div>
-      </div>
-    </div>
-  </main>
-  
-</template>
-
+    </div></div>
+</div></div></main></template>

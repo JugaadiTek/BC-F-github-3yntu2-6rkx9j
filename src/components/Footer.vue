@@ -1,6 +1,6 @@
 <script setup>
-import footerSlice from "@/components/MC/footerSlice.vue";
 import { ref } from "vue";
+import footerSlice from "@/components/MC/footerSlice.vue";
 
 const footerSliceCont = ref([
   {
