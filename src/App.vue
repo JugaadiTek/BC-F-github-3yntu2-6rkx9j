@@ -10,10 +10,10 @@ console.log("=======================================\n=====    MAIN APP.VUE HAND
 
 <template>
   <div class="layout">
-    <Notice />
+    <!-- <Notice /> -->
     <Header />
     <RouterView :key="$route.fullPath"  />
-    <Info />
+    <!-- <Info /> -->
     <Footer />
   </div>
 </template>

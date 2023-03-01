@@ -1,9 +1,9 @@
 <script setup>
 import { ref } from 'vue';
 import { directus }  from '@/services/directus';
-import page          from '@/components/Article.vue';
-import rawp          from '@/components/rawPageRoute.vue';
-import land          from '@/components/landerRoute.vue';      
+import Page          from '@/components/Article.vue';
+import Rawp          from '@/components/rawPageRoute.vue';
+import Land          from '@/components/landerRoute.vue';      
 import {defineProps} from 'vue';
 
 const  pages   = ref(null);                          
@@ -18,7 +18,7 @@ defineProps ({
 fetchData();    fetchData2();     fetchData3();         console.log("=============================================\n====     SITEMAP NAVIGATION HOME.vue     ====");
 async function fetchData() {                            console.log("=Home.vue->Pages->FETCH");
     const response = await directus.items('home').readByQuery({
-        fields: ['id', 'title', 'slug', 'status'], });
+        fields: ['*'], });
     const formattedPages = response.data.map((page) => { return { ...page };  }); 
         console.log("=Home.vue->Pages->SEND");
     const [...rest] = formattedPages;
@@ -44,9 +44,9 @@ async function fetchData3() {  console.log("=Home.vue->Landers->FETCH");
 </script>
 
 <template><main class="siteMap"> <section class = "main-content"><div class="container">
-     <div v-if =  "pages"   class = "articles-grid" > <page v-for = "(page, index)    in pages"   :key  = "index" :page = "page"    :bordered = "index !== pages.length  - 200" /> </div>
-     <div v-if =  "rawps"   class = "articles-grid" > <rawp v-for = "(raw, index)     in rawps"   :key  = "index" :rawp = "raw"     :bordered = "index !== rawps.length  - 200" /> </div>
-     <div v-if =  "landers" class = "articles-grid" > <land v-for = "(lander, index)  in landers" :key  = "index" :land = "lander"  :bordered = "index !== landers.length- 200" /> </div>
+     <div v-if =  "pages"   class = "articles-grid" > <Page v-for = "(page, index)    in pages"   :key  = "index" :page = "page"    :bordered = "index !== pages.length  - 200" /> </div>
+     <div v-if =  "rawps"   class = "articles-grid" > <Rawp v-for = "(raw, index)     in rawps"   :key  = "index" :rawp = "raw"     :bordered = "index !== rawps.length  - 200" /> </div>
+     <div v-if =  "landers" class = "articles-grid" > <Land v-for = "(lander, index)  in landers" :key  = "index" :land = "lander"  :bordered = "index !== landers.length- 200" /> </div>
 </div></section></main></template>
 <style>
 .siteMap a {

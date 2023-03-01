@@ -1,4 +1,4 @@
-<script>
+<script setup>
 import { ref } from 'vue';
 import { directus } from '@/services/directus';
 import { RouterLink, useRoute, useRouter } from 'vue-router';
@@ -37,7 +37,7 @@ console.log("= INDIVIDUAL----FETCH ==\n== START---LANDER.VUE =");
 //======================= 2. READ ALL LANDERS =====================================//
 //=================================================================================//
 console.log("= INDIVIDUAL----FETCH ==\n== START---LANDER.VUE =");
-    landersResponse = await directus.items('landers').readByQuery(id,{
+    moreLandersResponse = await directus.items('landers').readByQuery(id,{
       fields: ['*'],
       filter: {
         _and: [
@@ -48,11 +48,11 @@ console.log("= INDIVIDUAL----FETCH ==\n== START---LANDER.VUE =");
       limit: 200,
     });
 // 2.1 FORMATTING DATA ---- /views/Lander.vue ---- FORMATTING DATA ----=========//
-    const formattedMoreLanders = moreLandersResponse.data.map(
+    var formattedMoreLanders = moreLandersResponse.data.map(
       ( moreLander   ) => { return { ...moreLander,   };       }    );
 // 2.2 SETTING THE DATA ---- /views/Lander.vue ---- SETTING THE DATA ----=======//
-    const   formattedLander  =  { ...landerResponse, }
-            landers.value     =  formattedLanders;
+    var   formattedLander  =  { ...landerResponse, }
+            moreLanders.value     =  formattedMoreLanders;
 // 2.3 SETTING THE DATA ---- /views/Lander.vue ---- SETTING THE DATA ----=======//
   } catch (err) {   router.replace({ name: 'not-found', params: { catchAll: route.path } });  }
                     console.log("==INDIVIDUAL==\n==== LANDER.VUE ====\n======END=====");

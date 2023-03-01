@@ -2,7 +2,14 @@
 import { ref } from "vue";
 import { RouterLink, useRoute, useRouter } from "vue-router";
 import { directus } from "@/services/directus"
+import { defineProps } from "vue";
 import { getAssetURL } from "@/utils/get-asset-url";
+import { propsToAttrMap } from "@vue/shared";
+
+defineProps({
+  page:     {    type: Object,    required: true,  },
+  bordered: {    type: Boolean,   required: true,  },
+});
 
 console.log("==============\n==== ARTICLE.VUE ====\n==============");
 // ======== COMPONENTS ======== /VIEWS/ARTICLE.VUE ======== COMPONENTS ========//
@@ -100,6 +107,7 @@ function mch(obj) {
 }
 </script>       
 <template>
+  
   <!---============================================================================================================================================================================================================-->
   <!------------------------------------------------ MODOCOSM SLICE MASTER ---------------------------------------------------------------------------------------------------------------------------------------------------->
   <!---============================================================================================================================================================================================================-->

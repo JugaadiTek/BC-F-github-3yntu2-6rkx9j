@@ -1,4 +1,4 @@
-<script>
+<script setup>
 import { ref } from 'vue';
 import { directus } from '@/services/directus';
 import { RouterLink, useRoute, useRouter } from 'vue-router';
@@ -38,11 +38,11 @@ console.log("= INDIVIDUAL----FETCH ==\n== START---RAWPAGE.VUE =");
 //======================= 2. READ ONE RAWPAGE =====================================//
 //=================================================================================//
 console.log("= INDIVIDUAL----FETCH ==\n== START---RAWPAGE.VUE =");
-    rawpResponse = await directus.items('rawpage').readByQuery(id,{
+    const moreRawpsResponse = await directus.items('rawpage').readByQuery(id,{
       fields: ['*'],
       filter: {
         _and: [
-          { id: { _eq: route.params.id } },
+          { id: { _eq: pageResponse.id } },
           { status: { _eq: 'published' }},
         ],
       },
@@ -50,15 +50,12 @@ console.log("= INDIVIDUAL----FETCH ==\n== START---RAWPAGE.VUE =");
     });
 // 2.1 FORMATTING DATA ---- /views/Rawpage.vue ---- FORMATTING DATA ----=========//
     const formattedMoreRawps = moreRawpsResponse.data.map(
-      (moreRawp) => {
-        return {
-          ...moreRawp,
-          publish_date: formatRelativeTime(new Date(moreRawp.publish_date)),
+      (moreRawp) => {        return {          ...moreRawp,
         }; 
       }
     );
 // 2.2 SETTING THE DATA ---- /views/Rawpage.vue ---- SETTING THE DATA ----=======//
-    const   formattedRawp  =  { ...rawpResponse, } 
+    var   formattedRawp  =  { ...rawpResponse, } 
             rawp.value     =  formattedRawp;
 // 2.3 SETTING THE DATA ---- /views/Rawpage.vue ---- SETTING THE DATA ----=======//
   } catch (err) {   router.replace({ name: 'not-found', params: { catchAll: route.path } });  }
@@ -79,4 +76,8 @@ console.log("= INDIVIDUAL----FETCH ==\n== START---RAWPAGE.VUE =");
             <h2 class="title"></h2><p class="description"></p>
         </div>
     </div></div>
+    <RouterLink to="/" class="current-article__backlink">
+          <IconBack class="icon" />
+          <span>Back to Articles</span>
+        </RouterLink>
 </div></div></main></template>

@@ -2,6 +2,7 @@
 import { RouterLink } from 'vue-router';
 import { defineProps } from 'vue';
 import { propsToAttrMap } from '@vue/shared';
+
 defineProps({
   land:     {    type: Object,    required: true,  },
   key:      {    type: String,    required: true,  },

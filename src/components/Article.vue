@@ -10,6 +10,7 @@ defineProps({
 });
 </script>
 <template>
+  
   <RouterLink    style="color:green; !important"    :to="`/page/${page.slug}`">
     <span><b>    {{ page.title }}    </b>           {{ page.id }}    </span>
   </RouterLink>
