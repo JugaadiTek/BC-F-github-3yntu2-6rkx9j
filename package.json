@@ -11,6 +11,7 @@
     "@vueuse/core": "^9.13.0",
     "modern-normalize": "1.1.0",
     "querystring": "^0.2.1",
+    "vite-plugin-remove-console": "^2.1.0",
     "vue": "3.2.37",
     "vue-router": "4.0.16"
   },

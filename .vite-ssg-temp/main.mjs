@@ -2,7 +2,6 @@ import { useSSRContext, defineComponent, mergeProps, ref, unref, withCtx, create
 import { ssrRenderAttrs, ssrRenderAttr, ssrRenderList, ssrInterpolate, ssrRenderComponent, ssrRenderClass } from "vue/server-renderer";
 import { RouterView, RouterLink, createRouter, createWebHistory } from "vue-router";
 import { Directus } from "@directus/sdk";
-const main = "";
 const _export_sfc = (sfc, props) => {
   const target = sfc.__vccOpts || sfc;
   for (const [key, val] of props) {
@@ -26,7 +25,7 @@ const _sfc_main$7 = /* @__PURE__ */ defineComponent({
   },
   setup(__props) {
     return (_ctx, _push, _parent, _attrs) => {
-      _push(`<div${ssrRenderAttrs(mergeProps({ class: "container" }, _attrs))} data-v-ee2e436e><figure class="logo menu-item" itemprop="logo" itemscope itemtype="https://schema.org/ImageObject" data-v-ee2e436e><a class="img" href="/" aria-current="page" data-v-ee2e436e><span data-v-ee2e436e>Go To Home</span><img itemprop="thumbnail"${ssrRenderAttr("src", __props.navbtn.logoimg.imgUrl)}${ssrRenderAttr("alt", __props.navbtn.logoimg.imgAlt)} data-v-ee2e436e></a><figcaption itemprop="caption" data-v-ee2e436e></figcaption></figure><div class="main-nav-links" data-v-ee2e436e><!--[-->`);
+      _push(`<div${ssrRenderAttrs(mergeProps({ class: "mcFix" }, _attrs))} data-v-ee2e436e><div class="container" data-v-ee2e436e><div class="inner-container" data-v-ee2e436e><figure class="logo menu-item" itemprop="logo" itemscope itemtype="https://schema.org/ImageObject" data-v-ee2e436e><a class="img" href="/" aria-current="page" data-v-ee2e436e><span data-v-ee2e436e>Go To Home</span><img itemprop="thumbnail"${ssrRenderAttr("src", __props.navbtn.logoimg.imgUrl)}${ssrRenderAttr("alt", __props.navbtn.logoimg.imgAlt)} data-v-ee2e436e></a><figcaption itemprop="caption" data-v-ee2e436e></figcaption></figure><div class="main-nav-links" data-v-ee2e436e><!--[-->`);
       ssrRenderList(__props.navbtn.mainNav, (mainLink, index) => {
         _push(`<ul class="dropdown" data-v-ee2e436e><li class="dropbtn" data-v-ee2e436e><a${ssrRenderAttr("href", mainLink.linkUrl)} data-v-ee2e436e>${ssrInterpolate(mainLink.linkText)}</a></li><!--[-->`);
         ssrRenderList(mainLink.subNav, (subLinks) => {
@@ -38,7 +37,7 @@ const _sfc_main$7 = /* @__PURE__ */ defineComponent({
       ssrRenderList(__props.navbtn.buttonLinks, (btn) => {
         _push(`<div class="main-nav-links" data-v-ee2e436e><ul data-v-ee2e436e><li class="demo-btn" data-v-ee2e436e><a${ssrRenderAttr("href", btn.linkUrl)} data-v-ee2e436e>${ssrInterpolate(btn.linkText)}</a></li></ul></div>`);
       });
-      _push(`<!--]--></div>`);
+      _push(`<!--]--></div></div></div>`);
     };
   }
 });
@@ -135,7 +134,7 @@ const _sfc_main$4 = /* @__PURE__ */ defineComponent({
   },
   setup(__props) {
     return (_ctx, _push, _parent, _attrs) => {
-      _push(`<div${ssrRenderAttrs(mergeProps({ class: "container footer-container" }, _attrs))} data-v-147058ce><div class="content-block" data-v-147058ce><div data-v-147058ce><ul data-v-147058ce><!--[-->`);
+      _push(`<div${ssrRenderAttrs(mergeProps({ class: "mcFix" }, _attrs))} data-v-147058ce><div class="container" data-v-147058ce><div class="inner-container" data-v-147058ce><div class="content-block" data-v-147058ce><div data-v-147058ce><ul data-v-147058ce><!--[-->`);
       ssrRenderList(__props.footerCont.imageList, (image) => {
         _push(`<li data-v-147058ce><img${ssrRenderAttr("src", image.imageurl)} alt="" data-v-147058ce></li>`);
       });
@@ -151,7 +150,7 @@ const _sfc_main$4 = /* @__PURE__ */ defineComponent({
         });
         _push(`<!--]--></ul></div>`);
       });
-      _push(`<!--]--></div></div>`);
+      _push(`<!--]--></div></div></div></div>`);
     };
   }
 });
@@ -369,7 +368,7 @@ const router = createRouter({
     {
       path: "/articles/:id",
       name: "articles",
-      component: () => import("./assets/Article-0270a9de.js")
+      component: () => import("./assets/Article-8a1d12c1.js")
     }
     // {
     //   path: "/:catchAll(.*)",

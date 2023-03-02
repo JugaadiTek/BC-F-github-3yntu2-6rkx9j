@@ -1,4 +1,4 @@
-import "./stylesheet/main.css";
+// import "./stylesheet/main.css";
 // import "./stylesheet/.main.old.css";
 import { createApp } from "vue";
 // import "modern-normalize";
